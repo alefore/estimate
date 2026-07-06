@@ -1,0 +1,41 @@
+body {
+  font-family: monospace;
+  font-size: 1.35rem;
+  line-height: 1.4;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.slider-container input[type="range"] {
+  flex: 1;
+  min-width: 0;
+}
+
+.slider-container output {
+  min-width: 3ch;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.invisible {
+  display: none;
+}
+
+h2.question {
+  text-align: center;
+}
+
+h2.correct {
+  text-decoration: underline green;
+}
+
+h2.incorrect {
+  text-decoration: underline red;
+}
