@@ -28,14 +28,16 @@ body {
   display: none;
 }
 
-h2.question {
+div.question {
   text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 16px;
 }
 
-h2.correct {
-  text-decoration: underline green;
-}
-
-h2.incorrect {
-  text-decoration: underline red;
+span.highlight {
+  text-decoration: underline;
 }

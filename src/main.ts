@@ -1,66 +1,132 @@
-interface QuestionInput {
-  question: string
-  correctAnswer: boolean;
+import {famousPersons} from './famous_persons.js';
+import {historicalEvents} from './historical_events.js';
+
+interface UnitEntry {
+  name: string;
+  value: number;
 }
 
-const questionInputs: QuestionInput[] = [
-  {question: 'The first iPhone was released in 2007', correctAnswer: true},
-  {question: 'Alejo was born in Argentina', correctAnswer: false},
+interface QuestionInput {
+  question: Node;
+  correctAnswer: boolean;
+  explanation: Node;
+}
+
+class Unit {
+  constructor(
+      public readonly name: string,
+      public readonly render: (a: UnitEntry, b: UnitEntry) => QuestionInput) {}
+}
+
+const data = new Map<Unit, UnitEntry[]>();
+
+const yearUnit = new Unit('Year', (a, b) => {
+  const fragment = document.createDocumentFragment();
+
+  const spanA = document.createElement('span');
+  spanA.className = 'highlight';
+  spanA.textContent = a.name;
+
+  const spanB = document.createElement('span');
+  spanB.className = 'highlight';
+  spanB.textContent = b.name;
+
+  fragment.append(spanA, ' after ', spanB);
+
+  const explanation = document.createElement('div');
+  explanation.textContent = `${a.name}: ${a.value}, ${b.name}: ${b.value}`;
+
+  return {question: fragment, correctAnswer: a.value > b.value, explanation};
+});
+
+data.set(yearUnit, famousPersons.concat(historicalEvents).concat([
+  {name: 'humans landed on the moon', value: 1969},
+  {name: 'The first video was uploaded to YouTube', value: 2005},
+  {name: 'the first iPhone was released', value: 2007},
   {
-    question:
-        'Bitcoin\'s genesis block (first block in Bitcoin blockchain) was mined in 2008',
-    correctAnswer: false
+    name:
+        'Bitcoin\'s genesis block (first block in Bitcoin blockchain) was mined',
+    value: 2009
   },
-  {
-    question:
-        'Brazil is more than 100 times bigger (land area) than Switzerland',
-    correctAnswer: true
-  },
-  {
-    question:
-        '20 <= number of Swiss cantons <= 30 (counting half-cantons as 0.5)',
-    correctAnswer: true
-  },
-  {
-    question: 'Switzerland has borders with exactly 5 countries',
-    correctAnswer: true
-  },
-  {
-    question: 'Less than 15% of the Alps (land area) is in Switzerland',
-    correctAnswer: true
-  },
-  {
-    question: 'Johann Sebastian Bach was born before Isaac Newton',
-    correctAnswer: false
-  },
-  {
-    question: 'The world\'s first website had a ".ch" domain name.',
-    correctAnswer: true
-  },
-  {question: '1900 <= Nintendo was founded < 2000', correctAnswer: false},
-  {
-    question: 'The first YouTube video was uploaded in 2025',
-    correctAnswer: true
-  },
-  {
-    question: 'The term "robot" was coined by a Polish writer',
-    correctAnswer: false
-  },
-  {
-    question: 'Smartphones with built-in GPS were released in 1996',
-    correctAnswer: false
-  },
-];
+]));
+
+function generateQuestion(data: Map<Unit, UnitEntry[]>): QuestionInput {
+  const units = Array.from(data.keys());
+  if (units.length === 0) {
+    throw new Error('The data map is empty.');
+  }
+
+  const randomUnitIndex = Math.floor(Math.random() * units.length);
+  const selectedUnit = units[randomUnitIndex];
+
+  const entries = data.get(selectedUnit);
+  if (!entries || entries.length < 2) {
+    throw new Error(`Unit '${
+        selectedUnit
+            .name}' must have at least two entries to generate a question.`);
+  }
+
+  const indexA = Math.floor(Math.random() * entries.length);
+  let indexB = Math.floor(Math.random() * entries.length);
+
+  while (entries[indexA].value === entries[indexB].value) {
+    indexB = Math.floor(Math.random() * entries.length);
+  }
+
+  return selectedUnit.render(entries[indexA], entries[indexB]);
+}
+
+const questionInputs = Array.from({length: 10}, () => generateQuestion(data));
+
+// const xquestionInputs: QuestionInput[] = [
+//   {question: 'Alejo was born in Argentina', correctAnswer: false},
+//   {
+//     question:
+//         'Brazil is more than 100 times bigger (land area) than Switzerland',
+//     correctAnswer: true
+//   },
+//   {
+//     question:
+//         '20 <= number of Swiss cantons <= 30 (counting half-cantons as 0.5)',
+//     correctAnswer: true
+//   },
+//   {
+//     question: 'Switzerland has borders with exactly 5 countries',
+//     correctAnswer: true
+//   },
+//   {
+//     question: 'Less than 15% of the Alps (land area) is in Switzerland',
+//     correctAnswer: true
+//   },
+//   {
+//     question: 'Johann Sebastian Bach was born before Isaac Newton',
+//     correctAnswer: false
+//   },
+//   {
+//     question: 'The world\'s first website had a ".ch" domain name.',
+//     correctAnswer: true
+//   },
+//   {question: '1900 <= Nintendo was founded < 2000', correctAnswer: false},
+//   {
+//     question: 'The term "robot" was coined by a Polish writer',
+//     correctAnswer: false
+//   },
+//   {
+//     question: 'Smartphones with built-in GPS were released in 1996',
+//     correctAnswer: false
+//   },
+// ];
 
 class Question {
+  div: HTMLElement = document.createElement('div');
   slider: HTMLInputElement;
   header: HTMLHeadingElement;
 
   constructor(public readonly questionInput: QuestionInput) {
-    const div = document.createElement('div');
-    this.header = document.createElement('h2');
-    this.header.className = 'question';
-    this.header.textContent = questionInput.question;
+    this.div.classList.add('question');
+
+    this.header = document.createElement('div');
+    this.header.appendChild(questionInput.question);
 
     const sliderContainer = document.createElement('div');
     sliderContainer.className = 'slider-container';
@@ -79,8 +145,8 @@ class Question {
     estimate.textContent = '50%';
     sliderContainer.append(this.slider, estimate);
 
-    div.append(this.header, sliderContainer);
-    document.body.append(div);
+    this.div.append(this.header, sliderContainer);
+    document.body.append(this.div);
   }
 
   isUserCorrect(): boolean {
@@ -89,11 +155,16 @@ class Question {
   }
 
   reveal() {
-    this.header.prepend(this.questionInput.correctAnswer ? '🟢 ' : '🔴 ');
     if (this.slider.value != '50') {
       this.header.classList.add(this.isUserCorrect() ? 'correct' : 'incorrect');
     }
     this.slider.classList.add('invisible');
+    const user = Number(this.slider.value) >= 50;
+    const actual = this.questionInput.correctAnswer;
+    this.div.append(user === actual ? 'Correct' : 'Incorrect');
+    this.div.append(
+        ` (You: ${user ? '🟢' : '🔴'}, Actual: ${actual ? '🟢' : '🔴'})`);
+    this.div.appendChild(this.questionInput.explanation);
   }
 }
 
