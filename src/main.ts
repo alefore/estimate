@@ -1,5 +1,6 @@
 import {famousPersons} from './famous_persons.js';
 import {historicalEvents} from './historical_events.js';
+import {displayRecord, GameRecord, mergeRecords, saveGame} from './history.js';
 import {CompareQuestion, QuestionView, UnitEntry} from './question.js';
 
 class Unit {
@@ -90,17 +91,19 @@ const questionInputs = Array.from({length: 10}, () => generateQuestion(data));
 
 function reveal(questions: QuestionView[], button: HTMLButtonElement) {
   questions.forEach((q) => q.reveal());
-  let countCorrect = questions.filter((q) => q.question.isCorrect()).length;
-  const expectedCorrect = questions.reduce((expectedCorrect, question) => {
-    const value = Number(question.slider.value);
-    const p = value / 100;
-    return expectedCorrect + Math.max(p, 1 - p);
-  }, 0);
-  const result = document.createElement('p');
-  result.textContent =
-      `Correctly answered ${countCorrect}, expectation was ${expectedCorrect}`;
-  document.body.append(result);
   button.classList.add('invisible');
+
+  const records: GameRecord[] = saveGame(
+      questions.map((q) => Number(q.slider.value) / 100),
+      questions.filter((q) => q.question.isCorrect()).length);
+
+  const historyDiv = document.createElement('div');
+  records.forEach((r) => displayRecord(historyDiv, r));
+  document.body.append(historyDiv);
+
+  if (records.length > 1) {
+    displayRecord(historyDiv, mergeRecords(records));
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,3 +1,10 @@
+:root {
+  --bar: #4a7ab5;
+  --bar-mode: #2c5a95;
+  --ink: #222;
+  --muted: #777;
+}
+
 body {
   font-family: monospace;
   font-size: 1.35rem;
@@ -57,4 +64,38 @@ div.compare-question span.answer-value {
 
 span.highlight {
   text-decoration: underline;
+}
+
+.histogram {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 220px;
+}
+.bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+.bar-value {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-bottom: 2px;
+  font-variant-numeric: tabular-nums;
+}
+.bar-fill {
+  width: 100%;
+  background: var(--bar);
+  border-radius: 3px 3px 0 0;
+  transition: height 0.4s ease;
+  min-height: 1px;
+}
+.bar.mode .bar-fill { background: var(--bar-mode); }
+.bar-label {
+  font-size: 0.8rem;
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
 }
