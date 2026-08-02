@@ -6,6 +6,10 @@ body {
   color: var(--text);
 }
 
+input, button, textarea, select {
+  font: inherit;
+}
+
 .slider-container {
   display: flex;
   align-items: center;
@@ -36,6 +40,19 @@ div.question {
   border: 1px solid #d1d5db;
   border-radius: 8px;
   padding: 16px;
+}
+
+div.compare-question p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+div.clickable {
+  cursor: pointer;
+}
+
+div.compare-question span.answer-value {
+  font-weight: bold;
 }
 
 span.highlight {

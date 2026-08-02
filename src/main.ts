@@ -1,43 +1,14 @@
 import {famousPersons} from './famous_persons.js';
 import {historicalEvents} from './historical_events.js';
-
-interface UnitEntry {
-  name: string;
-  value: number;
-}
-
-interface QuestionInput {
-  question: Node;
-  correctAnswer: boolean;
-  explanation: Node;
-}
+import {CompareQuestion, QuestionView, UnitEntry} from './question.js';
 
 class Unit {
-  constructor(
-      public readonly name: string,
-      public readonly render: (a: UnitEntry, b: UnitEntry) => QuestionInput) {}
+  constructor(public readonly name: string) {}
 }
 
 const data = new Map<Unit, UnitEntry[]>();
 
-const yearUnit = new Unit('Year', (a, b) => {
-  const fragment = document.createDocumentFragment();
-
-  const spanA = document.createElement('span');
-  spanA.className = 'highlight';
-  spanA.textContent = a.name;
-
-  const spanB = document.createElement('span');
-  spanB.className = 'highlight';
-  spanB.textContent = b.name;
-
-  fragment.append(spanA, ' after ', spanB);
-
-  const explanation = document.createElement('div');
-  explanation.textContent = `${a.name}: ${a.value}, ${b.name}: ${b.value}`;
-
-  return {question: fragment, correctAnswer: a.value > b.value, explanation};
-});
+const yearUnit = new Unit('Year');
 
 data.set(yearUnit, famousPersons.concat(historicalEvents).concat([
   {name: 'humans landed on the moon', value: 1969},
@@ -50,7 +21,7 @@ data.set(yearUnit, famousPersons.concat(historicalEvents).concat([
   },
 ]));
 
-function generateQuestion(data: Map<Unit, UnitEntry[]>): QuestionInput {
+function generateQuestion(data: Map<Unit, UnitEntry[]>): CompareQuestion {
   const units = Array.from(data.keys());
   if (units.length === 0) {
     throw new Error('The data map is empty.');
@@ -73,7 +44,7 @@ function generateQuestion(data: Map<Unit, UnitEntry[]>): QuestionInput {
     indexB = Math.floor(Math.random() * entries.length);
   }
 
-  return selectedUnit.render(entries[indexA], entries[indexB]);
+  return new CompareQuestion(entries[indexA], entries[indexB]);
 }
 
 const questionInputs = Array.from({length: 10}, () => generateQuestion(data));
@@ -117,60 +88,9 @@ const questionInputs = Array.from({length: 10}, () => generateQuestion(data));
 //   },
 // ];
 
-class Question {
-  div: HTMLElement = document.createElement('div');
-  slider: HTMLInputElement;
-  header: HTMLHeadingElement;
-
-  constructor(public readonly questionInput: QuestionInput) {
-    this.div.classList.add('question');
-
-    this.header = document.createElement('div');
-    this.header.appendChild(questionInput.question);
-
-    const sliderContainer = document.createElement('div');
-    sliderContainer.className = 'slider-container';
-
-    this.slider = document.createElement('input');
-    this.slider.type = 'range';
-    this.slider.min = '0';
-    this.slider.max = '100';
-    this.slider.step = '5';
-    this.slider.value = '50';
-    this.slider.addEventListener('input', () => {
-      estimate.textContent = `${this.slider.value}%`;
-    });
-
-    const estimate = document.createElement('span');
-    estimate.textContent = '50%';
-    sliderContainer.append(this.slider, estimate);
-
-    this.div.append(this.header, sliderContainer);
-    document.body.append(this.div);
-  }
-
-  isUserCorrect(): boolean {
-    return (Number(this.slider.value) >= 50) ==
-        this.questionInput.correctAnswer;
-  }
-
-  reveal() {
-    if (this.slider.value != '50') {
-      this.header.classList.add(this.isUserCorrect() ? 'correct' : 'incorrect');
-    }
-    this.slider.classList.add('invisible');
-    const user = Number(this.slider.value) >= 50;
-    const actual = this.questionInput.correctAnswer;
-    this.div.append(user === actual ? 'Correct' : 'Incorrect');
-    this.div.append(
-        ` (You: ${user ? '🟢' : '🔴'}, Actual: ${actual ? '🟢' : '🔴'})`);
-    this.div.appendChild(this.questionInput.explanation);
-  }
-}
-
-function reveal(questions: Question[], button: HTMLButtonElement) {
+function reveal(questions: QuestionView[], button: HTMLButtonElement) {
   questions.forEach((q) => q.reveal());
-  let countCorrect = questions.filter((q) => q.isUserCorrect()).length;
+  let countCorrect = questions.filter((q) => q.question.isCorrect()).length;
   const expectedCorrect = questions.reduce((expectedCorrect, question) => {
     const value = Number(question.slider.value);
     const p = value / 100;
@@ -184,8 +104,8 @@ function reveal(questions: Question[], button: HTMLButtonElement) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const questions: Question[] = questionInputs.map((q) => {
-    return new Question(q);
+  const questions: QuestionView[] = questionInputs.map((q) => {
+    return new QuestionView(q);
   });
 
   const button = document.createElement('button');
