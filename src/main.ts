@@ -2,6 +2,7 @@ import {Book, books} from './books.js';
 import {famousPersons} from './famous_persons.js';
 import {historicalEvents} from './historical_events.js';
 import {displayRecord, GameRecord, mergeRecords, saveGame} from './history.js';
+import {Invention, inventions} from './inventions.js';
 import {CompareQuestion, QuestionView, UnitEntry} from './question.js';
 
 class Unit {
@@ -19,6 +20,11 @@ data.set(
                             name: `${b.title} (by ${b.author}) was published`,
                             value: b.year
                           })))
+        .concat(inventions.map((i: Invention) => ({
+                                 name: `${i.name} was invented` +
+                                     (i.inventor ? ` (by ${i.inventor})` : ''),
+                                 value: i.year
+                               })))
         .concat([
           {name: 'humans landed on the moon', value: 1969},
           {name: 'The first video was uploaded to YouTube', value: 2005},
