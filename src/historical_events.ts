@@ -167,8 +167,6 @@ export const historicalEvents = [
   {name: 'Martin Luther King was assassinated', value: 1968},
   {name: 'men landed on the moon', value: 1969},
   {name: 'Woodstock took place', value: 1969},
-  {name: 'the internet\'s precursor ARPANET went online', value: 1969},
-  {name: 'the first email was sent', value: 1971},
   {name: 'the first pocket calculator went on sale', value: 1971},
   {name: 'the Watergate scandal broke', value: 1972},
   {name: 'the first mobile phone call was made', value: 1973},
