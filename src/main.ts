@@ -1,3 +1,4 @@
+import {Book, books} from './books.js';
 import {famousPersons} from './famous_persons.js';
 import {historicalEvents} from './historical_events.js';
 import {displayRecord, GameRecord, mergeRecords, saveGame} from './history.js';
@@ -11,16 +12,23 @@ const data = new Map<Unit, UnitEntry[]>();
 
 const yearUnit = new Unit('Year');
 
-data.set(yearUnit, famousPersons.concat(historicalEvents).concat([
-  {name: 'humans landed on the moon', value: 1969},
-  {name: 'The first video was uploaded to YouTube', value: 2005},
-  {name: 'the first iPhone was released', value: 2007},
-  {
-    name:
-        'Bitcoin\'s genesis block (first block in Bitcoin blockchain) was mined',
-    value: 2009
-  },
-]));
+data.set(
+    yearUnit,
+    famousPersons.concat(historicalEvents)
+        .concat(books.map((b: Book) => ({
+                            name: `${b.title} (by ${b.author}) was published`,
+                            value: b.year
+                          })))
+        .concat([
+          {name: 'humans landed on the moon', value: 1969},
+          {name: 'The first video was uploaded to YouTube', value: 2005},
+          {name: 'the first iPhone was released', value: 2007},
+          {
+            name:
+                'Bitcoin\'s genesis block (first block in Bitcoin blockchain) was mined',
+            value: 2009
+          },
+        ]));
 
 function generateQuestion(data: Map<Unit, UnitEntry[]>): CompareQuestion {
   const units = Array.from(data.keys());
