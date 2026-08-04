@@ -28,9 +28,12 @@ data.set(
                 'Bitcoin\'s genesis block (first block in Bitcoin blockchain) was mined',
             value: 2009
           },
-        ]));
+        ])
+        .sort((a, b) => a.value - b.value));
 
-function generateQuestion(data: Map<Unit, UnitEntry[]>): CompareQuestion {
+function generateQuestion(
+    data: Map<Unit, UnitEntry[]>,
+    targetDistance: number = 50): CompareQuestion {
   const units = Array.from(data.keys());
   if (units.length === 0) {
     throw new Error('The data map is empty.');
@@ -46,16 +49,40 @@ function generateQuestion(data: Map<Unit, UnitEntry[]>): CompareQuestion {
             .name}' must have at least two entries to generate a question.`);
   }
 
-  const indexA = Math.floor(Math.random() * entries.length);
-  let indexB = Math.floor(Math.random() * entries.length);
+  // First item picked uniformly at random:
+  const base = entries[Math.floor(Math.random() * entries.length)];
 
-  while (entries[indexA].value === entries[indexB].value) {
-    indexB = Math.floor(Math.random() * entries.length);
+  // 2. Calculate scale-invariant weights for all other valid entries
+  const weights = entries.map((entry) => {
+    if (entry.value === base.value) {
+      return 0;
+    }
+
+    const distance = Math.abs(entry.value - base.value);
+    return Math.exp(-Math.pow(distance / targetDistance, 2));
+  });
+
+  console.log(weights);
+  const totalWeight =
+      weights.reduce((accumulator, current) => accumulator + current, 0);
+  if (totalWeight === 0) {
+    throw new Error('Could not find a second entry with a different value.');
   }
 
-  return new CompareQuestion(entries[indexA], entries[indexB]);
+  let randomWeight = Math.random() * totalWeight;
+  for (let i = 0; i < weights.length; i++) {
+    if (weights[i] > 0) {
+      randomWeight -= weights[i];
+      if (randomWeight <= 0) {
+        return new CompareQuestion(base, entries[i]);
+      }
+    }
+  }
+
+  throw new Error('Failure generating question.');
 }
 
+console.log(data);
 const questionInputs = Array.from({length: 10}, () => generateQuestion(data));
 
 // const xquestionInputs: QuestionInput[] = [
