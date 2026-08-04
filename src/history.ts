@@ -69,26 +69,28 @@ export function displayHistory(records: GameRecord[]): void {
   document.body.append(historyDiv);
 }
 
-export function displayRecord(
-    output: HTMLDivElement, record: GameRecord): void {
+function displayRecord(output: HTMLDivElement, record: GameRecord): void {
   const total = record.confidences.length;
   const expected = record.confidences.reduce((sum, c) => sum + c, 0);
 
+  const details = document.createElement('details');
+  details.classList.add('history-record');
+
+  const summary = document.createElement('summary');
+  summary.textContent =
+      (record.title || new Date(record.date).toLocaleString(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+      })) +
+      ` - ${record.correctCount} correct, ${expected.toFixed(1)} expected`;
+
+  details.appendChild(summary);
+
   const header = Object.assign(
       document.createElement('div'), {className: 'game-record-header'});
-  header.appendChild(Object.assign(document.createElement('h2'), {
-    className: 'game-record-date',
-    textContent:
-        (record.title || new Date(record.date).toLocaleString(undefined, {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-        })) +
-        `${record.correctCount} correct, ${expected} expected`
-  }));
-
 
   if (!record.title) {
     const eraseButton = document.createElement('button');
@@ -109,7 +111,8 @@ export function displayRecord(
       Object.assign(document.createElement('div'), {className: 'histogram'});
   renderHistogram(histogram, scoreDistribution(record.confidences));
 
-  output.append(header, histogram);
+  details.append(header, histogram);
+  output.append(details);
 }
 
 function eraseRecord(date: string) {

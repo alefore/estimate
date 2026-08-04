@@ -39,7 +39,7 @@ input, button, textarea, select {
   display: none;
 }
 
-div.question {
+div.question, details.history-record {
   text-align: center;
   margin-top: 2em;
   margin-bottom: 2em;
