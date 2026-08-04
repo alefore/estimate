@@ -7,6 +7,11 @@ export interface GameRecord {
   confidences: number[];
   /** Number of questions answered correctly. */
   correctCount: number;
+  /**
+   * Optional title to show (instead of the date). Used for syntesized entries
+   * (that can't be erased).
+   */
+  title?: string;
 }
 
 const STORAGE_KEY = 'estimate.gameHistory.v1';
@@ -41,23 +46,60 @@ export function saveGame(
   return history;
 }
 
+function getOrCreateHistoryDiv(): HTMLDivElement {
+  const id = 'history';
+  const previous = document.getElementById(id);
+  if (previous) {
+    if (!(previous instanceof HTMLDivElement)) {
+      throw new Error(`element with id '${id}' exists but is not a <div>.`);
+    }
+    previous.replaceChildren();
+    return previous;
+  }
+  return Object.assign(document.createElement('div'), {id: id});
+}
+
+export function displayHistory(records: GameRecord[]): void {
+  const historyDiv = getOrCreateHistoryDiv();
+  records.forEach((r) => displayRecord(historyDiv, r));
+  if (records.length > 1) {
+    displayRecord(
+        historyDiv, mergeRecords(records, `Total (${records.length} games)`));
+  }
+  document.body.append(historyDiv);
+}
+
 export function displayRecord(
     output: HTMLDivElement, record: GameRecord): void {
+  const total = record.confidences.length;
+  const expected = record.confidences.reduce((sum, c) => sum + c, 0);
+
   const header = Object.assign(
       document.createElement('div'), {className: 'game-record-header'});
   header.appendChild(Object.assign(document.createElement('h2'), {
     className: 'game-record-date',
-    textContent: new Date(record.date).toLocaleDateString(undefined, {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    })
+    textContent:
+        (record.title || new Date(record.date).toLocaleString(undefined, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+        })) +
+        `${record.correctCount} correct, ${expected} expected`
   }));
 
-  const total = record.confidences.length;
-  const expected = record.confidences.reduce((sum, c) => sum + c, 0);
 
-  header.appendChild(Object.assign(document.createElement('p'), {
+  if (!record.title) {
+    const eraseButton = document.createElement('button');
+    eraseButton.textContent = 'Erase';
+    eraseButton.addEventListener(
+        'click', (event: MouseEvent) => eraseRecord(record.date));
+
+    header.append(eraseButton);
+  }
+
+  header.append(Object.assign(document.createElement('p'), {
     className: 'game-record-score',
     textContent: `You got ${record.correctCount} of ${total} right ` +
         `(expected from your confidence: ${expected.toFixed(1)}).`
@@ -66,10 +108,17 @@ export function displayRecord(
   const histogram =
       Object.assign(document.createElement('div'), {className: 'histogram'});
   renderHistogram(histogram, scoreDistribution(record.confidences));
+
   output.append(header, histogram);
 }
 
-export function mergeRecords(records: GameRecord[]): GameRecord {
+function eraseRecord(date: string) {
+  const history = loadHistory().filter(r => r.date !== date);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+  displayHistory(history);
+}
+
+function mergeRecords(records: GameRecord[], title: string): GameRecord {
   if (records.length === 0) {
     throw new Error('Expected records to merge.');
   }
@@ -82,6 +131,7 @@ export function mergeRecords(records: GameRecord[]): GameRecord {
         confidences: acc.confidences.concat(curr.confidences),
         // Sum the correct counts
         correctCount: acc.correctCount + curr.correctCount,
+        title: title,
       }),
       {
         date: '',  // An empty string will always be less than a valid ISO 8601

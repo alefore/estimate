@@ -1,7 +1,7 @@
 import {Book, books} from './books.js';
 import {famousPersons} from './famous_persons.js';
 import {historicalEvents} from './historical_events.js';
-import {displayRecord, GameRecord, mergeRecords, saveGame} from './history.js';
+import {displayHistory, GameRecord, saveGame} from './history.js';
 import {Invention, inventions} from './inventions.js';
 import {CompareQuestion, QuestionView, UnitEntry} from './question.js';
 
@@ -138,13 +138,7 @@ function reveal(questions: QuestionView[], button: HTMLButtonElement) {
       questions.map((q) => Number(q.slider.value) / 100),
       questions.filter((q) => q.question.isCorrect()).length);
 
-  const historyDiv = document.createElement('div');
-  records.forEach((r) => displayRecord(historyDiv, r));
-  document.body.append(historyDiv);
-
-  if (records.length > 1) {
-    displayRecord(historyDiv, mergeRecords(records));
-  }
+  displayHistory(records);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
