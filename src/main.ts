@@ -129,15 +129,15 @@ console.log(data);
 //   },
 // ];
 
-function addStartGameButton(gameDiv: HTMLDivElement) {
+function startGameButton(gameDiv: HTMLDivElement) {
   const button = document.createElement('button');
   button.textContent = 'Start new game';
   button.addEventListener('click', (event: MouseEvent) => startGame(gameDiv));
-  gameDiv.replaceChildren(button);
+  return button;
 }
 
 function gameDone(questions: QuestionView[], gameDiv: HTMLDivElement) {
-  addStartGameButton(gameDiv);
+  gameDiv.append(startGameButton(gameDiv));
   questions.forEach((q) => q.reveal());
 
   const records: GameRecord[] = saveGame(
@@ -156,8 +156,10 @@ function startGame(gameDiv: HTMLDivElement) {
 
   const button = document.createElement('button');
   button.textContent = 'Finish';
-  button.addEventListener(
-      'click', (event: MouseEvent) => gameDone(questions, gameDiv));
+  button.addEventListener('click', (event: MouseEvent) => {
+    gameDone(questions, gameDiv);
+    button.remove();
+  });
   gameDiv.append(button);
 }
 
@@ -166,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
       Object.assign(document.createElement('div'), {id: 'history'});
 
   const gameDiv = document.createElement('div');
-  addStartGameButton(gameDiv);
+  gameDiv.append(startGameButton(gameDiv));
 
   document.body.append(historyDiv, gameDiv);
 
