@@ -46,21 +46,12 @@ export function saveGame(
   return history;
 }
 
-function getOrCreateHistoryDiv(): HTMLDivElement {
-  const id = 'history';
-  const previous = document.getElementById(id);
-  if (previous) {
-    if (!(previous instanceof HTMLDivElement)) {
-      throw new Error(`element with id '${id}' exists but is not a <div>.`);
-    }
-    previous.replaceChildren();
-    return previous;
-  }
-  return Object.assign(document.createElement('div'), {id: id});
-}
-
 export function displayHistory(records: GameRecord[]): void {
-  const historyDiv = getOrCreateHistoryDiv();
+  const historyDiv = document.getElementById('history')!;
+  if (!(historyDiv instanceof HTMLDivElement)) {
+    throw new Error('Expected div');
+  }
+  historyDiv.replaceChildren();
   records.forEach((r) => displayRecord(historyDiv, r));
   if (records.length > 1) {
     displayRecord(

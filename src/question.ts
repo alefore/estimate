@@ -57,7 +57,7 @@ export class CompareQuestion {
 }
 
 export class QuestionView {
-  readonly div: HTMLElement = document.createElement('div');
+  readonly div: HTMLDivElement = document.createElement('div');
   readonly sliderContainer: HTMLDivElement = Object.assign(
       document.createElement('div'), {className: 'slider-container'});
   readonly slider: HTMLInputElement = Object.assign(
@@ -65,7 +65,8 @@ export class QuestionView {
       {type: 'range', min: '50', max: '100', step: '5', value: '50'});
   readonly header: HTMLHeadingElement = document.createElement('div');
 
-  constructor(public readonly question: CompareQuestion) {
+  constructor(
+      public readonly question: CompareQuestion, outputDiv: HTMLDivElement) {
     this.div.classList.add('question');
 
     this.header.append(this.question.view);
@@ -80,7 +81,7 @@ export class QuestionView {
     this.sliderContainer.append(this.slider, estimate);
 
     this.div.append(this.header, this.sliderContainer);
-    document.body.append(this.div);
+    outputDiv.append(this.div);
   }
 
   reveal() {

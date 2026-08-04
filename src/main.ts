@@ -1,7 +1,7 @@
 import {Book, books} from './books.js';
 import {famousPersons} from './famous_persons.js';
 import {historicalEvents} from './historical_events.js';
-import {displayHistory, GameRecord, saveGame} from './history.js';
+import {displayHistory, GameRecord, loadHistory, saveGame} from './history.js';
 import {Invention, inventions} from './inventions.js';
 import {CompareQuestion, QuestionView, UnitEntry} from './question.js';
 
@@ -89,7 +89,6 @@ function generateQuestion(
 }
 
 console.log(data);
-const questionInputs = Array.from({length: 10}, () => generateQuestion(data));
 
 // const xquestionInputs: QuestionInput[] = [
 //   {question: 'Alejo was born in Argentina', correctAnswer: false},
@@ -130,9 +129,16 @@ const questionInputs = Array.from({length: 10}, () => generateQuestion(data));
 //   },
 // ];
 
-function reveal(questions: QuestionView[], button: HTMLButtonElement) {
+function addStartGameButton(gameDiv: HTMLDivElement) {
+  const button = document.createElement('button');
+  button.textContent = 'Start new game';
+  button.addEventListener('click', (event: MouseEvent) => startGame(gameDiv));
+  gameDiv.replaceChildren(button);
+}
+
+function gameDone(questions: QuestionView[], gameDiv: HTMLDivElement) {
+  addStartGameButton(gameDiv);
   questions.forEach((q) => q.reveal());
-  button.classList.add('invisible');
 
   const records: GameRecord[] = saveGame(
       questions.map((q) => Number(q.slider.value) / 100),
@@ -141,14 +147,29 @@ function reveal(questions: QuestionView[], button: HTMLButtonElement) {
   displayHistory(records);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function startGame(gameDiv: HTMLDivElement) {
+  gameDiv.replaceChildren();
+  const questionInputs = Array.from({length: 10}, () => generateQuestion(data));
   const questions: QuestionView[] = questionInputs.map((q) => {
-    return new QuestionView(q);
+    return new QuestionView(q, gameDiv);
   });
 
   const button = document.createElement('button');
-  button.textContent = 'Reveal!';
+  button.textContent = 'Finish';
   button.addEventListener(
-      'click', (event: MouseEvent) => reveal(questions, button));
-  document.body.append(button);
+      'click', (event: MouseEvent) => gameDone(questions, gameDiv));
+  gameDiv.append(button);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const historyDiv =
+      Object.assign(document.createElement('div'), {id: 'history'});
+
+  const gameDiv = document.createElement('div');
+  addStartGameButton(gameDiv);
+
+  document.body.append(historyDiv, gameDiv);
+
+  const records: GameRecord[] = loadHistory();
+  if (records.length > 0) displayHistory(records);
 });
