@@ -37,97 +37,51 @@ data.set(
         ])
         .sort((a, b) => a.value - b.value));
 
-function generateQuestion(
-    data: Map<Unit, UnitEntry[]>,
-    targetDistance: number = 50): CompareQuestion {
+function randomGaussian(mean: number, stdDev: number): number {
+  const u = 1 - Math.random();  // Prevents Math.log(0)
+  const v = Math.random();
+  return mean +
+      Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v) * stdDev;
+}
+
+function generateQuestion(data: Map<Unit, UnitEntry[]>): CompareQuestion {
   const units = Array.from(data.keys());
-  if (units.length === 0) {
-    throw new Error('The data map is empty.');
-  }
+  if (units.length === 0) throw new Error('Data map is empty.');
 
-  const randomUnitIndex = Math.floor(Math.random() * units.length);
-  const selectedUnit = units[randomUnitIndex];
+  const entries = data.get(units[Math.floor(Math.random() * units.length)])!;
+  if (entries.length < 2) throw new Error('Not enough entries to compare.');
 
-  const entries = data.get(selectedUnit);
-  if (!entries || entries.length < 2) {
-    throw new Error(`Unit '${
-        selectedUnit
-            .name}' must have at least two entries to generate a question.`);
-  }
-
-  // First item picked uniformly at random:
   const base = entries[Math.floor(Math.random() * entries.length)];
 
-  // 2. Calculate scale-invariant weights for all other valid entries
-  const weights = entries.map((entry) => {
-    if (entry.value === base.value) {
-      return 0;
-    }
+  const minYear = entries[0].value;
+  const maxYear = entries[entries.length - 1].value;
+  if (minYear === maxYear) {
+    throw new Error(
+        'All entries occur in the exact same year. Cannot generate a comparison.');
+  }
 
-    const distance = Math.abs(entry.value - base.value);
-    return Math.exp(-Math.pow(distance / targetDistance, 2));
-  });
+  const currentYear = new Date().getFullYear();
+  // 20% of elapsed time or at least 5 years.
+  const targetDistance = Math.max(5, (currentYear - base.value) * 0.20);
 
-  console.log(weights);
-  const totalWeight =
-      weights.reduce((accumulator, current) => accumulator + current, 0);
-  if (totalWeight === 0) {
+  let targetYear: number;
+  do {
+    targetYear = randomGaussian(base.value, targetDistance);
+  } while (targetYear < minYear || targetYear > maxYear);
+
+  const nearest10 = entries.filter(entry => entry.value !== base.value)
+                        .sort(
+                            (a, b) => Math.abs(a.value - targetYear) -
+                                Math.abs(b.value - targetYear))
+                        .slice(0, 10);
+
+  if (nearest10.length === 0) {
     throw new Error('Could not find a second entry with a different value.');
   }
 
-  let randomWeight = Math.random() * totalWeight;
-  for (let i = 0; i < weights.length; i++) {
-    if (weights[i] > 0) {
-      randomWeight -= weights[i];
-      if (randomWeight <= 0) {
-        return new CompareQuestion(base, entries[i]);
-      }
-    }
-  }
-
-  throw new Error('Failure generating question.');
+  return new CompareQuestion(
+      base, nearest10[Math.floor(Math.random() * nearest10.length)]);
 }
-
-console.log(data);
-
-// const xquestionInputs: QuestionInput[] = [
-//   {question: 'Alejo was born in Argentina', correctAnswer: false},
-//   {
-//     question:
-//         'Brazil is more than 100 times bigger (land area) than Switzerland',
-//     correctAnswer: true
-//   },
-//   {
-//     question:
-//         '20 <= number of Swiss cantons <= 30 (counting half-cantons as 0.5)',
-//     correctAnswer: true
-//   },
-//   {
-//     question: 'Switzerland has borders with exactly 5 countries',
-//     correctAnswer: true
-//   },
-//   {
-//     question: 'Less than 15% of the Alps (land area) is in Switzerland',
-//     correctAnswer: true
-//   },
-//   {
-//     question: 'Johann Sebastian Bach was born before Isaac Newton',
-//     correctAnswer: false
-//   },
-//   {
-//     question: 'The world\'s first website had a ".ch" domain name.',
-//     correctAnswer: true
-//   },
-//   {question: '1900 <= Nintendo was founded < 2000', correctAnswer: false},
-//   {
-//     question: 'The term "robot" was coined by a Polish writer',
-//     correctAnswer: false
-//   },
-//   {
-//     question: 'Smartphones with built-in GPS were released in 1996',
-//     correctAnswer: false
-//   },
-// ];
 
 function startGameButton(gameDiv: HTMLDivElement) {
   const button = document.createElement('button');
