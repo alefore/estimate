@@ -1,5 +1,6 @@
 import {Book, books} from './books.js';
 import {FamousBirth, famousBirths} from './famous_persons.js';
+import {Film, films} from './films.js';
 import {historicalEvents} from './historical_events.js';
 import {displayHistory, GameRecord, loadHistory, saveGame} from './history.js';
 import {Invention, inventions} from './inventions.js';
@@ -20,28 +21,33 @@ data.set(
     historicalEvents
         .concat(famousBirths.map(
             (b: FamousBirth) =>
-                ({name: `${b.name} was born`, value: b.value, id: b.name})))
-        .concat(books.map((b: Book) => ({
-                            name: `${b.title} (by ${b.author}) was published`,
-                            value: b.year,
-                            id: b.author
-                          })))
+                ({name: `👶 ${b.name} was born`, value: b.value, id: b.name})))
+        .concat(
+            books.map((b: Book) => ({
+                        name: `📖 ${b.title} (by ${b.author}) was published`,
+                        value: b.year,
+                        id: b.author
+                      })))
         .concat(inventions.map((i: Invention) => ({
-                                 name: `${i.name} was invented` +
+                                 name: `💡 ${i.name} was invented` +
                                      (i.inventor ? ` (by ${i.inventor})` : ''),
                                  value: i.year,
                                  id: i.inventor
                                })))
         .concat(paintings.map((p: Painting) => ({
-                                name: `${p.artist} finished ${p.title}`,
+                                name: `🎨 ${p.artist} finished ${p.title}`,
                                 value: p.year,
                                 id: p.artist
                               })))
         .concat(structures.map(
             (s: Structure) => ({
-              name: `${s.name} (${s.country}) was built (finished)`,
+              name: `🏛️  ${s.name} (${s.country}) was built (finished)`,
               value: s.year
             })))
+        .concat(films.map((f: Film) => ({
+                            name: `🎥 ${f.title} (${f.director}) was released`,
+                            value: f.year
+                          })))
         .sort((a, b) => a.value - b.value));
 
 function randomGaussian(mean: number, stdDev: number): number {
