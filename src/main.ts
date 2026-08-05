@@ -3,6 +3,7 @@ import {FamousBirth, famousBirths} from './famous_persons.js';
 import {historicalEvents} from './historical_events.js';
 import {displayHistory, GameRecord, loadHistory, saveGame} from './history.js';
 import {Invention, inventions} from './inventions.js';
+import {Painting, paintings} from './paintings.js';
 import {CompareQuestion, QuestionView, UnitEntry} from './question.js';
 
 class Unit {
@@ -30,6 +31,11 @@ data.set(
                                  value: i.year,
                                  id: i.inventor
                                })))
+        .concat(paintings.map((p: Painting) => ({
+                                name: `${p.artist} finished ${p.title}`,
+                                value: p.year,
+                                id: p.artist
+                              })))
         .sort((a, b) => a.value - b.value));
 
 function randomGaussian(mean: number, stdDev: number): number {
