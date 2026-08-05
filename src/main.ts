@@ -5,6 +5,7 @@ import {displayHistory, GameRecord, loadHistory, saveGame} from './history.js';
 import {Invention, inventions} from './inventions.js';
 import {Painting, paintings} from './paintings.js';
 import {CompareQuestion, QuestionView, UnitEntry} from './question.js';
+import {Structure, structures} from './structures.js';
 
 class Unit {
   constructor(public readonly name: string) {}
@@ -36,6 +37,11 @@ data.set(
                                 value: p.year,
                                 id: p.artist
                               })))
+        .concat(structures.map(
+            (s: Structure) => ({
+              name: `${s.name} (${s.country}) was built (finished)`,
+              value: s.year
+            })))
         .sort((a, b) => a.value - b.value));
 
 function randomGaussian(mean: number, stdDev: number): number {
