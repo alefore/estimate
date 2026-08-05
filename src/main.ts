@@ -1,5 +1,5 @@
 import {Book, books} from './books.js';
-import {famousPersons} from './famous_persons.js';
+import {FamousBirth, famousBirths} from './famous_persons.js';
 import {historicalEvents} from './historical_events.js';
 import {displayHistory, GameRecord, loadHistory, saveGame} from './history.js';
 import {Invention, inventions} from './inventions.js';
@@ -15,26 +15,21 @@ const yearUnit = new Unit('Year');
 
 data.set(
     yearUnit,
-    famousPersons.concat(historicalEvents)
+    historicalEvents
+        .concat(famousBirths.map(
+            (b: FamousBirth) =>
+                ({name: `${b.name} was born`, value: b.value, id: b.name})))
         .concat(books.map((b: Book) => ({
                             name: `${b.title} (by ${b.author}) was published`,
-                            value: b.year
+                            value: b.year,
+                            id: b.author
                           })))
         .concat(inventions.map((i: Invention) => ({
                                  name: `${i.name} was invented` +
                                      (i.inventor ? ` (by ${i.inventor})` : ''),
-                                 value: i.year
+                                 value: i.year,
+                                 id: i.inventor
                                })))
-        .concat([
-          {name: 'humans landed on the moon', value: 1969},
-          {name: 'The first video was uploaded to YouTube', value: 2005},
-          {name: 'the first iPhone was released', value: 2007},
-          {
-            name:
-                'Bitcoin\'s genesis block (first block in Bitcoin blockchain) was mined',
-            value: 2009
-          },
-        ])
         .sort((a, b) => a.value - b.value));
 
 function randomGaussian(mean: number, stdDev: number): number {
@@ -69,11 +64,13 @@ function generateQuestion(data: Map<Unit, UnitEntry[]>): CompareQuestion {
     targetYear = randomGaussian(base.value, targetDistance);
   } while (targetYear < minYear || targetYear > maxYear);
 
-  const nearest10 = entries.filter(entry => entry.value !== base.value)
-                        .sort(
-                            (a, b) => Math.abs(a.value - targetYear) -
-                                Math.abs(b.value - targetYear))
-                        .slice(0, 10);
+  const nearest10 =
+      entries.filter(entry => entry.value !== base.value)
+          .filter(entry => !base.id || !entry.id || base.id !== entry.id)
+          .sort(
+              (a, b) => Math.abs(a.value - targetYear) -
+                  Math.abs(b.value - targetYear))
+          .slice(0, 10);
 
   if (nearest10.length === 0) {
     throw new Error('Could not find a second entry with a different value.');

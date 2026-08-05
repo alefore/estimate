@@ -1,6 +1,9 @@
 export interface UnitEntry {
   name: string;
   value: number;
+  // `id` is used to never pair two questions with the same id. This lets us
+  // avoid questions like "Napoleon was born before Napoleon was exiled".
+  id?: string;
 }
 
 export class CompareQuestion {

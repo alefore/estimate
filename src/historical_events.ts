@@ -1,4 +1,6 @@
-export const historicalEvents = [
+import {UnitEntry} from './question.js';
+
+export const historicalEvents: UnitEntry[] = [
   {name: 'the Great Pyramid of Giza was built', value: -2560},  // c. 2560 BC
   {name: 'Stonehenge was erected', value: -2500},               // c. 2500 BC
   {name: 'Hammurabi wrote his code of laws', value: -1754},     // c. 1754 BC
@@ -165,7 +167,7 @@ export const historicalEvents = [
   {name: 'the Civil Rights Act was signed', value: 1964},
   {name: 'the first heart transplant was performed', value: 1967},
   {name: 'Martin Luther King was assassinated', value: 1968},
-  {name: 'men landed on the moon', value: 1969},
+  {name: 'humans landed on the moon', value: 1969},
   {name: 'Woodstock took place', value: 1969},
   {name: 'the first pocket calculator went on sale', value: 1971},
   {name: 'the Watergate scandal broke', value: 1972},
@@ -206,6 +208,7 @@ export const historicalEvents = [
   {name: 'the euro was introduced', value: 1999},
   {name: 'the September 11 attacks occurred', value: 2001},
   {name: 'the Indian Ocean tsunami struck', value: 2004},
+  {name: 'first video was uploaded to YouTube', value: 2005},
   {name: 'the global financial crisis erupted', value: 2008},
   {name: 'Barack Obama became US president', value: 2009},
   {name: 'the Arab Spring began', value: 2010},
