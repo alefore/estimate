@@ -28,7 +28,7 @@ class App {
   readonly menuDiv = Object.assign(document.createElement('div'), {id: 'menu'});
   readonly historyDiv =
       Object.assign(document.createElement('div'), {id: 'history'});
-  readonly gameDiv = document.createElement('div');
+  readonly gameDiv = Object.assign(document.createElement('div'), {id: 'game'});
 
   constructor() {
     const yearUnit = new Unit('Year');
@@ -160,7 +160,7 @@ class App {
     });
 
     saveGame(
-        questions.map((q) => Number(q.slider.value) / 100),
+        questions.map((q) => q.confidence / 100),
         questions.filter((q) => q.question.isCorrect()).length);
   }
 

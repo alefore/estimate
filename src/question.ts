@@ -6,6 +6,35 @@ export interface UnitEntry {
   id?: string;
 }
 
+class ConfidenceButtons {
+  public readonly container: HTMLDivElement =
+      Object.assign(document.createElement('div'), {className: 'confidence'});
+  public readonly buttons = new Map<number, HTMLButtonElement>();
+
+  constructor(onChange: (value: number) => void, initialValue: number = 50) {
+    const select = (value: number): void => {
+      for (const [v, btn] of this.buttons) {
+        btn.classList.toggle('selected', v === value);
+      }
+      onChange(value);
+    };
+
+    for (let value = 50; value <= 100; value += 5) {
+      const btn = document.createElement('button');
+      btn.textContent = `${value}%`;
+      btn.addEventListener('click', () => select(value));
+      this.buttons.set(value, btn);
+      this.container.appendChild(btn);
+    }
+
+    select(initialValue);
+  }
+
+  disable() {
+    this.buttons.forEach(button => button.disabled = true);
+  }
+}
+
 export class CompareQuestion {
   public flipped = false;
   public readonly view = Object.assign(
@@ -32,7 +61,7 @@ export class CompareQuestion {
     this.view.textContent = '';
     const units = this.sortedUnits();
     this.addInputToView(units[0], reveal);
-    this.view.append(document.createTextNode('before'));
+    this.view.append(document.createElement('hr'));
     this.addInputToView(units[1], reveal);
     if (reveal) {
       this.view.removeEventListener('click', this.handleDivClick);
@@ -61,12 +90,11 @@ export class CompareQuestion {
 
 export class QuestionView {
   readonly div: HTMLDivElement = document.createElement('div');
-  readonly sliderContainer: HTMLDivElement = Object.assign(
-      document.createElement('div'), {className: 'slider-container'});
-  readonly slider: HTMLInputElement = Object.assign(
-      document.createElement('input'),
-      {type: 'range', min: '50', max: '100', step: '5', value: '50'});
   readonly header: HTMLHeadingElement = document.createElement('div');
+  confidence: number = 50;
+  readonly confidenceButtons = new ConfidenceButtons((value) => {
+    this.confidence = value;
+  });
 
   constructor(
       public readonly question: CompareQuestion, outputDiv: HTMLDivElement) {
@@ -74,26 +102,18 @@ export class QuestionView {
 
     this.header.append(this.question.view);
     this.question.render(false);
-
-    const estimate =
-        Object.assign(document.createElement('span'), {textContent: '50%'});
-    this.slider.addEventListener('input', () => {
-      estimate.textContent = `${this.slider.value}%`;
-    });
-
-    this.sliderContainer.append(this.slider, estimate);
-
-    this.div.append(this.header, this.sliderContainer);
+    this.div.append(this.header, this.confidenceButtons.container);
     outputDiv.append(this.div);
   }
 
   reveal() {
-    if (this.slider.value != '50') {
+    if (this.confidence !== 50) {
       this.header.classList.add(
           this.question.isCorrect() ? 'correct' : 'incorrect');
     }
-    this.slider.classList.add('invisible');
-    this.sliderContainer.append(this.question.isCorrect() ? '🟢' : '🔴');
+    // this.confidenceContainer.classList.add('invisible');
+    // this.sliderContainer.append(this.question.isCorrect() ? '🟢' : '🔴');
+    this.confidenceButtons.disable();
     this.question.render(true);
   }
 }

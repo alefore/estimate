@@ -6,8 +6,9 @@
 }
 
 body {
-  font-family: monospace;
+  font-family: 'Helvetica Neue', Helvectica, Arial, sans-serif;
   font-size: 1.35rem;
+  letter-spacing: 0.01em;
   line-height: 1.4;
   background-color: var(--bg);
   color: var(--text);
@@ -17,22 +18,23 @@ input, button, textarea, select {
   font: inherit;
 }
 
-.slider-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
+.confidence button {
+  width: 4em;
+  margin-top: 1em;
+  margin-left: 6px;
+  margin-right: 6px;
+  border-radius: 6px;
+
+  background: var(--bg-mild);
+  color: var(--text)
 }
 
-.slider-container input[type="range"] {
-  flex: 1;
-  min-width: 0;
-}
+.confidence button.selected {
+  background: #333;
+  color: #fff;
 
-.slider-container output {
-  min-width: 3ch;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
+  background: var(--text);
+  color: var(--bg)
 }
 
 .invisible {
@@ -41,12 +43,14 @@ input, button, textarea, select {
 
 div.question, details.history-record {
   text-align: center;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 
   border: 1px solid #d1d5db;
   border-radius: 8px;
   padding: 16px;
+
+  background-color: var(--bg-mild);
 }
 
 div.compare-question p {
@@ -60,6 +64,12 @@ div.clickable {
 
 div.compare-question span.answer-value {
   font-weight: bold;
+}
+
+div.compare-question hr {
+  border: none;
+  border-top: 1px dashed #ccc;
+  width: 80%;
 }
 
 span.highlight {
@@ -112,8 +122,8 @@ div#title {
   display: flex;
 }
 
-div#menu {
-  flex-direction: column;
+div#menu, div#game {
+  flex-direction:column;
   align-items: center;
   gap: 8px;
 }
