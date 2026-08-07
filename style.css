@@ -99,3 +99,28 @@ span.highlight {
   margin-top: 4px;
   font-variant-numeric: tabular-nums;
 }
+
+div#title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Use :where(...) to lower the specificity of the menu rule, to let .invisible win. */
+:where(div#menu) {
+  display: flex;
+}
+
+div#menu {
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+div#menu button {
+  width: 15em;
+  display: grid;
+  grid-template-columns: 1.5em 1fr;
+  align-items: center;
+}

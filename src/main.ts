@@ -19,8 +19,13 @@ function randomGaussian(mean: number, stdDev: number): number {
       Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v) * stdDev;
 }
 
+const cssInvisible = 'invisible';
+
 class App {
   readonly data = new Map<Unit, UnitEntry[]>();
+  readonly titleDiv =
+      Object.assign(document.createElement('div'), {id: 'title'});
+  readonly menuDiv = Object.assign(document.createElement('div'), {id: 'menu'});
   readonly historyDiv =
       Object.assign(document.createElement('div'), {id: 'history'});
   readonly gameDiv = document.createElement('div');
@@ -64,12 +69,33 @@ class App {
                           })))
             .sort((a, b) => a.value - b.value));
 
-    this.gameDiv.append(this.startGameButton());
+    const topMenuButton = document.createElement('button');
+    topMenuButton.textContent = '☰';
+    topMenuButton.addEventListener(
+        'click', (event: MouseEvent) => this.show(this.menuDiv));
 
-    document.body.append(this.historyDiv, this.gameDiv);
+    this.titleDiv.append(
+        topMenuButton,
+        Object.assign(
+            document.createElement('h1'), {textContent: 'Estimates'}));
+
+    this.addMenuButton('🚀', 'Play', () => this.startGame());
+    this.addMenuButton('📊', 'History', () => this.showHistory());
+
+    document.body.append(
+        this.titleDiv, this.menuDiv, this.historyDiv, this.gameDiv);
+
+    this.show(this.menuDiv);
 
     const records: GameRecord[] = loadHistory();
     if (records.length > 0) displayHistory(records);
+  }
+
+  show(div: HTMLDivElement) {
+    document.querySelectorAll('body > div')
+        .forEach((d) => d.classList.add(cssInvisible));
+    this.titleDiv.classList.remove(cssInvisible);
+    div.classList.remove(cssInvisible);
   }
 
   generateQuestion(): CompareQuestion {
@@ -114,25 +140,32 @@ class App {
         base, nearest10[Math.floor(Math.random() * nearest10.length)]);
   }
 
-  startGameButton() {
+  addMenuButton(emoji: string, text: string, handler: () => void): void {
     const button = document.createElement('button');
-    button.textContent = 'Start new game';
-    button.addEventListener('click', (event: MouseEvent) => this.startGame());
-    return button;
+    button.append(
+        Object.assign(document.createElement('span'), {textContent: emoji}),
+        Object.assign(document.createElement('span'), {textContent: text}),
+    );
+    button.addEventListener('click', (event: MouseEvent) => handler());
+    this.menuDiv.append(button);
   }
 
   gameDone(questions: QuestionView[]) {
-    this.gameDiv.append(this.startGameButton());
     questions.forEach((q) => q.reveal());
 
-    const records: GameRecord[] = saveGame(
+    const button = document.createElement('button');
+    button.textContent = 'Done';
+    button.addEventListener('click', (event: MouseEvent) => {
+      this.show(this.menuDiv);
+    });
+
+    saveGame(
         questions.map((q) => Number(q.slider.value) / 100),
         questions.filter((q) => q.question.isCorrect()).length);
-
-    displayHistory(records);
   }
 
   startGame() {
+    this.show(this.gameDiv);
     this.gameDiv.replaceChildren();
     const questionInputs =
         Array.from({length: 10}, () => this.generateQuestion());
@@ -141,12 +174,17 @@ class App {
     });
 
     const button = document.createElement('button');
-    button.textContent = 'Finish';
+    button.textContent = '✔️ Finish';
     button.addEventListener('click', (event: MouseEvent) => {
       this.gameDone(questions);
       button.remove();
     });
     this.gameDiv.append(button);
+  }
+
+  showHistory() {
+    this.show(this.historyDiv);
+    displayHistory(loadHistory());
   }
 }
 
