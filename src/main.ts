@@ -160,7 +160,7 @@ class App {
     });
 
     saveGame(
-        questions.map((q) => q.confidence / 100),
+        questions.map((q) => Number(q.confidence) / 100),
         questions.filter((q) => q.question.isCorrect()).length);
   }
 

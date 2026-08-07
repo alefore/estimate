@@ -110,6 +110,8 @@ export class QuestionView {
     if (this.confidence !== 50) {
       this.header.classList.add(
           this.question.isCorrect() ? 'correct' : 'incorrect');
+      this.div.classList.add(
+          this.question.isCorrect() ? 'correct' : 'incorrect');
     }
     // this.confidenceContainer.classList.add('invisible');
     // this.sliderContainer.append(this.question.isCorrect() ? '🟢' : '🔴');

@@ -124,7 +124,6 @@ export const books: Book[] = [
   {title: 'The Lord of the Rings', author: 'J. R. R. Tolkien', year: 1954},
   {title: 'Lolita', author: 'Vladimir Nabokov', year: 1955},
   {title: 'Doctor Zhivago', author: 'Boris Pasternak', year: 1957},
-  {title: 'Things Fall Apart', author: 'Chinua Achebe', year: 1958},
   {title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960},
   {title: 'Catch-22', author: 'Joseph Heller', year: 1961},
   {

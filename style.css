@@ -26,13 +26,22 @@ input, button, textarea, select {
   border-radius: 6px;
 
   background: var(--bg-mild);
-  color: var(--text)
+  color: var(--text-dim);
+  border-color:rgba(0, 0, 0, 0.15);
 }
 
 .confidence button.selected {
-  background: #333;
-  color: #fff;
+  background: var(--text);
+  color: var(--bg)
+}
 
+.confidence button:not(.selected):disabled {
+  color: transparent;
+  background: transparent;
+  border-color: transparent;
+}
+
+.confidence button.selected {
   background: var(--text);
   color: var(--bg)
 }
@@ -43,14 +52,20 @@ input, button, textarea, select {
 
 div.question, details.history-record {
   text-align: center;
-  margin-top: 1em;
-  margin-bottom: 1em;
 
   border: 1px solid #d1d5db;
   border-radius: 8px;
   padding: 16px;
 
   background-color: var(--bg-mild);
+}
+
+div.question.correct {
+  background-color: var(--bg-correct);
+}
+
+div.question.incorrect {
+  background-color: var(--bg-incorrect);
 }
 
 div.compare-question p {
@@ -121,11 +136,21 @@ div#title {
 :where(div#menu) {
   display: flex;
 }
+:where(div#game) {
+  display: flex;
+}
 
 div#menu, div#game {
   flex-direction:column;
   align-items: center;
+}
+
+div#menu {
   gap: 8px;
+}
+
+div#game {
+  gap: 1em;
 }
 
 div#menu button {
