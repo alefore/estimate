@@ -1,4 +1,5 @@
 import {Book, books} from './books.js';
+import {emojiButton} from './button.js';
 import {FamousBirth, famousBirths} from './famous_persons.js';
 import {Film, films} from './films.js';
 import {historicalEvents} from './historical_events.js';
@@ -69,15 +70,14 @@ class App {
                           })))
             .sort((a, b) => a.value - b.value));
 
-    const topMenuButton = document.createElement('button');
-    topMenuButton.textContent = '☰';
+    const topMenuHeader = document.createElement('h1');
+    const topMenuButton = Object.assign(
+        document.createElement('button'),
+        {id: 'top-menu', textContent: '☰ Estimates'})
     topMenuButton.addEventListener(
         'click', (event: MouseEvent) => this.show(this.menuDiv));
-
-    this.titleDiv.append(
-        topMenuButton,
-        Object.assign(
-            document.createElement('h1'), {textContent: 'Estimates'}));
+    topMenuHeader.append(topMenuButton);
+    this.titleDiv.append(topMenuHeader);
 
     this.addMenuButton('🚀', 'Play', () => this.startGame());
     this.addMenuButton('📊', 'History', () => this.showHistory());
@@ -141,13 +141,7 @@ class App {
   }
 
   addMenuButton(emoji: string, text: string, handler: () => void): void {
-    const button = document.createElement('button');
-    button.append(
-        Object.assign(document.createElement('span'), {textContent: emoji}),
-        Object.assign(document.createElement('span'), {textContent: text}),
-    );
-    button.addEventListener('click', (event: MouseEvent) => handler());
-    this.menuDiv.append(button);
+    this.menuDiv.append(emojiButton(emoji, text, handler));
   }
 
   gameDone(questions: QuestionView[]) {

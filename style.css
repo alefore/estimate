@@ -28,6 +28,7 @@ input, button, textarea, select {
   background: var(--bg-mild);
   color: var(--text-dim);
   border-color:rgba(0, 0, 0, 0.15);
+  font-size: 0.9rem;
 }
 
 .confidence button.selected {
@@ -58,6 +59,8 @@ div.question, details.history-record {
   padding: 16px;
 
   background-color: var(--bg-mild);
+
+  width: 98%;
 }
 
 div.question.correct {
@@ -125,11 +128,10 @@ span.highlight {
   font-variant-numeric: tabular-nums;
 }
 
-div#title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+button#top-menu {
+  all: unset; /* strip default button styling. */
+  cursor: pointer;
+  font: inherit;
 }
 
 /* Use :where(...) to lower the specificity of the menu rule, to let .invisible win. */
@@ -143,12 +145,16 @@ div#title {
   display: flex;
 }
 
-div#menu, div#game, div#history {
+div#title, details.history-record > div {
+  display: flex;
+}
+
+div#title, div#menu, div#game, div#history, details.history-record > div {
   flex-direction:column;
   align-items: center;
 }
 
-div#menu, div#history {
+div#menu, div#history, details.history-record > div {
   gap: 8px;
 }
 
@@ -156,13 +162,9 @@ div#game {
   gap: 1em;
 }
 
-div#menu button {
-  width: 15em;
+button.emoji {
   display: grid;
   grid-template-columns: 1.5em 1fr;
   align-items: center;
-}
-
-details.history-record {
-  width: 98%;
+  min-width: 15em;
 }

@@ -1,3 +1,4 @@
+import {emojiButton} from './button.js';
 import {renderHistogram, scoreDistribution} from './histogram.js';
 
 export interface GameRecord {
@@ -57,10 +58,9 @@ export function displayRecord(record: GameRecord): HTMLDetailsElement {
   const total = record.confidences.length;
   const expected = record.confidences.reduce((sum, c) => sum + c, 0);
 
-  const details = Object.assign(
-      document.createElement('details'), {classList: 'history-record'});
-
   const summary = document.createElement('summary');
+  const details = document.createElement('div');
+
   summary.textContent =
       (record.title || new Date(record.date).toLocaleString(undefined, {
         year: 'numeric',
@@ -71,21 +71,11 @@ export function displayRecord(record: GameRecord): HTMLDetailsElement {
       })) +
       ` - ${record.correctCount} correct, ${expected.toFixed(1)} expected`;
 
-  details.appendChild(summary);
-
-  const header = Object.assign(
-      document.createElement('div'), {className: 'game-record-header'});
-
   if (!record.title) {
-    const eraseButton = document.createElement('button');
-    eraseButton.textContent = 'Erase';
-    eraseButton.addEventListener(
-        'click', (event: MouseEvent) => eraseRecord(record.date));
-
-    header.append(eraseButton);
+    details.append(emojiButton('❌', 'Erase', () => eraseRecord(record.date)));
   }
 
-  header.append(Object.assign(document.createElement('p'), {
+  details.append(Object.assign(document.createElement('p'), {
     className: 'game-record-score',
     textContent: `You got ${record.correctCount} of ${total} right ` +
         `(expected from your confidence: ${expected.toFixed(1)}).`
@@ -94,9 +84,12 @@ export function displayRecord(record: GameRecord): HTMLDetailsElement {
   const histogram =
       Object.assign(document.createElement('div'), {className: 'histogram'});
   renderHistogram(histogram, scoreDistribution(record.confidences));
+  details.append(histogram);
 
-  details.append(header, histogram);
-  return details;
+  const container = Object.assign(
+      document.createElement('details'), {classList: 'history-record'});
+  container.append(summary, details);
+  return container;
 }
 
 function eraseRecord(date: string) {
