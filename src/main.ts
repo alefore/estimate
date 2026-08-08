@@ -85,6 +85,8 @@ class App {
 
     this.addMenuButton('🚀', 'Play', () => this.startGame());
     this.addMenuButton('📊', 'History', () => this.showHistory());
+    this.addMenuButton(
+        '❓', 'About', () => window.location.href = 'https://alejo.ch/3m9');
 
     document.body.append(
         this.titleDiv, this.menuDiv, this.historyDiv, this.gameDiv);
@@ -178,13 +180,10 @@ class App {
 
     saveGame(record);
 
-    const button =
-        Object.assign(document.createElement('button'), {textContent: 'Done'});
-    button.addEventListener('click', (event: MouseEvent) => {
+    this.gameDiv.prepend(emojiButton('✔️ ', 'Done', () => {
       this.show(this.menuDiv);
-    });
+    }));
 
-    this.gameDiv.prepend(button);
     const results = displayRecord(record);
     results.open = true;
     this.gameDiv.prepend(results);
@@ -200,13 +199,11 @@ class App {
       return new QuestionView(q, this.gameDiv);
     });
 
-    const button = document.createElement('button');
-    button.textContent = '✔️ Finish';
-    button.addEventListener('click', (event: MouseEvent) => {
+    const finishButton = emojiButton('✔️ ', 'Finish', () => {
       this.gameDone(questions);
-      button.remove();
+      finishButton.remove();
     });
-    this.gameDiv.append(button);
+    this.gameDiv.append(finishButton);
   }
 
   showHistory() {
