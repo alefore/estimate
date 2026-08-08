@@ -9,7 +9,6 @@ export const paintings: Painting[] = [
   {title: 'The Arnolfini Portrait', artist: 'Jan van Eyck', year: 1434},
   {title: 'Primavera', artist: 'Sandro Botticelli', year: 1482},
   {title: 'The Birth of Venus', artist: 'Sandro Botticelli', year: 1486},
-  {title: 'Lady with an Ermine', artist: 'Leonardo da Vinci', year: 1490},
   {title: 'The Last Supper', artist: 'Leonardo da Vinci', year: 1498},
   {
     title: 'The Garden of Earthly Delights',
@@ -62,11 +61,6 @@ export const paintings: Painting[] = [
   {title: 'View of Delft', artist: 'Johannes Vermeer', year: 1661},
   {title: 'Girl with a Pearl Earring', artist: 'Johannes Vermeer', year: 1665},
   {title: 'Self-Portrait with Two Circles', artist: 'Rembrandt', year: 1669},
-  {title: 'Mr and Mrs Andrews', artist: 'Thomas Gainsborough', year: 1750},
-  {title: 'The Swing', artist: 'Jean-Honoré Fragonard', year: 1767},
-  {title: 'Watson and the Shark', artist: 'John Singleton Copley', year: 1778},
-  {title: 'The Nightmare', artist: 'Henry Fuseli', year: 1781},
-  {title: 'The Death of Marat', artist: 'Jacques-Louis David', year: 1793},
   {title: 'The Naked Maja', artist: 'Francisco Goya', year: 1800},
   {
     title: 'Napoleon Crossing the Alps',
@@ -80,8 +74,6 @@ export const paintings: Painting[] = [
     artist: 'Caspar David Friedrich',
     year: 1818
   },
-  {title: 'The Raft of the Medusa', artist: 'Théodore Géricault', year: 1819},
-  {title: 'The Hay Wain', artist: 'John Constable', year: 1821},
   {title: 'Saturn Devouring His Son', artist: 'Francisco Goya', year: 1823},
   {title: 'Liberty Leading the People', artist: 'Eugène Delacroix', year: 1830},
   {
@@ -89,15 +81,8 @@ export const paintings: Painting[] = [
     artist: 'Katsushika Hokusai',
     year: 1831
   },
-  {title: 'The Oxbow', artist: 'Thomas Cole', year: 1836},
   {title: 'The Fighting Temeraire', artist: 'J. M. W. Turner', year: 1839},
   {title: 'Rain, Steam and Speed', artist: 'J. M. W. Turner', year: 1844},
-  {
-    title: 'Washington Crossing the Delaware',
-    artist: 'Emanuel Leutze',
-    year: 1851
-  },
-  {title: 'Ophelia', artist: 'John Everett Millais', year: 1852},
   {title: 'The Gleaners', artist: 'Jean-François Millet', year: 1857},
   {title: 'The Angelus', artist: 'Jean-François Millet', year: 1859},
   {title: 'Olympia', artist: 'Édouard Manet', year: 1863},
