@@ -211,7 +211,13 @@ class App {
 
   showHistory() {
     this.show(this.historyDiv);
-    displayHistory(loadHistory());
+    const history: GameRecord[] = loadHistory();
+    if (history.length > 0) {
+      displayHistory(history);
+    } else {
+      this.historyDiv.replaceChildren(Object.assign(
+          document.createElement('p'), {textContent: 'History is empty.'}));
+    }
   }
 }
 
