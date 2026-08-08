@@ -8,6 +8,8 @@ export interface GameRecord {
   confidences: number[];
   /** Number of questions answered correctly. */
   correctCount: number;
+  /** Number of questions skipped. */
+  skips: number;
   /**
    * Optional title to show (instead of the date). Used for syntesized entries
    * (that can't be erased).
@@ -77,8 +79,9 @@ export function displayRecord(record: GameRecord): HTMLDetailsElement {
 
   details.append(Object.assign(document.createElement('p'), {
     className: 'game-record-score',
-    textContent: `You got ${record.correctCount} of ${total} right ` +
-        `(expected from your confidence: ${expected.toFixed(1)}).`
+    textContent: `You got ${record.correctCount} of ${total} right` +
+        (record.skips > 0 ? ` (skipped: ${record.skips})` : '') +
+        `. Your confidence predicted: ${expected.toFixed(1)}).`
   }));
 
   const histogram =
@@ -107,10 +110,9 @@ function mergeRecords(records: GameRecord[], title: string): GameRecord {
       (acc, curr) => ({
         // Lexicographical comparison works perfectly for ISO 8601 strings
         date: curr.date > acc.date ? curr.date : acc.date,
-        // Concatenate the confidence arrays
         confidences: acc.confidences.concat(curr.confidences),
-        // Sum the correct counts
         correctCount: acc.correctCount + curr.correctCount,
+        skips: acc.skips + curr.skips,
         title: title,
       }),
       {
@@ -118,5 +120,6 @@ function mergeRecords(records: GameRecord[], title: string): GameRecord {
                    // string
         confidences: [] as number[],
         correctCount: 0,
+        skips: 0
       });
 }

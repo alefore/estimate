@@ -165,13 +165,15 @@ class App {
     this.menuDiv.append(emojiButton(emoji, text, handler));
   }
 
-  gameDone(questions: QuestionView[]) {
-    questions.forEach((q) => q.reveal());
+  gameDone(allQuestions: QuestionView[]) {
+    allQuestions.forEach((q) => q.reveal());
+    const questions = allQuestions.filter((q) => q.confidence > 50);
 
     const record: GameRecord = {
       date: new Date().toISOString(),
-      confidences: questions.map((q) => Number(q.confidence) / 100),
+      confidences: questions.map((q) => q.confidence / 100),
       correctCount: questions.filter((q) => q.question.isCorrect()).length,
+      skips: allQuestions.length - questions.length
     };
 
     saveGame(record);

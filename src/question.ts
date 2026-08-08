@@ -30,8 +30,11 @@ class ConfidenceButtons {
     select(initialValue);
   }
 
-  disable() {
-    this.buttons.forEach(button => button.disabled = true);
+  disable(value: number) {
+    this.container.replaceChildren(Object.assign(document.createElement('p'), {
+      textContent: value === 50 ? 'Skipped (50% confidence).' :
+                                  `Confidence: ${value}%.`
+    }));
   }
 }
 
@@ -115,7 +118,7 @@ export class QuestionView {
     }
     // this.confidenceContainer.classList.add('invisible');
     // this.sliderContainer.append(this.question.isCorrect() ? '🟢' : '🔴');
-    this.confidenceButtons.disable();
+    this.confidenceButtons.disable(this.confidence);
     this.question.render(true);
   }
 }
