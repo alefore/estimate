@@ -17,7 +17,16 @@ export function renderHistogram(container, dist) {
   container.innerHTML = '';
   const max = Math.max(...dist);
   const mode = dist.indexOf(max);
-  dist.forEach((p, k) => {
+
+  let startIndex = dist.findIndex(p => p >= 0.001);
+  let endIndex = dist.findLastIndex(p => p >= 0.001);
+  if (startIndex === -1) {
+    startIndex = 0;  // Fallback.
+    endIndex = dist.length - 1;
+  }
+
+  dist.slice(startIndex, endIndex + 1).forEach((p, i) => {
+    const k = startIndex + i;
     const bar = document.createElement('div');
     bar.className = 'bar' + (k === mode ? ' mode' : '');
 
