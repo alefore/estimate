@@ -32,9 +32,9 @@ export const historicalEvents: UnitEntry[] = [
   {name: 'the Roman Empire split in two', value: 395},
   {name: 'Rome was sacked by the Visigoths', value: 410},
   {name: 'the Western Roman Empire fell', value: 476},
-  {name: 'Muhammad made the Hijra to Medina', value: 622},
+  {name: 'Muhammad made the Hijra to Medina', value: 622, id: 'Muhammad'},
   {name: 'the Battle of Tours halted the Umayyad advance', value: 732},
-  {name: 'Charlemagne was crowned emperor', value: 800},
+  {name: 'Charlemagne was crowned emperor', value: 800, id: 'Charlemagne'},
   {
     name: 'the Vikings discovered America',
     value: 1000
@@ -49,14 +49,38 @@ export const historicalEvents: UnitEntry[] = [
   {name: 'the Black Death reached Europe', value: 1347},
   {name: 'the Hundred Years\' War began', value: 1337},
   {name: 'the Battle of Agincourt was fought', value: 1415},
-  {name: 'Joan of Arc lifted the siege of Orléans', value: 1429},
-  {name: 'Gutenberg printed his Bible', value: 1455},  // c. 1455
+  {
+    name: 'Joan of Arc lifted the siege of Orléans',
+    value: 1429,
+    id: 'Joan of Arc'
+  },
+  {
+    name: 'Johannes Gutenberg printed his Bible',
+    value: 1455,
+    id: 'Johannes Gutenberg'
+  },  // c. 1455
   {name: 'Constantinople fell to the Ottomans', value: 1453},
-  {name: 'America was discovered (by Columbus)', value: 1492},
+  {
+    name: 'America was discovered (by Columbus)',
+    value: 1492,
+    id: 'Christopher Columbus'
+  },
   {name: 'Vasco da Gama reached India by sea', value: 1498},
-  {name: 'Michelangelo finished the statue of David', value: 1504},
-  {name: 'Michelangelo completed the Sistine Chapel ceiling', value: 1512},
-  {name: 'Martin Luther posted his 95 Theses', value: 1517},
+  {
+    name: 'Michelangelo finished the statue of David',
+    value: 1504,
+    id: 'Michelangelo'
+  },
+  {
+    name: 'Michelangelo completed the Sistine Chapel ceiling',
+    value: 1512,
+    id: 'Michelangelo'
+  },
+  {
+    name: 'Martin Luther posted his 95 Theses',
+    value: 1517,
+    id: 'Martin Luther'
+  },
   {name: 'Magellan\'s expedition circumnavigated the globe', value: 1522},
   {name: 'the Aztec Empire fell to Cortés', value: 1521},
   {name: 'the Inca Empire fell to Pizarro', value: 1533},
