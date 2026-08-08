@@ -98,7 +98,7 @@ class App {
     div.classList.remove(cssInvisible);
   }
 
-  generateQuestion(): CompareQuestion {
+  generateQuestion(distanceRatio: number = 0.2): CompareQuestion {
     const units = Array.from(this.data.keys());
     if (units.length === 0) throw new Error('Data map is empty.');
 
@@ -110,34 +110,51 @@ class App {
 
     const minYear = entries[0].value;
     const maxYear = entries[entries.length - 1].value;
-    if (minYear === maxYear) {
+    if (minYear === maxYear)
       throw new Error(
           'All entries occur in the exact same year. Cannot generate a comparison.');
-    }
 
     const currentYear = new Date().getFullYear();
     // 20% of elapsed time or at least 5 years.
-    const targetDistance = Math.max(5, (currentYear - base.value) * 0.20);
+    const targetDistance =
+        Math.max(5, (currentYear - base.value) * distanceRatio);
+    const targetA = base.value - targetDistance;
+    const targetB = base.value + targetDistance;
+    const sigma = targetDistance * 0.5;
 
-    let targetYear: number;
-    do {
-      targetYear = randomGaussian(base.value, targetDistance);
-    } while (targetYear < minYear || targetYear > maxYear);
-
-    const nearest10 =
+    const entriesByYear: Map<number, UnitEntry[]> =
         entries.filter(entry => entry.value !== base.value)
             .filter(entry => !base.id || !entry.id || base.id !== entry.id)
-            .sort(
-                (a, b) => Math.abs(a.value - targetYear) -
-                    Math.abs(b.value - targetYear))
-            .slice(0, 10);
+            .reduce((acc, entry) => {
+              if (!acc.has(entry.value)) acc.set(entry.value, []);
+              acc.get(entry.value)!.push(entry);
+              return acc;
+            }, new Map<number, UnitEntry[]>());
 
-    if (nearest10.length === 0) {
+    if (entriesByYear.size === 0)
       throw new Error('Could not find a second entry with a different value.');
-    }
 
-    return new CompareQuestion(
-        base, nearest10[Math.floor(Math.random() * nearest10.length)]);
+    const yearWeights = Array.from(entriesByYear.keys()).map(year => {
+      const minDistance =
+          Math.min(Math.abs(year - targetA), Math.abs(year - targetB));
+      return {year, weight: Math.exp(-0.5 * Math.pow(minDistance / sigma, 2))};
+    });
+
+    const totalWeight = yearWeights.reduce((sum, yw) => sum + yw.weight, 0);
+
+    let randomVal = Math.random() * totalWeight;
+    const selectedYear = yearWeights
+                             .find(yw => {
+                               randomVal -= yw.weight;
+                               return randomVal <= 0;
+                             })
+                             ?.year ??
+        yearWeights[0].year;
+
+    const yearEntries = entriesByYear.get(selectedYear)!;
+    const targetEntry =
+        yearEntries[Math.floor(Math.random() * yearEntries.length)];
+    return new CompareQuestion(base, targetEntry);
   }
 
   addMenuButton(emoji: string, text: string, handler: () => void): void {
@@ -196,12 +213,14 @@ class App {
 //   {question: 'Alejo was born in Argentina', correctAnswer: false},
 //   {
 //     question:
-//         'Brazil is more than 100 times bigger (land area) than Switzerland',
+//         'Brazil is more than 100 times bigger (land area) than
+//         Switzerland',
 //     correctAnswer: true
 //   },
 //   {
 //     question:
-//         '20 <= number of Swiss cantons <= 30 (counting half-cantons as 0.5)',
+//         '20 <= number of Swiss cantons <= 30 (counting half-cantons as
+//         0.5)',
 //     correctAnswer: true
 //   },
 //   {
