@@ -1,5 +1,6 @@
 import {Book, books} from './books.js';
 import {emojiButton} from './button.js';
+import {companies, Company} from './companies.js';
 import {FamousBirth, famousBirths} from './famous_persons.js';
 import {Film, films} from './films.js';
 import {historicalEvents} from './historical_events.js';
@@ -41,14 +42,17 @@ class App {
                                        value: b.value,
                                        id: b.name
                                      })))
-            .concat(
-                books.map((b: Book) => ({
-                            name: `${b.title} (by ${b.author}) was published`,
-                            value: b.year
-                          })))
+            .concat(companies.map(
+                (c: Company) =>
+                    ({name: `💼 ${c.name} was founded`, value: c.year})))
+            .concat(books.map(
+                (b: Book) => ({
+                  name: `📖 ${b.title} (by ${b.author}) was published`,
+                  value: b.year
+                })))
             .concat(
                 inventions.map((i: Invention) => ({
-                                 name: `${i.name} was invented` +
+                                 name: `💡 ${i.name} was invented` +
                                      (i.inventor ? ` (by ${i.inventor})` : ''),
                                  value: i.year,
                                  id: i.inventor
