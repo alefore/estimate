@@ -139,13 +139,16 @@ div#title {
 :where(div#game) {
   display: flex;
 }
+:where(div#history) {
+  display: flex;
+}
 
-div#menu, div#game {
+div#menu, div#game, div#history {
   flex-direction:column;
   align-items: center;
 }
 
-div#menu {
+div#menu, div#history {
   gap: 8px;
 }
 
@@ -158,4 +161,8 @@ div#menu button {
   display: grid;
   grid-template-columns: 1.5em 1fr;
   align-items: center;
+}
+
+details.history-record {
+  width: 98%;
 }

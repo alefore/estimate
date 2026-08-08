@@ -2,7 +2,7 @@ import {Book, books} from './books.js';
 import {FamousBirth, famousBirths} from './famous_persons.js';
 import {Film, films} from './films.js';
 import {historicalEvents} from './historical_events.js';
-import {displayHistory, GameRecord, loadHistory, saveGame} from './history.js';
+import {displayHistory, displayRecord, GameRecord, loadHistory, saveGame} from './history.js';
 import {Invention, inventions} from './inventions.js';
 import {Painting, paintings} from './paintings.js';
 import {CompareQuestion, QuestionView, UnitEntry} from './question.js';
@@ -153,15 +153,25 @@ class App {
   gameDone(questions: QuestionView[]) {
     questions.forEach((q) => q.reveal());
 
-    const button = document.createElement('button');
-    button.textContent = 'Done';
+    const record: GameRecord = {
+      date: new Date().toISOString(),
+      confidences: questions.map((q) => Number(q.confidence) / 100),
+      correctCount: questions.filter((q) => q.question.isCorrect()).length,
+    };
+
+    saveGame(record);
+
+    const button =
+        Object.assign(document.createElement('button'), {textContent: 'Done'});
     button.addEventListener('click', (event: MouseEvent) => {
       this.show(this.menuDiv);
     });
 
-    saveGame(
-        questions.map((q) => Number(q.confidence) / 100),
-        questions.filter((q) => q.question.isCorrect()).length);
+    this.gameDiv.prepend(button);
+    const results = displayRecord(record);
+    results.open = true;
+    this.gameDiv.prepend(results);
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
   startGame() {

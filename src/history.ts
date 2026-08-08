@@ -33,15 +33,9 @@ export function loadHistory(): GameRecord[] {
   return parsed.filter(isValidRecord);
 }
 
-export function saveGame(
-    confidences: number[], correctCount: number): GameRecord[] {
-  const record: GameRecord = {
-    date: new Date().toISOString(),
-    confidences: [...confidences],
-    correctCount,
-  };
+export function saveGame(game: GameRecord): GameRecord[] {
   const history = loadHistory();
-  history.push(record);
+  history.push(game);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
   return history;
 }
@@ -51,21 +45,20 @@ export function displayHistory(records: GameRecord[]): void {
   if (!(historyDiv instanceof HTMLDivElement)) {
     throw new Error('Expected div');
   }
-  historyDiv.replaceChildren();
-  records.forEach((r) => displayRecord(historyDiv, r));
+  historyDiv.replaceChildren(...records.map(displayRecord));
   if (records.length > 1) {
-    displayRecord(
-        historyDiv, mergeRecords(records, `Total (${records.length} games)`));
+    historyDiv.append(displayRecord(
+        mergeRecords(records, `Total (${records.length} games)`)));
   }
   document.body.append(historyDiv);
 }
 
-function displayRecord(output: HTMLDivElement, record: GameRecord): void {
+export function displayRecord(record: GameRecord): HTMLDetailsElement {
   const total = record.confidences.length;
   const expected = record.confidences.reduce((sum, c) => sum + c, 0);
 
-  const details = document.createElement('details');
-  details.classList.add('history-record');
+  const details = Object.assign(
+      document.createElement('details'), {classList: 'history-record'});
 
   const summary = document.createElement('summary');
   summary.textContent =
@@ -103,7 +96,7 @@ function displayRecord(output: HTMLDivElement, record: GameRecord): void {
   renderHistogram(histogram, scoreDistribution(record.confidences));
 
   details.append(header, histogram);
-  output.append(details);
+  return details;
 }
 
 function eraseRecord(date: string) {
