@@ -1,9 +1,11 @@
 import {Category} from './category.js';
+import {type Difficulty} from './difficulty.js';
 
 export interface UnitEntry {
   name: string;
   value: number;
   category: Category;
+  difficulty?: Difficulty;
   // `id` is used to never pair two questions with the same id. This lets us
   // avoid questions like "Napoleon was born before Napoleon was exiled".
   id?: string;

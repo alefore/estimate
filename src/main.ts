@@ -2,7 +2,7 @@ import {Book, books} from './books.js';
 import {emojiButton} from './button.js';
 import {Category, createCategoryFilter, emojiForCategory} from './category.js';
 import {companies, Company} from './companies.js';
-import {createDifficultySelector, type Difficulty, difficultyDistanceRatios} from './difficulty.js';
+import {createDifficultySelector, type Difficulty, DIFFICULTY_FILTERS, difficultyDistanceRatios} from './difficulty.js';
 import {FamousBirth, famousBirths} from './famous_persons.js';
 import {Film, films} from './films.js';
 import {HistoricalEvent, historicalEvents} from './historical_events.js';
@@ -29,48 +29,49 @@ const cssInvisible = 'invisible';
 class App {
   readonly allEntries: UnitEntry[] =
       historicalEvents
-          .map((h: HistoricalEvent) => ({
+          .map((h: HistoricalEvent): UnitEntry => ({
                  name: h.name,
                  value: h.value,
-                 category: Category.HistoricalEvent
+                 category: Category.HistoricalEvent,
+                 difficulty: h.difficulty,
                }))
-          .concat(famousBirths.map((b: FamousBirth) => ({
+          .concat(famousBirths.map((b: FamousBirth): UnitEntry => ({
                                      name: `${b.name} was born`,
                                      value: b.value,
                                      id: b.name,
                                      category: Category.Birth
                                    })))
-          .concat(companies.map((c: Company) => ({
+          .concat(companies.map((c: Company): UnitEntry => ({
                                   name: `${c.name} was founded`,
                                   value: c.year,
                                   category: Category.Company
                                 })))
-          .concat(books.map((b: Book) => ({
+          .concat(books.map((b: Book): UnitEntry => ({
                               name: `${b.title} (by ${b.author}) was published`,
                               value: b.year,
                               category: Category.Book
                             })))
           .concat(
-              inventions.map((i: Invention) => ({
+              inventions.map((i: Invention): UnitEntry => ({
                                name: `${i.name} was invented` +
                                    (i.inventor ? ` (by ${i.inventor})` : ''),
                                value: i.year,
                                id: i.inventor,
                                category: Category.Invention
                              })))
-          .concat(paintings.map((p: Painting) => ({
+          .concat(paintings.map((p: Painting): UnitEntry => ({
                                   name: `${p.artist} finished ${p.title}`,
                                   value: p.year,
                                   id: p.artist,
                                   category: Category.Painting
                                 })))
           .concat(structures.map(
-              (s: Structure) => ({
+              (s: Structure): UnitEntry => ({
                 name: `${s.name} (${s.country}) was built (finished)`,
                 value: s.year,
                 category: Category.Structure
               })))
-          .concat(films.map((f: Film) => ({
+          .concat(films.map((f: Film): UnitEntry => ({
                               name: `${f.title} (${f.director}) was released`,
                               value: f.year,
                               category: Category.Film
@@ -87,9 +88,12 @@ class App {
   readonly categorySignals: ReadonlyMap<Category, Signal<boolean>> =
       new Map(Object.values(Category).map(
           (value) => [value, new Signal<boolean>(true)]));
-  readonly enabledEntries: Computed<UnitEntry[]> = new Computed(
-      () => this.allEntries.filter(
-          (u) => this.categorySignals.get(u.category)!.value));
+  readonly enabledEntries: Computed<UnitEntry[]> = new Computed(() => {
+    const difficultyFilter = DIFFICULTY_FILTERS[this.difficultySignal.value];
+    return this.allEntries
+        .filter((u) => this.categorySignals.get(u.category)!.value)
+        .filter((u) => !u.difficulty || difficultyFilter(u.difficulty));
+  });
   readonly difficultySignal: Signal<Difficulty> = new Signal('medium');
 
   constructor() {
