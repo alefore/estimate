@@ -109,7 +109,8 @@ class App {
         '📊', 'History', 'Show statitics about all games played.',
         () => this.showHistory());
     this.addMenuButton(
-        '⚙️', 'Settings', 'Show settings dialogue.', () => this.showSettings());
+        '⚙️', 'Settings', 'Show settings dialogue.',
+        () => this.show(this.settingsDiv));
     this.addMenuButton(
         '❓', 'About', 'Show information about the game.',
         () => window.location.href = 'https://alejo.ch/3m9');
@@ -293,10 +294,6 @@ class App {
       this.historyDiv.replaceChildren(Object.assign(
           document.createElement('p'), {textContent: 'History is empty.'}));
     }
-  }
-
-  showSettings() {
-    this.show(this.settingsDiv);
   }
 }
 
