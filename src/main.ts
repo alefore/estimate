@@ -7,6 +7,7 @@ import {Film, films} from './films.js';
 import {HistoricalEvent, historicalEvents} from './historical_events.js';
 import {displayHistory, displayRecord, GameRecord, loadHistory, saveGame} from './history.js';
 import {Invention, inventions} from './inventions.js';
+import {Computed, Signal} from './listener.js';
 import {Painting, paintings} from './paintings.js';
 import {CompareQuestion, QuestionView, UnitEntry} from './question.js';
 import {Structure, structures} from './structures.js';
@@ -25,7 +26,55 @@ function randomGaussian(mean: number, stdDev: number): number {
 const cssInvisible = 'invisible';
 
 class App {
-  readonly data = new Map<Unit, UnitEntry[]>();
+  readonly allEntries: UnitEntry[] =
+      historicalEvents
+          .map((h: HistoricalEvent) => ({
+                 name: h.name,
+                 value: h.value,
+                 category: Category.HistoricalEvent
+               }))
+          .concat(famousBirths.map((b: FamousBirth) => ({
+                                     name: `${b.name} was born`,
+                                     value: b.value,
+                                     id: b.name,
+                                     category: Category.Birth
+                                   })))
+          .concat(companies.map((c: Company) => ({
+                                  name: `${c.name} was founded`,
+                                  value: c.year,
+                                  category: Category.Company
+                                })))
+          .concat(books.map((b: Book) => ({
+                              name: `${b.title} (by ${b.author}) was published`,
+                              value: b.year,
+                              category: Category.Book
+                            })))
+          .concat(
+              inventions.map((i: Invention) => ({
+                               name: `${i.name} was invented` +
+                                   (i.inventor ? ` (by ${i.inventor})` : ''),
+                               value: i.year,
+                               id: i.inventor,
+                               category: Category.Invention
+                             })))
+          .concat(paintings.map((p: Painting) => ({
+                                  name: `${p.artist} finished ${p.title}`,
+                                  value: p.year,
+                                  id: p.artist,
+                                  category: Category.Painting
+                                })))
+          .concat(structures.map(
+              (s: Structure) => ({
+                name: `${s.name} (${s.country}) was built (finished)`,
+                value: s.year,
+                category: Category.Structure
+              })))
+          .concat(films.map((f: Film) => ({
+                              name: `${f.title} (${f.director}) was released`,
+                              value: f.year,
+                              category: Category.Film
+                            })))
+          .sort((a, b) => a.value - b.value);
   readonly titleDiv =
       Object.assign(document.createElement('div'), {id: 'title'});
   readonly menuDiv = Object.assign(document.createElement('div'), {id: 'menu'});
@@ -34,62 +83,15 @@ class App {
   readonly gameDiv = Object.assign(document.createElement('div'), {id: 'game'});
   readonly settingsDiv =
       Object.assign(document.createElement('div'), {id: 'settings'});
-  readonly categoryCheckboxes = new Map<Category, HTMLInputElement>();
+  readonly categorySignals: ReadonlyMap<Category, Signal<Boolean>> =
+      new Map(Object.values(Category).map(
+          (value) => [value, new Signal<boolean>(true)]));
+  readonly enabledEntries: Computed<UnitEntry[]> = new Computed(
+      () => this.allEntries.filter(
+          (u) => this.categorySignals.get(u.category)!.value));
 
   constructor() {
     const yearUnit = new Unit('Year');
-    this.data.set(
-        yearUnit,
-        historicalEvents
-            .map((h: HistoricalEvent) => ({
-                   name: h.name,
-                   value: h.value,
-                   category: Category.HistoricalEvent
-                 }))
-            .concat(famousBirths.map((b: FamousBirth) => ({
-                                       name: `${b.name} was born`,
-                                       value: b.value,
-                                       id: b.name,
-                                       category: Category.Birth
-                                     })))
-            .concat(companies.map((c: Company) => ({
-                                    name: `${c.name} was founded`,
-                                    value: c.year,
-                                    category: Category.Company
-                                  })))
-            .concat(
-                books.map((b: Book) => ({
-                            name: `${b.title} (by ${b.author}) was published`,
-                            value: b.year,
-                            category: Category.Book
-                          })))
-            .concat(
-                inventions.map((i: Invention) => ({
-                                 name: `${i.name} was invented` +
-                                     (i.inventor ? ` (by ${i.inventor})` : ''),
-                                 value: i.year,
-                                 id: i.inventor,
-                                 category: Category.Invention
-                               })))
-            .concat(paintings.map((p: Painting) => ({
-                                    name: `${p.artist} finished ${p.title}`,
-                                    value: p.year,
-                                    id: p.artist,
-                                    category: Category.Painting
-                                  })))
-            .concat(structures.map(
-                (s: Structure) => ({
-                  name: `${s.name} (${s.country}) was built (finished)`,
-                  value: s.year,
-                  category: Category.Structure
-                })))
-            .concat(films.map((f: Film) => ({
-                                name: `${f.title} (${f.director}) was released`,
-                                value: f.year,
-                                category: Category.Film
-                              })))
-            .sort((a, b) => a.value - b.value));
-
     const topMenuHeader = document.createElement('h1');
     const topMenuButton = Object.assign(document.createElement('button'), {
       id: 'top-menu',
@@ -121,6 +123,7 @@ class App {
     this.buildSettingsDiv();
     const records: GameRecord[] = loadHistory();
     if (records.length > 0) displayHistory(records);
+    this.enabledEntries.alwaysFresh();
   }
 
   buildSettingsDiv() {
@@ -146,6 +149,10 @@ class App {
                            .appendChild(Object.assign(
                                document.createElement('input'),
                                {type: 'checkbox', id: id, checked: true}));
+      const signal = this.categorySignals.get(value)!;
+      checkbox.addEventListener('change', () => {
+        signal.value = checkbox.checked;
+      });
       row
           .appendChild(Object.assign(
               document.createElement('td'), {id: 'settings-categories-name'}))
@@ -153,8 +160,19 @@ class App {
             textContent: `${emojiForCategory(value)} ${value}`,
             htmlFor: id,
           }));
-      this.categoryCheckboxes.set(value, checkbox);
     });
+
+    const summary = settingsCategory.appendChild(document.createElement('p'));
+    new Computed(() => {
+      const count = this.enabledEntries.value.length;
+      summary.textContent = count === 0 ?
+          'Warning: All categories are disabled. This setting will be ignored.' :
+          `Entries enabled: ${count}`;
+      if (count === 0)
+        summary.classList.add('warning');
+      else
+        summary.classList.remove('warning');
+    }).alwaysFresh();
   }
 
   show(div: HTMLDivElement) {
@@ -165,12 +183,8 @@ class App {
   }
 
   generateQuestion(distanceRatio: number = 0.2): CompareQuestion {
-    const units = Array.from(this.data.keys());
-    if (units.length === 0) throw new Error('Data map is empty.');
-
-    const entries =
-        this.data.get(units[Math.floor(Math.random() * units.length)])!.filter(
-            (u: UnitEntry) => this.categoryCheckboxes.get(u.category)!.checked);
+    const enabled = this.enabledEntries.value;
+    const entries = enabled.length ? enabled : this.allEntries;
     if (entries.length < 2) throw new Error('Not enough entries to compare.');
 
     const base = entries[Math.floor(Math.random() * entries.length)];

@@ -135,12 +135,14 @@ button#top-menu {
 :where(div#history) {
   display: flex;
 }
-
+:where(div#settings) {
+  display: flex;
+}
 div#title, details.history-record > div {
   display: flex;
 }
 
-div#title, div#menu, div#game, div#history, details.history-record > div {
+div#title, div#menu, div#game, div#history, details.history-record > div, div#settings {
   flex-direction:column;
   align-items: center;
 }
@@ -167,4 +169,8 @@ table {
 
 td#settings-categories-name {
   text-align: left;
+}
+
+div#settings p.warning {
+  color: red;
 }
