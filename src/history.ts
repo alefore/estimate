@@ -72,7 +72,7 @@ export function displayRecord(record: GameRecord): HTMLDetailsElement {
     summary.append(createTimestampView(new Date(record.date).getTime()));
 
   summary.append(document.createTextNode(
-      ` - ${record.correctCount} correct, ${expected.toFixed(1)} expected`));
+      `: ${record.correctCount} correct, ${expected.toFixed(1)} expected`));
 
   if (!record.title) {
     details.append(emojiButton('❌', 'Erase', () => eraseRecord(record.date)));
