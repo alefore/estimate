@@ -1,4 +1,4 @@
-import {Category} from './category.js';
+import {Category, emojiForCategory} from './category.js';
 import {type Difficulty} from './difficulty.js';
 
 export interface UnitEntry {
@@ -79,7 +79,7 @@ export class CompareQuestion {
 
   private addInputToView(unit: UnitEntry, reveal: boolean) {
     const p = document.createElement('p');
-    p.textContent = unit.name;
+    p.textContent = emojiForCategory(unit.category) + ' ' + unit.name;
     if (reveal) {
       p.append(document.createTextNode(' ('));
       p.append(Object.assign(
