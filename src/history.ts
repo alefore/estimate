@@ -48,10 +48,12 @@ export function displayHistory(records: GameRecord[]): void {
   if (!(historyDiv instanceof HTMLDivElement)) {
     throw new Error('Expected div');
   }
-  historyDiv.replaceChildren(...records.map(displayRecord));
+  historyDiv.replaceChildren(...records.map(displayRecord).reverse());
   if (records.length > 1) {
-    historyDiv.append(displayRecord(
-        mergeRecords(records, `Total (${records.length} games)`)));
+    const aggregate =
+        displayRecord(mergeRecords(records, `Total (${records.length} games)`))
+    aggregate.open = true;
+    historyDiv.prepend(aggregate);
   }
   document.body.append(historyDiv);
 }
