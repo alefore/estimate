@@ -54,5 +54,5 @@ export const DIFFICULTY_FILTERS:
     Record<Difficulty, (d: Difficulty) => boolean> = {
       easy: (d) => d === 'easy',
       medium: (d) => d === 'easy' || d === 'medium',
-      hard: (d) => d === 'medium' || d === 'hard',
+      hard: (d) => true,
     };
