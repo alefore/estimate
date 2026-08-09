@@ -39,7 +39,8 @@ class App {
                                      name: `${b.name} was born`,
                                      value: b.value,
                                      id: b.name,
-                                     category: Category.Birth
+                                     category: Category.Birth,
+                                     difficulty: b.difficulty
                                    })))
           .concat(companies.map((c: Company): UnitEntry => ({
                                   name: `${c.name} was founded`,
