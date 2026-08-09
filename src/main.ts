@@ -75,18 +75,24 @@ class App {
             .sort((a, b) => a.value - b.value));
 
     const topMenuHeader = document.createElement('h1');
-    const topMenuButton = Object.assign(
-        document.createElement('button'),
-        {id: 'top-menu', textContent: '☰ Estimates'})
+    const topMenuButton = Object.assign(document.createElement('button'), {
+      id: 'top-menu',
+      textContent: '☰ Estimates',
+      title: 'Back to the main menu'
+    });
     topMenuButton.addEventListener(
         'click', (event: MouseEvent) => this.show(this.menuDiv));
     topMenuHeader.append(topMenuButton);
     this.titleDiv.append(topMenuHeader);
 
-    this.addMenuButton('🚀', 'Play', () => this.startGame());
-    this.addMenuButton('📊', 'History', () => this.showHistory());
     this.addMenuButton(
-        '❓', 'About', () => window.location.href = 'https://alejo.ch/3m9');
+        '🚀', 'Play', 'Start a new game.', () => this.startGame());
+    this.addMenuButton(
+        '📊', 'History', 'Show statitics about all games played.',
+        () => this.showHistory());
+    this.addMenuButton(
+        '❓', 'About', 'Show information about the game.',
+        () => window.location.href = 'https://alejo.ch/3m9');
 
     document.body.append(
         this.titleDiv, this.menuDiv, this.historyDiv, this.gameDiv);
@@ -163,8 +169,9 @@ class App {
     return new CompareQuestion(base, targetEntry);
   }
 
-  addMenuButton(emoji: string, text: string, handler: () => void): void {
-    this.menuDiv.append(emojiButton(emoji, text, handler));
+  addMenuButton(
+      emoji: string, text: string, title: string, handler: () => void): void {
+    this.menuDiv.append(emojiButton(emoji, text, title, handler));
   }
 
   gameDone(allQuestions: QuestionView[]) {
@@ -180,9 +187,10 @@ class App {
 
     saveGame(record);
 
-    this.gameDiv.prepend(emojiButton('✔️ ', 'Done', () => {
-      this.show(this.menuDiv);
-    }));
+    this.gameDiv.prepend(
+        emojiButton('✔️ ', 'Done', 'Go back to the main menu.', () => {
+          this.show(this.menuDiv);
+        }));
 
     const results = displayRecord(record);
     results.open = true;
@@ -199,10 +207,11 @@ class App {
       return new QuestionView(q, this.gameDiv);
     });
 
-    const finishButton = emojiButton('✔️ ', 'Finish', () => {
-      this.gameDone(questions);
-      finishButton.remove();
-    });
+    const finishButton = emojiButton(
+        '✔️ ', 'Finish', 'End the game and show the results.', () => {
+          this.gameDone(questions);
+          finishButton.remove();
+        });
     this.gameDiv.append(finishButton);
   }
 

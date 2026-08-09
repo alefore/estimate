@@ -75,7 +75,9 @@ export function displayRecord(record: GameRecord): HTMLDetailsElement {
       `: ${record.correctCount} correct, ${expected.toFixed(1)} expected`));
 
   if (!record.title) {
-    details.append(emojiButton('❌', 'Erase', () => eraseRecord(record.date)));
+    details.append(emojiButton(
+        '❌', 'Erase', 'Remove this record from the history.',
+        () => eraseRecord(record.date)));
   }
 
   details.append(Object.assign(document.createElement('p'), {

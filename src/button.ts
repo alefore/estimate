@@ -1,7 +1,8 @@
 export function emojiButton(
-    emoji: string, text: string, handler: () => void): HTMLButtonElement {
-  const button =
-      Object.assign(document.createElement('button'), {className: 'emoji'});
+    emoji: string, text: string, title: string,
+    handler: () => void): HTMLButtonElement {
+  const button = Object.assign(
+      document.createElement('button'), {className: 'emoji', title: title});
   button.append(
       Object.assign(document.createElement('span'), {textContent: emoji}),
       Object.assign(document.createElement('span'), {textContent: text}),
