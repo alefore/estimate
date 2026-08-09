@@ -1,3 +1,6 @@
+import {Computed, Signal} from './listener.js';
+import {UnitEntry} from './question.js';
+
 export enum Category {
   Birth = 'Births',
   HistoricalEvent = 'Historical Events',
@@ -28,4 +31,55 @@ export function emojiForCategory(category: Category): string {
     case Category.Company:
       return '💼';
   }
+}
+
+
+export function createCategoryFilter(
+    categorySignals: ReadonlyMap<Category, Signal<boolean>>,
+    enabledEntries: Computed<UnitEntry[]>): HTMLFieldSetElement {
+  const fieldset = Object.assign(
+      document.createElement('fieldset'), {classList: 'content-block'});
+
+  fieldset.append(
+      Object.assign(
+          document.createElement('legend'), {textContent: 'Categories'}),
+      Object.assign(
+          document.createElement('p'),
+          {textContent: 'Which question categories are enabled?'}));
+
+  const categoryList = fieldset.appendChild(Object.assign(
+      document.createElement('div'), {id: 'settings-categories'}));
+
+  Object.values(Category).forEach((value) => {
+    const row = categoryList.appendChild(Object.assign(
+        document.createElement('div'), {className: 'category-row'}));
+    const signal = categorySignals.get(value)!;
+    const id = `setting-category-${value}`;
+    const checkbox =
+        row.appendChild(Object.assign(document.createElement('input'), {
+          type: 'checkbox',
+          id: id,
+          checked: signal.value,
+          onchange: () => {
+            signal.value = checkbox.checked
+          }
+        }));
+    row.append(Object.assign(
+        document.createElement('label'),
+        {textContent: `${emojiForCategory(value)} ${value}`, htmlFor: id}));
+  });
+
+  const summary = fieldset.appendChild(document.createElement('p'));
+  new Computed(() => {
+    const count = enabledEntries.value.length;
+    summary.textContent = count === 0 ?
+        'Warning: All categories are disabled. This setting will be ignored.' :
+        `Entries enabled: ${count}`;
+    if (count === 0)
+      summary.classList.add('warning');
+    else
+      summary.classList.remove('warning');
+  }).alwaysFresh();
+
+  return fieldset;
 }

@@ -1,7 +1,8 @@
 import {Book, books} from './books.js';
 import {emojiButton} from './button.js';
-import {Category, emojiForCategory} from './category.js';
+import {Category, createCategoryFilter, emojiForCategory} from './category.js';
 import {companies, Company} from './companies.js';
+import {createDifficultySelector, type Difficulty} from './difficulty.js';
 import {FamousBirth, famousBirths} from './famous_persons.js';
 import {Film, films} from './films.js';
 import {HistoricalEvent, historicalEvents} from './historical_events.js';
@@ -83,7 +84,7 @@ class App {
   readonly gameDiv = Object.assign(document.createElement('div'), {id: 'game'});
   readonly settingsDiv =
       Object.assign(document.createElement('div'), {id: 'settings'});
-  readonly categorySignals: ReadonlyMap<Category, Signal<Boolean>> =
+  readonly categorySignals: ReadonlyMap<Category, Signal<boolean>> =
       new Map(Object.values(Category).map(
           (value) => [value, new Signal<boolean>(true)]));
   readonly enabledEntries: Computed<UnitEntry[]> = new Computed(
@@ -131,49 +132,11 @@ class App {
     this.settingsDiv.append(
         Object.assign(document.createElement('h2'), {textContent: 'Settings'}));
 
-    const settingsCategory = Object.assign(
-        document.createElement('div'), {classList: 'content-block'});
-    this.settingsDiv.append(settingsCategory);
+    this.settingsDiv.append(
+        createDifficultySelector('medium', new Signal<Difficulty>('medium')));
 
-    settingsCategory.append(
-        Object.assign(
-            document.createElement('h3'), {textContent: 'Categories'}),
-        Object.assign(
-            document.createElement('p'),
-            {textContent: 'Which question categories are enabled?'}));
-    const categoryTable = settingsCategory.appendChild(Object.assign(
-        document.createElement('table'), {id: 'settings-categories'}));
-    Object.values(Category).forEach((value) => {
-      const row = categoryTable.appendChild(document.createElement('tr'));
-      const id = `setting-category-${value}`;
-      const checkbox = row.appendChild(document.createElement('td'))
-                           .appendChild(Object.assign(
-                               document.createElement('input'),
-                               {type: 'checkbox', id: id, checked: true}));
-      const signal = this.categorySignals.get(value)!;
-      checkbox.addEventListener('change', () => {
-        signal.value = checkbox.checked;
-      });
-      row
-          .appendChild(Object.assign(
-              document.createElement('td'), {id: 'settings-categories-name'}))
-          .append(Object.assign(document.createElement('label'), {
-            textContent: `${emojiForCategory(value)} ${value}`,
-            htmlFor: id,
-          }));
-    });
-
-    const summary = settingsCategory.appendChild(document.createElement('p'));
-    new Computed(() => {
-      const count = this.enabledEntries.value.length;
-      summary.textContent = count === 0 ?
-          'Warning: All categories are disabled. This setting will be ignored.' :
-          `Entries enabled: ${count}`;
-      if (count === 0)
-        summary.classList.add('warning');
-      else
-        summary.classList.remove('warning');
-    }).alwaysFresh();
+    this.settingsDiv.append(
+        createCategoryFilter(this.categorySignals, this.enabledEntries));
   }
 
   show(div: HTMLDivElement) {
