@@ -1,15 +1,15 @@
 export enum Category {
-  Birth = 'birth',
-  HistoricalEvent = 'historical-event',
-  Book = 'book',
-  Film = 'film',
-  Invention = 'invention',
-  Painting = 'painting',
-  Structure = 'structure',
-  Company = 'company',
+  Birth = 'Births',
+  HistoricalEvent = 'Historical Events',
+  Book = 'Books',
+  Film = 'Films',
+  Invention = 'Inventions',
+  Painting = 'Paintings',
+  Structure = 'Structures',
+  Company = 'Companies',
 }
 
-export function emojiFor(category: Category): string {
+export function emojiForCategory(category: Category): string {
   switch (category) {
     case Category.Birth:
       return '👶';

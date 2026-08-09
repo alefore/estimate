@@ -1,6 +1,6 @@
 import {Book, books} from './books.js';
 import {emojiButton} from './button.js';
-import {Category} from './category.js';
+import {Category, emojiForCategory} from './category.js';
 import {companies, Company} from './companies.js';
 import {FamousBirth, famousBirths} from './famous_persons.js';
 import {Film, films} from './films.js';
@@ -32,6 +32,9 @@ class App {
   readonly historyDiv =
       Object.assign(document.createElement('div'), {id: 'history'});
   readonly gameDiv = Object.assign(document.createElement('div'), {id: 'game'});
+  readonly settingsDiv =
+      Object.assign(document.createElement('div'), {id: 'settings'});
+  readonly categoryCheckboxes = new Map<Category, HTMLInputElement>();
 
   constructor() {
     const yearUnit = new Unit('Year');
@@ -104,16 +107,54 @@ class App {
         '📊', 'History', 'Show statitics about all games played.',
         () => this.showHistory());
     this.addMenuButton(
+        '⚙️', 'Settings', 'Show settings dialogue.', () => this.showSettings());
+    this.addMenuButton(
         '❓', 'About', 'Show information about the game.',
         () => window.location.href = 'https://alejo.ch/3m9');
 
     document.body.append(
-        this.titleDiv, this.menuDiv, this.historyDiv, this.gameDiv);
+        this.titleDiv, this.menuDiv, this.historyDiv, this.gameDiv,
+        this.settingsDiv);
 
     this.show(this.menuDiv);
 
+    this.buildSettingsDiv();
     const records: GameRecord[] = loadHistory();
     if (records.length > 0) displayHistory(records);
+  }
+
+  buildSettingsDiv() {
+    this.settingsDiv.append(
+        Object.assign(document.createElement('h2'), {textContent: 'Settings'}));
+
+    const settingsCategory = Object.assign(
+        document.createElement('div'), {classList: 'content-block'});
+    this.settingsDiv.append(settingsCategory);
+
+    settingsCategory.append(
+        Object.assign(
+            document.createElement('h3'), {textContent: 'Categories'}),
+        Object.assign(
+            document.createElement('p'),
+            {textContent: 'Which question categories are enabled?'}));
+    const categoryTable = settingsCategory.appendChild(Object.assign(
+        document.createElement('table'), {id: 'settings-categories'}));
+    Object.values(Category).forEach((value) => {
+      const row = categoryTable.appendChild(document.createElement('tr'));
+      const id = `setting-category-${value}`;
+      const checkbox = row.appendChild(document.createElement('td'))
+                           .appendChild(Object.assign(
+                               document.createElement('input'),
+                               {type: 'checkbox', id: id, checked: true}));
+      row
+          .appendChild(Object.assign(
+              document.createElement('td'), {id: 'settings-categories-name'}))
+          .append(Object.assign(document.createElement('label'), {
+            textContent: `${emojiForCategory(value)} ${value}`,
+            htmlFor: id,
+          }));
+      this.categoryCheckboxes.set(value, checkbox);
+    });
   }
 
   show(div: HTMLDivElement) {
@@ -128,7 +169,8 @@ class App {
     if (units.length === 0) throw new Error('Data map is empty.');
 
     const entries =
-        this.data.get(units[Math.floor(Math.random() * units.length)])!;
+        this.data.get(units[Math.floor(Math.random() * units.length)])!.filter(
+            (u: UnitEntry) => this.categoryCheckboxes.get(u.category)!.checked);
     if (entries.length < 2) throw new Error('Not enough entries to compare.');
 
     const base = entries[Math.floor(Math.random() * entries.length)];
@@ -237,6 +279,10 @@ class App {
       this.historyDiv.replaceChildren(Object.assign(
           document.createElement('p'), {textContent: 'History is empty.'}));
     }
+  }
+
+  showSettings() {
+    this.show(this.settingsDiv);
   }
 }
 

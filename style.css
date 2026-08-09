@@ -46,7 +46,7 @@ input, button, textarea, select {
   display: none;
 }
 
-div.question, details.history-record {
+div.question, details.history-record, .content-block {
   text-align: center;
 
   border: 1px solid var(--text-dim);
@@ -158,4 +158,13 @@ button.emoji {
   grid-template-columns: 1.5em 1fr;
   align-items: center;
   min-width: 15em;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td#settings-categories-name {
+  text-align: left;
 }
