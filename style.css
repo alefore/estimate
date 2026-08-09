@@ -26,7 +26,7 @@ input, button, textarea, select {
   border-radius: 6px;
 
   background: var(--bg-mild);
-  color: var(--text-dim);
+  color: var(--text);
   border-color:rgba(0, 0, 0, 0.15);
   font-size: 0.9rem;
 }
@@ -42,11 +42,6 @@ input, button, textarea, select {
   border-color: transparent;
 }
 
-.confidence button.selected {
-  background: var(--text);
-  color: var(--bg)
-}
-
 .invisible {
   display: none;
 }
@@ -54,7 +49,7 @@ input, button, textarea, select {
 div.question, details.history-record {
   text-align: center;
 
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--text-dim);
   border-radius: 8px;
   padding: 16px;
 
@@ -88,10 +83,6 @@ div.compare-question hr {
   border: none;
   border-top: 1px dashed #ccc;
   width: 80%;
-}
-
-span.highlight {
-  text-decoration: underline;
 }
 
 .histogram {
