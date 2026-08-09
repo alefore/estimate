@@ -1,9 +1,10 @@
 import {Book, books} from './books.js';
 import {emojiButton} from './button.js';
+import {Category} from './category.js';
 import {companies, Company} from './companies.js';
 import {FamousBirth, famousBirths} from './famous_persons.js';
 import {Film, films} from './films.js';
-import {historicalEvents} from './historical_events.js';
+import {HistoricalEvent, historicalEvents} from './historical_events.js';
 import {displayHistory, displayRecord, GameRecord, loadHistory, saveGame} from './history.js';
 import {Invention, inventions} from './inventions.js';
 import {Painting, paintings} from './paintings.js';
@@ -37,41 +38,53 @@ class App {
     this.data.set(
         yearUnit,
         historicalEvents
+            .map((h: HistoricalEvent) => ({
+                   name: h.name,
+                   value: h.value,
+                   category: Category.HistoricalEvent
+                 }))
             .concat(famousBirths.map((b: FamousBirth) => ({
-                                       name: `👶 ${b.name} was born`,
+                                       name: `${b.name} was born`,
                                        value: b.value,
-                                       id: b.name
+                                       id: b.name,
+                                       category: Category.Birth
                                      })))
-            .concat(companies.map(
-                (c: Company) =>
-                    ({name: `💼 ${c.name} was founded`, value: c.year})))
-            .concat(books.map(
-                (b: Book) => ({
-                  name: `📖 ${b.title} (by ${b.author}) was published`,
-                  value: b.year
-                })))
+            .concat(companies.map((c: Company) => ({
+                                    name: `${c.name} was founded`,
+                                    value: c.year,
+                                    category: Category.Company
+                                  })))
+            .concat(
+                books.map((b: Book) => ({
+                            name: `${b.title} (by ${b.author}) was published`,
+                            value: b.year,
+                            category: Category.Book
+                          })))
             .concat(
                 inventions.map((i: Invention) => ({
-                                 name: `💡 ${i.name} was invented` +
+                                 name: `${i.name} was invented` +
                                      (i.inventor ? ` (by ${i.inventor})` : ''),
                                  value: i.year,
-                                 id: i.inventor
+                                 id: i.inventor,
+                                 category: Category.Invention
                                })))
             .concat(paintings.map((p: Painting) => ({
-                                    name: `🎨 ${p.artist} finished ${p.title}`,
+                                    name: `${p.artist} finished ${p.title}`,
                                     value: p.year,
-                                    id: p.artist
+                                    id: p.artist,
+                                    category: Category.Painting
                                   })))
             .concat(structures.map(
                 (s: Structure) => ({
-                  name: `🏛️  ${s.name} (${s.country}) was built (finished)`,
-                  value: s.year
+                  name: `${s.name} (${s.country}) was built (finished)`,
+                  value: s.year,
+                  category: Category.Structure
                 })))
-            .concat(
-                films.map((f: Film) => ({
-                            name: `🎥 ${f.title} (${f.director}) was released`,
-                            value: f.year
-                          })))
+            .concat(films.map((f: Film) => ({
+                                name: `${f.title} (${f.director}) was released`,
+                                value: f.year,
+                                category: Category.Film
+                              })))
             .sort((a, b) => a.value - b.value));
 
     const topMenuHeader = document.createElement('h1');

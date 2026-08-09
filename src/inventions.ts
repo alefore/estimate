@@ -48,6 +48,11 @@ export const inventions: Invention[] = [
   {name: 'Electric dynamo', year: 1831, inventor: 'Michael Faraday'},
   {name: 'Revolver', year: 1836, inventor: 'Samuel Colt'},
   {name: 'Telegraph', year: 1837, inventor: 'Samuel Morse'},
+  {
+    name: 'Telegraph (first official public message sent)',
+    year: 1844,
+    inventor: 'Samuel Morse'
+  },
   {name: 'Daguerreotype photography', year: 1839, inventor: 'Louis Daguerre'},
   {name: 'Vulcanized rubber', year: 1839, inventor: 'Charles Goodyear'},
   {
@@ -155,13 +160,19 @@ export const inventions: Invention[] = [
   {name: 'Microprocessor (Intel 4004)', year: 1971},
   {name: 'Email', year: 1971, inventor: 'Ray Tomlinson'},
   {name: 'CT scanner', year: 1971, inventor: 'Godfrey Hounsfield'},
-  {name: 'Mobile phone (handheld call)', year: 1973, inventor: 'Martin Cooper'},
+  {
+    name: 'Mobile phone (first handheld call)',
+    year: 1973,
+    inventor: 'Martin Cooper'
+  },
   {name: 'Personal computer (Altair 8800)', year: 1974},
   {name: 'Digital camera (prototype)', year: 1975, inventor: 'Steven Sasson'},
   {name: 'MRI scanner (first human scan)', year: 1977},
   {name: 'GPS (first satellite launched)', year: 1978},
   {name: 'Walkman', year: 1979},
+  {name: 'space shuttle (first launch)', year: 1981},
   {name: 'Compact disc', year: 1982},
+  {name: 'Macintosh (released)', year: 1984},
   {name: 'DNA fingerprinting', year: 1984, inventor: 'Alec Jeffreys'},
   {name: 'Lithium-ion battery (commercial)', year: 1991},
   {name: 'World Wide Web', year: 1991, inventor: 'Tim Berners-Lee'},
@@ -170,6 +181,7 @@ export const inventions: Invention[] = [
   {name: 'USB', year: 1996},
   {name: 'Wi-Fi (802.11 standard)', year: 1997},
   {name: 'Google Search', year: 1998, inventor: 'Larry Page, Sergey Brin'},
+  {name: 'YouTube (first video uploaded)', year: 2005},
   {name: 'iPhone', year: 2007},
   {name: 'Bitcoin', year: 2009, inventor: 'Satoshi Nakamoto'},
   {
@@ -177,4 +189,5 @@ export const inventions: Invention[] = [
     year: 2012,
     inventor: 'Jennifer Doudna and Emmanuelle Charpentier'
   },
+  {name: 'ChatGPT (released)', year: 2022},
 ];

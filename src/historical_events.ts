@@ -1,10 +1,14 @@
 import {UnitEntry} from './question.js';
 
-export const historicalEvents: UnitEntry[] = [
-  {name: 'the Great Pyramid of Giza was built', value: -2560},  // c. 2560 BC
-  {name: 'Stonehenge was erected', value: -2500},               // c. 2500 BC
-  {name: 'Hammurabi wrote his code of laws', value: -1754},     // c. 1754 BC
-  {name: 'Tutankhamun ruled Egypt', value: -1332},              // c. 1332 BC
+export interface HistoricalEvent {
+  name: string;
+  value: number;
+  id?: string;
+}
+
+export const historicalEvents: HistoricalEvent[] = [
+  {name: 'Hammurabi wrote his code of laws', value: -1754},  // c. 1754 BC
+  {name: 'Tutankhamun ruled Egypt', value: -1332},           // c. 1332 BC
   {
     name: 'the Trojan War was fought',
     value: -1184
@@ -109,7 +113,6 @@ export const historicalEvents: UnitEntry[] = [
   {name: 'the US Constitution was signed', value: 1787},
   {name: 'the French Revolution began', value: 1789},
   {name: 'the guillotine claimed Louis XVI', value: 1793},
-  {name: 'the smallpox vaccine was invented', value: 1796},
   {name: 'Napoleon crowned himself emperor', value: 1804},
   {name: 'the Battle of Trafalgar was fought', value: 1805},
   {name: 'Napoleon invaded Russia', value: 1812},
@@ -120,7 +123,6 @@ export const historicalEvents: UnitEntry[] = [
   },  // Stockton & Darlington
   {name: 'the first photograph was taken', value: 1826},  // Niépce
   {name: 'slavery was abolished in the British Empire', value: 1833},
-  {name: 'the telegraph was demonstrated by Morse', value: 1844},
   {name: 'the California Gold Rush began', value: 1848},
   {name: 'the Communist Manifesto was published', value: 1848},
   {name: 'Darwin published On the Origin of Species', value: 1859},
@@ -130,10 +132,8 @@ export const historicalEvents: UnitEntry[] = [
   {name: 'the transatlantic telegraph cable was completed', value: 1866},
   {name: 'the transcontinental railroad was completed', value: 1869},
   {name: 'the Suez Canal opened', value: 1869},
-  {name: 'the telephone was invented', value: 1876},
   {name: 'the light bulb was perfected by Edison', value: 1879},
   {name: 'Krakatoa erupted', value: 1883},
-  {name: 'the Eiffel Tower was completed', value: 1889},
   {name: 'the first modern Olympic Games were held', value: 1896},
   {name: 'X-rays were discovered', value: 1895},
   {name: 'the first movie was screened by the Lumière brothers', value: 1895},
@@ -141,7 +141,6 @@ export const historicalEvents: UnitEntry[] = [
   {name: 'the Wright brothers flew the first airplane', value: 1903},
   {name: 'Einstein published his theory of special relativity', value: 1905},
   {name: 'the San Francisco earthquake struck', value: 1906},
-  {name: 'the Model T Ford went on sale', value: 1908},
   {name: 'the Titanic sank', value: 1912},
   {name: 'World War I began', value: 1914},
   {name: 'the Panama Canal opened', value: 1914},
@@ -163,7 +162,6 @@ export const historicalEvents: UnitEntry[] = [
   {name: 'World War II ended', value: 1945},
   {name: 'the United Nations was founded', value: 1945},
   {name: 'India gained independence', value: 1947},
-  {name: 'the transistor was invented', value: 1947},
   {name: 'the sound barrier was broken', value: 1947},
   {name: 'the state of Israel was founded', value: 1948},
   {name: 'NATO was founded', value: 1949},
@@ -171,16 +169,13 @@ export const historicalEvents: UnitEntry[] = [
   {name: 'the Korean War began', value: 1950},
   {name: 'the structure of DNA was discovered', value: 1953},
   {name: 'Mount Everest was first climbed', value: 1953},
-  {name: 'the polio vaccine was introduced', value: 1955},
   {name: 'Rosa Parks refused to give up her seat', value: 1955},
   {name: 'Sputnik became the first satellite in space', value: 1957},
   {
     name: 'the Treaty of Rome created the European Economic Community',
     value: 1957
   },
-  {name: 'the laser was invented', value: 1960},
   {name: 'Yuri Gagarin became the first human in space', value: 1961},
-  {name: 'the Berlin Wall was built', value: 1961},
   {
     name: 'the Cuban Missile Crisis brought the world to the brink',
     value: 1962
@@ -195,27 +190,18 @@ export const historicalEvents: UnitEntry[] = [
   {name: 'Woodstock took place', value: 1969},
   {name: 'the first pocket calculator went on sale', value: 1971},
   {name: 'the Watergate scandal broke', value: 1972},
-  {name: 'the first mobile phone call was made', value: 1973},
-  {name: 'the Sydney Opera House opened', value: 1973},
   {name: 'Nixon resigned as US president', value: 1974},
   {name: 'the Vietnam War ended', value: 1975},
-  {name: 'Microsoft was founded', value: 1975},
-  {name: 'Apple was founded', value: 1976},
-  {name: 'the first Star Wars film premiered', value: 1977},
   {name: 'the first test-tube baby was born', value: 1978},
   {name: 'Margaret Thatcher became UK prime minister', value: 1979},
   {name: 'smallpox was declared eradicated', value: 1980},
   {name: 'John Lennon was shot', value: 1980},
   {name: 'MTV started broadcasting', value: 1981},
   {name: 'the IBM PC was launched', value: 1981},
-  {name: 'the first space shuttle was launched', value: 1981},
-  {name: 'the first CD went on sale', value: 1982},
-  {name: 'the Macintosh was introduced', value: 1984},
   {name: 'Live Aid was broadcast worldwide', value: 1985},
   {name: 'the Chernobyl disaster occurred', value: 1986},
   {name: 'the Challenger space shuttle exploded', value: 1986},
   {name: 'the Berlin Wall fell', value: 1989},
-  {name: 'the World Wide Web was invented', value: 1989},
   {name: 'Nelson Mandela was released from prison', value: 1990},
   {name: 'the Hubble Space Telescope was launched', value: 1990},
   {name: 'the Soviet Union collapsed', value: 1991},
@@ -228,11 +214,9 @@ export const historicalEvents: UnitEntry[] = [
   {name: 'Amazon was founded', value: 1994},
   {name: 'Dolly the sheep was cloned', value: 1996},
   {name: 'Hong Kong was returned to China', value: 1997},
-  {name: 'Google was founded', value: 1998},
   {name: 'the euro was introduced', value: 1999},
   {name: 'the September 11 attacks occurred', value: 2001},
   {name: 'the Indian Ocean tsunami struck', value: 2004},
-  {name: 'first video was uploaded to YouTube', value: 2005},
   {name: 'the global financial crisis erupted', value: 2008},
   {name: 'Barack Obama became US president', value: 2009},
   {name: 'the Arab Spring began', value: 2010},
@@ -242,5 +226,4 @@ export const historicalEvents: UnitEntry[] = [
   {name: 'the UK voted for Brexit', value: 2016},
   {name: 'the first image of a black hole was published', value: 2019},
   {name: 'the COVID-19 pandemic began', value: 2020},
-  {name: 'ChatGPT was released', value: 2022},
 ];
