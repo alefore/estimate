@@ -1,5 +1,6 @@
 import {emojiButton} from './button.js';
 import {renderHistogram, scoreDistribution} from './histogram.js';
+import {createTimestampView} from './timestamps.js';
 
 export interface GameRecord {
   /** ISO 8601 timestamp of when the game was completed. */
@@ -65,15 +66,13 @@ export function displayRecord(record: GameRecord): HTMLDetailsElement {
   const summary = document.createElement('summary');
   const details = document.createElement('div');
 
-  summary.textContent =
-      (record.title || new Date(record.date).toLocaleString(undefined, {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-      })) +
-      ` - ${record.correctCount} correct, ${expected.toFixed(1)} expected`;
+  if (record.title)
+    summary.append(document.createTextNode(record.title));
+  else
+    summary.append(createTimestampView(new Date(record.date).getTime()));
+
+  summary.append(document.createTextNode(
+      ` - ${record.correctCount} correct, ${expected.toFixed(1)} expected`));
 
   if (!record.title) {
     details.append(emojiButton('❌', 'Erase', () => eraseRecord(record.date)));
@@ -90,6 +89,17 @@ export function displayRecord(record: GameRecord): HTMLDetailsElement {
       Object.assign(document.createElement('div'), {className: 'histogram'});
   renderHistogram(histogram, scoreDistribution(record.confidences));
   details.append(histogram);
+
+  if (!record.title)
+    details.append(Object.assign(document.createElement('p'), {
+      textContent: new Date(record.date).toLocaleString(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+      })
+    }));
 
   const container = Object.assign(
       document.createElement('details'), {classList: 'history-record'});
