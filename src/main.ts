@@ -2,7 +2,7 @@ import {Book, books} from './books.js';
 import {emojiButton} from './button.js';
 import {Category, createCategoryFilter, emojiForCategory} from './category.js';
 import {companies, Company} from './companies.js';
-import {createDifficultySelector, type Difficulty} from './difficulty.js';
+import {createDifficultySelector, type Difficulty, difficultyDistanceRatios} from './difficulty.js';
 import {FamousBirth, famousBirths} from './famous_persons.js';
 import {Film, films} from './films.js';
 import {HistoricalEvent, historicalEvents} from './historical_events.js';
@@ -90,6 +90,7 @@ class App {
   readonly enabledEntries: Computed<UnitEntry[]> = new Computed(
       () => this.allEntries.filter(
           (u) => this.categorySignals.get(u.category)!.value));
+  readonly difficultySignal: Signal<Difficulty> = new Signal('medium');
 
   constructor() {
     const yearUnit = new Unit('Year');
@@ -133,7 +134,7 @@ class App {
         Object.assign(document.createElement('h2'), {textContent: 'Settings'}));
 
     this.settingsDiv.append(
-        createDifficultySelector('medium', new Signal<Difficulty>('medium')));
+        createDifficultySelector('medium', this.difficultySignal));
 
     this.settingsDiv.append(
         createCategoryFilter(this.categorySignals, this.enabledEntries));
@@ -146,7 +147,8 @@ class App {
     div.classList.remove(cssInvisible);
   }
 
-  generateQuestion(distanceRatio: number = 0.2): CompareQuestion {
+  generateQuestion(): CompareQuestion {
+    const distanceRatio = difficultyDistanceRatios[this.difficultySignal.value];
     const enabled = this.enabledEntries.value;
     const entries = enabled.length ? enabled : this.allEntries;
     if (entries.length < 2) throw new Error('Not enough entries to compare.');
