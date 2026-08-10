@@ -84,7 +84,7 @@ export function displayRecord(record: GameRecord): HTMLDetailsElement {
     className: 'game-record-score',
     textContent: `You got ${record.correctCount} of ${total} right` +
         (record.skips > 0 ? ` (skipped: ${record.skips})` : '') +
-        `. Your confidence predicted: ${expected.toFixed(1)}).`
+        `. Your confidence predicted: ${expected.toFixed(1)}.`
   }));
 
   const histogram =
