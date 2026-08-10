@@ -30,9 +30,21 @@ export const inventions: Invention[] = [
     difficulty: 'hard'
   },
   {
+    name: 'Vacuum pump',
+    year: 1650,
+    inventor: 'Otto von Guericke',
+    difficulty: 'hard'
+  },
+  {
     name: 'Pendulum clock',
     year: 1656,
     inventor: 'Christiaan Huygens',
+    difficulty: 'hard'
+  },
+  {
+    name: 'Pressure cooker',
+    year: 1679,
+    inventor: 'Denis Papin',
     difficulty: 'hard'
   },
   {
@@ -114,6 +126,12 @@ export const inventions: Invention[] = [
     difficulty: 'hard'
   },
   {
+    name: 'Spectrometer',
+    year: 1814,
+    inventor: 'Joseph von Fraunhofer',
+    difficulty: 'hard'
+  },
+  {
     name: 'Stethoscope',
     year: 1816,
     inventor: 'René Laennec',
@@ -175,12 +193,6 @@ export const inventions: Invention[] = [
     difficulty: 'medium'
   },
   {
-    name: 'Telegraph (first official public message sent)',
-    year: 1844,
-    inventor: 'Samuel Morse',
-    difficulty: 'medium'
-  },
-  {
     name: 'Daguerreotype photography',
     year: 1839,
     inventor: 'Louis Daguerre',
@@ -191,6 +203,18 @@ export const inventions: Invention[] = [
     year: 1839,
     inventor: 'Charles Goodyear',
     difficulty: 'hard'
+  },
+  {
+    name: 'Telegraph (first official public message sent)',
+    year: 1844,
+    inventor: 'Samuel Morse',
+    difficulty: 'medium'
+  },
+  {
+    name: 'Chocolate bar (mass-produced)',
+    year: 1847,
+    inventor: 'Joseph Fry',
+    difficulty: 'easy'
   },
   {
     name: 'Anesthesia (ether, public demonstration)',
@@ -230,6 +254,12 @@ export const inventions: Invention[] = [
     difficulty: 'medium'
   },
   {
+    name: 'Barbed wire',
+    year: 1874,
+    inventor: 'Joseph Glidden',
+    difficulty: 'medium'
+  },
+  {
     name: 'Telephone',
     year: 1876,
     inventor: 'Alexander Graham Bell',
@@ -252,6 +282,12 @@ export const inventions: Invention[] = [
     year: 1879,
     inventor: 'Thomas Edison',
     difficulty: 'easy'
+  },
+  {
+    name: 'Fountain pen (practical)',
+    year: 1884,
+    inventor: 'Lewis Waterman',
+    difficulty: 'medium'
   },
   {
     name: 'Automobile (gasoline)',
@@ -318,6 +354,12 @@ export const inventions: Invention[] = [
     year: 1897,
     inventor: 'Felix Hoffmann',
     difficulty: 'medium'
+  },
+  {
+    name: 'Paper clip',
+    year: 1899,
+    inventor: 'Johan Vaaler',
+    difficulty: 'easy'
   },
   {
     name: 'Zeppelin airship',
@@ -387,6 +429,12 @@ export const inventions: Invention[] = [
     difficulty: 'medium'
   },
   {
+    name: 'Pez dispenser',
+    year: 1927,
+    inventor: 'Eduard Haas III',
+    difficulty: 'hard'
+  },
+  {
     name: 'Penicillin',
     year: 1928,
     inventor: 'Alexander Fleming',
@@ -405,6 +453,12 @@ export const inventions: Invention[] = [
     difficulty: 'hard'
   },
   {
+    name: 'FM Radio',
+    year: 1933,
+    inventor: 'Edwin Armstrong',
+    difficulty: 'medium'
+  },
+  {
     name: 'Radar (practical)',
     year: 1935,
     inventor: 'Robert Watson-Watt',
@@ -416,6 +470,7 @@ export const inventions: Invention[] = [
     inventor: 'Wallace Carothers',
     difficulty: 'hard'
   },
+  {name: 'Teflon', year: 1938, inventor: 'Roy Plunkett', difficulty: 'hard'},
   {
     name: 'Ballpoint pen (practical)',
     year: 1938,
@@ -435,11 +490,18 @@ export const inventions: Invention[] = [
     difficulty: 'easy'
   },
   {
+    name: 'Duct tape',
+    year: 1942,
+    inventor: 'Vesta Stoudt',
+    difficulty: 'medium'
+  },
+  {
     name: 'Aqualung (scuba)',
     year: 1943,
     inventor: 'Jacques Cousteau and Émile Gagnan',
     difficulty: 'medium'
   },
+  {name: 'Slinky', year: 1943, inventor: 'Richard James', difficulty: 'medium'},
   {
     name: 'Electronic general-purpose computer (ENIAC)',
     year: 1945,
@@ -458,10 +520,22 @@ export const inventions: Invention[] = [
     difficulty: 'easy'
   },
   {
+    name: 'Velcro',
+    year: 1948,
+    inventor: 'George de Mestral',
+    difficulty: 'easy'
+  },
+  {
     name: 'Polaroid instant camera',
     year: 1948,
     inventor: 'Edwin Land',
     difficulty: 'medium'
+  },
+  {
+    name: 'Barcode',
+    year: 1949,
+    inventor: 'Norman Joseph Woodland and Bernard Silver',
+    difficulty: 'easy'
   },
   {
     name: 'Credit card (Diners Club)',
@@ -476,17 +550,35 @@ export const inventions: Invention[] = [
     difficulty: 'easy'
   },
   {
+    name: 'Hovercraft',
+    year: 1955,
+    inventor: 'Christopher Cockerell',
+    difficulty: 'medium'
+  },
+  {
     name: 'Shipping container (intermodal)',
     year: 1956,
     inventor: 'Malcom McLean',
     difficulty: 'hard'
   },
   {name: 'Hard disk drive', year: 1956, difficulty: 'medium'},
+  {
+    name: 'Bubble wrap',
+    year: 1957,
+    inventor: 'Alfred Fielding and Marc Chavannes',
+    difficulty: 'easy'
+  },
   {name: 'Artificial satellite (Sputnik 1)', year: 1957, difficulty: 'easy'},
   {
     name: 'Integrated circuit',
     year: 1958,
     inventor: 'Jack Kilby',
+    difficulty: 'medium'
+  },
+  {
+    name: 'Implantable pacemaker',
+    year: 1958,
+    inventor: 'Rune Elmqvist',
     difficulty: 'medium'
   },
   {
@@ -504,10 +596,17 @@ export const inventions: Invention[] = [
     difficulty: 'medium'
   },
   {
+    name: 'Automated Teller Machine (ATM)',
+    year: 1967,
+    inventor: 'John Shepherd-Barron',
+    difficulty: 'easy'
+  },
+  {
     name: 'ARPANET (first packet-switched network)',
     year: 1969,
     difficulty: 'easy'
   },
+  {name: 'Pocket calculator', year: 1971, difficulty: 'medium'},
   {name: 'Microprocessor (Intel 4004)', year: 1971, difficulty: 'medium'},
   {name: 'Email', year: 1971, inventor: 'Ray Tomlinson', difficulty: 'medium'},
   {
@@ -522,7 +621,19 @@ export const inventions: Invention[] = [
     inventor: 'Martin Cooper',
     difficulty: 'easy'
   },
+  {
+    name: 'Rubik\'s Cube',
+    year: 1974,
+    inventor: 'Ernő Rubik',
+    difficulty: 'easy'
+  },
   {name: 'Personal computer (Altair 8800)', year: 1974, difficulty: 'medium'},
+  {
+    name: 'Post-it Note',
+    year: 1974,
+    inventor: 'Arthur Fry and Spencer Silver',
+    difficulty: 'easy'
+  },
   {
     name: 'Digital camera (prototype)',
     year: 1975,
@@ -530,6 +641,12 @@ export const inventions: Invention[] = [
     difficulty: 'medium'
   },
   {name: 'MRI scanner (first human scan)', year: 1977, difficulty: 'hard'},
+  {
+    name: 'Spreadsheet software (VisiCalc)',
+    year: 1978,
+    inventor: 'Dan Bricklin and Bob Frankston',
+    difficulty: 'hard'
+  },
   {name: 'GPS (first satellite launched)', year: 1978, difficulty: 'medium'},
   {name: 'Walkman', year: 1979, difficulty: 'easy'},
   {name: 'space shuttle (first launch)', year: 1981, difficulty: 'easy'},
@@ -549,6 +666,7 @@ export const inventions: Invention[] = [
     difficulty: 'easy'
   },
   {name: 'Text messaging (SMS)', year: 1992, difficulty: 'hard'},
+  {name: 'QR Code', year: 1994, inventor: 'Masahiro Hara', difficulty: 'easy'},
   {name: 'DVD', year: 1995, difficulty: 'easy'},
   {name: 'USB', year: 1996, difficulty: 'easy'},
   {name: 'Wi-Fi (802.11 standard)', year: 1997, difficulty: 'easy'},
@@ -556,6 +674,12 @@ export const inventions: Invention[] = [
     name: 'Google Search',
     year: 1998,
     inventor: 'Larry Page, Sergey Brin',
+    difficulty: 'easy'
+  },
+  {
+    name: 'Bluetooth',
+    year: 1999,
+    inventor: 'Nils Rydbeck and Johan Ullman',
     difficulty: 'easy'
   },
   {name: 'YouTube (first video uploaded)', year: 2005, difficulty: 'easy'},
