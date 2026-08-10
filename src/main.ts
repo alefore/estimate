@@ -72,7 +72,8 @@ class App {
               (s: Structure): UnitEntry => ({
                 name: `${s.name} (${s.country}) was built (finished)`,
                 value: s.year,
-                category: Category.Structure
+                category: Category.Structure,
+                difficulty: s.difficulty
               })))
           .concat(films.map((f: Film): UnitEntry => ({
                               name: `${f.title} (${f.director}) was released`,
