@@ -50,7 +50,8 @@ class App {
           .concat(books.map((b: Book): UnitEntry => ({
                               name: `${b.title} (by ${b.author}) was published`,
                               value: b.year,
-                              category: Category.Book
+                              category: Category.Book,
+                              difficulty: b.difficulty
                             })))
           .concat(
               inventions.map((i: Invention): UnitEntry => ({
