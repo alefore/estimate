@@ -59,7 +59,8 @@ class App {
                                    (i.inventor ? ` (by ${i.inventor})` : ''),
                                value: i.year,
                                id: i.inventor,
-                               category: Category.Invention
+                               category: Category.Invention,
+                               difficulty: i.difficulty
                              })))
           .concat(paintings.map((p: Painting): UnitEntry => ({
                                   name: `${p.artist} finished ${p.title}`,
