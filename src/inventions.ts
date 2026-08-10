@@ -24,6 +24,12 @@ export const inventions: Invention[] = [
   },
   {name: 'Compound microscope (refined)', year: 1625, difficulty: 'hard'},
   {
+    name: 'Mechanical calculator (Pascaline)',
+    year: 1642,
+    inventor: 'Blaise Pascal',
+    difficulty: 'hard'
+  },
+  {
     name: 'Barometer',
     year: 1643,
     inventor: 'Evangelista Torricelli',
@@ -42,11 +48,18 @@ export const inventions: Invention[] = [
     difficulty: 'hard'
   },
   {
+    name: 'Reflecting telescope',
+    year: 1668,
+    inventor: 'Isaac Newton',
+    difficulty: 'medium'
+  },
+  {
     name: 'Pressure cooker',
     year: 1679,
     inventor: 'Denis Papin',
     difficulty: 'hard'
   },
+  {name: 'Tuning fork', year: 1711, inventor: 'John Shore', difficulty: 'hard'},
   {
     name: 'Steam engine (piston)',
     year: 1712,
@@ -254,6 +267,12 @@ export const inventions: Invention[] = [
     difficulty: 'medium'
   },
   {
+    name: 'Periodic table',
+    year: 1869,
+    inventor: 'Dmitri Mendeleev',
+    difficulty: 'medium'
+  },
+  {
     name: 'Barbed wire',
     year: 1874,
     inventor: 'Joseph Glidden',
@@ -283,10 +302,23 @@ export const inventions: Invention[] = [
     inventor: 'Thomas Edison',
     difficulty: 'easy'
   },
+  {name: 'Seismograph', year: 1880, inventor: 'John Milne', difficulty: 'hard'},
+  {
+    name: 'Metal detector',
+    year: 1881,
+    inventor: 'Alexander Graham Bell',
+    difficulty: 'medium'
+  },
   {
     name: 'Fountain pen (practical)',
     year: 1884,
     inventor: 'Lewis Waterman',
+    difficulty: 'medium'
+  },
+  {
+    name: 'Motorcycle',
+    year: 1885,
+    inventor: 'Gottlieb Daimler and Wilhelm Maybach',
     difficulty: 'medium'
   },
   {
@@ -302,10 +334,22 @@ export const inventions: Invention[] = [
     difficulty: 'medium'
   },
   {
+    name: 'Dishwasher',
+    year: 1886,
+    inventor: 'Josephine Cochrane',
+    difficulty: 'medium'
+  },
+  {
     name: 'Coca-Cola',
     year: 1886,
     inventor: 'John Pemberton',
     difficulty: 'easy'
+  },
+  {
+    name: 'Contact lenses',
+    year: 1887,
+    inventor: 'Adolf Fick',
+    difficulty: 'medium'
   },
   {
     name: 'Pneumatic tire (practical)',
@@ -323,6 +367,18 @@ export const inventions: Invention[] = [
     name: 'Alternating current motor',
     year: 1888,
     inventor: 'Nikola Tesla',
+    difficulty: 'medium'
+  },
+  {
+    name: 'Zipper',
+    year: 1891,
+    inventor: 'Whitcomb Judson',
+    difficulty: 'medium'
+  },
+  {
+    name: 'Escalator',
+    year: 1891,
+    inventor: 'Jesse W. Reno',
     difficulty: 'medium'
   },
   {
@@ -356,6 +412,12 @@ export const inventions: Invention[] = [
     difficulty: 'medium'
   },
   {
+    name: 'Remote control',
+    year: 1898,
+    inventor: 'Nikola Tesla',
+    difficulty: 'medium'
+  },
+  {
     name: 'Paper clip',
     year: 1899,
     inventor: 'Johan Vaaler',
@@ -374,15 +436,33 @@ export const inventions: Invention[] = [
     difficulty: 'hard'
   },
   {
+    name: 'Polygraph (lie detector)',
+    year: 1902,
+    inventor: 'James Mackenzie',
+    difficulty: 'hard'
+  },
+  {
     name: 'Air conditioning',
     year: 1902,
     inventor: 'Willis Carrier',
     difficulty: 'hard'
   },
   {
+    name: 'Electrocardiogram (ECG)',
+    year: 1903,
+    inventor: 'Willem Einthoven',
+    difficulty: 'hard'
+  },
+  {
     name: 'Powered airplane',
     year: 1903,
     inventor: 'Wright brothers',
+    difficulty: 'easy'
+  },
+  {
+    name: 'Tea bag',
+    year: 1904,
+    inventor: 'Thomas Sullivan',
     difficulty: 'easy'
   },
   {
@@ -398,6 +478,12 @@ export const inventions: Invention[] = [
     difficulty: 'easy'
   },
   {
+    name: 'Geiger counter',
+    year: 1908,
+    inventor: 'Hans Geiger',
+    difficulty: 'hard'
+  },
+  {
     name: 'Haber-Bosch ammonia synthesis',
     year: 1909,
     inventor: 'Fritz Haber',
@@ -410,6 +496,12 @@ export const inventions: Invention[] = [
     difficulty: 'medium'
   },
   {name: 'Traffic light (electric)', year: 1914, difficulty: 'hard'},
+  {
+    name: 'Band-Aid (adhesive bandage)',
+    year: 1920,
+    inventor: 'Earle Dickson',
+    difficulty: 'medium'
+  },
   {
     name: 'Insulin (isolated for treatment)',
     year: 1921,
@@ -514,6 +606,12 @@ export const inventions: Invention[] = [
     difficulty: 'medium'
   },
   {
+    name: 'Disposable diaper',
+    year: 1946,
+    inventor: 'Marion Donovan',
+    difficulty: 'medium'
+  },
+  {
     name: 'Transistor',
     year: 1947,
     inventor: 'Bardeen, Brattain, and Shockley',
@@ -542,6 +640,12 @@ export const inventions: Invention[] = [
     year: 1950,
     inventor: 'Frank McNamara',
     difficulty: 'medium'
+  },
+  {
+    name: 'Flight recorder (Black box)',
+    year: 1953,
+    inventor: 'David Warren',
+    difficulty: 'hard'
   },
   {
     name: 'Polio vaccine',
@@ -596,6 +700,12 @@ export const inventions: Invention[] = [
     difficulty: 'medium'
   },
   {
+    name: 'Kevlar',
+    year: 1965,
+    inventor: 'Stephanie Kwolek',
+    difficulty: 'hard'
+  },
+  {
     name: 'Automated Teller Machine (ATM)',
     year: 1967,
     inventor: 'John Shepherd-Barron',
@@ -641,6 +751,12 @@ export const inventions: Invention[] = [
     difficulty: 'medium'
   },
   {name: 'MRI scanner (first human scan)', year: 1977, difficulty: 'hard'},
+  {
+    name: 'Floppy disk',
+    year: 1971,
+    inventor: 'Alan Shugart',
+    difficulty: 'medium'
+  },
   {
     name: 'Spreadsheet software (VisiCalc)',
     year: 1978,
