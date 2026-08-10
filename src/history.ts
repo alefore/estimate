@@ -1,5 +1,5 @@
 import {emojiButton} from './button.js';
-import {renderHistogram, scoreDistribution} from './histogram.js';
+import {compressHistogram, filterHistogram, renderHistogram, scoreDistribution} from './histogram.js';
 import {createTimestampView} from './timestamps.js';
 
 export interface GameRecord {
@@ -87,10 +87,12 @@ export function displayRecord(record: GameRecord): HTMLDetailsElement {
         `. Your confidence predicted: ${expected.toFixed(1)}.`
   }));
 
-  const histogram =
-      Object.assign(document.createElement('div'), {className: 'histogram'});
-  renderHistogram(histogram, scoreDistribution(record.confidences));
-  details.append(histogram);
+  const histogramDiv = details.appendChild(
+      Object.assign(document.createElement('div'), {className: 'histogram'}));
+  renderHistogram(
+      histogramDiv,
+      compressHistogram(
+          filterHistogram(scoreDistribution(record.confidences)), 20));
 
   if (!record.title)
     details.append(Object.assign(document.createElement('p'), {

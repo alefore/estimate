@@ -1,6 +1,12 @@
+export interface HistogramBin {
+  name: string;
+  value: number;
+}
+type Histogram = HistogramBin[];
+
 // Poisson binomial distribution: dist[k] = P(exactly k answers correct),
 // given per-question probabilities of being correct.
-export function scoreDistribution(confidences) {
+export function scoreDistribution(confidences): Histogram {
   let dist = [1];  // before any question: P(0 correct) = 1
   for (const p of confidences) {
     const next = new Array(dist.length + 1).fill(0);
@@ -10,39 +16,56 @@ export function scoreDistribution(confidences) {
     }
     dist = next;
   }
-  return dist;
+  return dist.map(
+      (value, index): HistogramBin => ({name: index.toString(), value: value}));
 }
 
-export function renderHistogram(container, dist) {
-  container.innerHTML = '';
-  const max = Math.max(...dist);
-  const mode = dist.indexOf(max);
+export function filterHistogram(histogram: Histogram): Histogram {
+  let startIndex = histogram.findIndex((p: HistogramBin) => p.value >= 0.001);
+  let endIndex = histogram.findLastIndex((p) => p.value >= 0.001);
+  return startIndex === -1 || endIndex === -1 ?
+      histogram :
+      histogram.slice(startIndex, endIndex + 1)
+}
 
-  let startIndex = dist.findIndex(p => p >= 0.001);
-  let endIndex = dist.findLastIndex(p => p >= 0.001);
-  if (startIndex === -1) {
-    startIndex = 0;  // Fallback.
-    endIndex = dist.length - 1;
+export function compressHistogram(
+    histogram: Histogram, maxEntries: number): Histogram {
+  if (histogram.length <= maxEntries) return histogram;
+  const bucketSize = Math.ceil(histogram.length / maxEntries);
+  const output: Histogram = [];
+  for (let bucket = 0; bucket * bucketSize < histogram.length; bucket++) {
+    const firstIndex = bucket * bucketSize;
+    const nextIndex = Math.min((bucket + 1) * bucketSize, histogram.length);
+    const sum = histogram.slice(firstIndex, nextIndex)
+                    .reduce((sum, current) => sum + current.value, 0);
+    const firstName = histogram[firstIndex].name;
+    const lastName = histogram[nextIndex - 1].name;
+    const bucketName =
+        firstIndex + 1 === nextIndex ? firstName : `${firstName}-${lastName}`;
+    output.push({name: bucketName, value: sum});
   }
+  return output;
+}
 
-  dist.slice(startIndex, endIndex + 1).forEach((p, i) => {
-    const k = startIndex + i;
-    const bar = document.createElement('div');
-    bar.className = 'bar' + (k === mode ? ' mode' : '');
-
-    const value = document.createElement('div');
-    value.className = 'bar-value';
-    value.textContent = (p * 100).toFixed(1) + '%';
-
-    const fill = document.createElement('div');
-    fill.className = 'bar-fill';
-    fill.style.height = (p / max * 100) + '%';
-
-    const label = document.createElement('div');
-    label.className = 'bar-label';
-    label.textContent = k;
-
-    bar.append(value, fill, label);
-    container.appendChild(bar);
+export function renderHistogram(container, dist: Histogram) {
+  container.innerHTML = '';
+  const maxValue = Math.max(...dist.map((p) => p.value));
+  dist.forEach((p: HistogramBin) => {
+    container
+        .appendChild(Object.assign(
+            document.createElement('div'),
+            {className: 'bar' + (p.value === maxValue ? ' mode' : '')}))
+        .append(
+            Object.assign(document.createElement('div'), {
+              className: 'bar-fill',
+              style: `height: ${(p.value / maxValue * 100)}%`
+            }),
+            Object.assign(
+                document.createElement('div'),
+                {className: 'bar-label', textContent: p.name}),
+            Object.assign(document.createElement('div'), {
+              className: 'bar-value',
+              textContent: (p.value * 100).toFixed(1) + '%'
+            }));
   });
 }
