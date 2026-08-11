@@ -8,6 +8,7 @@ export interface Structure {
   year: number;     // Conventional completion year; negative values are BC
   approximate?: boolean;  // True for ancient structures dated by archaeology
                           // rather than records
+  id: number;
   difficulty: Difficulty;
 }
 
@@ -19,6 +20,7 @@ export const structures: Structure[] = [
     country: 'Egypt',
     year: -2560,
     approximate: true,
+    id: 6000,
     difficulty: 'easy'
   },
   {
@@ -27,6 +29,7 @@ export const structures: Structure[] = [
     country: 'United Kingdom',
     year: -2500,
     approximate: true,
+    id: 6001,
     difficulty: 'easy'
   },
   {
@@ -35,6 +38,7 @@ export const structures: Structure[] = [
     country: 'Egypt',
     year: -1244,
     approximate: true,
+    id: 6002,
     difficulty: 'medium'
   },
   {
@@ -43,6 +47,7 @@ export const structures: Structure[] = [
     country: 'Egypt',
     year: -1224,
     approximate: true,
+    id: 6003,
     difficulty: 'hard'
   },
   {
@@ -50,6 +55,7 @@ export const structures: Structure[] = [
     place: 'Athens',
     country: 'Greece',
     year: -432,
+    id: 6004,
     difficulty: 'easy'
   },
   {
@@ -57,6 +63,7 @@ export const structures: Structure[] = [
     country: 'China',
     year: -206,
     approximate: true,
+    id: 6005,
     difficulty: 'easy'
   },
   {
@@ -65,6 +72,7 @@ export const structures: Structure[] = [
     country: 'Jordan',
     year: -100,
     approximate: true,
+    id: 6006,
     difficulty: 'medium'
   },
   {
@@ -73,6 +81,7 @@ export const structures: Structure[] = [
     country: 'France',
     year: 60,
     approximate: true,
+    id: 6007,
     difficulty: 'hard'
   },
   {
@@ -80,6 +89,7 @@ export const structures: Structure[] = [
     place: 'Rome',
     country: 'Italy',
     year: 80,
+    id: 6008,
     difficulty: 'easy'
   },
   {
@@ -87,6 +97,7 @@ export const structures: Structure[] = [
     place: 'Rome',
     country: 'Italy',
     year: 126,
+    id: 6009,
     difficulty: 'easy'
   },
   {
@@ -95,6 +106,7 @@ export const structures: Structure[] = [
     country: 'Mexico',
     year: 200,
     approximate: true,
+    id: 6010,
     difficulty: 'medium'
   },
   {
@@ -102,6 +114,7 @@ export const structures: Structure[] = [
     place: 'Istanbul',
     country: 'Turkey',
     year: 537,
+    id: 6011,
     difficulty: 'medium'
   },
   {
@@ -109,6 +122,7 @@ export const structures: Structure[] = [
     place: 'Nara',
     country: 'Japan',
     year: 607,
+    id: 6012,
     difficulty: 'hard'
   },
   {
@@ -116,6 +130,7 @@ export const structures: Structure[] = [
     place: 'Jerusalem',
     country: 'Israel/Palestine',
     year: 691,
+    id: 6013,
     difficulty: 'hard'
   },
   {
@@ -124,6 +139,7 @@ export const structures: Structure[] = [
     country: 'Indonesia',
     year: 825,
     approximate: true,
+    id: 6014,
     difficulty: 'hard'
   },
   {
@@ -131,6 +147,7 @@ export const structures: Structure[] = [
     place: 'Córdoba',
     country: 'Spain',
     year: 987,
+    id: 6015,
     difficulty: 'hard'
   },
   {
@@ -139,6 +156,7 @@ export const structures: Structure[] = [
     country: 'Mexico',
     year: 1000,
     approximate: true,
+    id: 6016,
     difficulty: 'medium'
   },
   {
@@ -146,6 +164,7 @@ export const structures: Structure[] = [
     place: 'London',
     country: 'United Kingdom',
     year: 1078,
+    id: 6017,
     difficulty: 'medium'
   },
   {
@@ -154,6 +173,7 @@ export const structures: Structure[] = [
     country: 'Cambodia',
     year: 1150,
     approximate: true,
+    id: 6018,
     difficulty: 'medium'
   },
   {
@@ -161,6 +181,7 @@ export const structures: Structure[] = [
     place: 'London',
     country: 'United Kingdom',
     year: 1269,
+    id: 6019,
     difficulty: 'hard'
   },
   {
@@ -168,6 +189,7 @@ export const structures: Structure[] = [
     place: 'Paris',
     country: 'France',
     year: 1345,
+    id: 6020,
     difficulty: 'easy'
   },
   {
@@ -176,6 +198,7 @@ export const structures: Structure[] = [
     country: 'Spain',
     year: 1358,
     approximate: true,
+    id: 6021,
     difficulty: 'medium'
   },
   {
@@ -183,6 +206,7 @@ export const structures: Structure[] = [
     place: 'Pisa',
     country: 'Italy',
     year: 1372,
+    id: 6022,
     difficulty: 'easy'
   },
   {
@@ -190,6 +214,7 @@ export const structures: Structure[] = [
     place: 'Kyoto',
     country: 'Japan',
     year: 1397,
+    id: 6023,
     difficulty: 'hard'
   },
   {
@@ -197,6 +222,7 @@ export const structures: Structure[] = [
     place: 'Prague',
     country: 'Czech Republic',
     year: 1402,
+    id: 6024,
     difficulty: 'hard'
   },
   {
@@ -204,6 +230,7 @@ export const structures: Structure[] = [
     place: 'Milan',
     country: 'Italy',
     year: 1418,
+    id: 6025,
     difficulty: 'medium'
   },
   {
@@ -211,6 +238,7 @@ export const structures: Structure[] = [
     place: 'Beijing',
     country: 'China',
     year: 1420,
+    id: 6026,
     difficulty: 'medium'
   },
   {
@@ -218,6 +246,7 @@ export const structures: Structure[] = [
     place: 'Florence',
     country: 'Italy',
     year: 1436,
+    id: 6027,
     difficulty: 'medium'
   },
   {
@@ -226,6 +255,7 @@ export const structures: Structure[] = [
     country: 'Peru',
     year: 1450,
     approximate: true,
+    id: 6028,
     difficulty: 'easy'
   },
   {
@@ -233,6 +263,7 @@ export const structures: Structure[] = [
     place: 'Istanbul',
     country: 'Turkey',
     year: 1465,
+    id: 6029,
     difficulty: 'hard'
   },
   {
@@ -240,6 +271,7 @@ export const structures: Structure[] = [
     place: 'Moscow',
     country: 'Russia',
     year: 1495,
+    id: 6030,
     difficulty: 'hard'
   },
   {
@@ -248,6 +280,7 @@ export const structures: Structure[] = [
     country: 'Chile',
     year: 1500,
     approximate: true,
+    id: 6031,
     difficulty: 'easy'
   },
   {
@@ -255,6 +288,7 @@ export const structures: Structure[] = [
     place: 'Moscow',
     country: 'Russia',
     year: 1561,
+    id: 6032,
     difficulty: 'medium'
   },
   {
@@ -262,6 +296,7 @@ export const structures: Structure[] = [
     place: 'Venice',
     country: 'Italy',
     year: 1591,
+    id: 6033,
     difficulty: 'medium'
   },
   {
@@ -269,6 +304,7 @@ export const structures: Structure[] = [
     place: 'Himeji',
     country: 'Japan',
     year: 1609,
+    id: 6034,
     difficulty: 'hard'
   },
   {
@@ -276,12 +312,14 @@ export const structures: Structure[] = [
     place: 'Istanbul',
     country: 'Turkey',
     year: 1616,
+    id: 6035,
     difficulty: 'medium'
   },
   {
     name: 'St. Peter\'s Basilica',
     country: 'Vatican City',
     year: 1626,
+    id: 6036,
     difficulty: 'medium'
   },
   {
@@ -289,6 +327,7 @@ export const structures: Structure[] = [
     place: 'Agra',
     country: 'India',
     year: 1653,
+    id: 6037,
     difficulty: 'easy'
   },
   {
@@ -296,6 +335,7 @@ export const structures: Structure[] = [
     place: 'Versailles',
     country: 'France',
     year: 1682,
+    id: 6038,
     difficulty: 'easy'
   },
   {
@@ -303,6 +343,7 @@ export const structures: Structure[] = [
     place: 'Lhasa, Tibet',
     country: 'China',
     year: 1694,
+    id: 6039,
     difficulty: 'hard'
   },
   {
@@ -310,6 +351,7 @@ export const structures: Structure[] = [
     place: 'London',
     country: 'United Kingdom',
     year: 1710,
+    id: 6040,
     difficulty: 'medium'
   },
   {
@@ -317,6 +359,7 @@ export const structures: Structure[] = [
     place: 'Vienna',
     country: 'Austria',
     year: 1749,
+    id: 6041,
     difficulty: 'hard'
   },
   {
@@ -324,6 +367,7 @@ export const structures: Structure[] = [
     place: 'Berlin',
     country: 'Germany',
     year: 1791,
+    id: 6042,
     difficulty: 'easy'
   },
   {
@@ -331,6 +375,7 @@ export const structures: Structure[] = [
     place: 'Washington, D.C.',
     country: 'USA',
     year: 1800,
+    id: 6043,
     difficulty: 'easy'
   },
   {
@@ -338,6 +383,7 @@ export const structures: Structure[] = [
     place: 'Washington, D.C.',
     country: 'USA',
     year: 1826,
+    id: 6044,
     difficulty: 'hard'
   },
   {
@@ -345,6 +391,7 @@ export const structures: Structure[] = [
     place: 'Paris',
     country: 'France',
     year: 1836,
+    id: 6045,
     difficulty: 'medium'
   },
   {
@@ -352,6 +399,7 @@ export const structures: Structure[] = [
     place: 'London',
     country: 'United Kingdom',
     year: 1837,
+    id: 6046,
     difficulty: 'medium'
   },
   {
@@ -359,6 +407,7 @@ export const structures: Structure[] = [
     place: 'London',
     country: 'United Kingdom',
     year: 1859,
+    id: 6047,
     difficulty: 'easy'
   },
   {
@@ -366,6 +415,7 @@ export const structures: Structure[] = [
     place: 'London',
     country: 'United Kingdom',
     year: 1870,
+    id: 6048,
     difficulty: 'hard'
   },
   {
@@ -373,6 +423,7 @@ export const structures: Structure[] = [
     place: 'New York',
     country: 'USA',
     year: 1883,
+    id: 6049,
     difficulty: 'medium'
   },
   {
@@ -380,6 +431,7 @@ export const structures: Structure[] = [
     place: 'Bavaria',
     country: 'Germany',
     year: 1886,
+    id: 6050,
     difficulty: 'medium'
   },
   {
@@ -387,6 +439,7 @@ export const structures: Structure[] = [
     place: 'New York',
     country: 'USA',
     year: 1886,
+    id: 6051,
     difficulty: 'easy'
   },
   {
@@ -394,6 +447,7 @@ export const structures: Structure[] = [
     place: 'Paris',
     country: 'France',
     year: 1889,
+    id: 6052,
     difficulty: 'easy'
   },
   {
@@ -401,6 +455,7 @@ export const structures: Structure[] = [
     place: 'London',
     country: 'United Kingdom',
     year: 1894,
+    id: 6053,
     difficulty: 'medium'
   },
   {
@@ -408,6 +463,7 @@ export const structures: Structure[] = [
     place: 'Berlin',
     country: 'Germany',
     year: 1894,
+    id: 6054,
     difficulty: 'medium'
   },
   {
@@ -415,6 +471,7 @@ export const structures: Structure[] = [
     place: 'New York',
     country: 'USA',
     year: 1902,
+    id: 6055,
     difficulty: 'hard'
   },
   {
@@ -422,13 +479,21 @@ export const structures: Structure[] = [
     place: 'New York',
     country: 'USA',
     year: 1913,
+    id: 6056,
     difficulty: 'medium'
   },
-  {name: 'Panama Canal', country: 'Panama', year: 1914, difficulty: 'easy'},
+  {
+    name: 'Panama Canal',
+    country: 'Panama',
+    year: 1914,
+    id: 6057,
+    difficulty: 'easy'
+  },
   {
     name: 'Trans-Siberian Railway',
     country: 'Russia',
     year: 1916,
+    id: 6058,
     difficulty: 'hard'
   },
   {
@@ -436,6 +501,7 @@ export const structures: Structure[] = [
     place: 'Washington, D.C.',
     country: 'USA',
     year: 1922,
+    id: 6059,
     difficulty: 'hard'
   },
   {
@@ -443,6 +509,7 @@ export const structures: Structure[] = [
     place: 'New York',
     country: 'USA',
     year: 1930,
+    id: 6060,
     difficulty: 'medium'
   },
   {
@@ -450,6 +517,7 @@ export const structures: Structure[] = [
     place: 'New York',
     country: 'USA',
     year: 1931,
+    id: 6061,
     difficulty: 'easy'
   },
   {
@@ -457,6 +525,7 @@ export const structures: Structure[] = [
     place: 'Rio de Janeiro',
     country: 'Brazil',
     year: 1931,
+    id: 6062,
     difficulty: 'easy'
   },
   {
@@ -464,6 +533,7 @@ export const structures: Structure[] = [
     place: 'Sydney',
     country: 'Australia',
     year: 1932,
+    id: 6063,
     difficulty: 'medium'
   },
   {
@@ -471,6 +541,7 @@ export const structures: Structure[] = [
     place: 'Nevada–Arizona border',
     country: 'USA',
     year: 1936,
+    id: 6064,
     difficulty: 'medium'
   },
   {
@@ -478,6 +549,7 @@ export const structures: Structure[] = [
     place: 'San Francisco',
     country: 'USA',
     year: 1937,
+    id: 6065,
     difficulty: 'easy'
   },
   {
@@ -485,6 +557,7 @@ export const structures: Structure[] = [
     place: 'Pennsylvania',
     country: 'USA',
     year: 1937,
+    id: 6066,
     difficulty: 'hard'
   },
   {
@@ -492,6 +565,7 @@ export const structures: Structure[] = [
     place: 'South Dakota',
     country: 'USA',
     year: 1941,
+    id: 6067,
     difficulty: 'hard'
   },
   {
@@ -499,6 +573,7 @@ export const structures: Structure[] = [
     place: 'Arlington, Virginia',
     country: 'USA',
     year: 1943,
+    id: 6068,
     difficulty: 'medium'
   },
   {
@@ -506,6 +581,7 @@ export const structures: Structure[] = [
     place: 'New York',
     country: 'USA',
     year: 1952,
+    id: 6069,
     difficulty: 'medium'
   },
   {
@@ -513,6 +589,7 @@ export const structures: Structure[] = [
     place: 'New York',
     country: 'USA',
     year: 1958,
+    id: 6070,
     difficulty: 'hard'
   },
   {
@@ -520,6 +597,7 @@ export const structures: Structure[] = [
     place: 'Brussels',
     country: 'Belgium',
     year: 1958,
+    id: 6071,
     difficulty: 'medium'
   },
   {
@@ -527,6 +605,7 @@ export const structures: Structure[] = [
     place: 'New York',
     country: 'USA',
     year: 1959,
+    id: 6072,
     difficulty: 'hard'
   },
   {
@@ -534,6 +613,7 @@ export const structures: Structure[] = [
     place: 'Brasília',
     country: 'Brazil',
     year: 1960,
+    id: 6073,
     difficulty: 'hard'
   },
   {
@@ -541,6 +621,7 @@ export const structures: Structure[] = [
     place: 'Berlin',
     country: 'Germany',
     year: 1961,
+    id: 6074,
     difficulty: 'easy'
   },
   {
@@ -548,6 +629,7 @@ export const structures: Structure[] = [
     place: 'Seattle',
     country: 'USA',
     year: 1962,
+    id: 6075,
     difficulty: 'medium'
   },
   {
@@ -555,6 +637,7 @@ export const structures: Structure[] = [
     place: 'St. Louis',
     country: 'USA',
     year: 1965,
+    id: 6076,
     difficulty: 'hard'
   },
   {
@@ -562,6 +645,7 @@ export const structures: Structure[] = [
     place: 'Montreal',
     country: 'Canada',
     year: 1967,
+    id: 6077,
     difficulty: 'hard'
   },
   {
@@ -569,6 +653,7 @@ export const structures: Structure[] = [
     place: 'New York',
     country: 'USA',
     year: 1968,
+    id: 6078,
     difficulty: 'hard'
   },
   {
@@ -576,6 +661,7 @@ export const structures: Structure[] = [
     place: 'San Francisco',
     country: 'USA',
     year: 1972,
+    id: 6079,
     difficulty: 'medium'
   },
   {
@@ -583,6 +669,7 @@ export const structures: Structure[] = [
     place: 'New York',
     country: 'USA',
     year: 1973,
+    id: 6080,
     difficulty: 'easy'
   },
   {
@@ -590,6 +677,7 @@ export const structures: Structure[] = [
     place: 'Sydney',
     country: 'Australia',
     year: 1973,
+    id: 6081,
     difficulty: 'easy'
   },
   {
@@ -597,6 +685,7 @@ export const structures: Structure[] = [
     place: 'Chicago',
     country: 'USA',
     year: 1973,
+    id: 6082,
     difficulty: 'medium'
   },
   {
@@ -604,6 +693,7 @@ export const structures: Structure[] = [
     place: 'Toronto',
     country: 'Canada',
     year: 1976,
+    id: 6083,
     difficulty: 'hard'
   },
   {
@@ -611,6 +701,7 @@ export const structures: Structure[] = [
     place: 'Paris',
     country: 'France',
     year: 1977,
+    id: 6084,
     difficulty: 'hard'
   },
   {
@@ -618,6 +709,7 @@ export const structures: Structure[] = [
     place: 'New Delhi',
     country: 'India',
     year: 1986,
+    id: 6085,
     difficulty: 'hard'
   },
   {
@@ -625,6 +717,7 @@ export const structures: Structure[] = [
     place: 'Paris',
     country: 'France',
     year: 1989,
+    id: 6086,
     difficulty: 'medium'
   },
   {
@@ -632,6 +725,7 @@ export const structures: Structure[] = [
     place: 'Hong Kong',
     country: 'China',
     year: 1990,
+    id: 6087,
     difficulty: 'hard'
   },
   {
@@ -639,6 +733,7 @@ export const structures: Structure[] = [
     place: 'beneath the English Channel',
     country: 'United Kingdom–France',
     year: 1994,
+    id: 6088,
     difficulty: 'medium'
   },
   {
@@ -646,6 +741,7 @@ export const structures: Structure[] = [
     place: 'Osaka',
     country: 'Japan',
     year: 1994,
+    id: 6089,
     difficulty: 'hard'
   },
   {
@@ -653,6 +749,7 @@ export const structures: Structure[] = [
     place: 'Bilbao',
     country: 'Spain',
     year: 1997,
+    id: 6090,
     difficulty: 'medium'
   },
   {
@@ -660,6 +757,7 @@ export const structures: Structure[] = [
     place: 'Kuala Lumpur',
     country: 'Malaysia',
     year: 1998,
+    id: 6091,
     difficulty: 'medium'
   },
   {
@@ -667,6 +765,7 @@ export const structures: Structure[] = [
     place: 'Dubai',
     country: 'United Arab Emirates',
     year: 1999,
+    id: 6092,
     difficulty: 'medium'
   },
   {
@@ -674,6 +773,7 @@ export const structures: Structure[] = [
     place: 'across the Øresund strait',
     country: 'Denmark–Sweden',
     year: 2000,
+    id: 6093,
     difficulty: 'hard'
   },
   {
@@ -681,6 +781,7 @@ export const structures: Structure[] = [
     place: 'London',
     country: 'United Kingdom',
     year: 2000,
+    id: 6094,
     difficulty: 'medium'
   },
   {
@@ -688,6 +789,7 @@ export const structures: Structure[] = [
     place: 'Los Angeles',
     country: 'USA',
     year: 2003,
+    id: 6095,
     difficulty: 'hard'
   },
   {
@@ -695,6 +797,7 @@ export const structures: Structure[] = [
     place: 'Aveyron',
     country: 'France',
     year: 2004,
+    id: 6096,
     difficulty: 'hard'
   },
   {
@@ -702,6 +805,7 @@ export const structures: Structure[] = [
     place: 'Taipei',
     country: 'Taiwan',
     year: 2004,
+    id: 6097,
     difficulty: 'medium'
   },
   {
@@ -709,6 +813,7 @@ export const structures: Structure[] = [
     place: 'Munich',
     country: 'Germany',
     year: 2005,
+    id: 6098,
     difficulty: 'hard'
   },
   {
@@ -716,6 +821,7 @@ export const structures: Structure[] = [
     place: 'London',
     country: 'United Kingdom',
     year: 2007,
+    id: 6099,
     difficulty: 'medium'
   },
   {
@@ -723,6 +829,7 @@ export const structures: Structure[] = [
     place: 'Beijing',
     country: 'China',
     year: 2008,
+    id: 6100,
     difficulty: 'hard'
   },
   {
@@ -730,12 +837,14 @@ export const structures: Structure[] = [
     place: 'Dubai',
     country: 'United Arab Emirates',
     year: 2010,
+    id: 6101,
     difficulty: 'easy'
   },
   {
     name: 'Marina Bay Sands',
     country: 'Singapore',
     year: 2010,
+    id: 6102,
     difficulty: 'medium'
   },
   {
@@ -743,6 +852,7 @@ export const structures: Structure[] = [
     place: 'London',
     country: 'United Kingdom',
     year: 2012,
+    id: 6103,
     difficulty: 'hard'
   },
   {
@@ -750,6 +860,7 @@ export const structures: Structure[] = [
     place: 'New York',
     country: 'USA',
     year: 2014,
+    id: 6104,
     difficulty: 'easy'
   },
   {
@@ -757,6 +868,7 @@ export const structures: Structure[] = [
     place: 'Uri–Ticino',
     country: 'Switzerland',
     year: 2016,
+    id: 6105,
     difficulty: 'hard'
   },
   {
@@ -764,6 +876,7 @@ export const structures: Structure[] = [
     place: 'Hamburg',
     country: 'Germany',
     year: 2017,
+    id: 6106,
     difficulty: 'hard'
   },
   {
@@ -771,6 +884,7 @@ export const structures: Structure[] = [
     place: 'London',
     country: 'United Kingdom',
     year: 2022,
+    id: 6107,
     difficulty: 'hard'
   },
   {
@@ -778,6 +892,7 @@ export const structures: Structure[] = [
     place: 'Barcelona',
     country: 'Spain',
     year: 2023,
+    id: 6108,
     difficulty: 'easy'
   }
 ];
