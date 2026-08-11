@@ -7,8 +7,8 @@ export interface UnitEntry {
   category: Category;
   difficulty?: Difficulty;
   // `id` is used to never pair two questions with the same id. This lets us
-  // avoid questions like "Napoleon was born before Napoleon was exiled".
-  id?: string;
+  // avoid questions like "Napoleon was born" vs "Napoleon was exiled".
+  topic: string[];
 }
 
 class ConfidenceButtons {

@@ -34,11 +34,12 @@ class App {
                  value: h.value,
                  category: Category.HistoricalEvent,
                  difficulty: h.difficulty,
+                 topic: h.topic
                }))
           .concat(famousBirths.map((b: FamousBirth): UnitEntry => ({
                                      name: `${b.name} was born`,
                                      value: b.value,
-                                     id: b.name,
+                                     topic: [b.name],
                                      category: Category.Birth,
                                      difficulty: b.difficulty
                                    })))
@@ -46,11 +47,12 @@ class App {
                                   name: `${c.name} was founded`,
                                   value: c.year,
                                   category: Category.Company,
-                                  difficulty: c.difficulty
+                                  topic: []
                                 })))
           .concat(books.map((b: Book): UnitEntry => ({
                               name: `${b.title} (by ${b.author}) was published`,
                               value: b.year,
+                              topic: [b.author],
                               category: Category.Book,
                               difficulty: b.difficulty
                             })))
@@ -59,27 +61,29 @@ class App {
                                name: `${i.name} was invented` +
                                    (i.inventor ? ` (by ${i.inventor})` : ''),
                                value: i.year,
-                               id: i.inventor,
+                               topic: i.inventor?[i.inventor]: [],
                                category: Category.Invention,
                                difficulty: i.difficulty
                              })))
           .concat(paintings.map((p: Painting): UnitEntry => ({
                                   name: `${p.artist} finished ${p.title}`,
                                   value: p.year,
-                                  id: p.artist,
+                                  topic: [p.artist],
                                   category: Category.Painting
                                 })))
           .concat(structures.map(
               (s: Structure): UnitEntry => ({
                 name: `${s.name} (${s.country}) was built (finished)`,
                 value: s.year,
+                topic: [s.name],
                 category: Category.Structure,
                 difficulty: s.difficulty
               })))
           .concat(films.map((f: Film): UnitEntry => ({
                               name: `${f.title} (${f.director}) was released`,
                               value: f.year,
-                              category: Category.Film
+                              category: Category.Film,
+                              topic: [f.director]
                             })))
           .sort((a, b) => a.value - b.value);
   readonly titleDiv =
@@ -171,8 +175,7 @@ class App {
           'All entries occur in the exact same year. Cannot generate a comparison.');
 
     const currentYear = new Date().getFullYear();
-    // 20% of elapsed time or at least 5
-    // years.
+    // 20% of elapsed time or at least 5 years.
     const targetDistance =
         Math.max(5, (currentYear - base.value) * distanceRatio);
     const targetA = base.value - targetDistance;
@@ -181,7 +184,7 @@ class App {
 
     const entriesByYear: Map<number, UnitEntry[]> =
         entries.filter(entry => entry.value !== base.value)
-            .filter(entry => !base.id || !entry.id || base.id !== entry.id)
+            .filter(entry => base.topic.some(t => entry.topic.includes(t)))
             .reduce((acc, entry) => {
               if (!acc.has(entry.value)) acc.set(entry.value, []);
               acc.get(entry.value)!.push(entry);
