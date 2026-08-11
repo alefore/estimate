@@ -6,6 +6,7 @@ export interface HistoricalEvent {
   value: number;
   topic: string[];
   difficulty: Difficulty;
+  id: number;
 }
 
 export const historicalEvents: HistoricalEvent[] = [
@@ -14,880 +15,1077 @@ export const historicalEvents: HistoricalEvent[] = [
     value: -1754,
     topic: ['Hammurabi'],
     difficulty: 'medium',
+    id: 0,
   },  // c. 1754 BC
   {
     name: 'Tutankhamun ruled Egypt',
     value: -1332,
     topic: ['Tutankhamun'],
     difficulty: 'easy',
+    id: 1,
   },  // c. 1332 BC
   {
     name: 'The Trojan War was fought',
     value: -1184,
     topic: ['Troy'],
     difficulty: 'easy',
+    id: 2,
   },  // traditional dating, c. 1184 BC
   {
     name: 'The first Olympic Games were held',
     value: -776,
     topic: ['Olympic'],
     difficulty: 'easy',
+    id: 3,
   },
   {
     name: 'Rome was founded',
     value: -753,
     topic: ['Rome'],
     difficulty: 'easy',
+    id: 4,
   },  // traditional dating
   {
     name: 'The Roman Republic was established',
     value: -509,
     topic: ['Rome'],
     difficulty: 'easy',
+    id: 5,
   },
   {
     name: 'The Battle of Marathon was fought',
     value: -490,
     topic: ['Marathon'],
     difficulty: 'hard',
+    id: 6,
   },
   {
     name: 'The Battle of Thermopylae was fought',
     value: -480,
     topic: ['Thermopylae'],
     difficulty: 'hard',
+    id: 7,
   },
   {
     name: 'Alexander the Great conquered Persia',
     value: -331,
     topic: ['Alexander the Great'],
     difficulty: 'medium',
+    id: 8,
   },
   {
     name: 'The Great Wall of China was begun',
     value: -221,
     topic: ['China'],
     difficulty: 'medium',
+    id: 9,
   },  // under Qin Shi Huang
   {
     name: 'Hannibal crossed the Alps',
     value: -218,
     topic: ['Hannibal'],
     difficulty: 'medium',
+    id: 10,
   },
   {
     name: 'Carthage was destroyed by Rome',
     value: -146,
     topic: ['Rome', 'Carthage'],
     difficulty: 'hard',
+    id: 11,
   },
   {
     name: 'Julius Caesar was assassinated',
     value: -44,
     topic: ['Julius Caesar'],
     difficulty: 'easy',
+    id: 12,
   },
   {
     name: 'The Battle of Actium was fought',
     value: -31,
     topic: ['Actium'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 13,
   },
   {
     name: 'The Roman Empire was founded by Augustus',
     value: -27,
     topic: ['Rome'],
     difficulty: 'medium',
+    id: 14,
   },
   {
     name: 'Jesus was crucified',
     value: 30,
     topic: ['Jesus'],
     difficulty: 'easy',
+    id: 15,
   },  // c. AD 30
   {
     name: 'Vesuvius destroyed Pompeii',
     value: 79,
     topic: ['Pompeii'],
     difficulty: 'medium',
+    id: 16,
   },
   {
     name: 'Constantine legalized Christianity',
     value: 313,
     topic: ['Constantine'],
     difficulty: 'medium',
+    id: 17,
   },  // Edict of Milan
   {
     name: 'The Roman Empire split in two',
     value: 395,
     topic: ['Rome'],
     difficulty: 'hard',
+    id: 18,
   },
   {
     name: 'Rome was sacked by the Visigoths',
     value: 410,
     topic: ['Rome'],
     difficulty: 'hard',
+    id: 19,
   },
   {
     name: 'The Western Roman Empire fell',
     value: 476,
     topic: ['Rome'],
     difficulty: 'easy',
+    id: 20,
   },
   {
     name: 'Muhammad made the Hijra to Medina',
     value: 622,
     topic: ['Muhammad'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 21,
   },
   {
     name: 'The Battle of Tours halted the Umayyad advance',
     value: 732,
     topic: ['Umayyad'],
     difficulty: 'hard',
+    id: 22,
   },
   {
     name: 'Charlemagne was crowned emperor',
     value: 800,
     topic: ['Charlemagne'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 23,
   },
   {
     name: 'The Vikings discovered America',
     value: 1000,
     topic: [],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 24,
   },  // c. 1000, Leif Erikson
   {
     name: 'The Great Schism split the Christian church',
     value: 1054,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 25,
   },
   {
     name: 'The Battle of Hastings was fought',
     value: 1066,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 26,
   },
   {
     name: 'The First Crusade captured Jerusalem',
     value: 1099,
     topic: ['Jerusalem'],
     difficulty: 'easy',
+    id: 27,
   },
   {
     name: 'The University of Oxford began teaching',
     value: 1096,
     topic: ['University of Oxford'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 28,
   },  // c. 1096
   {
     name: 'The Magna Carta was signed',
     value: 1215,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 29,
   },
   {
     name: 'Genghis Khan\'s Mongols sacked Beijing',
     value: 1215,
     topic: ['Genghis Khan'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 30,
   },
   {
     name: 'Marco Polo set out for China',
     value: 1271,
     topic: ['Marco Polo'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 31,
   },
   {
     name: 'The Black Death reached Europe',
     value: 1347,
     topic: ['Black Death'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 32,
   },
   {
     name: 'The Hundred Years\' War began',
     value: 1337,
     topic: ['Hundred Years\' War'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 33,
   },
   {
     name: 'The Battle of Agincourt was fought',
     value: 1415,
     topic: ['Agincourt'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 34,
   },
   {
     name: 'Joan of Arc lifted the siege of Orléans',
     value: 1429,
     topic: ['Joan of Arc'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 35,
   },
   {
     name: 'Johannes Gutenberg printed his Bible',
     value: 1455,
     topic: ['Johannes Gutenberg'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 36,
   },  // c. 1455
   {
     name: 'Constantinople fell to the Ottomans',
     value: 1453,
     topic: ['Constantinople'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 37,
   },
   {
     name: 'America was discovered (by Columbus)',
     value: 1492,
     topic: ['Christopher Columbus'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 38,
   },
   {
     name: 'Vasco da Gama reached India by sea',
     value: 1498,
     topic: ['Vasco da Gama'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 39,
   },
   {
     name: 'Michelangelo finished the statue of David',
     value: 1504,
     topic: ['Michelangelo'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 40,
   },
   {
     name: 'Martin Luther posted his 95 Theses',
     value: 1517,
     topic: ['Martin Luther'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 41,
   },
   {
     name: 'Magellan\'s expedition circumnavigated the globe',
     value: 1522,
     topic: ['Ferdinand Magellan'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 42,
   },
   {
     name: 'The Aztec Empire fell to Cortés',
     value: 1521,
     topic: ['Hernán Cortés', 'Aztec Empire'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 43,
   },
   {
     name: 'The Inca Empire fell to Pizarro',
     value: 1533,
     topic: ['Francisco Pizarro'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 44,
   },
   {
     name: 'Copernicus published his heliocentric theory',
     value: 1543,
     topic: ['Nicolaus Copernicus'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 45,
   },
   {
     name: 'The Spanish Armada was defeated',
     value: 1588,
     topic: ['Spanish Armada'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 46,
   },
   {
     name: 'Shakespeare\'s Hamlet was first performed',
     value: 1601,
     topic: ['Shakespeare'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 47,
   },  // c. 1600-1601 TODO: Move to books or arts?
   {
     name: 'Jamestown was founded',
     value: 1607,
     topic: ['Jamestown'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 48,
   },
   {
     name: 'Galileo first pointed a telescope at the sky',
     value: 1609,
     topic: ['Galileo Galilei'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 49,
   },
   {
     name: 'The Thirty Years\' War began',
     value: 1618,
     topic: ['Thirty Years\' War'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 50,
   },
   {
     name: 'The Taj Mahal was completed',
     value: 1653,
     topic: ['Taj Mahal'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 51,
   },
   {
     name: 'The Great Fire of London burned',
     value: 1666,
     topic: [],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 52,
   },
   {
     name: 'Newton published the Principia',
     value: 1687,
     topic: ['Isaac Newton'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 53,
   },
   {
     name: 'The Glorious Revolution took place in England',
     value: 1688,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 54,
   },
   {
     name: 'St. Petersburg was founded',
     value: 1703,
     topic: ['St. Petersburg'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 55,
   },
   {
     name: 'The Boston Tea Party took place',
     value: 1773,
     topic: ['Boston Tea Party'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 56,
   },
   {
     name: 'The United States declared independence',
     value: 1776,
     topic: [],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 57,
   },
   {
     name: 'The Montgolfier brothers flew the first hot air balloon',
     value: 1783,
     topic: ['Montgolfier'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 58,
   },
   {
     name: 'The United States Constitution was signed',
     value: 1787,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 59,
   },
   {
     name: 'The French Revolution began',
     value: 1789,
     topic: [],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 60,
   },
   {
     name: 'The guillotine claimed Louis XVI',
     value: 1793,
     topic: ['Louis XVI'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 61,
   },
   {
     name: 'Napoleon crowned himself emperor',
     value: 1804,
     topic: ['Napoleon Bonaparte'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 62,
   },
   {
     name: 'The Battle of Trafalgar was fought',
     value: 1805,
     topic: ['Trafalgar'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 63,
   },
   {
     name: 'Napoleon invaded Russia',
     value: 1812,
     topic: ['Napoleon Bonaparte'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 64,
   },
   {
     name: 'The Battle of Waterloo was fought',
     value: 1815,
     topic: ['Waterloo'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 65,
   },
   {
     // TODO: inventions?
     name: 'The first passenger railway opened',
     value: 1825,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 66,
   },  // Stockton & Darlington
   {
     name: 'Slavery was abolished in the British Empire',
     value: 1833,
     topic: ['Great Britain'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 67,
   },
   {
     name: 'The California Gold Rush began',
     value: 1848,
     topic: ['California'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 68,
   },
   {
     name: 'The American Civil War began',
     value: 1861,
     topic: [],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 69,
   },
   {
     name: 'Lincoln issued the Emancipation Proclamation',
     value: 1863,
     topic: ['Abraham Lincoln'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 70,
   },
   {
     name: 'Lincoln was assassinated',
     value: 1865,
     topic: ['Abraham Lincoln'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 71,
   },
   {
     // TODO: inventions
     name: 'The transatlantic telegraph cable was completed',
     value: 1866,
     topic: [],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 72,
   },
   {
     // TODO: inventions
     name: 'The transcontinental railroad was completed',
     value: 1869,
     topic: [],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 73,
   },
-  {name: 'The Suez Canal opened', value: 1869, topic: [], difficulty: 'medium'},
-  {name: 'Krakatoa erupted', value: 1883, topic: [], difficulty: 'hard'},
+  {
+    name: 'The Suez Canal opened',
+    value: 1869,
+    topic: [],
+    id: 74,
+    difficulty: 'medium'
+  },
+  {
+    name: 'Krakatoa erupted',
+    value: 1883,
+    topic: [],
+    id: 75,
+    difficulty: 'hard'
+  },
   {
     name: 'The first modern Olympic Games were held',
     value: 1896,
     topic: ['Olympic Games'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 76,
   },
   {
     name: 'The first movie was screened by the Lumière brothers',
     value: 1895,
     topic: ['Lumière'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 77,
   },
   {
     name: 'Marconi sent the first transatlantic radio signal',
     value: 1901,
     topic: ['Guglielmo Marconi'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 78,
   },
   {
     name: 'The Wright brothers flew the first airplane',
     value: 1903,
     topic:
         ['Wilbur Wright (Wright brothers)', 'Orville Wright (Wright brothers)'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 79,
   },
   {
     name: 'Einstein published his theory of special relativity',
     value: 1905,
     topic: ['Albert Einstein'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 80,
   },
   {
     name: 'The San Francisco earthquake struck',
     value: 1906,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 81,
   },
   {
     name: 'The Titanic sank',
     value: 1912,
     topic: ['Titanic'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 82,
   },
-  {name: 'World War I began', value: 1914, topic: ['WWI'], difficulty: 'easy'},
+  {
+    name: 'World War I began',
+    value: 1914,
+    topic: ['WWI'],
+    difficulty: 'easy',
+    id: 83
+  },
   {
     name: 'The Panama Canal opened',
     value: 1914,
     topic: ['Panama'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 84,
   },
   {
     name: 'The Russian Revolution overthrew the Tsar',
     value: 1917,
     topic: ['Nicholas II'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 85,
   },
-  {name: 'World War I ended', value: 1918, topic: ['WWI'], difficulty: 'easy'},
+  {
+    name: 'World War I ended',
+    value: 1918,
+    topic: ['WWI'],
+    difficulty: 'easy',
+    id: 86
+  },
   {
     name: 'The Spanish flu pandemic swept the world',
     value: 1918,
     topic: ['Spanish Flu'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 87,
   },
   {
     name: 'Women won the right to vote in the US',
     value: 1920,
     topic: [],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 88,
   },
   {
     name: 'Tutankhamun\'s tomb was discovered',
     value: 1922,
     topic: ['Tutankhamun'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 89,
   },
   {
     name: 'The Wall Street Crash triggered the Great Depression',
     value: 1929,
     topic: [],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 90,
   },
   {
     name: 'Hitler came to power in Germany',
     value: 1933,
     topic: ['Adolf Hitler'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 91,
   },
   {
     name: 'The Hindenburg disaster occurred',
     value: 1937,
     topic: [],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 92,
   },
   {
     name: 'World War II began',
     value: 1939,
     topic: ['WWII'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 93,
   },
   {
     name: 'Pearl Harbor was attacked',
     value: 1941,
     topic: ['Pearl Harbor'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 94,
   },
   {
     name: 'The D-Day landings took place in Normandy',
     value: 1944,
     topic: [],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 95,
   },
   {
     name: 'The first atomic bomb was dropped on Hiroshima',
     value: 1945,
     topic: ['Hiroshima'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 96,
   },
   {
     name: 'World War II ended',
     value: 1945,
     topic: ['WWII'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 97,
   },
   {
     name: 'The United Nations was founded',
     value: 1945,
     topic: ['United Nations'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 98,
   },
   {
     name: 'India gained independence',
     value: 1947,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 99,
   },
   {
     // TODO: science
     name: 'The sound barrier was broken',
     value: 1947,
     topic: [],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 100,
   },
   {
     name: 'The state of Israel was founded',
     value: 1948,
     topic: ['Israel'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 101,
   },
-  {name: 'NATO was founded', value: 1949, topic: ['NATO'], difficulty: 'easy'},
+  {
+    name: 'NATO was founded',
+    value: 1949,
+    topic: ['NATO'],
+    difficulty: 'easy',
+    id: 102,
+  },
   {
     name: 'The People\'s Republic of China was proclaimed',
     value: 1949,
     topic: ['China'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 103,
   },
-  {name: 'The Korean War began', value: 1950, topic: [], difficulty: 'medium'},
+  {
+    name: 'The Korean War began',
+    value: 1950,
+    topic: [],
+    difficulty: 'medium',
+    id: 104,
+  },
   {
     // TODO: discoveries
     name: 'The structure of DNA was discovered',
     value: 1953,
     topic: ['DNA'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 105,
   },
   {
     name: 'Mount Everest was first climbed',
     value: 1953,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 106,
   },
   {
     name: 'Rosa Parks refused to give up her seat',
     value: 1955,
     topic: ['Rosa Parks'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 107,
   },
   {
     name: 'The Treaty of Rome created the European Economic Community',
     value: 1957,
     topic: [],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 108,
   },
   {
     name: 'Yuri Gagarin became the first human in space',
     value: 1961,
     topic: ['Yuri Gagarin'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 109,
   },
   {
     name: 'The Cuban Missile Crisis brought the world to the brink',
     value: 1962,
     topic: [],
     difficulty: 'easy',
+    id: 110,
   },
   {
     name: 'Martin Luther King gave his "I Have a Dream" speech',
     value: 1963,
     topic: ['Martin Luther King Jr.'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 111,
   },
   {
     name: 'John F. Kennedy was assassinated',
     value: 1963,
     topic: ['John F. Kennedy'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 112,
   },
   {
     name: 'The Beatles appeared on The Ed Sullivan Show',
     value: 1964,
     topic: ['Beatles', 'John Lennon', 'Paul McCartney'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 113,
   },
   {
     name: 'The Civil Rights Act was signed (United States)',
     value: 1964,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 114,
   },
   {
     // TODO: science
     name: 'The first heart transplant was performed',
     value: 1967,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 115,
   },
   {
     name: 'Martin Luther King was assassinated',
     value: 1968,
     topic: ['Martin Luther King Jr.'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 116,
   },
   {
     // TODO: science
     name: 'Humans landed on the moon',
     value: 1969,
     topic: [],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 117,
   },
-  {name: 'Woodstock took place', value: 1969, topic: [], difficulty: 'medium'},
+  {
+    name: 'Woodstock took place',
+    value: 1969,
+    topic: [],
+    difficulty: 'medium',
+    id: 118,
+  },
   {
     name: 'The Watergate scandal broke',
     value: 1972,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 119,
   },
   {
     name: 'Nixon resigned as US president',
     value: 1974,
     topic: ['Richard Nixon'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 120,
   },
-  {name: 'The Vietnam War ended', value: 1975, topic: [], difficulty: 'easy'},
+  {
+    name: 'The Vietnam War ended',
+    value: 1975,
+    topic: [],
+    difficulty: 'easy',
+    id: 121,
+  },
   {
     // TODO: science
     name: 'The first test-tube baby was born',
     value: 1978,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 122,
   },
   {
     name: 'Margaret Thatcher became UK prime minister',
     value: 1979,
     topic: ['Margaret Thatcher'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 123,
   },
   {
     name: 'Smallpox was declared eradicated',
     value: 1980,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 124,
   },
   {
     name: 'John Lennon was shot',
     value: 1980,
     topic: ['John Lennon'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 125,
   },
   {
     name: 'MTV started broadcasting',
     value: 1981,
     topic: ['MTV'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 126,
   },
   {
     name: 'The IBM PC was launched',
     value: 1981,
     topic: ['IBM'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 127,
   },
   {
     name: 'Live Aid was broadcast worldwide',
     value: 1985,
     topic: [],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 128,
   },
   {
     name: 'The Chernobyl disaster occurred',
     value: 1986,
     topic: ['Chernobyl'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 129,
   },
   {
     name: 'The Challenger space shuttle exploded',
     value: 1986,
     topic: [],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 130,
   },
   {
     name: 'The Berlin Wall fell',
     value: 1989,
     topic: ['Berlin Wall'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 131,
   },
   {
     name: 'Nelson Mandela was released from prison',
     value: 1990,
     topic: ['Nelson Mandela'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 132,
   },
   {
     // TODO: science
     name: 'The Hubble Space Telescope was launched',
     value: 1990,
     topic: [],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 133,
   },
   {
     name: 'The Soviet Union collapsed',
     value: 1991,
     topic: ['Soviet Union'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 134,
   },
   {
     name: 'The European Union was established',
     value: 1993,
     topic: ['European Union'],
     difficulty: 'hard',
+    id: 135,
   },  // Maastricht Treaty in force
   {
     name: 'Nelson Mandela became president of South Africa',
     value: 1994,
     topic: ['Nelson Mandela'],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 136,
   },
   {
     name: 'The Channel Tunnel opened',
     value: 1994,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 137,
   },
   {
     // TODO: Science
     name: 'Dolly the sheep was cloned',
     value: 1996,
     topic: [],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 138,
   },
   {
     name: 'Hong Kong was returned to China',
     value: 1997,
     topic: ['China', 'Hong Kong'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 139,
   },
   {
     name: 'The euro was introduced',
     value: 1999,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 140,
   },
   {
     name: 'The September 11 attacks occurred',
     value: 2001,
     topic: [],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 141,
   },
   {
     name: 'The Indian Ocean tsunami struck',
     value: 2004,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 142,
   },
   {
     name: 'The global financial crisis erupted',
     value: 2008,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 143,
   },
   {
     name: 'Barack Obama became US president',
     value: 2009,
     topic: ['Barack Obama'],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 144,
   },
-  {name: 'The Arab Spring began', value: 2010, topic: [], difficulty: 'medium'},
+  {
+    name: 'The Arab Spring began',
+    value: 2010,
+    topic: [],
+    difficulty: 'medium',
+    id: 145,
+  },
   {
     name: 'The Fukushima nuclear disaster occurred',
     value: 2011,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 146,
   },
   {
     // TODO: Science
     name: 'The Higgs boson was discovered',
     value: 2012,
     topic: [],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 147,
   },
   {
     // TODO: Science
     name: 'gravitational waves were first detected',
     value: 2015,
     topic: [],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 148,
   },
   {
     name: 'The United Kingdom voted for Brexit',
     value: 2016,
     topic: ['Brexit'],
-    difficulty: 'medium'
+    difficulty: 'medium',
+    id: 149,
   },
   {
     // TODO: Science
     name: 'The first image of a black hole was published',
     value: 2019,
     topic: [],
-    difficulty: 'hard'
+    difficulty: 'hard',
+    id: 150,
   },
   {
     name: 'The COVID-19 pandemic began',
     value: 2020,
     topic: [],
-    difficulty: 'easy'
+    difficulty: 'easy',
+    id: 151,
   },
 ];
