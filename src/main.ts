@@ -34,27 +34,32 @@ class App {
                  value: h.value,
                  category: Category.HistoricalEvent,
                  difficulty: h.difficulty,
-                 topic: h.topic
+                 topic: h.topic,
+                 id: h.id
                }))
           .concat(famousBirths.map((b: FamousBirth): UnitEntry => ({
                                      name: `${b.name} was born`,
                                      value: b.value,
                                      topic: [b.name],
                                      category: Category.Birth,
-                                     difficulty: b.difficulty
+                                     id: b.id,
+                                     difficulty: b.difficulty,
                                    })))
           .concat(companies.map((c: Company): UnitEntry => ({
                                   name: `${c.name} was founded`,
                                   value: c.year,
                                   category: Category.Company,
-                                  topic: []
+                                  topic: [],
+                                  id: c.id,
+                                  difficulty: c.difficulty,
                                 })))
           .concat(books.map((b: Book): UnitEntry => ({
                               name: `${b.title} (by ${b.author}) was published`,
                               value: b.year,
                               topic: [b.author],
                               category: Category.Book,
-                              difficulty: b.difficulty
+                              id: b.id,
+                              difficulty: b.difficulty,
                             })))
           .concat(
               inventions.map((i: Invention): UnitEntry => ({
@@ -63,7 +68,8 @@ class App {
                                value: i.year,
                                topic: i.inventor?[i.inventor]: [],
                                category: Category.Invention,
-                               difficulty: i.difficulty
+                               id: i.id,
+                               difficulty: i.difficulty,
                              })))
           .concat(paintings.map((p: Painting): UnitEntry => ({
                                   name: `${p.artist} finished ${p.title}`,
@@ -77,6 +83,7 @@ class App {
                 value: s.year,
                 topic: [s.name],
                 category: Category.Structure,
+                id: s.id,
                 difficulty: s.difficulty
               })))
           .concat(films.map((f: Film): UnitEntry => ({
