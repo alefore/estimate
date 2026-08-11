@@ -27,7 +27,7 @@ function randomGaussian(mean: number, stdDev: number): number {
 const cssInvisible = 'invisible';
 
 class App {
-  readonly allEntries: UnitEntry[] =
+  readonly allEntries: UnitEntry[] = this.validateUniqueIds(
       historicalEvents
           .map((h: HistoricalEvent): UnitEntry => ({
                  name: h.name,
@@ -92,7 +92,7 @@ class App {
                               category: Category.Film,
                               topic: [f.director]
                             })))
-          .sort((a, b) => a.value - b.value);
+          .sort((a, b) => a.value - b.value));
   readonly titleDiv =
       Object.assign(document.createElement('div'), {id: 'title'});
   readonly menuDiv = Object.assign(document.createElement('div'), {id: 'menu'});
@@ -149,6 +149,34 @@ class App {
     this.enabledEntries.alwaysFresh();
   }
 
+  private validateUniqueIds(data: UnitEntry[]): UnitEntry[] {
+    const idTracker = new Map<number, string[]>();
+
+    data.forEach((entry: UnitEntry) => {
+      if (!entry.id) return;
+      const existingNames = idTracker.get(entry.id) || [];
+      existingNames.push(entry.name);
+      idTracker.set(entry.id, existingNames);
+    });
+
+    const errorMessages: string[] = [];
+    const formatter =
+        new Intl.ListFormat('en', {style: 'long', type: 'conjunction'});
+
+    for (const [id, names] of idTracker.entries()) {
+      if (names.length > 1) {
+        errorMessages.push(
+            `Id ${id} found for entries ${formatter.format(names)}`);
+      }
+    }
+
+    if (errorMessages.length > 0) {
+      throw new Error(errorMessages.join('. ') + '.');
+    }
+    console.log(data);
+    return data;
+  }
+
   buildSettingsDiv() {
     this.settingsDiv.append(
         Object.assign(document.createElement('h2'), {textContent: 'Settings'}));
@@ -191,7 +219,7 @@ class App {
 
     const entriesByYear: Map<number, UnitEntry[]> =
         entries.filter(entry => entry.value !== base.value)
-            .filter(entry => base.topic.some(t => entry.topic.includes(t)))
+            .filter(entry => base.topic.every(t => !entry.topic.includes(t)))
             .reduce((acc, entry) => {
               if (!acc.has(entry.value)) acc.set(entry.value, []);
               acc.get(entry.value)!.push(entry);
