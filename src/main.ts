@@ -45,7 +45,8 @@ class App {
           .concat(companies.map((c: Company): UnitEntry => ({
                                   name: `${c.name} was founded`,
                                   value: c.year,
-                                  category: Category.Company
+                                  category: Category.Company,
+                                  difficulty: c.difficulty
                                 })))
           .concat(books.map((b: Book): UnitEntry => ({
                               name: `${b.title} (by ${b.author}) was published`,
@@ -170,7 +171,8 @@ class App {
           'All entries occur in the exact same year. Cannot generate a comparison.');
 
     const currentYear = new Date().getFullYear();
-    // 20% of elapsed time or at least 5 years.
+    // 20% of elapsed time or at least 5
+    // years.
     const targetDistance =
         Math.max(5, (currentYear - base.value) * distanceRatio);
     const targetA = base.value - targetDistance;
