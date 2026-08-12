@@ -36,7 +36,7 @@ class App {
                  category: Category.HistoricalEvent,
                  difficulty: h.difficulty,
                  topic: h.topic,
-                 id: h.id
+                 id: h.id,
                }))
           .concat(famousBirths.map((b: FamousBirth): UnitEntry => ({
                                      name: `${b.name} was born`,
@@ -86,13 +86,14 @@ class App {
                 topic: [s.name],
                 category: Category.Structure,
                 id: s.id,
-                difficulty: s.difficulty
+                difficulty: s.difficulty,
               })))
           .concat(films.map((f: Film): UnitEntry => ({
                               name: `${f.title} (${f.director}) was released`,
                               value: f.year,
                               category: Category.Film,
-                              topic: [f.director]
+                              topic: [f.director],
+                              difficulty: s.difficulty,
                             })))
           .sort((a, b) => a.value - b.value));
   readonly titleDiv =

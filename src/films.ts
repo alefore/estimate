@@ -1,7 +1,10 @@
+import {type Difficulty} from './difficulty.js';
+
 export interface Film {
   title: string;
   director: string;
   year: number;  // Year of original theatrical release
+  difficulty: Difficulty;
 }
 
 export const films: Film[] = [
@@ -9,535 +12,648 @@ export const films: Film[] = [
     title: 'A Trip to the Moon',
     director: 'Georges Méliès',
     year: 1902,
+    difficulty: 'hard',
   },
   {
     title: 'The Birth of a Nation',
     director: 'D. W. Griffith',
     year: 1915,
+    difficulty: 'hard',
   },
   {
     title: 'The Cabinet of Dr. Caligari',
     director: 'Robert Wiene',
     year: 1920,
+    difficulty: 'medium',
   },
   {
     title: 'Nosferatu',
     director: 'F. W. Murnau',
     year: 1922,
+    difficulty: 'easy',
   },
   {
     title: 'Battleship Potemkin',
     director: 'Sergei Eisenstein',
     year: 1925,
+    difficulty: 'hard',
   },
   {
     title: 'The Gold Rush',
     director: 'Charlie Chaplin',
     year: 1925,
+    difficulty: 'medium',
   },
   {
     title: 'Metropolis',
     director: 'Fritz Lang',
     year: 1927,
+    difficulty: 'medium',
   },
   {
     title: 'The Jazz Singer',
     director: 'Alan Crosland',
     year: 1927,
+    difficulty: 'hard',
   },
   {
     title: 'Un Chien Andalou',
     director: 'Luis Buñuel',
     year: 1929,
+    difficulty: 'medium',
   },
   {
     title: 'M',
     director: 'Fritz Lang',
     year: 1931,
+    difficulty: 'medium',
   },
   {
     title: 'City Lights',
     director: 'Charlie Chaplin',
     year: 1931,
+    difficulty: 'hard',
   },
   {
     title: 'King Kong',
     director: 'Merian C. Cooper and Ernest B. Schoedsack',
-    year: 1933
+    year: 1933,
+    difficulty: 'easy',
   },
   {
     title: 'Modern Times',
     director: 'Charlie Chaplin',
     year: 1936,
+    difficulty: 'easy',
   },
   {
     title: 'Snow White and the Seven Dwarfs',
     director: 'David Hand',
-    year: 1937
+    year: 1937,
+    difficulty: 'medium',
   },
   {
     title: 'The Wizard of Oz',
     director: 'Victor Fleming',
     year: 1939,
+    difficulty: 'easy',
   },
   {
     title: 'Gone with the Wind',
     director: 'Victor Fleming',
     year: 1939,
+    difficulty: 'medium',
   },
   {
     title: 'The Great Dictator',
     director: 'Charlie Chaplin',
     year: 1940,
+    difficulty: 'hard',
   },
   {
     title: 'Citizen Kane',
     director: 'Orson Welles',
     year: 1941,
+    difficulty: 'medium',
   },
   {
     title: 'Casablanca',
     director: 'Michael Curtiz',
     year: 1942,
+    difficulty: 'easy',
   },
   {
     title: 'It\'s a Wonderful Life',
     director: 'Frank Capra',
     year: 1946,
+    difficulty: 'medium',
   },
   {
     title: 'Bicycle Thieves',
     director: 'Vittorio De Sica',
     year: 1948,
+    difficulty: 'hard',
   },
   {
     title: 'The Third Man',
     director: 'Carol Reed',
     year: 1949,
+    difficulty: 'hard',
   },
   {
     title: 'Rashomon',
     director: 'Akira Kurosawa',
     year: 1950,
+    difficulty: 'medium',
   },
   {
     title: 'Sunset Boulevard',
     director: 'Billy Wilder',
     year: 1950,
+    difficulty: 'hard',
   },
   {
     title: 'Singin\' in the Rain',
     director: 'Stanley Donen and Gene Kelly',
-    year: 1952
+    year: 1952,
+    difficulty: 'hard',
   },
   {
     title: 'Tokyo Story',
     director: 'Yasujirō Ozu',
     year: 1953,
+    difficulty: 'hard',
   },
   {
     title: 'Seven Samurai',
     director: 'Akira Kurosawa',
     year: 1954,
+    difficulty: 'easy',
   },
   {
     title: 'Rear Window',
     director: 'Alfred Hitchcock',
     year: 1954,
+    difficulty: 'easy',
   },
   {
     title: 'The Seventh Seal',
     director: 'Ingmar Bergman',
     year: 1957,
+    difficulty: 'medium',
   },
   {
     title: '12 Angry Men',
     director: 'Sidney Lumet',
     year: 1957,
+    difficulty: 'medium',
   },
   {
     title: 'Vertigo',
     director: 'Alfred Hitchcock',
     year: 1958,
+    difficulty: 'medium',
   },
   {
     title: 'Some Like It Hot',
     director: 'Billy Wilder',
     year: 1959,
+    difficulty: 'hard',
   },
   {
     title: 'The 400 Blows',
     director: 'François Truffaut',
     year: 1959,
+    difficulty: 'hard',
   },
   {
     title: 'Breathless',
     director: 'Jean-Luc Godard',
     year: 1960,
+    difficulty: 'hard',
   },
   {
     title: 'Psycho',
     director: 'Alfred Hitchcock',
     year: 1960,
+    difficulty: 'easy',
   },
   {
     title: 'La Dolce Vita',
     director: 'Federico Fellini',
     year: 1960,
+    difficulty: 'medium',
   },
   {
     title: 'Lawrence of Arabia',
     director: 'David Lean',
     year: 1962,
+    difficulty: 'medium',
   },
   {
     title: '8½',
     director: 'Federico Fellini',
     year: 1963,
+    difficulty: 'hard',
   },
   {
     title: 'Dr. Strangelove',
     director: 'Stanley Kubrick',
     year: 1964,
+    difficulty: 'medium',
   },
   {
     title: 'The Sound of Music',
     director: 'Robert Wise',
     year: 1965,
+    difficulty: 'easy',
   },
   {
     title: 'The Good, the Bad and the Ugly',
     director: 'Sergio Leone',
-    year: 1966
+    year: 1966,
+    difficulty: 'easy',
   },
   {
     title: 'The Graduate',
     director: 'Mike Nichols',
     year: 1967,
+    difficulty: 'hard',
   },
   {
     title: '2001: A Space Odyssey',
     director: 'Stanley Kubrick',
     year: 1968,
+    difficulty: 'easy',
   },
   {
     title: 'Easy Rider',
     director: 'Dennis Hopper',
     year: 1969,
+    difficulty: 'hard',
   },
   {
     title: 'A Clockwork Orange',
     director: 'Stanley Kubrick',
     year: 1971,
+    difficulty: 'medium',
   },
   {
     title: 'The Godfather',
     director: 'Francis Ford Coppola',
     year: 1972,
+    difficulty: 'easy',
   },
   {
     title: 'The Exorcist',
     director: 'William Friedkin',
     year: 1973,
+    difficulty: 'medium',
   },
   {
     title: 'Chinatown',
     director: 'Roman Polanski',
     year: 1974,
+    difficulty: 'hard',
   },
   {
     title: 'Jaws',
     director: 'Steven Spielberg',
     year: 1975,
+    difficulty: 'easy',
   },
   {
     title: 'One Flew Over the Cuckoo\'s Nest',
     director: 'Miloš Forman',
-    year: 1975
+    year: 1975,
+    difficulty: 'hard',
   },
   {
     title: 'Taxi Driver',
     director: 'Martin Scorsese',
     year: 1976,
+    difficulty: 'medium',
   },
   {
     title: 'Rocky',
     director: 'John G. Avildsen',
     year: 1976,
+    difficulty: 'easy',
   },
   {
     title: 'Star Wars',
     director: 'George Lucas',
     year: 1977,
+    difficulty: 'easy',
   },
   {
     title: 'Annie Hall',
     director: 'Woody Allen',
     year: 1977,
+    difficulty: 'hard',
   },
   {
     title: 'Alien',
     director: 'Ridley Scott',
     year: 1979,
+    difficulty: 'easy',
   },
   {
     title: 'Apocalypse Now',
     director: 'Francis Ford Coppola',
     year: 1979,
+    difficulty: 'medium',
   },
   {
     title: 'The Shining',
     director: 'Stanley Kubrick',
     year: 1980,
+    difficulty: 'easy',
   },
   {
     title: 'Raiders of the Lost Ark',
     director: 'Steven Spielberg',
     year: 1981,
+    difficulty: 'easy',
   },
   {
-    title: 'Blade Runner',
+    title: 'Blade Runner (original)',
     director: 'Ridley Scott',
     year: 1982,
+    difficulty: 'easy',
   },
   {
     title: 'E.T. the Extra-Terrestrial',
     director: 'Steven Spielberg',
-    year: 1982
+    year: 1982,
+    difficulty: 'easy',
   },
   {
     title: 'Scarface',
     director: 'Brian De Palma',
     year: 1983,
+    difficulty: 'medium',
   },
   {
     title: 'The Terminator',
     director: 'James Cameron',
     year: 1984,
+    difficulty: 'easy',
   },
   {
     title: 'Back to the Future',
     director: 'Robert Zemeckis',
     year: 1985,
+    difficulty: 'easy',
   },
   {
     title: 'My Neighbor Totoro',
     director: 'Hayao Miyazaki',
     year: 1988,
+    difficulty: 'easy',
   },
   {
     title: 'Cinema Paradiso',
     director: 'Giuseppe Tornatore',
     year: 1988,
+    difficulty: 'hard',
   },
   {
     title: 'Die Hard',
     director: 'John McTiernan',
     year: 1988,
+    difficulty: 'easy',
   },
   {
     title: 'Goodfellas',
     director: 'Martin Scorsese',
     year: 1990,
+    difficulty: 'medium',
   },
   {
     title: 'The Silence of the Lambs',
     director: 'Jonathan Demme',
     year: 1991,
+    difficulty: 'easy',
   },
   {
     title: 'Terminator 2: Judgment Day',
     director: 'James Cameron',
     year: 1991,
+    difficulty: 'easy',
   },
   {
     title: 'Jurassic Park',
     director: 'Steven Spielberg',
     year: 1993,
+    difficulty: 'easy',
   },
   {
     title: 'Schindler\'s List',
     director: 'Steven Spielberg',
     year: 1993,
+    difficulty: 'easy',
   },
   {
     title: 'Pulp Fiction',
     director: 'Quentin Tarantino',
     year: 1994,
+    difficulty: 'easy',
   },
   {
     title: 'The Shawshank Redemption',
     director: 'Frank Darabont',
     year: 1994,
+    difficulty: 'medium',
   },
   {
     title: 'Forrest Gump',
     director: 'Robert Zemeckis',
     year: 1994,
+    difficulty: 'easy',
   },
   {
     title: 'The Lion King',
     director: 'Roger Allers and Rob Minkoff',
-    year: 1994
+    year: 1994,
+    difficulty: 'easy',
   },
   {
     title: 'Toy Story',
     director: 'John Lasseter',
     year: 1995,
+    difficulty: 'easy',
   },
   {
     title: 'Se7en',
     director: 'David Fincher',
     year: 1995,
+    difficulty: 'medium',
   },
   {
     title: 'Fargo',
     director: 'Joel and Ethan Coen',
     year: 1996,
+    difficulty: 'hard',
   },
   {
     title: 'Titanic',
     director: 'James Cameron',
     year: 1997,
+    difficulty: 'easy',
   },
   {
     title: 'The Big Lebowski',
     director: 'Joel and Ethan Coen',
     year: 1998,
+    difficulty: 'easy',
   },
   {
     title: 'The Matrix',
     director: 'The Wachowskis',
     year: 1999,
+    difficulty: 'easy',
   },
   {
     title: 'Fight Club',
     director: 'David Fincher',
     year: 1999,
+    difficulty: 'easy',
   },
   {
     title: 'The Sixth Sense',
     director: 'M. Night Shyamalan',
     year: 1999,
+    difficulty: 'medium',
   },
   {
     title: 'Gladiator',
     director: 'Ridley Scott',
     year: 2000,
+    difficulty: 'easy',
   },
   {
     title: 'Crouching Tiger, Hidden Dragon',
     director: 'Ang Lee',
     year: 2000,
+    difficulty: 'medium',
   },
   {
     title: 'Amélie',
     director: 'Jean-Pierre Jeunet',
     year: 2001,
+    difficulty: 'medium',
   },
   {
     title: 'Spirited Away',
     director: 'Hayao Miyazaki',
     year: 2001,
+    difficulty: 'easy',
   },
   {
     title: 'The Lord of the Rings: The Fellowship of the Ring',
     director: 'Peter Jackson',
-    year: 2001
+    year: 2001,
+    difficulty: 'easy',
   },
   {
     title: 'City of God',
     director: 'Fernando Meirelles and Kátia Lund',
-    year: 2002
+    year: 2002,
+    difficulty: 'medium',
   },
   {
     title: 'The Lord of the Rings: The Return of the King',
     director: 'Peter Jackson',
-    year: 2003
+    year: 2003,
+    difficulty: 'easy',
   },
   {
     title: 'Eternal Sunshine of the Spotless Mind',
     director: 'Michel Gondry',
-    year: 2004
+    year: 2004,
+    difficulty: 'medium',
   },
   {
     title: 'Pan\'s Labyrinth',
     director: 'Guillermo del Toro',
     year: 2006,
+    difficulty: 'hard',
   },
   {
     title: 'The Lives of Others',
     director: 'Florian Henckel von Donnersmarck',
-    year: 2006
+    year: 2006,
+    difficulty: 'hard',
   },
   {
     title: 'No Country for Old Men',
     director: 'Joel and Ethan Coen',
-    year: 2007
+    year: 2007,
+    difficulty: 'medium',
   },
   {
     title: 'The Dark Knight',
     director: 'Christopher Nolan',
     year: 2008,
+    difficulty: 'easy',
   },
   {
     title: 'Slumdog Millionaire',
     director: 'Danny Boyle',
     year: 2008,
+    difficulty: 'medium',
   },
   {
     title: 'Avatar',
     director: 'James Cameron',
     year: 2009,
+    difficulty: 'easy',
   },
   {
     title: 'Inception',
     director: 'Christopher Nolan',
     year: 2010,
+    difficulty: 'easy',
   },
   {
     title: 'The Intouchables',
     director: 'Olivier Nakache and Éric Toledano',
-    year: 2011
+    year: 2011,
+    difficulty: 'hard',
   },
   {
     title: 'Gravity',
     director: 'Alfonso Cuarón',
     year: 2013,
+    difficulty: 'medium',
   },
   {
     title: 'Boyhood',
     director: 'Richard Linklater',
     year: 2014,
+    difficulty: 'hard',
   },
   {
     title: 'Mad Max: Fury Road',
     director: 'George Miller',
     year: 2015,
+    difficulty: 'easy',
   },
   {
     title: 'Get Out',
     director: 'Jordan Peele',
     year: 2017,
+    difficulty: 'medium',
   },
   {
     title: 'Roma',
     director: 'Alfonso Cuarón',
     year: 2018,
+    difficulty: 'medium',
   },
   {
     title: 'Parasite',
     director: 'Bong Joon-ho',
     year: 2019,
+    difficulty: 'medium',
   },
   {
     title: 'Everything Everywhere All at Once',
     director: 'Daniel Kwan and Daniel Scheinert',
-    year: 2022
+    year: 2022,
+    difficulty: 'medium',
   },
   {
     title: 'Oppenheimer',
     director: 'Christopher Nolan',
     year: 2023,
+    difficulty: 'easy',
+  },
+  {
+    title: 'The Oddisey',
+    director: 'Christopher Nolan',
+    year: 2026,
+    difficulty: 'easy',
   },
 ];
