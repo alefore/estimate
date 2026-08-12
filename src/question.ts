@@ -5,14 +5,14 @@ export interface UnitEntry {
   name: string;
   value: number;
   category: Category;
-  difficulty?: Difficulty;
+  difficulty: Difficulty;
   // `topic` is used to never pair two questions about the same node. This lets
   // us avoid questions like "Napoleon was born" vs "Napoleon was exiled".
   topic: string[];
   // A unique static numeric ID that identifies the entry. We avoid computing
   // this dynamically because we want it to be stable (so that we can store it
   // to identify the entries in a question).
-  id?: number;
+  id: number;
 }
 
 class ConfidenceButtons {
