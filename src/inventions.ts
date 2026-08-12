@@ -10,1040 +10,1106 @@ export interface Invention {
 }
 
 export const inventions: Invention[] = [
-  {name: 'Paper', year: 105, inventor: 'Cai Lun', id: 1000, difficulty: 'hard'},
+  {
+    name: 'Paper',
+    year: 105,
+    inventor: 'Cai Lun',
+    id: 1000,
+    difficulty: 'hard',
+  },
   {
     name: 'Movable-type printing press',
     year: 1440,
     inventor: 'Johannes Gutenberg',
     id: 1001,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Telescope',
     year: 1608,
     inventor: 'Hans Lippershey',
     id: 1002,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Compound microscope (refined)',
     year: 1625,
     id: 1003,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Mechanical calculator (Pascaline)',
     year: 1642,
     inventor: 'Blaise Pascal',
     id: 1004,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Barometer',
     year: 1643,
     inventor: 'Evangelista Torricelli',
     id: 1005,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Vacuum pump',
     year: 1650,
     inventor: 'Otto von Guericke',
     id: 1006,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Pendulum clock',
     year: 1656,
     inventor: 'Christiaan Huygens',
     id: 1007,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Reflecting telescope',
     year: 1668,
     inventor: 'Isaac Newton',
     id: 1008,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Pressure cooker',
     year: 1679,
     inventor: 'Denis Papin',
     id: 1009,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Tuning fork',
     year: 1711,
     inventor: 'John Shore',
     id: 1010,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Steam engine (piston)',
     year: 1712,
     inventor: 'Thomas Newcomen',
     id: 1011,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Mercury thermometer',
     year: 1714,
     inventor: 'Daniel Gabriel Fahrenheit',
     id: 1012,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Marine chronometer',
     year: 1735,
     inventor: 'John Harrison',
     id: 1013,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Lightning rod',
     year: 1752,
     inventor: 'Benjamin Franklin',
     id: 1014,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Spinning jenny',
     year: 1764,
     inventor: 'James Hargreaves',
     id: 1015,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Improved steam engine',
     year: 1769,
     inventor: 'James Watt',
     id: 1016,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Hot air balloon',
     year: 1783,
     inventor: 'Montgolfier brothers',
     id: 1017,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Power loom',
     year: 1785,
     inventor: 'Edmund Cartwright',
     id: 1018,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Cotton gin',
     year: 1793,
     inventor: 'Eli Whitney',
     id: 1019,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Smallpox vaccine',
     year: 1796,
     inventor: 'Edward Jenner',
     id: 1020,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Electric battery',
     year: 1800,
     inventor: 'Alessandro Volta',
     id: 1021,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Steam locomotive',
     year: 1804,
     inventor: 'Richard Trevithick',
     id: 1022,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Canned food',
     year: 1810,
     inventor: 'Nicolas Appert',
     id: 1023,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Spectrometer',
     year: 1814,
     inventor: 'Joseph von Fraunhofer',
     id: 1024,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Stethoscope',
     year: 1816,
     inventor: 'René Laennec',
     id: 1025,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Bicycle (draisine)',
     year: 1817,
     inventor: 'Karl von Drais',
     id: 1026,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Electromagnet',
     year: 1824,
     inventor: 'William Sturgeon',
     id: 1027,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Photography (heliography)',
     year: 1826,
     inventor: 'Nicéphore Niépce',
     id: 1028,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Friction match',
     year: 1826,
     inventor: 'John Walker',
     id: 1029,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Braille writing system',
     year: 1829,
     inventor: 'Louis Braille',
     id: 1030,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Sewing machine (practical)',
     year: 1830,
     inventor: 'Barthélemy Thimonnier',
     id: 1031,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Mechanical reaper',
     year: 1831,
     inventor: 'Cyrus McCormick',
     id: 1032,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Electric dynamo',
     year: 1831,
     inventor: 'Michael Faraday',
     id: 1033,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Revolver',
     year: 1836,
     inventor: 'Samuel Colt',
     id: 1034,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Telegraph',
     year: 1837,
     inventor: 'Samuel Morse',
     id: 1035,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Daguerreotype photography',
     year: 1839,
     inventor: 'Louis Daguerre',
     id: 1036,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Vulcanized rubber',
     year: 1839,
     inventor: 'Charles Goodyear',
     id: 1037,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Telegraph (first official public message sent)',
     year: 1844,
     inventor: 'Samuel Morse',
     id: 1038,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Chocolate bar (mass-produced)',
     year: 1847,
     inventor: 'Joseph Fry',
     id: 1039,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Anesthesia (ether, public demonstration)',
     year: 1846,
     inventor: 'William T. G. Morton',
     id: 1040,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Safety elevator',
     year: 1852,
     inventor: 'Elisha Otis',
     id: 1041,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Bessemer steel process',
     year: 1856,
     inventor: 'Henry Bessemer',
     id: 1042,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Internal combustion engine (practical)',
     year: 1859,
     inventor: 'Étienne Lenoir',
     id: 1043,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Pasteurization',
     year: 1864,
     inventor: 'Louis Pasteur',
     id: 1044,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Dynamite',
     year: 1867,
     inventor: 'Alfred Nobel',
     id: 1045,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Typewriter (commercial)',
     year: 1868,
     inventor: 'Christopher Latham Sholes',
     id: 1046,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Periodic table',
     year: 1869,
     inventor: 'Dmitri Mendeleev',
     id: 1047,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Barbed wire',
     year: 1874,
     inventor: 'Joseph Glidden',
     id: 1048,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Telephone',
     year: 1876,
     inventor: 'Alexander Graham Bell',
     id: 1049,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Four-stroke engine',
     year: 1876,
     inventor: 'Nikolaus Otto',
     id: 1050,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Phonograph',
     year: 1877,
     inventor: 'Thomas Edison',
     id: 1051,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Practical incandescent light bulb',
     year: 1879,
     inventor: 'Thomas Edison',
     id: 1052,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Seismograph',
     year: 1880,
     inventor: 'John Milne',
     id: 1053,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Metal detector',
     year: 1881,
     inventor: 'Alexander Graham Bell',
     id: 1054,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Fountain pen (practical)',
     year: 1884,
     inventor: 'Lewis Waterman',
     id: 1055,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Motorcycle',
     year: 1885,
     inventor: 'Gottlieb Daimler and Wilhelm Maybach',
     id: 1056,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Automobile (gasoline)',
     year: 1885,
     inventor: 'Karl Benz',
     id: 1057,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Safety bicycle',
     year: 1885,
     inventor: 'John Kemp Starley',
     id: 1058,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Dishwasher',
     year: 1886,
     inventor: 'Josephine Cochrane',
     id: 1059,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Coca-Cola',
     year: 1886,
     inventor: 'John Pemberton',
     id: 1060,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Contact lenses',
     year: 1887,
     inventor: 'Adolf Fick',
     id: 1061,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Pneumatic tire (practical)',
     year: 1888,
     inventor: 'John Boyd Dunlop',
     id: 1062,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Kodak camera (roll film)',
     year: 1888,
     inventor: 'George Eastman',
     id: 1063,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Alternating current motor',
     year: 1888,
     inventor: 'Nikola Tesla',
     id: 1064,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Zipper',
     year: 1891,
     inventor: 'Whitcomb Judson',
     id: 1065,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Escalator',
     year: 1891,
     inventor: 'Jesse W. Reno',
     id: 1066,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Diesel engine',
     year: 1893,
     inventor: 'Rudolf Diesel',
     id: 1067,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Cinematograph',
     year: 1895,
     inventor: 'Lumière brothers',
     id: 1068,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'X-ray imaging',
     year: 1895,
     inventor: 'Wilhelm Röntgen',
     id: 1069,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Radio transmission',
     year: 1895,
     inventor: 'Guglielmo Marconi',
     id: 1070,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Aspirin (synthesized)',
     year: 1897,
     inventor: 'Felix Hoffmann',
     id: 1071,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Remote control',
     year: 1898,
     inventor: 'Nikola Tesla',
     id: 1072,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Paper clip',
     year: 1899,
     inventor: 'Johan Vaaler',
     id: 1073,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Zeppelin airship',
     year: 1900,
     inventor: 'Ferdinand von Zeppelin',
     id: 1074,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Safety razor (disposable blade)',
     year: 1901,
     inventor: 'King Camp Gillette',
     id: 1075,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Polygraph (lie detector)',
     year: 1902,
     inventor: 'James Mackenzie',
     id: 1076,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Air conditioning',
     year: 1902,
     inventor: 'Willis Carrier',
     id: 1077,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Electrocardiogram (ECG)',
     year: 1903,
     inventor: 'Willem Einthoven',
     id: 1078,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Powered airplane',
     year: 1903,
     inventor: 'Wright brothers',
     id: 1079,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Tea bag',
     year: 1904,
     inventor: 'Thomas Sullivan',
     id: 1080,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Bakelite (first synthetic plastic)',
     year: 1907,
     inventor: 'Leo Baekeland',
     id: 1081,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Ford Model T (mass production)',
     year: 1908,
     inventor: 'Henry Ford',
     id: 1082,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Geiger counter',
     year: 1908,
     inventor: 'Hans Geiger',
     id: 1083,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Haber-Bosch ammonia synthesis',
     year: 1909,
     inventor: 'Fritz Haber',
     id: 1084,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Stainless steel',
     year: 1913,
     inventor: 'Harry Brearley',
     id: 1085,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
-  {name: 'Traffic light (electric)', year: 1914, id: 1086, difficulty: 'hard'},
+  {
+    name: 'Traffic light (electric)',
+    year: 1914,
+    id: 1086,
+    difficulty: 'hard',
+  },
   {
     name: 'Band-Aid (adhesive bandage)',
     year: 1920,
     inventor: 'Earle Dickson',
     id: 1087,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Insulin (isolated for treatment)',
     year: 1921,
     inventor: 'Frederick Banting and Charles Best',
     id: 1088,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Television (electromechanical)',
     year: 1925,
     inventor: 'John Logie Baird',
     id: 1089,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Liquid-fueled rocket',
     year: 1926,
     inventor: 'Robert Goddard',
     id: 1090,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Pez dispenser',
     year: 1927,
     inventor: 'Eduard Haas III',
     id: 1091,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Penicillin',
     year: 1928,
     inventor: 'Alexander Fleming',
     id: 1092,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Jet engine',
     year: 1930,
     inventor: 'Frank Whittle',
     id: 1093,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Electron microscope',
     year: 1931,
     inventor: 'Ernst Ruska',
     id: 1094,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'FM Radio',
     year: 1933,
     inventor: 'Edwin Armstrong',
     id: 1095,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Radar (practical)',
     year: 1935,
     inventor: 'Robert Watson-Watt',
     id: 1096,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Nylon',
     year: 1935,
     inventor: 'Wallace Carothers',
     id: 1097,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Teflon',
     year: 1938,
     inventor: 'Roy Plunkett',
     id: 1098,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Ballpoint pen (practical)',
     year: 1938,
     inventor: 'László Bíró',
     id: 1099,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Helicopter (practical)',
     year: 1939,
     inventor: 'Igor Sikorsky',
     id: 1100,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Nuclear reactor',
     year: 1942,
     inventor: 'Enrico Fermi',
     id: 1101,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Duct tape',
     year: 1942,
     inventor: 'Vesta Stoudt',
     id: 1102,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Aqualung (scuba)',
     year: 1943,
     inventor: 'Jacques Cousteau and Émile Gagnan',
     id: 1103,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Slinky',
     year: 1943,
     inventor: 'Richard James',
     id: 1104,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Electronic general-purpose computer (ENIAC)',
     year: 1945,
     id: 1105,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Microwave oven',
     year: 1945,
     inventor: 'Percy Spencer',
     id: 1106,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Disposable diaper',
     year: 1946,
     inventor: 'Marion Donovan',
     id: 1107,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Transistor',
     year: 1947,
     inventor: 'Bardeen, Brattain, and Shockley',
     id: 1108,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Velcro',
     year: 1948,
     inventor: 'George de Mestral',
     id: 1109,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Polaroid instant camera',
     year: 1948,
     inventor: 'Edwin Land',
     id: 1110,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Barcode',
     year: 1949,
     inventor: 'Norman Joseph Woodland and Bernard Silver',
     id: 1111,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Credit card (Diners Club)',
     year: 1950,
     inventor: 'Frank McNamara',
     id: 1112,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Flight recorder (Black box)',
     year: 1953,
     inventor: 'David Warren',
     id: 1113,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Polio vaccine',
     year: 1955,
     inventor: 'Jonas Salk',
     id: 1114,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Hovercraft',
     year: 1955,
     inventor: 'Christopher Cockerell',
     id: 1115,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Shipping container (intermodal)',
     year: 1956,
     inventor: 'Malcom McLean',
     id: 1116,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
-  {name: 'Hard disk drive', year: 1956, id: 1117, difficulty: 'medium'},
+  {
+    name: 'Hard disk drive',
+    year: 1956,
+    id: 1117,
+    difficulty: 'medium',
+  },
   {
     name: 'Bubble wrap',
     year: 1957,
     inventor: 'Alfred Fielding and Marc Chavannes',
     id: 1118,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Artificial satellite (Sputnik 1)',
     year: 1957,
     id: 1119,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Integrated circuit',
     year: 1958,
     inventor: 'Jack Kilby',
     id: 1120,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Implantable pacemaker',
     year: 1958,
     inventor: 'Rune Elmqvist',
     id: 1121,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Laser',
     year: 1960,
     inventor: 'Theodore Maiman',
     id: 1122,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Combined oral contraceptive pill',
     year: 1960,
     id: 1123,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Communications satellite (Telstar)',
     year: 1962,
     id: 1124,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Computer mouse',
     year: 1964,
     inventor: 'Douglas Engelbart',
     id: 1125,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Kevlar',
     year: 1965,
     inventor: 'Stephanie Kwolek',
     id: 1126,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Automated Teller Machine (ATM)',
     year: 1967,
     inventor: 'John Shepherd-Barron',
     id: 1127,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'ARPANET (first packet-switched network)',
     year: 1969,
     id: 1128,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
-  {name: 'Pocket calculator', year: 1971, id: 1129, difficulty: 'medium'},
+  {
+    name: 'Pocket calculator',
+    year: 1971,
+    id: 1129,
+    difficulty: 'medium',
+  },
   {
     name: 'Microprocessor (Intel 4004)',
     year: 1971,
     id: 1130,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Email',
     year: 1971,
     inventor: 'Ray Tomlinson',
     id: 1131,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'CT scanner',
     year: 1971,
     inventor: 'Godfrey Hounsfield',
     id: 1132,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Mobile phone (first handheld call)',
     year: 1973,
     inventor: 'Martin Cooper',
     id: 1133,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Rubik\'s Cube',
     year: 1974,
     inventor: 'Ernő Rubik',
     id: 1134,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Personal computer (Altair 8800)',
     year: 1974,
     id: 1135,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Post-it Note',
     year: 1974,
     inventor: 'Arthur Fry and Spencer Silver',
     id: 1136,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Digital camera (prototype)',
     year: 1975,
     inventor: 'Steven Sasson',
     id: 1137,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'MRI scanner (first human scan)',
     year: 1977,
     id: 1138,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'Floppy disk',
     year: 1971,
     inventor: 'Alan Shugart',
     id: 1139,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Spreadsheet software (VisiCalc)',
     year: 1978,
     inventor: 'Dan Bricklin and Bob Frankston',
     id: 1140,
-    difficulty: 'hard'
+    difficulty: 'hard',
   },
   {
     name: 'GPS (first satellite launched)',
     year: 1978,
     id: 1141,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
-  {name: 'Walkman', year: 1979, id: 1142, difficulty: 'easy'},
+  {
+    name: 'Walkman',
+    year: 1979,
+    id: 1142,
+    difficulty: 'easy',
+  },
   {
     name: 'space shuttle (first launch)',
     year: 1981,
     id: 1143,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
-  {name: 'Compact disc', year: 1982, id: 1144, difficulty: 'easy'},
-  {name: 'Macintosh (released)', year: 1984, id: 1145, difficulty: 'easy'},
+  {
+    name: 'Compact disc',
+    year: 1982,
+    id: 1144,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Macintosh (released)',
+    year: 1984,
+    id: 1145,
+    difficulty: 'easy',
+  },
   {
     name: 'DNA fingerprinting',
     year: 1984,
     inventor: 'Alec Jeffreys',
     id: 1146,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'Lithium-ion battery (commercial)',
     year: 1991,
     id: 1147,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
   {
     name: 'World Wide Web',
     year: 1991,
     inventor: 'Tim Berners-Lee',
     id: 1148,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
-  {name: 'Text messaging (SMS)', year: 1992, id: 1149, difficulty: 'hard'},
+  {
+    name: 'Text messaging (SMS)',
+    year: 1992,
+    id: 1149,
+    difficulty: 'hard',
+  },
   {
     name: 'QR Code',
     year: 1994,
     inventor: 'Masahiro Hara',
     id: 1150,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
-  {name: 'DVD', year: 1995, id: 1151, difficulty: 'easy'},
-  {name: 'USB', year: 1996, id: 1152, difficulty: 'easy'},
-  {name: 'Wi-Fi (802.11 standard)', year: 1997, id: 1153, difficulty: 'easy'},
+  {
+    name: 'DVD',
+    year: 1995,
+    id: 1151,
+    difficulty: 'easy',
+  },
+  {
+    name: 'USB',
+    year: 1996,
+    id: 1152,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Wi-Fi (802.11 standard)',
+    year: 1997,
+    id: 1153,
+    difficulty: 'easy',
+  },
   {
     name: 'Google Search',
     year: 1998,
     inventor: 'Larry Page, Sergey Brin',
     id: 1154,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'Bluetooth',
     year: 1999,
     inventor: 'Nils Rydbeck and Johan Ullman',
     id: 1155,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'YouTube (first video uploaded)',
     year: 2005,
     id: 1156,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
-  {name: 'iPhone', year: 2007, id: 1157, difficulty: 'easy'},
+  {
+    name: 'iPhone',
+    year: 2007,
+    id: 1157,
+    difficulty: 'easy',
+  },
   {
     name: 'Bitcoin',
     year: 2009,
     inventor: 'Satoshi Nakamoto',
     id: 1158,
-    difficulty: 'easy'
+    difficulty: 'easy',
   },
   {
     name: 'CRISPR gene editing (as a tool)',
     year: 2012,
     inventor: 'Jennifer Doudna and Emmanuelle Charpentier',
     id: 1159,
-    difficulty: 'medium'
+    difficulty: 'medium',
   },
-  {name: 'ChatGPT (released)', year: 2022, id: 1160, difficulty: 'easy'},
+  {
+    name: 'ChatGPT (released)',
+    year: 2022,
+    id: 1160,
+    difficulty: 'easy',
+  },
 ];
