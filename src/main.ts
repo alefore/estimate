@@ -264,9 +264,13 @@ class App {
 
     const record: GameRecord = {
       date: new Date().toISOString(),
-      confidences: questions.map((q) => q.confidence / 100),
-      correctCount: questions.filter((q) => q.question.isCorrect()).length,
-      skips: allQuestions.length - questions.length
+      answers: questions.map((q) => ({
+                               questionId0: q.question.idQuestion0(),
+                               questionId1: q.question.idQuestion1(),
+                               indexFirst: q.question.indexFirst(),
+                               confidence: q.confidence / 100,
+                               correct: q.question.isCorrect()
+                             })),
     };
 
     saveGame(record);

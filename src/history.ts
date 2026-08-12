@@ -2,15 +2,18 @@ import {emojiButton} from './button.js';
 import {compressHistogram, filterHistogram, renderHistogram, scoreDistribution} from './histogram.js';
 import {createTimestampView} from './timestamps.js';
 
+export interface Answer {
+  questionId0: number;
+  questionId1: number;
+  indexFirst: number;
+  confidence: number;
+  correct: boolean;
+}
+
 export interface GameRecord {
   /** ISO 8601 timestamp of when the game was completed. */
   date: string;
-  /** Confidence values given by the user, one per question (0.5–1.0). */
-  confidences: number[];
-  /** Number of questions answered correctly. */
-  correctCount: number;
-  /** Number of questions skipped. */
-  skips: number;
+  answers: Answer[];
   /**
    * Optional title to show (instead of the date). Used for syntesized entries
    * (that can't be erased).
@@ -18,30 +21,95 @@ export interface GameRecord {
   title?: string;
 }
 
-const STORAGE_KEY = 'estimate.gameHistory.v1';
-
-function isValidRecord(r: unknown): r is GameRecord {
-  if (typeof r !== 'object' || r === null) return false;
-  const rec = r as Partial<GameRecord>;
-  return (
-      typeof rec.date === 'string' && Array.isArray(rec.confidences) &&
-      rec.confidences.every((c) => typeof c === 'number' && c >= 0 && c <= 1) &&
-      typeof rec.correctCount === 'number');
-}
+const STORAGE_KEY = 'estimate.gameHistory.v2';
 
 export function loadHistory(): GameRecord[] {
   const raw = localStorage.getItem(STORAGE_KEY);
   if (raw === null) return [];
+
   const parsed: unknown = JSON.parse(raw);
-  if (!Array.isArray(parsed)) return [];
-  return parsed.filter(isValidRecord);
+  if (!Array.isArray(parsed)) {
+    throw new Error(
+        'History validation failed: Root structure must be an array.');
+  }
+
+  const history: GameRecord[] = [];
+  for (let i = 0; i < parsed.length; i++) {
+    const record = parsed[i];
+    if (!record || typeof record !== 'object') {
+      throw new Error(
+          `History validation failed: Record at index ${i} is not an object.`);
+    }
+
+    if (typeof record.date !== 'string' || isNaN(Date.parse(record.date))) {
+      throw new Error(`History validation failed: Record at index ${
+          i} has a missing or invalid ISO 8601 date.`);
+    }
+
+    if (record.title !== undefined) {
+      throw new Error(`History validation failed: Record at index ${
+          i} provides a 'title'.`);
+    }
+
+    if (!Array.isArray(record.answers)) {
+      throw new Error(`History validation failed: Record at index ${
+          i} 'answers' must be an array.`);
+    }
+
+    const mappedAnswers: Answer[] = [];
+
+    for (let j = 0; j < record.answers.length; j++) {
+      const ans = record.answers[j];
+      if (!Array.isArray(ans) || ans.length !== 5) {
+        throw new Error(`History validation failed: Record ${i}, Answer ${
+            j} must be an array of exactly 5 elements.`);
+      }
+      if (!ans.every(val => typeof val === 'number')) {
+        throw new Error(`History validation failed: Record ${i}, Answer ${
+            j} contains non-numeric values.`);
+      }
+
+      mappedAnswers.push({
+        questionId0: ans[0],
+        questionId1: ans[1],
+        indexFirst: ans[2],
+        confidence: ans[3],
+        correct: ans[4] === 1,
+      });
+    }
+
+    const reconstructedRecord:
+        GameRecord = {date: record.date, answers: mappedAnswers};
+
+    history.push(reconstructedRecord);
+  }
+
+  return history;
 }
 
-export function saveGame(game: GameRecord): GameRecord[] {
-  const history = loadHistory();
-  history.push(game);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
-  return history;
+export function saveGame(game: GameRecord): void {
+  if (game.title !== undefined)
+    throw new Error('Attempted to save a game with a title.');
+
+  const raw = localStorage.getItem(STORAGE_KEY);
+  let rawHistory: unknown[] = [];
+  if (raw !== null) {
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) {
+      throw new Error(
+          'History validation failed: Root structure must be an array.');
+    }
+    rawHistory = parsed;
+  }
+
+  rawHistory.push({
+    date: game.date,
+    answers: game.answers.map(
+        ans =>
+            [ans.questionId0, ans.questionId1, ans.indexFirst, ans.confidence,
+             ans.correct ? 1 : 0])
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(rawHistory));
 }
 
 export function displayHistory(records: GameRecord[]): void {
@@ -60,8 +128,10 @@ export function displayHistory(records: GameRecord[]): void {
 }
 
 export function displayRecord(record: GameRecord): HTMLDetailsElement {
-  const total = record.confidences.length;
-  const expected = record.confidences.reduce((sum, c) => sum + c, 0);
+  const confidences = record.answers.map((a) => a.confidence);
+  const total = record.answers.length;
+  const correct = record.answers.filter((a) => a.correct).length;
+  const expected = confidences.reduce((sum, c) => sum + c, 0);
 
   const summary = document.createElement('summary');
   const details = document.createElement('div');
@@ -72,7 +142,7 @@ export function displayRecord(record: GameRecord): HTMLDetailsElement {
     summary.append(createTimestampView(new Date(record.date).getTime()));
 
   summary.append(document.createTextNode(
-      `: ${record.correctCount} correct, ${expected.toFixed(1)} expected`));
+      `: ${correct} correct, ${expected.toFixed(1)} expected`));
 
   if (!record.title) {
     details.append(emojiButton(
@@ -82,17 +152,15 @@ export function displayRecord(record: GameRecord): HTMLDetailsElement {
 
   details.append(Object.assign(document.createElement('p'), {
     className: 'game-record-score',
-    textContent: `You got ${record.correctCount} of ${total} right` +
-        (record.skips > 0 ? ` (skipped: ${record.skips})` : '') +
-        `. Your confidence predicted: ${expected.toFixed(1)}.`
+    textContent: `You got ${correct} of ${
+        total} right. Your confidence predicted: ${expected.toFixed(1)}.`
   }));
 
   const histogramDiv = details.appendChild(
       Object.assign(document.createElement('div'), {className: 'histogram'}));
   renderHistogram(
       histogramDiv,
-      compressHistogram(
-          filterHistogram(scoreDistribution(record.confidences)), 20));
+      compressHistogram(filterHistogram(scoreDistribution(confidences)), 20));
 
   if (!record.title)
     details.append(Object.assign(document.createElement('p'), {
@@ -126,16 +194,12 @@ function mergeRecords(records: GameRecord[], title: string): GameRecord {
       (acc, curr) => ({
         // Lexicographical comparison works perfectly for ISO 8601 strings
         date: curr.date > acc.date ? curr.date : acc.date,
-        confidences: acc.confidences.concat(curr.confidences),
-        correctCount: acc.correctCount + curr.correctCount,
-        skips: acc.skips + curr.skips,
+        answers: acc.answers.concat(curr.answers),
         title: title,
       }),
       {
         date: '',  // An empty string will always be less than a valid ISO 8601
                    // string
-        confidences: [] as number[],
-        correctCount: 0,
-        skips: 0
+        answers: [] as Answer[],
       });
 }

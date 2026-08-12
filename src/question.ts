@@ -98,6 +98,20 @@ export class CompareQuestion {
     const units = this.sortedUnits();
     return units[0].value < units[1].value;
   }
+
+  public idQuestion0(): number {
+    // TODO: Mandate that all units have IDs and simplify this expression.
+    return this.input0.id || -1;
+  }
+
+  public idQuestion1(): number {
+    // TODO: Mandate that all units have IDs and simplify this expression.
+    return this.input1.id || -1;
+  }
+
+  public indexFirst(): number {
+    return this.flipped ? 1 : 0;
+  }
 }
 
 export class QuestionView {
