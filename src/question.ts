@@ -100,13 +100,11 @@ export class CompareQuestion {
   }
 
   public idQuestion0(): number {
-    // TODO: Mandate that all units have IDs and simplify this expression.
-    return this.input0.id || -1;
+    return this.input0.id;
   }
 
   public idQuestion1(): number {
-    // TODO: Mandate that all units have IDs and simplify this expression.
-    return this.input1.id || -1;
+    return this.input1.id;
   }
 
   public indexFirst(): number {
