@@ -77,6 +77,7 @@ class App {
                                   value: p.year,
                                   topic: [p.artist],
                                   category: Category.Painting,
+                                  id: p.id,
                                   difficulty: p.difficulty,
                                 })))
           .concat(structures.map(
@@ -93,6 +94,7 @@ class App {
                               value: f.year,
                               category: Category.Film,
                               topic: [f.director],
+                              id: f.id,
                               difficulty: f.difficulty,
                             })))
           .sort((a, b) => a.value - b.value));
