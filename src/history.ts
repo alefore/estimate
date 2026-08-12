@@ -1,25 +1,8 @@
 import {emojiButton} from './button.js';
 import {compressHistogram, filterHistogram, renderHistogram, scoreDistribution} from './histogram.js';
+import {generateCalibrationSVG} from './stats.js';
+import {Answer, GameRecord} from './storage.js';
 import {createTimestampView} from './timestamps.js';
-
-export interface Answer {
-  questionId0: number;
-  questionId1: number;
-  indexFirst: number;
-  confidence: number;
-  correct: boolean;
-}
-
-export interface GameRecord {
-  /** ISO 8601 timestamp of when the game was completed. */
-  date: string;
-  answers: Answer[];
-  /**
-   * Optional title to show (instead of the date). Used for syntesized entries
-   * (that can't be erased).
-   */
-  title?: string;
-}
 
 const STORAGE_KEY = 'estimate.gameHistory.v2';
 
@@ -161,6 +144,12 @@ export function displayRecord(record: GameRecord): HTMLDetailsElement {
   renderHistogram(
       histogramDiv,
       compressHistogram(filterHistogram(scoreDistribution(confidences)), 20));
+
+  const calibrationDashboard =
+      details.appendChild(Object.assign(document.createElement('div'), {
+        className: 'calibration-graph',
+        innerHTML: generateCalibrationSVG(record)
+      }));
 
   if (!record.title)
     details.append(Object.assign(document.createElement('p'), {

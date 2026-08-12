@@ -6,11 +6,12 @@ import {createDifficultySelector, type Difficulty, DIFFICULTY_FILTERS, difficult
 import {FamousBirth, famousBirths} from './famous_persons.js';
 import {Film, films} from './films.js';
 import {HistoricalEvent, historicalEvents} from './historical_events.js';
-import {displayHistory, displayRecord, GameRecord, loadHistory, saveGame} from './history.js';
+import {displayHistory, displayRecord, loadHistory, saveGame} from './history.js';
 import {Invention, inventions} from './inventions.js';
 import {Computed, Signal} from './listener.js';
 import {Painting, paintings} from './paintings.js';
 import {CompareQuestion, QuestionView, UnitEntry} from './question.js';
+import {GameRecord} from './storage.js';
 import {Structure, structures} from './structures.js';
 
 class Unit {

@@ -181,3 +181,8 @@ table {
 div#settings p.warning {
   color: red;
 }
+
+div.calibration-graph {
+  width:100%;
+  max-width: 700px;
+}
