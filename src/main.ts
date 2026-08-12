@@ -75,7 +75,8 @@ class App {
                                   name: `${p.artist} finished ${p.title}`,
                                   value: p.year,
                                   topic: [p.artist],
-                                  category: Category.Painting
+                                  category: Category.Painting,
+                                  difficulty: p.difficulty,
                                 })))
           .concat(structures.map(
               (s: Structure): UnitEntry => ({
