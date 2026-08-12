@@ -93,7 +93,7 @@ class App {
                               value: f.year,
                               category: Category.Film,
                               topic: [f.director],
-                              difficulty: s.difficulty,
+                              difficulty: f.difficulty,
                             })))
           .sort((a, b) => a.value - b.value));
   readonly titleDiv =
