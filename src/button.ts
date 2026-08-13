@@ -1,12 +1,24 @@
-export function emojiButton(
-    emoji: string, text: string, title: string,
-    handler: () => void): HTMLButtonElement {
-  const button = Object.assign(
-      document.createElement('button'), {className: 'emoji', title: title});
-  button.append(
-      Object.assign(document.createElement('span'), {textContent: emoji}),
-      Object.assign(document.createElement('span'), {textContent: text}),
-  );
-  button.addEventListener('click', (event: MouseEvent) => handler());
-  return button;
+export class EmojiButton {
+  public readonly button: HTMLButtonElement;
+  private readonly textSpan: HTMLSpanElement;
+
+  constructor(emoji: string, text: string, title: string, handler: () => void) {
+    this.button = Object.assign(document.createElement('button'), {
+      className: 'emoji',
+      title: title,
+      onclick: (event: MouseEvent) => handler()
+    });
+    this.button.appendChild(
+        Object.assign(document.createElement('span'), {textContent: emoji}));
+    this.textSpan = this.button.appendChild(
+        Object.assign(document.createElement('span'), {textContent: text}));
+  }
+
+  updateText(text: string) {
+    this.textSpan.textContent = text;
+  }
+
+  setDisabled(value: boolean) {
+    this.button.disabled = value;
+  }
 }

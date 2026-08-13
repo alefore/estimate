@@ -1,5 +1,6 @@
 import {Category, emojiForCategory} from './category.js';
 import {type Difficulty} from './difficulty.js';
+import {Computed, Signal} from './listener.js';
 
 export interface UnitEntry {
   name: string;
@@ -16,130 +17,132 @@ export interface UnitEntry {
 }
 
 class ConfidenceButtons {
-  public readonly container: HTMLDivElement =
-      Object.assign(document.createElement('div'), {className: 'confidence'});
-  public readonly buttons = new Map<number, HTMLButtonElement>();
+  public readonly container = Object.assign(
+      document.createElement('fieldset'), {className: 'confidence-group'});
 
-  constructor(onChange: (value: number) => void, initialValue: number = 50) {
-    const select = (value: number): void => {
-      for (const [v, btn] of this.buttons) {
-        btn.classList.toggle('selected', v === value);
-      }
-      onChange(value);
-    };
+  public confidence: Signal<number|null> = new Signal(null);
 
-    for (let value = 50; value <= 100; value += 5) {
-      const btn = document.createElement('button');
-      btn.textContent = `${value}%`;
-      btn.addEventListener('click', () => select(value));
-      this.buttons.set(value, btn);
-      this.container.appendChild(btn);
-    }
+  constructor() {
+    const questionId = Math.random().toString(36).slice(2);
 
-    select(initialValue);
+    this.container.appendChild(Object.assign(
+        document.createElement('legend'),
+        {textContent: 'How confident are you?', className: 'sr-only'}));
+
+    [51, 60, 70, 80, 90, 100].forEach(value => {
+      const label = this.container.appendChild(document.createElement('label'));
+
+      const radio =
+          label.appendChild(Object.assign(document.createElement('input'), {
+            type: 'radio',
+            name: `confidence_${questionId}`,
+            value: value,
+            onchange: () => {
+              if (radio.checked) this.confidence.value = value;
+            }
+          }));
+
+      new Computed(() => {
+        radio.checked = this.confidence.value === value;
+      }).alwaysFresh();
+
+      label.appendChild(document.createTextNode(` ${value}%`));
+    });
   }
 
-  disable(value: number) {
-    this.container.replaceChildren(Object.assign(document.createElement('p'), {
-      textContent: value === 50 ? 'Skipped (50% confidence).' :
-                                  `Confidence: ${value}%.`
-    }));
+  disable() {
+    this.container.replaceChildren(Object.assign(
+        document.createElement('p'),
+        {textContent: `Confidence: ${this.confidence.value}%.`}));
   }
 }
 
 export class CompareQuestion {
-  public flipped = false;
-  public readonly view = Object.assign(
-      document.createElement('div'), {className: 'compare-question clickable'});
+  public selectionIndex: Signal<number|null> = new Signal(null);
+  public view = Object.assign(
+      document.createElement('fieldset'),
+      {className: 'compare-question-options'});
+  private optionLabels: HTMLLabelElement[];
 
-  constructor(
-      public readonly input0: UnitEntry, public readonly input1: UnitEntry) {
-    this.view.addEventListener('click', this.handleDivClick);
+  constructor(public readonly inputs: UnitEntry[]) {
+    if (this.inputs.length !== 2) throw new Error('Invalid inputs length.');
+
+    this.view.appendChild(Object.assign(
+        document.createElement('legend'),
+        {textContent: 'What was first?', className: 'sr-only'}));
+
+    this.optionLabels =
+        inputs.map((element, index) => this.addInputToView(this.view, index));
   }
 
-  handleDivClick =
-      () => {
-        this.flipped = !this.flipped;
-        this.render(false);
-      }
-
-  sortedUnits() {
-    const output = [this.input0, this.input1];
-    if (this.flipped) output.reverse();
-    return output;
+  reveal() {
+    this.view.disabled = true;
+    this.optionLabels.map(
+        (label, index) =>
+            label.append(Object.assign(document.createElement('span'), {
+              className: 'answer-value',
+              textContent: `(${this.inputs[index]!.value})`
+            })));
   }
 
-  render(reveal: boolean) {
-    this.view.textContent = '';
-    const units = this.sortedUnits();
-    this.addInputToView(units[0], reveal);
-    this.view.append(document.createElement('hr'));
-    this.addInputToView(units[1], reveal);
-    if (reveal) {
-      this.view.removeEventListener('click', this.handleDivClick);
-      this.view.classList.remove('clickable');
-    }
+  private addInputToView(fieldset: HTMLFieldSetElement, unitIndex: number):
+      HTMLLabelElement {
+    const label = fieldset.appendChild(document.createElement('label'));
+
+    const radio =
+        label.appendChild(Object.assign(document.createElement('input'), {
+          type: 'radio',
+          name: `${this.inputs[0].id}:${this.inputs[1].id}`,
+          onchange: (event: Event) => {
+            this.selectionIndex.value = unitIndex;
+          },
+        }));
+
+    const unit = this.inputs[unitIndex]!;
+    label.append(
+        Object.assign(
+            document.createElement('span'),
+            {textContent: emojiForCategory(unit.category)}),
+        Object.assign(
+            document.createElement('span'), {textContent: unit.name}));
+    return label;
   }
 
-  private addInputToView(unit: UnitEntry, reveal: boolean) {
-    const p = document.createElement('p');
-    p.textContent = emojiForCategory(unit.category) + ' ' + unit.name;
-    if (reveal) {
-      p.append(document.createTextNode(' ('));
-      p.append(Object.assign(
-          document.createElement('span'),
-          {className: 'answer-value', textContent: unit.value}));
-      p.append(document.createTextNode(')'));
-    }
-    this.view.append(p);
+  public isAnswered(): boolean {
+    return this.selectionIndex.value !== null;
   }
 
   public isCorrect() {
-    const units = this.sortedUnits();
-    return units[0].value < units[1].value;
+    const index = this.selectionIndex.value;
+    if (index === null)
+      throw new Error(
+          'Attempted to evaluate if unanswered question is correct.');
+    return this.inputs[index].value < this.inputs[(index + 1) % 2].value;
   }
 
   public idQuestion0(): number {
-    return this.input0.id;
+    return this.inputs[0].id;
   }
 
   public idQuestion1(): number {
-    return this.input1.id;
-  }
-
-  public indexFirst(): number {
-    return this.flipped ? 1 : 0;
+    return this.inputs[1].id;
   }
 }
 
 export class QuestionView {
   readonly div: HTMLDivElement = document.createElement('div');
-  readonly header: HTMLHeadingElement = document.createElement('div');
-  confidence: number = 50;
-  readonly confidenceButtons = new ConfidenceButtons((value) => {
-    this.confidence = value;
-  });
+  public readonly confidenceButtons = new ConfidenceButtons();
 
   constructor(
       public readonly question: CompareQuestion, outputDiv: HTMLDivElement) {
     this.div.classList.add('question');
-
-    this.header.append(this.question.view);
-    this.question.render(false);
-    this.div.append(this.header, this.confidenceButtons.container);
+    this.div.append(this.question.view, this.confidenceButtons.container);
     outputDiv.append(this.div);
   }
 
   reveal() {
-    if (this.confidence !== 50) {
-      this.header.classList.add(
-          this.question.isCorrect() ? 'correct' : 'incorrect');
-      this.div.classList.add(
-          this.question.isCorrect() ? 'correct' : 'incorrect');
-    }
-    // this.confidenceContainer.classList.add('invisible');
-    // this.sliderContainer.append(this.question.isCorrect() ? '🟢' : '🔴');
-    this.confidenceButtons.disable(this.confidence);
-    this.question.render(true);
+    this.div.classList.add(this.question.isCorrect() ? 'correct' : 'incorrect');
+    this.confidenceButtons.disable();
+    this.question.reveal();
   }
 }

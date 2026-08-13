@@ -1,5 +1,5 @@
 import {Book, books} from './books.js';
-import {emojiButton} from './button.js';
+import {EmojiButton} from './button.js';
 import {Category, createCategoryFilter, emojiForCategory} from './category.js';
 import {companies, Company} from './companies.js';
 import {createDifficultySelector, type Difficulty, DIFFICULTY_FILTERS, difficultyDistanceRatios} from './difficulty.js';
@@ -254,35 +254,40 @@ class App {
     const yearEntries = entriesByYear.get(selectedYear)!;
     const targetEntry =
         yearEntries[Math.floor(Math.random() * yearEntries.length)];
-    return new CompareQuestion(base, targetEntry);
+    return new CompareQuestion([base, targetEntry]);
   }
 
   addMenuButton(
       emoji: string, text: string, title: string, handler: () => void): void {
-    this.menuDiv.append(emojiButton(emoji, text, title, handler));
+    this.menuDiv.append(new EmojiButton(emoji, text, title, handler).button);
   }
 
   gameDone(allQuestions: QuestionView[]) {
     allQuestions.forEach((q) => q.reveal());
-    const questions = allQuestions.filter((q) => q.confidence > 50);
+    const questions =
+        allQuestions.filter((q) => q.confidenceButtons.confidence.value! > 50);
 
     const record: GameRecord = {
       date: new Date().toISOString(),
-      answers: questions.map((q) => ({
-                               questionId0: q.question.idQuestion0(),
-                               questionId1: q.question.idQuestion1(),
-                               indexFirst: q.question.indexFirst(),
-                               confidence: q.confidence / 100,
-                               correct: q.question.isCorrect()
-                             })),
+      answers: questions.map((q) => {
+        const index = q.question.selectionIndex.value;
+        if (index === null) throw new Error('Question is not answered.');
+        return {
+          questionId0: q.question.idQuestion0(),
+          questionId1: q.question.idQuestion1(),
+          indexFirst: index,
+          confidence: q.confidenceButtons.confidence.value! / 100,
+          correct: q.question.isCorrect()
+        };
+      }),
     };
 
     saveGame(record);
 
     this.gameDiv.prepend(
-        emojiButton('✔️ ', 'Done', 'Go back to the main menu.', () => {
+        new EmojiButton('✔️ ', 'Done', 'Go back to the main menu.', () => {
           this.show(this.menuDiv);
-        }));
+        }).button);
 
     const results = displayRecord(record);
     results.open = true;
@@ -299,12 +304,25 @@ class App {
       return new QuestionView(q, this.gameDiv);
     });
 
-    const finishButton = emojiButton(
+    const finishButton = new EmojiButton(
         '✔️ ', 'Finish', 'End the game and show the results.', () => {
           this.gameDone(questions);
-          finishButton.remove();
+          finishButton.button.remove();
         });
-    this.gameDiv.append(finishButton);
+    this.gameDiv.append(finishButton.button);
+
+    new Computed(() => {
+      const pendingQuestions =
+          questions
+              .filter(
+                  (q) => q.question.selectionIndex.value === null ||
+                      q.confidenceButtons.confidence.value === null)
+              .length;
+      finishButton.updateText(
+          pendingQuestions === 0 ? 'Finish' :
+                                   `Questions pending: ${pendingQuestions}`);
+      finishButton.setDisabled(pendingQuestions > 0);
+    }).alwaysFresh();
   }
 
   showHistory() {

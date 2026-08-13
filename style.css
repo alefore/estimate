@@ -18,30 +18,6 @@ input, button, textarea, select {
   font: inherit;
 }
 
-.confidence button {
-  width: 4em;
-  margin-top: 1em;
-  margin-left: 6px;
-  margin-right: 6px;
-  border-radius: 6px;
-
-  background: var(--bg-mild);
-  color: var(--text);
-  border-color:rgba(0, 0, 0, 0.15);
-  font-size: 0.9rem;
-}
-
-.confidence button.selected {
-  background: var(--text);
-  color: var(--bg)
-}
-
-.confidence button:not(.selected):disabled {
-  color: transparent;
-  background: transparent;
-  border-color: transparent;
-}
-
 .invisible {
   display: none;
 }
@@ -66,23 +42,12 @@ div.question.incorrect {
   background-color: var(--bg-incorrect);
 }
 
-div.compare-question p {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
 div.clickable {
   cursor: pointer;
 }
 
-div.compare-question span.answer-value {
+span.answer-value {
   font-weight: bold;
-}
-
-div.compare-question hr {
-  border: none;
-  border-top: 1px dashed #ccc;
-  width: 80%;
 }
 
 .histogram {
@@ -185,4 +150,69 @@ div#settings p.warning {
 div.calibration-graph {
   width:100%;
   max-width: 700px;
+}
+
+fieldset.compare-question-options {
+  display: flex;
+  flex-direction:column;
+  gap: 0px;
+  border: none;
+  padding: 0;
+}
+
+fieldset.compare-question-options label {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  gap: 8px;
+  align-items: center;
+}
+
+fieldset.confidence-group, fieldset.compare-question-options {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+fieldset.confidence-group input[type="radio"], fieldset.compare-question-options input[type="radio"] {
+  appearance: none;
+  margin: 0;
+  display: none;
+  position: absolute;
+}
+
+.confidence-group label {
+  display: inline-block;
+  width: 10%;
+}
+
+.confidence-group label, fieldset.compare-question-options label {
+  padding: 2px 4px;
+  margin: 4px;
+  border-radius: 8px;
+  border: 2px solid var(--text-accent);
+  cursor: pointer;
+  background: var(--bg);
+  color: var(--text-accent-strong);
+  box-shadow: 0 6px 0 var(--text-dim);
+  top: -2px;
+  position: relative;
+}
+
+.confidence-group label:has(input[type="radio"]:checked), fieldset.compare-question-options label:has(input[type="radio"]:checked) {
+  background: var(--text-accent-strong);
+  color: var(--bg);
+  top: 4px;
+  box-shadow: 0 2px 0 var(--text-dim);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

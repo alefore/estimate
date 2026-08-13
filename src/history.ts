@@ -1,4 +1,4 @@
-import {emojiButton} from './button.js';
+import {EmojiButton} from './button.js';
 import {compressHistogram, filterHistogram, renderHistogram, scoreDistribution} from './histogram.js';
 import {generateCalibrationSVG} from './stats.js';
 import {Answer, GameRecord} from './storage.js';
@@ -128,9 +128,11 @@ export function displayRecord(record: GameRecord): HTMLDetailsElement {
       `: ${correct} correct, ${expected.toFixed(1)} expected`));
 
   if (!record.title) {
-    details.append(emojiButton(
-        '❌', 'Erase', 'Remove this record from the history.',
-        () => eraseRecord(record.date)));
+    details.appendChild(new EmojiButton(
+                            '❌', 'Erase',
+                            'Remove this record from the history.',
+                            () => eraseRecord(record.date))
+                            .button);
   }
 
   details.append(Object.assign(document.createElement('p'), {
