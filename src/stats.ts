@@ -52,13 +52,14 @@ export function generateCalibrationSVG(record: GameRecord): string {
       padding.left}" y="40" width="12" height="12" fill="#e2e8f0" rx="2" />
       <text x="${
       padding.left +
-      20}" y="50" font-size="12" fill="#64748b">Total Answers</text>
+      20}" y="50" font-size="12" fill="#64748b">Answers count (right)</text>
 
       <line x1="${width / 2 - 60}" y1="46" x2="${
       width / 2 - 30}" y2="46" stroke="#3b82f6" stroke-width="3" />
       <circle cx="${width / 2 - 45}" cy="46" r="4" fill="#3b82f6" />
       <text x="${
-      width / 2 - 20}" y="50" font-size="12" fill="#64748b">Correct %</text>
+      width / 2 -
+      20}" y="50" font-size="12" fill="#64748b">Correct % (left)</text>
 
       <line x1="${width - padding.right - 130}" y1="46" x2="${
       width - padding.right -
@@ -112,12 +113,11 @@ export function generateCalibrationSVG(record: GameRecord): string {
         barHeight}" fill="#e2e8f0" rx="4" />`;
   });
 
-  const baselinePath =
-      buckets
-          .map(
-              (conf, i) =>
-                  `${i === 0 ? 'M' : 'L'} ${getX(i)} ${getYPercent(conf)}`)
-          .join(' ');
+  const baselinePath = buckets
+                           .map(
+                               (conf, i) => `${i === 0 ? 'M' : 'L'} ${
+                                   getX(i)} ${getYPercent(conf * 100)}`)
+                           .join(' ');
   svg += `<path d="${
       baselinePath}" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,4" fill="none" />`;
 
@@ -151,13 +151,14 @@ export function generateCalibrationSVG(record: GameRecord): string {
   buckets.forEach((conf, i) => {
     svg += `<text x="${getX(i)}" y="${
         padding.top + graphHeight +
-        25}" text-anchor="middle" font-size="14" fill="#334155">${conf}</text>`;
+        25}" text-anchor="middle" font-size="14" fill="#334155">${
+        conf * 100}%</text>`;
   });
 
   // X-Axis Title
   svg += `<text x="${width / 2}" y="${
       height -
-      10}" text-anchor="middle" font-size="14" font-weight="bold" fill="#475569">Reported Confidence</text>`;
+      10}" text-anchor="middle" font-size="14" fill="#475569">Confidence</text>`;
 
   svg += `</svg>`;
 
