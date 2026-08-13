@@ -22,7 +22,7 @@ input, button, textarea, select {
   display: none;
 }
 
-div.question, details.history-record, .content-block {
+details.question, details.history-record, .content-block {
   text-align: center;
 
   border: 1px solid var(--text-dim);
@@ -34,12 +34,21 @@ div.question, details.history-record, .content-block {
   width: 98%;
 }
 
-div.question.correct {
+details.question.correct {
   background-color: var(--bg-correct);
 }
 
-div.question.incorrect {
+details.question.incorrect {
   background-color: var(--bg-incorrect);
+}
+
+details.question summary {
+  color: var(--text-dim);
+}
+
+details.question fieldset {
+  margin-top: 12px;
+  margin-bottom: 8px;
 }
 
 div.clickable {

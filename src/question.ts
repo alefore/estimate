@@ -130,18 +130,40 @@ export class CompareQuestion {
 }
 
 export class QuestionView {
-  readonly div: HTMLDivElement = document.createElement('div');
+  private readonly details: HTMLDetailsElement =
+      document.createElement('details');
+  readonly summary: HTMLElement =
+      this.details.appendChild(document.createElement('summary'));
   public readonly confidenceButtons = new ConfidenceButtons();
+  private autoCollapsed: boolean = false;
 
   constructor(
-      public readonly question: CompareQuestion, outputDiv: HTMLDivElement) {
-    this.div.classList.add('question');
-    this.div.append(this.question.view, this.confidenceButtons.container);
-    outputDiv.append(this.div);
+      public readonly question: CompareQuestion, private readonly index: number,
+      outputDiv: HTMLDivElement) {
+    this.details.classList.add('question');
+    this.details.open = true;
+    new Computed(() => {
+      this.summary.textContent = `Question ${index + 1}: `;
+      if (this.question.selectionIndex.value === null) {
+        this.summary.textContent += '...';
+      } else if (this.confidenceButtons.confidence.value === null) {
+        this.summary.textContent += 'Confidence?';
+      } else {
+        this.summary.textContent +=
+            `${this.confidenceButtons.confidence.value}%`;
+        if (!this.autoCollapsed) {
+          this.autoCollapsed = true;
+          this.details.open = false;
+        }
+      }
+    }).alwaysFresh();
+    this.details.append(this.question.view, this.confidenceButtons.container);
+    outputDiv.append(this.details);
   }
 
   reveal() {
-    this.div.classList.add(this.question.isCorrect() ? 'correct' : 'incorrect');
+    this.details.classList.add(
+        this.question.isCorrect() ? 'correct' : 'incorrect');
     this.confidenceButtons.disable();
     this.question.reveal();
   }

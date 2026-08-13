@@ -300,8 +300,8 @@ class App {
     this.gameDiv.replaceChildren();
     const questionInputs =
         Array.from({length: 10}, () => this.generateQuestion());
-    const questions: QuestionView[] = questionInputs.map((q) => {
-      return new QuestionView(q, this.gameDiv);
+    const questions: QuestionView[] = questionInputs.map((q, index) => {
+      return new QuestionView(q, index, this.gameDiv);
     });
 
     const finishButton = new EmojiButton(
