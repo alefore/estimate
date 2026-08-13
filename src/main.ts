@@ -6,7 +6,7 @@ import {createDifficultySelector, type Difficulty, DIFFICULTY_FILTERS, difficult
 import {FamousBirth, famousBirths} from './famous_persons.js';
 import {Film, films} from './films.js';
 import {HistoricalEvent, historicalEvents} from './historical_events.js';
-import {displayHistory, displayRecord, loadHistory, saveGame} from './history.js';
+import {HistoryManager} from './history.js';
 import {Invention, inventions} from './inventions.js';
 import {Computed, Signal} from './listener.js';
 import {Painting, paintings} from './paintings.js';
@@ -28,6 +28,8 @@ function randomGaussian(mean: number, stdDev: number): number {
 const cssInvisible = 'invisible';
 
 class App {
+  readonly historyManager: HistoryManager = new HistoryManager();
+
   readonly allEntries: UnitEntry[] = this.validateUniqueIds(
       historicalEvents
           .map((h: HistoricalEvent): UnitEntry => ({
@@ -149,9 +151,11 @@ class App {
     this.show(this.menuDiv);
 
     this.buildSettingsDiv();
-    const records: GameRecord[] = loadHistory();
-    if (records.length > 0) displayHistory(records);
     this.enabledEntries.alwaysFresh();
+
+    new Computed(() => {
+      this.historyManager.displayHistory(this.historyDiv);
+    }).alwaysFresh();
   }
 
   private validateUniqueIds(data: UnitEntry[]): UnitEntry[] {
@@ -282,14 +286,14 @@ class App {
       }),
     };
 
-    saveGame(record);
+    this.historyManager.saveGame(record);
 
     this.gameDiv.prepend(
         new EmojiButton('✔️ ', 'Done', 'Go back to the main menu.', () => {
           this.show(this.menuDiv);
         }).button);
 
-    const results = displayRecord(record);
+    const results = this.historyManager.displayRecord(record);
     results.open = true;
     this.gameDiv.prepend(results);
     window.scrollTo({top: 0, behavior: 'smooth'});
@@ -299,7 +303,7 @@ class App {
     this.show(this.gameDiv);
     this.gameDiv.replaceChildren();
     const questionInputs =
-        Array.from({length: 10}, () => this.generateQuestion());
+        Array.from({length: 20}, () => this.generateQuestion());
     const questions: QuestionView[] = questionInputs.map((q, index) => {
       return new QuestionView(q, index, this.gameDiv);
     });
@@ -327,13 +331,6 @@ class App {
 
   showHistory() {
     this.show(this.historyDiv);
-    const history: GameRecord[] = loadHistory();
-    if (history.length > 0) {
-      displayHistory(history);
-    } else {
-      this.historyDiv.replaceChildren(Object.assign(
-          document.createElement('p'), {textContent: 'History is empty.'}));
-    }
   }
 }
 
