@@ -224,7 +224,7 @@ export const books: Book[] = [
     author: 'Nathaniel Hawthorne',
     year: 1850,
     id: 2030,
-    difficulty: 'medium'
+    difficulty: 'hard'
   },
   {
     title: 'Moby-Dick',
