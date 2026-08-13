@@ -11,6 +11,7 @@ import {Invention, inventions} from './inventions.js';
 import {Computed, Signal} from './listener.js';
 import {Painting, paintings} from './paintings.js';
 import {CompareQuestion, QuestionView, UnitEntry} from './question.js';
+import {SettingsManager} from './settings.js';
 import {GameRecord} from './storage.js';
 import {Structure, structures} from './structures.js';
 
@@ -29,34 +30,35 @@ const cssInvisible = 'invisible';
 
 class App {
   readonly historyManager: HistoryManager = new HistoryManager();
-
-  readonly allEntries: UnitEntry[] = this.validateUniqueIds(
-      historicalEvents
-          .map((h: HistoricalEvent): UnitEntry => ({
-                 name: h.name,
-                 value: h.value,
-                 category: Category.HistoricalEvent,
-                 difficulty: h.difficulty,
-                 topic: h.topic,
-                 id: h.id,
-               }))
-          .concat(famousBirths.map((b: FamousBirth): UnitEntry => ({
-                                     name: `${b.name} was born`,
-                                     value: b.value,
-                                     topic: [b.name],
-                                     category: Category.Birth,
-                                     id: b.id,
-                                     difficulty: b.difficulty,
-                                   })))
-          .concat(companies.map((c: Company): UnitEntry => ({
-                                  name: `${c.name} was founded`,
-                                  value: c.year,
-                                  category: Category.Company,
-                                  topic: [],
-                                  id: c.id,
-                                  difficulty: c.difficulty,
-                                })))
-          .concat(books.map((b: Book): UnitEntry => ({
+  readonly settingsManager: SettingsManager =
+      new SettingsManager(this.validateUniqueIds(
+          historicalEvents
+              .map((h: HistoricalEvent): UnitEntry => ({
+                     name: h.name,
+                     value: h.value,
+                     category: Category.HistoricalEvent,
+                     difficulty: h.difficulty,
+                     topic: h.topic,
+                     id: h.id,
+                   }))
+              .concat(famousBirths.map((b: FamousBirth): UnitEntry => ({
+                                         name: `${b.name} was born`,
+                                         value: b.value,
+                                         topic: [b.name],
+                                         category: Category.Birth,
+                                         id: b.id,
+                                         difficulty: b.difficulty,
+                                       })))
+              .concat(companies.map((c: Company): UnitEntry => ({
+                                      name: `${c.name} was founded`,
+                                      value: c.year,
+                                      category: Category.Company,
+                                      topic: [],
+                                      id: c.id,
+                                      difficulty: c.difficulty,
+                                    })))
+              .concat(
+                  books.map((b: Book): UnitEntry => ({
                               name: `${b.title} (by ${b.author}) was published`,
                               value: b.year,
                               topic: [b.author],
@@ -64,34 +66,35 @@ class App {
                               id: b.id,
                               difficulty: b.difficulty,
                             })))
-          .concat(
-              inventions.map((i: Invention): UnitEntry => ({
-                               name: `${i.name} was invented` +
-                                   (i.inventor ? ` (by ${i.inventor})` : ''),
-                               value: i.year,
-                               topic: i.inventor?[i.inventor]: [],
-                               category: Category.Invention,
-                               id: i.id,
-                               difficulty: i.difficulty,
-                             })))
-          .concat(paintings.map((p: Painting): UnitEntry => ({
-                                  name: `${p.artist} finished ${p.title}`,
-                                  value: p.year,
-                                  topic: [p.artist],
-                                  category: Category.Painting,
-                                  id: p.id,
-                                  difficulty: p.difficulty,
-                                })))
-          .concat(structures.map(
-              (s: Structure): UnitEntry => ({
-                name: `${s.name} (${s.country}) was built (finished)`,
-                value: s.year,
-                topic: [s.name],
-                category: Category.Structure,
-                id: s.id,
-                difficulty: s.difficulty,
-              })))
-          .concat(films.map((f: Film): UnitEntry => ({
+              .concat(inventions.map(
+                  (i: Invention): UnitEntry => ({
+                    name: `${i.name} was invented` +
+                        (i.inventor ? ` (by ${i.inventor})` : ''),
+                    value: i.year,
+                    topic: i.inventor?[i.inventor]: [],
+                    category: Category.Invention,
+                    id: i.id,
+                    difficulty: i.difficulty,
+                  })))
+              .concat(paintings.map((p: Painting): UnitEntry => ({
+                                      name: `${p.artist} finished ${p.title}`,
+                                      value: p.year,
+                                      topic: [p.artist],
+                                      category: Category.Painting,
+                                      id: p.id,
+                                      difficulty: p.difficulty,
+                                    })))
+              .concat(structures.map(
+                  (s: Structure): UnitEntry => ({
+                    name: `${s.name} (${s.country}) was built (finished)`,
+                    value: s.year,
+                    topic: [s.name],
+                    category: Category.Structure,
+                    id: s.id,
+                    difficulty: s.difficulty,
+                  })))
+              .concat(
+                  films.map((f: Film): UnitEntry => ({
                               name: `${f.title} (${f.director}) was released`,
                               value: f.year,
                               category: Category.Film,
@@ -99,25 +102,13 @@ class App {
                               id: f.id,
                               difficulty: f.difficulty,
                             })))
-          .sort((a, b) => a.value - b.value));
+              .sort((a, b) => a.value - b.value)));
   readonly titleDiv =
       Object.assign(document.createElement('div'), {id: 'title'});
   readonly menuDiv = Object.assign(document.createElement('div'), {id: 'menu'});
   readonly historyDiv =
       Object.assign(document.createElement('div'), {id: 'history'});
   readonly gameDiv = Object.assign(document.createElement('div'), {id: 'game'});
-  readonly settingsDiv =
-      Object.assign(document.createElement('div'), {id: 'settings'});
-  readonly categorySignals: ReadonlyMap<Category, Signal<boolean>> =
-      new Map(Object.values(Category).map(
-          (value) => [value, new Signal<boolean>(true)]));
-  readonly enabledEntries: Computed<UnitEntry[]> = new Computed(() => {
-    const difficultyFilter = DIFFICULTY_FILTERS[this.difficultySignal.value];
-    return this.allEntries
-        .filter((u) => this.categorySignals.get(u.category)!.value)
-        .filter((u) => !u.difficulty || difficultyFilter(u.difficulty));
-  });
-  readonly difficultySignal: Signal<Difficulty> = new Signal('medium');
 
   constructor() {
     const yearUnit = new Unit('Year');
@@ -139,19 +130,16 @@ class App {
         () => this.showHistory());
     this.addMenuButton(
         '⚙️', 'Settings', 'Show settings dialogue.',
-        () => this.show(this.settingsDiv));
+        () => this.show(this.settingsManager.container));
     this.addMenuButton(
         '❓', 'About', 'Show information about the game.',
         () => window.location.href = 'https://alejo.ch/3m9');
 
     document.body.append(
         this.titleDiv, this.menuDiv, this.historyDiv, this.gameDiv,
-        this.settingsDiv);
+        this.settingsManager.container);
 
     this.show(this.menuDiv);
-
-    this.buildSettingsDiv();
-    this.enabledEntries.alwaysFresh();
 
     new Computed(() => {
       this.historyManager.displayHistory(this.historyDiv);
@@ -186,17 +174,6 @@ class App {
     return data;
   }
 
-  buildSettingsDiv() {
-    this.settingsDiv.append(
-        Object.assign(document.createElement('h2'), {textContent: 'Settings'}));
-
-    this.settingsDiv.append(
-        createDifficultySelector('medium', this.difficultySignal));
-
-    this.settingsDiv.append(
-        createCategoryFilter(this.categorySignals, this.enabledEntries));
-  }
-
   show(div: HTMLDivElement) {
     document.querySelectorAll('body > div')
         .forEach((d) => d.classList.add(cssInvisible));
@@ -205,9 +182,9 @@ class App {
   }
 
   generateQuestion(): CompareQuestion {
-    const distanceRatio = difficultyDistanceRatios[this.difficultySignal.value];
-    const enabled = this.enabledEntries.value;
-    const entries = enabled.length ? enabled : this.allEntries;
+    const distanceRatio =
+        difficultyDistanceRatios[this.settingsManager.difficulty.value];
+    const entries = this.settingsManager.enabledEntries.value;
     if (entries.length < 2) throw new Error('Not enough entries to compare.');
 
     const base = entries[Math.floor(Math.random() * entries.length)];
@@ -302,8 +279,9 @@ class App {
   startGame() {
     this.show(this.gameDiv);
     this.gameDiv.replaceChildren();
-    const questionInputs =
-        Array.from({length: 20}, () => this.generateQuestion());
+    const questionInputs = Array.from(
+        {length: this.settingsManager.questionsPerGame.value},
+        () => this.generateQuestion());
     const questions: QuestionView[] = questionInputs.map((q, index) => {
       return new QuestionView(q, index, this.gameDiv);
     });

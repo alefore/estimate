@@ -138,14 +138,14 @@ table {
   margin-right: auto;
 }
 
-.category-row {
+.category-row, .settings-game-length-row {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 6px;
 }
 
-#settings-categories {
+#settings-categories, #settings-game-length {
   display: inline-flex;
   flex-direction: column;
   margin: 0 auto;

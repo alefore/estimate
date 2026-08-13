@@ -29,7 +29,7 @@ class ConfidenceButtons {
         document.createElement('legend'),
         {textContent: 'How confident are you?', className: 'sr-only'}));
 
-    [51, 60, 70, 80, 90, 100].forEach(value => {
+    [51, 60, 70, 80, 90, 99].forEach(value => {
       const label = this.container.appendChild(document.createElement('label'));
 
       const radio =
@@ -162,8 +162,9 @@ export class QuestionView {
   }
 
   reveal() {
-    this.details.classList.add(
-        this.question.isCorrect() ? 'correct' : 'incorrect');
+    const isCorrect = this.question.isCorrect();
+    this.details.classList.add(isCorrect ? 'correct' : 'incorrect');
+    if (!isCorrect) this.details.open = true;
     this.confidenceButtons.disable();
     this.question.reveal();
   }
