@@ -140,7 +140,7 @@ export class HistoryManager {
     document.body.append(historyDiv);
   }
 
-  displayRecord(record: GameRecord): HTMLDetailsElement {
+  displayRecord = (record: GameRecord): HTMLDetailsElement => {
     const confidences = record.answers.map((a) => a.confidence);
     const total = record.answers.length;
     const correct = record.answers.filter((a) => a.correct).length;
@@ -158,11 +158,14 @@ export class HistoryManager {
         `: ${correct} correct, ${expected.toFixed(1)} expected`));
 
     if (!record.title) {
-      details.appendChild(new EmojiButton(
-                              '❌', 'Erase',
-                              'Remove this record from the history.',
-                              () => this.eraseRecord(record.date))
-                              .button);
+      const button = details.appendChild(
+          new EmojiButton(
+              '❌', 'Erase', 'Remove this record from the history.',
+              () => {
+                this.eraseRecord(record.date);
+                button.remove();
+              })
+              .button);
     }
 
     details.append(Object.assign(document.createElement('p'), {
