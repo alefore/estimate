@@ -3,6 +3,7 @@ import {UnitEntry} from './question.js';
 
 export interface HistoricalEvent {
   name: string;
+  shortName: string;
   value: number;
   topic: string[];
   difficulty: Difficulty;
@@ -12,6 +13,7 @@ export interface HistoricalEvent {
 export const historicalEvents: HistoricalEvent[] = [
   {
     name: 'Hammurabi wrote his code of laws',
+    shortName: 'Hammurabi',
     value: -1754,
     topic: ['Hammurabi'],
     difficulty: 'medium',
@@ -19,6 +21,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },  // c. 1754 BC
   {
     name: 'Tutankhamun ruled Egypt',
+    shortName: 'Tutankhamun',
     value: -1332,
     topic: ['Tutankhamun'],
     difficulty: 'easy',
@@ -26,6 +29,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },  // c. 1332 BC
   {
     name: 'The Trojan War was fought',
+    shortName: 'Trojan War',
     value: -1184,
     topic: ['Troy'],
     difficulty: 'easy',
@@ -33,6 +37,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },  // traditional dating, c. 1184 BC
   {
     name: 'The first Olympic Games were held',
+    shortName: 'Olympics',
     value: -776,
     topic: ['Olympic'],
     difficulty: 'easy',
@@ -40,6 +45,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Rome was founded',
+    shortName: 'Rome',
     value: -753,
     topic: ['Rome'],
     difficulty: 'easy',
@@ -47,6 +53,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },  // traditional dating
   {
     name: 'The Roman Republic was established',
+    shortName: 'Roman Republic',
     value: -509,
     topic: ['Rome'],
     difficulty: 'easy',
@@ -54,6 +61,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Battle of Marathon was fought',
+    shortName: 'Marathon',
     value: -490,
     topic: ['Marathon'],
     difficulty: 'hard',
@@ -61,6 +69,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Battle of Thermopylae was fought',
+    shortName: 'Thermopylae',
     value: -480,
     topic: ['Thermopylae'],
     difficulty: 'hard',
@@ -68,6 +77,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Alexander the Great conquered Persia',
+    shortName: 'Alexander Conquers Persia',
     value: -331,
     topic: ['Alexander the Great'],
     difficulty: 'medium',
@@ -75,6 +85,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Great Wall of China was begun',
+    shortName: 'Great Wall of China',
     value: -221,
     topic: ['China'],
     difficulty: 'medium',
@@ -82,6 +93,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },  // under Qin Shi Huang
   {
     name: 'Hannibal crossed the Alps',
+    shortName: 'Hannibal at the Alps',
     value: -218,
     topic: ['Hannibal'],
     difficulty: 'medium',
@@ -89,6 +101,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Carthage was destroyed by Rome',
+    shortName: 'Carthage destroyed',
     value: -146,
     topic: ['Rome', 'Carthage'],
     difficulty: 'hard',
@@ -96,6 +109,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Julius Caesar was assassinated',
+    shortName: 'Julius Caesar killed',
     value: -44,
     topic: ['Julius Caesar'],
     difficulty: 'easy',
@@ -103,6 +117,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Battle of Actium was fought',
+    shortName: 'Actium',
     value: -31,
     topic: ['Actium'],
     difficulty: 'hard',
@@ -110,6 +125,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Roman Empire was founded by Augustus',
+    shortName: 'Roman Empire',
     value: -27,
     topic: ['Rome'],
     difficulty: 'medium',
@@ -117,6 +133,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Jesus was crucified',
+    shortName: 'Jesus crucified',
     value: 30,
     topic: ['Jesus'],
     difficulty: 'easy',
@@ -124,6 +141,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },  // c. AD 30
   {
     name: 'Vesuvius destroyed Pompeii',
+    shortName: 'Vesuvius erupted',
     value: 79,
     topic: ['Pompeii'],
     difficulty: 'medium',
@@ -131,6 +149,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Constantine legalized Christianity',
+    shortName: 'Christianity legalized',
     value: 313,
     topic: ['Constantine'],
     difficulty: 'medium',
@@ -138,6 +157,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },  // Edict of Milan
   {
     name: 'The Roman Empire split in two',
+    shortName: 'Roman Empire split',
     value: 395,
     topic: ['Rome'],
     difficulty: 'hard',
@@ -145,6 +165,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Rome was sacked by the Visigoths',
+    shortName: 'Visigoths sack Rome',
     value: 410,
     topic: ['Rome'],
     difficulty: 'hard',
@@ -152,6 +173,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Western Roman Empire fell',
+    shortName: 'Western Roman Empire fell',
     value: 476,
     topic: ['Rome'],
     difficulty: 'easy',
@@ -159,6 +181,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Muhammad made the Hijra to Medina',
+    shortName: 'Muhammad Hijra',
     value: 622,
     topic: ['Muhammad'],
     difficulty: 'easy',
@@ -166,6 +189,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Battle of Tours halted the Umayyad advance',
+    shortName: 'Battle of Tours',
     value: 732,
     topic: ['Umayyad'],
     difficulty: 'hard',
@@ -173,6 +197,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Charlemagne was crowned emperor',
+    shortName: 'Charlemagne crowned',
     value: 800,
     topic: ['Charlemagne'],
     difficulty: 'medium',
@@ -180,6 +205,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Vikings discovered America',
+    shortName: 'Vikings in America',
     value: 1000,
     topic: [],
     difficulty: 'easy',
@@ -187,6 +213,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },  // c. 1000, Leif Erikson
   {
     name: 'The Great Schism split the Christian church',
+    shortName: 'Christian church split',
     value: 1054,
     topic: [],
     difficulty: 'medium',
@@ -194,6 +221,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Battle of Hastings was fought',
+    shortName: 'Hastings',
     value: 1066,
     topic: [],
     difficulty: 'medium',
@@ -201,6 +229,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The First Crusade captured Jerusalem',
+    shortName: 'Jerusalem captured',
     value: 1099,
     topic: ['Jerusalem'],
     difficulty: 'easy',
@@ -208,6 +237,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The University of Oxford began teaching',
+    shortName: 'University of Oxford',
     value: 1096,
     topic: ['University of Oxford'],
     difficulty: 'hard',
@@ -215,6 +245,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },  // c. 1096
   {
     name: 'The Magna Carta was signed',
+    shortName: 'Magna Carta',
     value: 1215,
     topic: [],
     difficulty: 'medium',
@@ -222,6 +253,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Genghis Khan\'s Mongols sacked Beijing',
+    shortName: 'Mongols sack Beijing',
     value: 1215,
     topic: ['Genghis Khan'],
     difficulty: 'easy',
@@ -229,6 +261,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Marco Polo set out for China',
+    shortName: 'Marco Polo',
     value: 1271,
     topic: ['Marco Polo'],
     difficulty: 'medium',
@@ -236,6 +269,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Black Death reached Europe',
+    shortName: 'Black Death at Europe',
     value: 1347,
     topic: ['Black Death'],
     difficulty: 'easy',
@@ -243,6 +277,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Hundred Years\' War began',
+    shortName: 'Hunded Years War',
     value: 1337,
     topic: ['Hundred Years\' War'],
     difficulty: 'hard',
@@ -250,6 +285,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Battle of Agincourt was fought',
+    shortName: 'Agincourt',
     value: 1415,
     topic: ['Agincourt'],
     difficulty: 'hard',
@@ -257,6 +293,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Joan of Arc lifted the siege of Orléans',
+    shortName: 'Siege of Orléans',
     value: 1429,
     topic: ['Joan of Arc'],
     difficulty: 'medium',
@@ -264,6 +301,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Johannes Gutenberg printed his Bible',
+    shortName: 'Gutenberg prints Bible',
     value: 1455,
     topic: ['Johannes Gutenberg'],
     difficulty: 'medium',
@@ -271,6 +309,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },  // c. 1455
   {
     name: 'Constantinople fell to the Ottomans',
+    shortName: 'Ottomans conquer Constantinople',
     value: 1453,
     topic: ['Constantinople'],
     difficulty: 'hard',
@@ -278,6 +317,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'America was discovered (by Columbus)',
+    shortName: 'Columbus at America',
     value: 1492,
     topic: ['Christopher Columbus'],
     difficulty: 'easy',
@@ -285,6 +325,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Vasco da Gama reached India by sea',
+    shortName: 'Vasco da Gama at India',
     value: 1498,
     topic: ['Vasco da Gama'],
     difficulty: 'medium',
@@ -292,6 +333,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Michelangelo finished the statue of David',
+    shortName: 'Michelangelo\'s David',
     value: 1504,
     topic: ['Michelangelo'],
     difficulty: 'easy',
@@ -299,6 +341,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Martin Luther posted his 95 Theses',
+    shortName: 'Luther\'s 95 Theses',
     value: 1517,
     topic: ['Martin Luther'],
     difficulty: 'easy',
@@ -306,6 +349,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Magellan\'s expedition circumnavigated the globe',
+    shortName: 'Magellan\'s expedition',
     value: 1522,
     topic: ['Ferdinand Magellan'],
     difficulty: 'medium',
@@ -313,6 +357,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Aztec Empire fell to Cortés',
+    shortName: 'Aztec Empire falls',
     value: 1521,
     topic: ['Hernán Cortés', 'Aztec Empire'],
     difficulty: 'medium',
@@ -320,6 +365,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Inca Empire fell to Pizarro',
+    shortName: 'Inca Empire falls',
     value: 1533,
     topic: ['Francisco Pizarro'],
     difficulty: 'medium',
@@ -327,6 +373,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Copernicus published his heliocentric theory',
+    shortName: 'Copernicus\' Theory',
     value: 1543,
     topic: ['Nicolaus Copernicus'],
     difficulty: 'medium',
@@ -334,6 +381,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Spanish Armada was defeated',
+    shortName: 'Spanish Armada defeated',
     value: 1588,
     topic: ['Spanish Armada'],
     difficulty: 'hard',
@@ -341,6 +389,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Shakespeare\'s Hamlet was first performed',
+    shortName: 'Hamlet performed',
     value: 1601,
     topic: ['Shakespeare'],
     difficulty: 'easy',
@@ -348,6 +397,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },  // c. 1600-1601 TODO: Move to books or arts?
   {
     name: 'Jamestown was founded',
+    shortName: 'Jamestown founded',
     value: 1607,
     topic: ['Jamestown'],
     difficulty: 'hard',
@@ -355,6 +405,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Galileo first pointed a telescope at the sky',
+    shortName: 'Galileo looks at sky',
     value: 1609,
     topic: ['Galileo Galilei'],
     difficulty: 'easy',
@@ -362,6 +413,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Thirty Years\' War began',
+    shortName: 'Thirty Years\' War',
     value: 1618,
     topic: ['Thirty Years\' War'],
     difficulty: 'medium',
@@ -369,6 +421,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Taj Mahal was completed',
+    shortName: 'Taj Mahal',
     value: 1653,
     topic: ['Taj Mahal'],
     difficulty: 'easy',
@@ -376,6 +429,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Great Fire of London burned',
+    shortName: 'Great Fire of London',
     value: 1666,
     topic: [],
     difficulty: 'hard',
@@ -383,6 +437,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Newton published the Principia',
+    shortName: 'Newton\'s Principia',
     value: 1687,
     topic: ['Isaac Newton'],
     difficulty: 'medium',
@@ -390,6 +445,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Glorious Revolution took place in England',
+    shortName: 'Gloruous Revolution',
     value: 1688,
     topic: [],
     difficulty: 'medium',
@@ -397,6 +453,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'St. Petersburg was founded',
+    shortName: 'St. Petersburg founded',
     value: 1703,
     topic: ['St. Petersburg'],
     difficulty: 'hard',
@@ -404,6 +461,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Boston Tea Party took place',
+    shortName: 'Boston Tea Party',
     value: 1773,
     topic: ['Boston Tea Party'],
     difficulty: 'hard',
@@ -411,13 +469,16 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The United States declared independence',
+    shortName: 'United States independence',
     value: 1776,
     topic: [],
     difficulty: 'easy',
     id: 57,
   },
   {
+    // TODO: Inventions?
     name: 'The Montgolfier brothers flew the first hot air balloon',
+    shortName: 'Hot air ballon',
     value: 1783,
     topic: ['Montgolfier'],
     difficulty: 'hard',
@@ -425,6 +486,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The United States Constitution was signed',
+    shortName: 'United States Constitution',
     value: 1787,
     topic: [],
     difficulty: 'medium',
@@ -432,6 +494,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The French Revolution began',
+    shortName: 'French Revolution',
     value: 1789,
     topic: [],
     difficulty: 'easy',
@@ -439,6 +502,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The guillotine claimed Louis XVI',
+    shortName: 'Louis XVI guillotined',
     value: 1793,
     topic: ['Louis XVI'],
     difficulty: 'medium',
@@ -446,6 +510,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Napoleon crowned himself emperor',
+    shortName: 'Napoleon crowned',
     value: 1804,
     topic: ['Napoleon Bonaparte'],
     difficulty: 'medium',
@@ -453,6 +518,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Battle of Trafalgar was fought',
+    shortName: 'Trafalgar',
     value: 1805,
     topic: ['Trafalgar'],
     difficulty: 'hard',
@@ -460,6 +526,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Napoleon invaded Russia',
+    shortName: 'Napoleon at Russia',
     value: 1812,
     topic: ['Napoleon Bonaparte'],
     difficulty: 'medium',
@@ -467,6 +534,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Battle of Waterloo was fought',
+    shortName: 'Waterloo',
     value: 1815,
     topic: ['Waterloo'],
     difficulty: 'hard',
@@ -475,6 +543,7 @@ export const historicalEvents: HistoricalEvent[] = [
   {
     // TODO: inventions?
     name: 'The first passenger railway opened',
+    shortName: 'Passenger railway',
     value: 1825,
     topic: [],
     difficulty: 'medium',
@@ -482,6 +551,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },  // Stockton & Darlington
   {
     name: 'Slavery was abolished in the British Empire',
+    shortName: 'British abolish Slavery',
     value: 1833,
     topic: ['Great Britain'],
     difficulty: 'hard',
@@ -489,6 +559,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The California Gold Rush began',
+    shortName: 'California Gold Rush',
     value: 1848,
     topic: ['California'],
     difficulty: 'medium',
@@ -496,6 +567,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The American Civil War began',
+    shortName: 'American Civil War',
     value: 1861,
     topic: [],
     difficulty: 'easy',
@@ -503,6 +575,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Lincoln issued the Emancipation Proclamation',
+    shortName: 'Lincoln Emancipation Proclamation',
     value: 1863,
     topic: ['Abraham Lincoln'],
     difficulty: 'medium',
@@ -510,6 +583,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Lincoln was assassinated',
+    shortName: 'Lincoln killed',
     value: 1865,
     topic: ['Abraham Lincoln'],
     difficulty: 'easy',
@@ -518,6 +592,7 @@ export const historicalEvents: HistoricalEvent[] = [
   {
     // TODO: inventions
     name: 'The transatlantic telegraph cable was completed',
+    shortName: 'Transatlantic telegraph',
     value: 1866,
     topic: [],
     difficulty: 'easy',
@@ -526,6 +601,7 @@ export const historicalEvents: HistoricalEvent[] = [
   {
     // TODO: inventions
     name: 'The transcontinental railroad was completed',
+    shortName: 'Transcontinental railroad',
     value: 1869,
     topic: [],
     difficulty: 'easy',
@@ -533,6 +609,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Suez Canal opened',
+    shortName: 'Suez Canal opened',
     value: 1869,
     topic: [],
     id: 74,
@@ -540,6 +617,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Krakatoa erupted',
+    shortName: 'Krakatoa',
     value: 1883,
     topic: [],
     id: 75,
@@ -547,6 +625,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The first modern Olympic Games were held',
+    shortName: 'Modern Olympics held',
     value: 1896,
     topic: ['Olympic Games'],
     difficulty: 'medium',
@@ -554,6 +633,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The first movie was screened by the Lumière brothers',
+    shortName: 'First move screened',
     value: 1895,
     topic: ['Lumière'],
     difficulty: 'hard',
@@ -561,6 +641,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Marconi sent the first transatlantic radio signal',
+    shortName: 'Transatlantic radio signal',
     value: 1901,
     topic: ['Guglielmo Marconi'],
     difficulty: 'hard',
@@ -568,6 +649,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Wright brothers flew the first airplane',
+    shortName: 'Wrigths\' airplane',
     value: 1903,
     topic:
         ['Wilbur Wright (Wright brothers)', 'Orville Wright (Wright brothers)'],
@@ -576,6 +658,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Einstein published his theory of special relativity',
+    shortName: 'Einstein\'s relativity',
     value: 1905,
     topic: ['Albert Einstein'],
     difficulty: 'medium',
@@ -583,6 +666,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The San Francisco earthquake struck',
+    shortName: 'San Francisco earthquake',
     value: 1906,
     topic: [],
     difficulty: 'medium',
@@ -590,6 +674,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Titanic sank',
+    shortName: 'Titanic sank',
     value: 1912,
     topic: ['Titanic'],
     difficulty: 'easy',
@@ -597,6 +682,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'World War I began',
+    shortName: 'WWI began',
     value: 1914,
     topic: ['WWI'],
     difficulty: 'easy',
@@ -604,6 +690,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Panama Canal opened',
+    shortName: 'Panama canal opened',
     value: 1914,
     topic: ['Panama'],
     difficulty: 'medium',
@@ -611,6 +698,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Russian Revolution overthrew the Tsar',
+    shortName: 'Tsar overthrown',
     value: 1917,
     topic: ['Nicholas II'],
     difficulty: 'medium',
@@ -618,6 +706,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'World War I ended',
+    shortName: 'WWI ended',
     value: 1918,
     topic: ['WWI'],
     difficulty: 'easy',
@@ -625,13 +714,15 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Spanish flu pandemic swept the world',
+    shortName: 'Spanish flu pandemic',
     value: 1918,
     topic: ['Spanish Flu'],
     difficulty: 'medium',
     id: 87,
   },
   {
-    name: 'Women won the right to vote in the US',
+    name: 'Women won the right to vote in the United States',
+    shortName: 'Women vote in United States',
     value: 1920,
     topic: [],
     difficulty: 'hard',
@@ -639,6 +730,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Tutankhamun\'s tomb was discovered',
+    shortName: 'Tutankhamun\'s tomb discovered',
     value: 1922,
     topic: ['Tutankhamun'],
     difficulty: 'medium',
@@ -646,6 +738,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Wall Street Crash triggered the Great Depression',
+    shortName: 'Great Depression',
     value: 1929,
     topic: [],
     difficulty: 'easy',
@@ -653,6 +746,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Hitler came to power in Germany',
+    shortName: 'Hitler rose to power',
     value: 1933,
     topic: ['Adolf Hitler'],
     difficulty: 'medium',
@@ -660,6 +754,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Hindenburg disaster occurred',
+    shortName: 'Hindenburg disaster',
     value: 1937,
     topic: [],
     difficulty: 'hard',
@@ -667,6 +762,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'World War II began',
+    shortName: 'WWII began',
     value: 1939,
     topic: ['WWII'],
     difficulty: 'easy',
@@ -674,6 +770,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Pearl Harbor was attacked',
+    shortName: 'Pearl Harbor attacked',
     value: 1941,
     topic: ['Pearl Harbor'],
     difficulty: 'medium',
@@ -681,6 +778,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The D-Day landings took place in Normandy',
+    shortName: 'D-Day landings in Normandy',
     value: 1944,
     topic: [],
     difficulty: 'hard',
@@ -688,6 +786,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The first atomic bomb was dropped on Hiroshima',
+    shortName: 'Hiroshima bombed',
     value: 1945,
     topic: ['Hiroshima'],
     difficulty: 'easy',
@@ -695,6 +794,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'World War II ended',
+    shortName: 'WWII ended',
     value: 1945,
     topic: ['WWII'],
     difficulty: 'easy',
@@ -702,6 +802,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The United Nations was founded',
+    shortName: 'UN',
     value: 1945,
     topic: ['United Nations'],
     difficulty: 'medium',
@@ -709,6 +810,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'India gained independence',
+    shortName: 'Indian independence',
     value: 1947,
     topic: [],
     difficulty: 'medium',
@@ -717,6 +819,7 @@ export const historicalEvents: HistoricalEvent[] = [
   {
     // TODO: science
     name: 'The sound barrier was broken',
+    shortName: 'Sound barrier',
     value: 1947,
     topic: [],
     difficulty: 'hard',
@@ -724,6 +827,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The state of Israel was founded',
+    shortName: 'Israel',
     value: 1948,
     topic: ['Israel'],
     difficulty: 'easy',
@@ -731,6 +835,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'NATO was founded',
+    shortName: 'NATO',
     value: 1949,
     topic: ['NATO'],
     difficulty: 'easy',
@@ -738,6 +843,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The People\'s Republic of China was proclaimed',
+    shortName: 'Replublic of China proclaimed',
     value: 1949,
     topic: ['China'],
     difficulty: 'medium',
@@ -745,6 +851,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Korean War began',
+    shortName: 'Korean War began',
     value: 1950,
     topic: [],
     difficulty: 'medium',
@@ -753,6 +860,7 @@ export const historicalEvents: HistoricalEvent[] = [
   {
     // TODO: discoveries
     name: 'The structure of DNA was discovered',
+    shortName: 'DNA structure',
     value: 1953,
     topic: ['DNA'],
     difficulty: 'easy',
@@ -760,6 +868,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Mount Everest was first climbed',
+    shortName: 'Mount Everest climbed',
     value: 1953,
     topic: [],
     difficulty: 'medium',
@@ -767,6 +876,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Rosa Parks refused to give up her seat',
+    shortName: 'Rosa Parks refused',
     value: 1955,
     topic: ['Rosa Parks'],
     difficulty: 'medium',
@@ -774,6 +884,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Treaty of Rome created the European Economic Community',
+    shortName: 'European Economic Community',
     value: 1957,
     topic: [],
     difficulty: 'hard',
@@ -781,6 +892,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Yuri Gagarin became the first human in space',
+    shortName: 'Gagarin in Space',
     value: 1961,
     topic: ['Yuri Gagarin'],
     difficulty: 'medium',
@@ -788,6 +900,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Cuban Missile Crisis brought the world to the brink',
+    shortName: 'Cuban Missile Crisis',
     value: 1962,
     topic: [],
     difficulty: 'easy',
@@ -795,6 +908,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Martin Luther King gave his "I Have a Dream" speech',
+    shortName: 'I Have a Dream',
     value: 1963,
     topic: ['Martin Luther King Jr.'],
     difficulty: 'medium',
@@ -802,6 +916,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'John F. Kennedy was assassinated',
+    shortName: 'Kennedy killed',
     value: 1963,
     topic: ['John F. Kennedy'],
     difficulty: 'easy',
@@ -809,6 +924,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Beatles appeared on The Ed Sullivan Show',
+    shortName: 'Beatles on The Ed Sullivan Show',
     value: 1964,
     topic: ['Beatles', 'John Lennon', 'Paul McCartney'],
     difficulty: 'medium',
@@ -816,6 +932,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Civil Rights Act was signed (United States)',
+    shortName: 'Civil Rights Act',
     value: 1964,
     topic: [],
     difficulty: 'medium',
@@ -824,6 +941,7 @@ export const historicalEvents: HistoricalEvent[] = [
   {
     // TODO: science
     name: 'The first heart transplant was performed',
+    shortName: 'Heart transplant',
     value: 1967,
     topic: [],
     difficulty: 'medium',
@@ -831,6 +949,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Martin Luther King was assassinated',
+    shortName: 'Martin Luther King killed',
     value: 1968,
     topic: ['Martin Luther King Jr.'],
     difficulty: 'medium',
@@ -839,6 +958,7 @@ export const historicalEvents: HistoricalEvent[] = [
   {
     // TODO: science
     name: 'Humans landed on the moon',
+    shortName: 'Humans on the moon',
     value: 1969,
     topic: [],
     difficulty: 'easy',
@@ -846,6 +966,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Woodstock took place',
+    shortName: 'Woodstock',
     value: 1969,
     topic: [],
     difficulty: 'medium',
@@ -853,6 +974,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Watergate scandal broke',
+    shortName: 'Watergate scandal',
     value: 1972,
     topic: [],
     difficulty: 'medium',
@@ -860,6 +982,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Nixon resigned as US president',
+    shortName: 'Nixon resigned',
     value: 1974,
     topic: ['Richard Nixon'],
     difficulty: 'medium',
@@ -867,6 +990,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Vietnam War ended',
+    shortName: 'Vietnam War ended',
     value: 1975,
     topic: [],
     difficulty: 'easy',
@@ -875,6 +999,7 @@ export const historicalEvents: HistoricalEvent[] = [
   {
     // TODO: science
     name: 'The first test-tube baby was born',
+    shortName: 'Test-tube baby',
     value: 1978,
     topic: [],
     difficulty: 'medium',
@@ -882,6 +1007,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Margaret Thatcher became UK prime minister',
+    shortName: 'Thatcher took office',
     value: 1979,
     topic: ['Margaret Thatcher'],
     difficulty: 'easy',
@@ -889,6 +1015,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Smallpox was declared eradicated',
+    shortName: 'Smallpox eradicated',
     value: 1980,
     topic: [],
     difficulty: 'medium',
@@ -896,6 +1023,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'John Lennon was shot',
+    shortName: 'Lennon killed',
     value: 1980,
     topic: ['John Lennon'],
     difficulty: 'easy',
@@ -903,13 +1031,16 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'MTV started broadcasting',
+    shortName: 'MTV',
     value: 1981,
     topic: ['MTV'],
     difficulty: 'medium',
     id: 126,
   },
   {
+    // TODO: inventions?
     name: 'The IBM PC was launched',
+    shortName: 'IBM PC',
     value: 1981,
     topic: ['IBM'],
     difficulty: 'medium',
@@ -917,6 +1048,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Live Aid was broadcast worldwide',
+    shortName: 'Live Aid',
     value: 1985,
     topic: [],
     difficulty: 'hard',
@@ -924,6 +1056,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Chernobyl disaster occurred',
+    shortName: 'Chernobyl',
     value: 1986,
     topic: ['Chernobyl'],
     difficulty: 'medium',
@@ -931,6 +1064,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Challenger space shuttle exploded',
+    shortName: 'Challenger shuttle exploded',
     value: 1986,
     topic: [],
     difficulty: 'hard',
@@ -938,6 +1072,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Berlin Wall fell',
+    shortName: 'Berlin Wall fell',
     value: 1989,
     topic: ['Berlin Wall'],
     difficulty: 'easy',
@@ -945,6 +1080,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Nelson Mandela was released from prison',
+    shortName: 'Mandela released',
     value: 1990,
     topic: ['Nelson Mandela'],
     difficulty: 'hard',
@@ -953,6 +1089,7 @@ export const historicalEvents: HistoricalEvent[] = [
   {
     // TODO: science
     name: 'The Hubble Space Telescope was launched',
+    shortName: 'Hubble Space Telescope',
     value: 1990,
     topic: [],
     difficulty: 'hard',
@@ -960,6 +1097,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Soviet Union collapsed',
+    shortName: 'Soviet Union fell',
     value: 1991,
     topic: ['Soviet Union'],
     difficulty: 'medium',
@@ -967,6 +1105,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The European Union was established',
+    shortName: 'European Union established',
     value: 1993,
     topic: ['European Union'],
     difficulty: 'hard',
@@ -974,21 +1113,16 @@ export const historicalEvents: HistoricalEvent[] = [
   },  // Maastricht Treaty in force
   {
     name: 'Nelson Mandela became president of South Africa',
+    shortName: 'Mandela took office',
     value: 1994,
     topic: ['Nelson Mandela'],
     difficulty: 'hard',
     id: 136,
   },
   {
-    name: 'The Channel Tunnel opened',
-    value: 1994,
-    topic: [],
-    difficulty: 'medium',
-    id: 137,
-  },
-  {
     // TODO: Science
     name: 'Dolly the sheep was cloned',
+    shortName: 'Dolly the sheep',
     value: 1996,
     topic: [],
     difficulty: 'easy',
@@ -996,6 +1130,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Hong Kong was returned to China',
+    shortName: 'Hong Kong returned',
     value: 1997,
     topic: ['China', 'Hong Kong'],
     difficulty: 'easy',
@@ -1003,13 +1138,15 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The euro was introduced',
+    shortName: 'Euro introduced',
     value: 1999,
     topic: [],
     difficulty: 'medium',
     id: 140,
   },
   {
-    name: 'The September 11 attacks occurred',
+    name: 'The September 11 attacks occurred in New York City',
+    shortName: 'September 11',
     value: 2001,
     topic: [],
     difficulty: 'easy',
@@ -1017,6 +1154,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Indian Ocean tsunami struck',
+    shortName: 'Indian Ocean tsunami',
     value: 2004,
     topic: [],
     difficulty: 'medium',
@@ -1024,6 +1162,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The global financial crisis erupted',
+    shortName: 'Global financial crisis',
     value: 2008,
     topic: [],
     difficulty: 'medium',
@@ -1031,6 +1170,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'Barack Obama became US president',
+    shortName: 'Obama took office',
     value: 2009,
     topic: ['Barack Obama'],
     difficulty: 'easy',
@@ -1038,6 +1178,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Arab Spring began',
+    shortName: 'Arab Spring',
     value: 2010,
     topic: [],
     difficulty: 'medium',
@@ -1045,6 +1186,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The Fukushima nuclear disaster occurred',
+    shortName: 'Fukushima disaster',
     value: 2011,
     topic: [],
     difficulty: 'medium',
@@ -1053,6 +1195,7 @@ export const historicalEvents: HistoricalEvent[] = [
   {
     // TODO: Science
     name: 'The Higgs boson was discovered',
+    shortName: 'Higgs boson',
     value: 2012,
     topic: [],
     difficulty: 'medium',
@@ -1061,6 +1204,7 @@ export const historicalEvents: HistoricalEvent[] = [
   {
     // TODO: Science
     name: 'gravitational waves were first detected',
+    shortName: 'Gravitational waves',
     value: 2015,
     topic: [],
     difficulty: 'hard',
@@ -1068,6 +1212,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The United Kingdom voted for Brexit',
+    shortName: 'Brexit',
     value: 2016,
     topic: ['Brexit'],
     difficulty: 'medium',
@@ -1076,6 +1221,7 @@ export const historicalEvents: HistoricalEvent[] = [
   {
     // TODO: Science
     name: 'The first image of a black hole was published',
+    shortName: 'Black hole image',
     value: 2019,
     topic: [],
     difficulty: 'hard',
@@ -1083,6 +1229,7 @@ export const historicalEvents: HistoricalEvent[] = [
   },
   {
     name: 'The COVID-19 pandemic began',
+    shortName: 'COVID-19',
     value: 2020,
     topic: [],
     difficulty: 'easy',

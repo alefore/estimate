@@ -35,6 +35,7 @@ class App {
           historicalEvents
               .map((h: HistoricalEvent): UnitEntry => ({
                      name: h.name,
+                     shortName: h.shortName,
                      value: h.value,
                      category: Category.HistoricalEvent,
                      difficulty: h.difficulty,
@@ -43,6 +44,7 @@ class App {
                    }))
               .concat(famousBirths.map((b: FamousBirth): UnitEntry => ({
                                          name: `${b.name} was born`,
+                                         shortName: b.name,
                                          value: b.value,
                                          topic: [b.name],
                                          category: Category.Birth,
@@ -51,6 +53,7 @@ class App {
                                        })))
               .concat(companies.map((c: Company): UnitEntry => ({
                                       name: `${c.name} was founded`,
+                                      shortName: c.name,
                                       value: c.year,
                                       category: Category.Company,
                                       topic: [],
@@ -60,6 +63,7 @@ class App {
               .concat(
                   books.map((b: Book): UnitEntry => ({
                               name: `${b.title} (by ${b.author}) was published`,
+                              shortName: b.title,
                               value: b.year,
                               topic: [b.author],
                               category: Category.Book,
@@ -70,6 +74,7 @@ class App {
                   (i: Invention): UnitEntry => ({
                     name: `${i.name} was invented` +
                         (i.inventor ? ` (by ${i.inventor})` : ''),
+                    shortName: i.name,
                     value: i.year,
                     topic: i.inventor?[i.inventor]: [],
                     category: Category.Invention,
@@ -78,6 +83,7 @@ class App {
                   })))
               .concat(paintings.map((p: Painting): UnitEntry => ({
                                       name: `${p.artist} finished ${p.title}`,
+                                      shortName: p.title,
                                       value: p.year,
                                       topic: [p.artist],
                                       category: Category.Painting,
@@ -87,6 +93,7 @@ class App {
               .concat(structures.map(
                   (s: Structure): UnitEntry => ({
                     name: `${s.name} (${s.country}) was built (finished)`,
+                    shortName: s.name,
                     value: s.year,
                     topic: [s.name],
                     category: Category.Structure,
@@ -96,6 +103,7 @@ class App {
               .concat(
                   films.map((f: Film): UnitEntry => ({
                               name: `${f.title} (${f.director}) was released`,
+                              shortName: f.title,
                               value: f.year,
                               category: Category.Film,
                               topic: [f.director],

@@ -4,6 +4,7 @@ import {Computed, Signal} from './listener.js';
 
 export interface UnitEntry {
   name: string;
+  shortName: string;
   value: number;
   category: Category;
   difficulty: Difficulty;
@@ -143,14 +144,19 @@ export class QuestionView {
     this.details.classList.add('question');
     this.details.open = true;
     new Computed(() => {
-      this.summary.textContent = `Question ${index + 1}: `;
+      this.summary.textContent = `${index + 1}: `;
       if (this.question.selectionIndex.value === null) {
-        this.summary.textContent += '...';
+        this.summary.textContent += 'What happened first?';
       } else if (this.confidenceButtons.confidence.value === null) {
         this.summary.textContent += 'Confidence?';
       } else {
         this.summary.textContent +=
-            `${this.confidenceButtons.confidence.value}%`;
+            `${this.confidenceButtons.confidence.value}%: ${
+                this.question.inputs[this.question.selectionIndex.value]
+                    .shortName} < ${
+                this.question
+                    .inputs[(this.question.selectionIndex.value + 1) % 2]
+                    .shortName}`;
         if (!this.autoCollapsed) {
           this.autoCollapsed = true;
           this.details.open = false;
