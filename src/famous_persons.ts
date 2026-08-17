@@ -3,10 +3,29 @@ import {type Difficulty} from './difficulty.js';
 export interface FamousBirth {
   name: string;
   value: number;
-  id: number, difficulty: Difficulty;
+  id: number;
+  difficulty: Difficulty;
 }
 
 export const famousBirths: FamousBirth[] = [
+  {
+    name: 'Ramses II',
+    value: -1303,
+    id: 4205,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Homer',
+    value: -750,
+    id: 4206,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Pythagoras',
+    value: -570,
+    id: 4207,
+    difficulty: 'medium',
+  },
   {
     name: 'Gautama Buddha',
     value: -563,
@@ -20,17 +39,35 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'medium',
   },
   {
+    name: 'Sun Tzu',
+    value: -544,
+    id: 4208,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Herodotus',
+    value: -484,
+    id: 4209,
+    difficulty: 'hard',
+  },
+  {
     name: 'Socrates',
     value: -470,
     id: 4002,
     difficulty: 'easy',
-  },  // c. 470 BC
+  },
+  {
+    name: 'Hippocrates',
+    value: -460,
+    id: 4210,
+    difficulty: 'medium',
+  },
   {
     name: 'Plato',
     value: -428,
     id: 4003,
     difficulty: 'medium',
-  },  // c. 428 BC
+  },
   {
     name: 'Aristotle',
     value: -384,
@@ -44,11 +81,17 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'medium',
   },
   {
+    name: 'Euclid',
+    value: -325,
+    id: 4211,
+    difficulty: 'medium',
+  },
+  {
     name: 'Archimedes',
     value: -287,
     id: 4006,
     difficulty: 'hard',
-  },  // c. 287 BC
+  },
   {
     name: 'Qin Shi Huang',
     value: -259,
@@ -59,6 +102,12 @@ export const famousBirths: FamousBirth[] = [
     name: 'Hannibal',
     value: -247,
     id: 4008,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Spartacus',
+    value: -111,
+    id: 4212,
     difficulty: 'hard',
   },
   {
@@ -96,7 +145,25 @@ export const famousBirths: FamousBirth[] = [
     value: -4,
     id: 4014,
     difficulty: 'easy',
-  },  // c. 4 BC
+  },
+  {
+    name: 'Saint Peter',
+    value: 1,
+    id: 4213,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Paul the Apostle',
+    value: 5,
+    id: 4214,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Pliny the Elder',
+    value: 23,
+    id: 4215,
+    difficulty: 'hard',
+  },
   {
     name: 'Nero',
     value: 37,
@@ -116,11 +183,23 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'hard',
   },
   {
+    name: 'Attila the Hun',
+    value: 406,
+    id: 4216,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Justinian I',
+    value: 482,
+    id: 4217,
+    difficulty: 'hard',
+  },
+  {
     name: 'Muhammad',
     value: 570,
     id: 4018,
     difficulty: 'easy',
-  },  // c. 570
+  },
   {
     name: 'Charlemagne',
     value: 748,
@@ -128,11 +207,29 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'hard',
   },
   {
+    name: 'Leif Erikson',
+    value: 970,
+    id: 4218,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Avicenna',
+    value: 980,
+    id: 4219,
+    difficulty: 'hard',
+  },
+  {
     name: 'William the Conqueror',
     value: 1028,
     id: 4020,
     difficulty: 'hard',
-  },  // c. 1028
+  },
+  {
+    name: 'Eleanor of Aquitaine',
+    value: 1122,
+    id: 4220,
+    difficulty: 'hard',
+  },
   {
     name: 'Saladin',
     value: 1137,
@@ -140,11 +237,35 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'hard',
   },
   {
+    name: 'Richard the Lionheart',
+    value: 1157,
+    id: 4221,
+    difficulty: 'medium',
+  },
+  {
     name: 'Genghis Khan',
     value: 1162,
     id: 4022,
     difficulty: 'easy',
-  },  // c. 1162
+  },
+  {
+    name: 'Francis of Assisi',
+    value: 1181,
+    id: 4222,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Rumi',
+    value: 1207,
+    id: 4223,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Kublai Khan',
+    value: 1215,
+    id: 4224,
+    difficulty: 'hard',
+  },
   {
     name: 'Thomas Aquinas',
     value: 1225,
@@ -162,25 +283,61 @@ export const famousBirths: FamousBirth[] = [
     value: 1265,
     id: 4025,
     difficulty: 'easy',
-  },  // c. 1265
+  },
+  {
+    name: 'Mansa Musa',
+    value: 1280,
+    id: 4225,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Petrarch',
+    value: 1304,
+    id: 4226,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Ibn Battuta',
+    value: 1304,
+    id: 4227,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Timur',
+    value: 1336,
+    id: 4228,
+    difficulty: 'hard',
+  },
   {
     name: 'Geoffrey Chaucer',
     value: 1343,
     id: 4026,
     difficulty: 'hard',
-  },  // c. 1343
+  },
+  {
+    name: 'Zheng He',
+    value: 1371,
+    id: 4229,
+    difficulty: 'hard',
+  },
   {
     name: 'Johannes Gutenberg',
     value: 1400,
     id: 4027,
     difficulty: 'easy',
-  },  // c. 1400
+  },
   {
     name: 'Joan of Arc',
     value: 1412,
     id: 4028,
     difficulty: 'medium',
-  },  // c. 1412
+  },
+  {
+    name: 'Sandro Botticelli',
+    value: 1445,
+    id: 4230,
+    difficulty: 'medium',
+  },
   {
     name: 'Christopher Columbus',
     value: 1451,
@@ -194,10 +351,28 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Erasmus',
+    value: 1466,
+    id: 4231,
+    difficulty: 'hard',
+  },
+  {
     name: 'Niccolò Machiavelli',
     value: 1469,
     id: 4031,
     difficulty: 'medium',
+  },
+  {
+    name: 'Vasco da Gama',
+    value: 1469,
+    id: 4232,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Albrecht Dürer',
+    value: 1471,
+    id: 4233,
+    difficulty: 'hard',
   },
   {
     name: 'Nicolaus Copernicus',
@@ -218,22 +393,34 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'hard',
   },
   {
-    name: 'Ferdinand Magellan',
-    value: 1480,
-    id: 4035,
+    name: 'Thomas More',
+    value: 1478,
+    id: 4234,
     difficulty: 'hard',
   },
   {
-    name: 'Hernán Cortés',
-    value: 1485,
-    id: 4036,
-    difficulty: 'hard',
+    name: 'Ferdinand Magellan',
+    value: 1480,
+    id: 4035,
+    difficulty: 'medium',
   },
   {
     name: 'Martin Luther',
     value: 1483,
     id: 4037,
     difficulty: 'medium',
+  },
+  {
+    name: 'Raphael',
+    value: 1483,
+    id: 4235,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Hernán Cortés',
+    value: 1485,
+    id: 4036,
+    difficulty: 'hard',
   },
   {
     name: 'Henry VIII',
@@ -245,6 +432,12 @@ export const famousBirths: FamousBirth[] = [
     name: 'Suleiman the Magnificent',
     value: 1494,
     id: 4039,
+    difficulty: 'hard',
+  },
+  {
+    name: 'John Calvin',
+    value: 1509,
+    id: 4236,
     difficulty: 'hard',
   },
   {
@@ -266,10 +459,22 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'hard',
   },
   {
+    name: 'Mary, Queen of Scots',
+    value: 1542,
+    id: 4237,
+    difficulty: 'medium',
+  },
+  {
     name: 'Miguel de Cervantes',
     value: 1547,
     id: 4043,
     difficulty: 'easy',
+  },
+  {
+    name: 'Francis Bacon',
+    value: 1561,
+    id: 4238,
+    difficulty: 'hard',
   },
   {
     name: 'William Shakespeare',
@@ -290,10 +495,34 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'hard',
   },
   {
+    name: 'Caravaggio',
+    value: 1571,
+    id: 4239,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Thomas Hobbes',
+    value: 1588,
+    id: 4240,
+    difficulty: 'hard',
+  },
+  {
     name: 'René Descartes',
     value: 1596,
     id: 4047,
     difficulty: 'medium',
+  },
+  {
+    name: 'Gian Lorenzo Bernini',
+    value: 1598,
+    id: 4241,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Oliver Cromwell',
+    value: 1599,
+    id: 4242,
+    difficulty: 'hard',
   },
   {
     name: 'Rembrandt',
@@ -302,10 +531,40 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'medium',
   },
   {
+    name: 'John Milton',
+    value: 1608,
+    id: 4243,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Molière',
+    value: 1622,
+    id: 4244,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Blaise Pascal',
+    value: 1623,
+    id: 4245,
+    difficulty: 'medium',
+  },
+  {
     name: 'John Locke',
     value: 1632,
     id: 4049,
     difficulty: 'medium',
+  },
+  {
+    name: 'Baruch Spinoza',
+    value: 1632,
+    id: 4246,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Antonie van Leeuwenhoek',
+    value: 1632,
+    id: 4247,
+    difficulty: 'hard',
   },
   {
     name: 'Louis XIV',
@@ -318,6 +577,12 @@ export const famousBirths: FamousBirth[] = [
     value: 1642,
     id: 4051,
     difficulty: 'easy',
+  },
+  {
+    name: 'Jonathan Swift',
+    value: 1667,
+    id: 4248,
+    difficulty: 'medium',
   },
   {
     name: 'Peter the Great',
@@ -344,6 +609,12 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'hard',
   },
   {
+    name: 'Montesquieu',
+    value: 1689,
+    id: 4249,
+    difficulty: 'hard',
+  },
+  {
     name: 'Voltaire',
     value: 1694,
     id: 4056,
@@ -354,6 +625,18 @@ export const famousBirths: FamousBirth[] = [
     value: 1706,
     id: 4057,
     difficulty: 'medium',
+  },
+  {
+    name: 'Carl Linnaeus',
+    value: 1707,
+    id: 4250,
+    difficulty: 'hard',
+  },
+  {
+    name: 'David Hume',
+    value: 1711,
+    id: 4251,
+    difficulty: 'hard',
   },
   {
     name: 'Jean-Jacques Rousseau',
@@ -374,6 +657,18 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'medium',
   },
   {
+    name: 'Casanova',
+    value: 1725,
+    id: 4252,
+    difficulty: 'hard',
+  },
+  {
+    name: 'James Cook',
+    value: 1728,
+    id: 4253,
+    difficulty: 'medium',
+  },
+  {
     name: 'Catherine the Great',
     value: 1729,
     id: 4061,
@@ -386,9 +681,27 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Joseph Haydn',
+    value: 1732,
+    id: 4254,
+    difficulty: 'medium',
+  },
+  {
+    name: 'James Watt',
+    value: 1736,
+    id: 4255,
+    difficulty: 'medium',
+  },
+  {
     name: 'Thomas Jefferson',
     value: 1743,
     id: 4063,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Francisco Goya',
+    value: 1746,
+    id: 4256,
     difficulty: 'medium',
   },
   {
@@ -408,6 +721,24 @@ export const famousBirths: FamousBirth[] = [
     value: 1756,
     id: 4066,
     difficulty: 'easy',
+  },
+  {
+    name: 'Mary Wollstonecraft',
+    value: 1759,
+    id: 4257,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Robert Burns',
+    value: 1759,
+    id: 4258,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Hokusai',
+    value: 1760,
+    id: 4259,
+    difficulty: 'medium',
   },
   {
     name: 'Napoleon Bonaparte',
@@ -434,10 +765,46 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'medium',
   },
   {
+    name: 'Lord Byron',
+    value: 1788,
+    id: 4260,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Arthur Schopenhauer',
+    value: 1788,
+    id: 4261,
+    difficulty: 'hard',
+  },
+  {
     name: 'Michael Faraday',
     value: 1791,
     id: 4071,
     difficulty: 'medium',
+  },
+  {
+    name: 'Gioachino Rossini',
+    value: 1792,
+    id: 4262,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Mary Shelley',
+    value: 1797,
+    id: 4263,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Franz Schubert',
+    value: 1797,
+    id: 4264,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Alexander Pushkin',
+    value: 1799,
+    id: 4265,
+    difficulty: 'hard',
   },
   {
     name: 'Victor Hugo',
@@ -446,9 +813,27 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'medium',
   },
   {
+    name: 'Alexandre Dumas',
+    value: 1802,
+    id: 4266,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Ralph Waldo Emerson',
+    value: 1803,
+    id: 4267,
+    difficulty: 'hard',
+  },
+  {
     name: 'Hans Christian Andersen',
     value: 1805,
     id: 4073,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Giuseppe Garibaldi',
+    value: 1807,
+    id: 4268,
     difficulty: 'medium',
   },
   {
@@ -488,6 +873,12 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'medium',
   },
   {
+    name: 'Søren Kierkegaard',
+    value: 1813,
+    id: 4269,
+    difficulty: 'hard',
+  },
+  {
     name: 'Otto von Bismarck',
     value: 1815,
     id: 4080,
@@ -497,6 +888,12 @@ export const famousBirths: FamousBirth[] = [
     name: 'Ada Lovelace',
     value: 1815,
     id: 4081,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Charlotte Brontë',
+    value: 1816,
+    id: 4270,
     difficulty: 'medium',
   },
   {
@@ -510,12 +907,24 @@ export const famousBirths: FamousBirth[] = [
     value: 1818,
     id: 4083,
     difficulty: 'hard',
-  },  // c. 1818
+  },
   {
     name: 'Queen Victoria',
     value: 1819,
     id: 4084,
     difficulty: 'medium',
+  },
+  {
+    name: 'Herman Melville',
+    value: 1819,
+    id: 4271,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Walt Whitman',
+    value: 1819,
+    id: 4272,
+    difficulty: 'hard',
   },
   {
     name: 'Florence Nightingale',
@@ -540,7 +949,19 @@ export const famousBirths: FamousBirth[] = [
     value: 1822,
     id: 4088,
     difficulty: 'hard',
-  },  // c. 1822
+  },
+  {
+    name: 'Gregor Mendel',
+    value: 1822,
+    id: 4273,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Anton Bruckner',
+    value: 1824,
+    id: 4338,
+    difficulty: 'hard',
+  },
   {
     name: 'Leo Tolstoy',
     value: 1828,
@@ -548,15 +969,51 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Jules Verne',
+    value: 1828,
+    id: 4274,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Gustave Eiffel',
+    value: 1832,
+    id: 4275,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Lewis Carroll',
+    value: 1832,
+    id: 4276,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Johannes Brahms',
+    value: 1833,
+    id: 4277,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Alfred Nobel',
+    value: 1833,
+    id: 4278,
+    difficulty: 'easy',
+  },
+  {
     name: 'Mark Twain',
     value: 1835,
     id: 4090,
-    difficulty: 'medium',
+    difficulty: 'easy',
   },
   {
     name: 'John D. Rockefeller',
     value: 1839,
     id: 4091,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Paul Cézanne',
+    value: 1839,
+    id: 4279,
     difficulty: 'medium',
   },
   {
@@ -620,10 +1077,40 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Anton Chekhov',
+    value: 1860,
+    id: 4280,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Gustav Mahler',
+    value: 1860,
+    id: 4281,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Claude Debussy',
+    value: 1862,
+    id: 4282,
+    difficulty: 'hard',
+  },
+  {
     name: 'Henry Ford',
     value: 1863,
     id: 4102,
     difficulty: 'easy',
+  },
+  {
+    name: 'Edvard Munch',
+    value: 1863,
+    id: 4283,
+    difficulty: 'hard',
+  },
+  {
+    name: 'H.G. Wells',
+    value: 1866,
+    id: 4284,
+    difficulty: 'medium',
   },
   {
     name: 'Marie Curie',
@@ -636,6 +1123,12 @@ export const famousBirths: FamousBirth[] = [
     value: 1867,
     id: 4104,
     difficulty: 'easy',
+  },
+  {
+    name: 'Frank Lloyd Wright',
+    value: 1867,
+    id: 4285,
+    difficulty: 'medium',
   },
   {
     name: 'Mahatma Gandhi',
@@ -656,6 +1149,12 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Sergei Rachmaninoff',
+    value: 1873,
+    id: 4286,
+    difficulty: 'hard',
+  },
+  {
     name: 'Winston Churchill',
     value: 1874,
     id: 4108,
@@ -665,6 +1164,18 @@ export const famousBirths: FamousBirth[] = [
     name: 'Guglielmo Marconi',
     value: 1874,
     id: 4109,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Thomas Mann',
+    value: 1875,
+    id: 4287,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Carl Jung',
+    value: 1875,
+    id: 4288,
     difficulty: 'medium',
   },
   {
@@ -734,6 +1245,18 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'medium',
   },
   {
+    name: 'Georgia O\'Keeffe',
+    value: 1887,
+    id: 4289,
+    difficulty: 'hard',
+  },
+  {
+    name: 'T. S. Eliot',
+    value: 1888,
+    id: 4290,
+    difficulty: 'hard',
+  },
+  {
     name: 'Adolf Hitler',
     value: 1889,
     id: 4121,
@@ -755,6 +1278,12 @@ export const famousBirths: FamousBirth[] = [
     name: 'Agatha Christie',
     value: 1890,
     id: 4124,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Ho Chi Minh',
+    value: 1890,
+    id: 4291,
     difficulty: 'medium',
   },
   {
@@ -800,10 +1329,28 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Werner Heisenberg',
+    value: 1901,
+    id: 4292,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Enrico Fermi',
+    value: 1901,
+    id: 4293,
+    difficulty: 'hard',
+  },
+  {
     name: 'George Orwell',
     value: 1903,
     id: 4132,
     difficulty: 'medium',
+  },
+  {
+    name: 'John von Neumann',
+    value: 1903,
+    id: 4294,
+    difficulty: 'hard',
   },
   {
     name: 'Salvador Dalí',
@@ -824,9 +1371,27 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Simone de Beauvoir',
+    value: 1908,
+    id: 4295,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Lyndon B. Johnson',
+    value: 1908,
+    id: 4296,
+    difficulty: 'hard',
+  },
+  {
     name: 'Mother Teresa',
     value: 1910,
     id: 4136,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Akira Kurosawa',
+    value: 1910,
+    id: 4297,
     difficulty: 'medium',
   },
   {
@@ -854,10 +1419,22 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'medium',
   },
   {
+    name: 'Albert Camus',
+    value: 1913,
+    id: 4298,
+    difficulty: 'medium',
+  },
+  {
     name: 'Frank Sinatra',
     value: 1915,
     id: 4141,
     difficulty: 'easy',
+  },
+  {
+    name: 'Billie Holiday',
+    value: 1915,
+    id: 4299,
+    difficulty: 'hard',
   },
   {
     name: 'John F. Kennedy',
@@ -878,9 +1455,27 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Eva Perón',
+    value: 1919,
+    id: 4300,
+    difficulty: 'medium',
+  },
+  {
     name: 'Pope John Paul II',
     value: 1920,
     id: 4145,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Isaac Asimov',
+    value: 1920,
+    id: 4301,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Stan Lee',
+    value: 1922,
+    id: 4302,
     difficulty: 'easy',
   },
   {
@@ -918,6 +1513,12 @@ export const famousBirths: FamousBirth[] = [
     value: 1926,
     id: 4151,
     difficulty: 'easy',
+  },
+  {
+    name: 'Miles Davis',
+    value: 1926,
+    id: 4303,
+    difficulty: 'medium',
   },
   {
     name: 'Gabriel García Márquez',
@@ -980,6 +1581,18 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Sean Connery',
+    value: 1930,
+    id: 4304,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Ray Charles',
+    value: 1930,
+    id: 4305,
+    difficulty: 'medium',
+  },
+  {
     name: 'Mikhail Gorbachev',
     value: 1931,
     id: 4162,
@@ -992,6 +1605,12 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'medium',
   },
   {
+    name: 'Jane Goodall',
+    value: 1934,
+    id: 4306,
+    difficulty: 'hard',
+  },
+  {
     name: 'Elvis Presley',
     value: 1935,
     id: 4164,
@@ -1001,6 +1620,12 @@ export const famousBirths: FamousBirth[] = [
     name: 'The 14th Dalai Lama',
     value: 1935,
     id: 4165,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Luciano Pavarotti',
+    value: 1935,
+    id: 4307,
     difficulty: 'medium',
   },
   {
@@ -1058,9 +1683,21 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Jimi Hendrix',
+    value: 1942,
+    id: 4308,
+    difficulty: 'easy',
+  },
+  {
     name: 'Mick Jagger',
     value: 1943,
     id: 4175,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Bob Marley',
+    value: 1945,
+    id: 4309,
     difficulty: 'easy',
   },
   {
@@ -1100,9 +1737,45 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Stephen King',
+    value: 1947,
+    id: 4310,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Elton John',
+    value: 1947,
+    id: 4311,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Hillary Clinton',
+    value: 1947,
+    id: 4312,
+    difficulty: 'medium',
+  },
+  {
+    name: 'George R.R. Martin',
+    value: 1948,
+    id: 4313,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Meryl Streep',
+    value: 1949,
+    id: 4314,
+    difficulty: 'easy',
+  },
+  {
     name: 'Narendra Modi',
     value: 1950,
     id: 4182,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Robin Williams',
+    value: 1951,
+    id: 4315,
     difficulty: 'easy',
   },
   {
@@ -1130,6 +1803,12 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Denzel Washington',
+    value: 1954,
+    id: 4316,
+    difficulty: 'easy',
+  },
+  {
     name: 'Bill Gates',
     value: 1955,
     id: 4187,
@@ -1142,6 +1821,12 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Tom Hanks',
+    value: 1956,
+    id: 4317,
+    difficulty: 'easy',
+  },
+  {
     name: 'Michael Jackson',
     value: 1958,
     id: 4189,
@@ -1151,6 +1836,12 @@ export const famousBirths: FamousBirth[] = [
     name: 'Madonna',
     value: 1958,
     id: 4190,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Prince',
+    value: 1958,
+    id: 4318,
     difficulty: 'easy',
   },
   {
@@ -1178,9 +1869,21 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Quentin Tarantino',
+    value: 1963,
+    id: 4319,
+    difficulty: 'easy',
+  },
+  {
     name: 'Jeff Bezos',
     value: 1964,
     id: 4195,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Keanu Reeves',
+    value: 1964,
+    id: 4320,
     difficulty: 'easy',
   },
   {
@@ -1190,15 +1893,51 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Kurt Cobain',
+    value: 1967,
+    id: 4321,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Celine Dion',
+    value: 1968,
+    id: 4322,
+    difficulty: 'easy',
+  },
+  {
     name: 'Elon Musk',
     value: 1971,
     id: 4197,
     difficulty: 'easy',
   },
   {
+    name: 'Eminem',
+    value: 1972,
+    id: 4323,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Leonardo DiCaprio',
+    value: 1974,
+    id: 4324,
+    difficulty: 'easy',
+  },
+  {
     name: 'Tiger Woods',
     value: 1975,
     id: 4198,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Angelina Jolie',
+    value: 1975,
+    id: 4325,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Shakira',
+    value: 1977,
+    id: 4326,
     difficulty: 'easy',
   },
   {
@@ -1211,6 +1950,18 @@ export const famousBirths: FamousBirth[] = [
     name: 'Roger Federer',
     value: 1981,
     id: 4200,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Serena Williams',
+    value: 1981,
+    id: 4327,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Anne Hathaway',
+    value: 1982,
+    id: 4339,
     difficulty: 'easy',
   },
   {
@@ -1232,9 +1983,69 @@ export const famousBirths: FamousBirth[] = [
     difficulty: 'easy',
   },
   {
+    name: 'Lewis Hamilton',
+    value: 1985,
+    id: 4328,
+    difficulty: 'hard',
+  },
+  {
+    name: 'Usain Bolt',
+    value: 1986,
+    id: 4329,
+    difficulty: 'easy',
+  },
+  {
     name: 'Lionel Messi',
     value: 1987,
     id: 4204,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Adele',
+    value: 1988,
+    id: 4330,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Taylor Swift',
+    value: 1989,
+    id: 4331,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Ed Sheeran',
+    value: 1991,
+    id: 4332,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Selena Gomez',
+    value: 1992,
+    id: 4333,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Justin Bieber',
+    value: 1994,
+    id: 4334,
+    difficulty: 'easy',
+  },
+  {
+    name: 'Timothée Chalamet',
+    value: 1995,
+    id: 4335,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Tom Holland',
+    value: 1996,
+    id: 4336,
+    difficulty: 'medium',
+  },
+  {
+    name: 'Billie Eilish',
+    value: 2001,
+    id: 4337,
     difficulty: 'easy',
   },
 ];
