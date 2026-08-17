@@ -155,7 +155,7 @@ export class QuestionView {
     new Computed(() => {
       this.summary.textContent = `${index + 1}: `;
       if (this.question.selectionIndex.value === null) {
-        this.summary.textContent += 'What happened first?';
+        this.summary.textContent += 'What was first?';
       } else if (this.confidenceButtons.confidence.value === null) {
         this.summary.textContent += 'Confidence?';
       } else {
