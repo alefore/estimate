@@ -159,6 +159,7 @@ export class QuestionView {
       } else if (this.confidenceButtons.confidence.value === null) {
         this.summary.textContent += 'Confidence?';
       } else {
+        const reveal = revealSignal.value;
         const input0 = this.question.inputs[this.question.selectionIndex.value];
         const input1 =
             this.question.inputs[(this.question.selectionIndex.value + 1) % 2];
@@ -169,8 +170,13 @@ export class QuestionView {
         this.summary.append(
             document.createTextNode(
                 `${this.confidenceButtons.confidence.value}%: `),
-            link0, document.createTextNode(' < '), link1);
-        if (revealSignal.value) {
+            link0,
+            document.createTextNode(reveal ? ` (${input0.value})` : ''),
+            document.createTextNode(' < '),
+            link1,
+            document.createTextNode(reveal ? ` (${input1.value})` : ''),
+        );
+        if (reveal) {
           link0.href = input0.link;
           link1.href = input1.link;
         }
