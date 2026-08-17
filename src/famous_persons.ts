@@ -5,7 +5,7 @@ export interface FamousBirth {
   value: number;
   id: number;
   difficulty: Difficulty;
-  link?: string;
+  link: string;
 }
 
 export const famousBirths: FamousBirth[] = [
