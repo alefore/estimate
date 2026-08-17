@@ -159,13 +159,21 @@ export class QuestionView {
       } else if (this.confidenceButtons.confidence.value === null) {
         this.summary.textContent += 'Confidence?';
       } else {
-        this.summary.textContent +=
-            `${this.confidenceButtons.confidence.value}%: ${
-                this.question.inputs[this.question.selectionIndex.value]
-                    .shortName} < ${
-                this.question
-                    .inputs[(this.question.selectionIndex.value + 1) % 2]
-                    .shortName}`;
+        const input0 = this.question.inputs[this.question.selectionIndex.value];
+        const input1 =
+            this.question.inputs[(this.question.selectionIndex.value + 1) % 2];
+        const link0 = Object.assign(
+            document.createElement('a'), {textContent: input0.shortName});
+        const link1 = Object.assign(
+            document.createElement('a'), {textContent: input1.shortName});
+        this.summary.append(
+            document.createTextNode(
+                `${this.confidenceButtons.confidence.value}%: `),
+            link0, document.createTextNode(' < '), link1);
+        if (revealSignal.value) {
+          link0.href = input0.link;
+          link1.href = input1.link;
+        }
         if (!this.autoCollapsed) {
           this.autoCollapsed = true;
           this.details.open = false;
