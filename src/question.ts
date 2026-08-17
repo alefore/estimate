@@ -170,9 +170,11 @@ export class QuestionView {
         this.summary.append(
             document.createTextNode(
                 `${this.confidenceButtons.confidence.value}%: `),
+            document.createTextNode(`${emojiForCategory(input0.category)} `),
             link0,
             document.createTextNode(reveal ? ` (${input0.value})` : ''),
             document.createTextNode(' < '),
+            document.createTextNode(`${emojiForCategory(input1.category)} `),
             link1,
             document.createTextNode(reveal ? ` (${input1.value})` : ''),
         );
