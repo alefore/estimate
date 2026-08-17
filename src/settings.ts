@@ -19,7 +19,7 @@ export class SettingsManager {
             .filter((u) => !u.difficulty || difficultyFilter(u.difficulty));
     return output.length === 0 ? this.allEntries : output;
   });
-  readonly questionsPerGame: Signal<number> = new Signal(20);
+  readonly questionsPerGame: Signal<number> = new Signal(10);
   public readonly doneEvent = new VoidEvent();
 
   constructor(private readonly allEntries: UnitEntry[]) {
