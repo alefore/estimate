@@ -158,14 +158,13 @@ export class HistoryManager {
         `: ${correct} correct, ${expected.toFixed(1)} expected`));
 
     if (!record.title) {
-      const button = details.appendChild(
-          new EmojiButton(
-              '❌', 'Erase', 'Remove this record from the history.',
-              () => {
-                this.eraseRecord(record.date);
-                button.remove();
-              })
-              .button);
+      const button = new EmojiButton(
+          '❌', 'Erase', 'Remove this record from the history.');
+      button.clickEvent.subscribe(() => {
+        this.eraseRecord(record.date);
+        button.button.remove();
+      });
+      details.appendChild(button.button);
     }
 
     details.append(Object.assign(document.createElement('p'), {

@@ -259,7 +259,9 @@ class App {
 
   addMenuButton(
       emoji: string, text: string, title: string, handler: () => void): void {
-    this.menuDiv.append(new EmojiButton(emoji, text, title, handler).button);
+    const button = new EmojiButton(emoji, text, title);
+    button.clickEvent.subscribe(handler);
+    this.menuDiv.append(button.button);
   }
 
   gameDone(allQuestions: QuestionView[]) {
@@ -284,10 +286,12 @@ class App {
 
     this.historyManager.saveGame(record);
 
-    this.gameDiv.prepend(
-        new EmojiButton('✔️ ', 'Done', 'Go back to the main menu.', () => {
-          this.show(this.menuDiv);
-        }).button);
+    const doneButton =
+        new EmojiButton('✔️ ', 'Done', 'Go back to the main menu.');
+    doneButton.clickEvent.subscribe(() => {
+      this.show(this.menuDiv);
+    });
+    this.gameDiv.prepend(doneButton.button);
 
     const results = this.historyManager.displayRecord(record);
     results.open = true;
@@ -305,11 +309,12 @@ class App {
       return new QuestionView(q, index, this.gameDiv);
     });
 
-    const finishButton = new EmojiButton(
-        '✔️ ', 'Finish', 'End the game and show the results.', () => {
-          this.gameDone(questions);
-          finishButton.button.remove();
-        });
+    const finishButton =
+        new EmojiButton('✔️ ', 'Finish', 'End the game and show the results.');
+    finishButton.clickEvent.subscribe(() => {
+      this.gameDone(questions);
+      finishButton.button.remove();
+    });
     this.gameDiv.append(finishButton.button);
 
     new Computed(() => {

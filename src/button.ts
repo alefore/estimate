@@ -1,12 +1,15 @@
+import {VoidEvent} from './listener.js';
+
 export class EmojiButton {
   public readonly button: HTMLButtonElement;
   private readonly textSpan: HTMLSpanElement;
+  public readonly clickEvent = new VoidEvent();
 
-  constructor(emoji: string, text: string, title: string, handler: () => void) {
+  constructor(emoji: string, text: string, title: string) {
     this.button = Object.assign(document.createElement('button'), {
       className: 'emoji',
       title: title,
-      onclick: (event: MouseEvent) => handler()
+      onclick: (event: MouseEvent) => this.clickEvent.notify()
     });
     this.button.appendChild(
         Object.assign(document.createElement('span'), {textContent: emoji}));

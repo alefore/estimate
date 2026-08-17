@@ -23,14 +23,16 @@ export class SettingsManager {
   public readonly doneEvent = new VoidEvent();
 
   constructor(private readonly allEntries: UnitEntry[]) {
+    const doneButton =
+        new EmojiButton('✔️ ', 'Done', 'Go back to the main menu.');
+    doneButton.clickEvent.subscribe(() => {
+      this.doneEvent.notify();
+    });
     this.container.append(
         Object.assign(document.createElement('h2'), {textContent: 'Settings'}),
         createDifficultySelector('medium', this.difficulty),
         createCategoryFilter(this.enabledCategoriesMap, this.enabledEntries),
-        this.createQuestionsPerGame(),
-        new EmojiButton('✔️ ', 'Done', 'Go back to the main menu.', () => {
-          this.doneEvent.notify();
-        }).button);
+        this.createQuestionsPerGame(), doneButton.button);
   }
 
   private createQuestionsPerGame(): HTMLFieldSetElement {
