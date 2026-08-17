@@ -258,8 +258,10 @@ class App {
       textContent: '☰ est.alejo.ch',
       title: 'Back to the main menu'
     });
-    topMenuButton.addEventListener(
-        'click', (event: MouseEvent) => this.show(this.menuDiv));
+    topMenuButton.addEventListener('click', (event: MouseEvent) => {
+      if (!this.menuDiv.classList.contains(cssInvisible)) return;
+      history.back();
+    });
     topMenuHeader.append(topMenuButton);
     this.titleDiv.append(topMenuHeader);
 
@@ -267,7 +269,7 @@ class App {
         '🚀', 'Play', 'Start a new game.', () => this.startGame());
     this.addMenuButton(
         '📊', 'History', 'Show statitics about all games played.',
-        () => this.showHistory());
+        () => this.show(this.historyDiv));
     this.addMenuButton(
         '⚙️', 'Settings', 'Show settings dialogue.',
         () => this.show(this.settingsManager.container));
@@ -279,6 +281,8 @@ class App {
         this.titleDiv, this.menuDiv, this.historyDiv, this.gameDiv,
         this.settingsManager.container);
 
+    // Avoid optimization from `this.show` that would otherwise not do anything.
+    this.menuDiv.classList.add(cssInvisible);
     this.show(this.menuDiv);
 
     new Computed(() => {
@@ -286,8 +290,10 @@ class App {
     }).alwaysFresh();
 
     this.settingsManager.doneEvent.subscribe(() => {
-      this.show(this.menuDiv);
+      history.back();
     });
+
+    window.addEventListener('popstate', () => this.show(this.menuDiv));
   }
 
   private validateUniqueIds(data: UnitEntry[]): UnitEntry[] {
@@ -318,10 +324,11 @@ class App {
   }
 
   show(div: HTMLDivElement) {
+    if (!div.classList.contains(cssInvisible)) return;
     document.querySelectorAll('body > div')
         .forEach((d) => d.classList.add(cssInvisible));
-    this.titleDiv.classList.remove(cssInvisible);
     div.classList.remove(cssInvisible);
+    if (div !== this.menuDiv) history.pushState(null, '');
   }
 
   addMenuButton(
@@ -344,7 +351,7 @@ class App {
       const doneButton =
           new EmojiButton('✔️ ', 'Done', 'Go back to the main menu.');
       doneButton.clickEvent.subscribe(() => {
-        this.show(this.menuDiv);
+        history.back();
       });
       this.gameDiv.prepend(doneButton.button);
 
@@ -353,10 +360,6 @@ class App {
       this.gameDiv.prepend(results);
       window.scrollTo({top: 0, behavior: 'smooth'});
     }).alwaysFresh();
-  }
-
-  showHistory() {
-    this.show(this.historyDiv);
   }
 }
 
