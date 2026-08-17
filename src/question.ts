@@ -1,6 +1,6 @@
 import {Category, emojiForCategory} from './category.js';
 import {type Difficulty} from './difficulty.js';
-import {Computed, Signal} from './listener.js';
+import {Computed, type ReadableSignal, Signal} from './listener.js';
 
 export interface UnitEntry {
   name: string;
@@ -66,35 +66,26 @@ export class CompareQuestion {
       document.createElement('fieldset'),
       {className: 'compare-question-options'});
   // Will contain exactly two elements (one for each entry in `inputs`).
-  private optionLabels: HTMLLabelElement[];
+  private readonly links: HTMLAnchorElement[] = [];
 
-  constructor(public readonly inputs: UnitEntry[]) {
+  constructor(
+      public readonly inputs: UnitEntry[],
+      private revealSignal: ReadableSignal<boolean>) {
     if (this.inputs.length !== 2) throw new Error('Invalid inputs length.');
 
     this.view.appendChild(Object.assign(
         document.createElement('legend'),
         {textContent: 'What was first?', className: 'sr-only'}));
 
-    this.optionLabels =
-        inputs.map((element, index) => this.addInputToView(this.view, index));
-  }
-
-  reveal() {
-    this.view.disabled = true;
-    this.optionLabels.map((label, index) => {
-      const input: UnitEntry = this.inputs[index]!;
-      label.append(Object.assign(
-          document.createElement('span'),
-          {className: 'answer-value', textContent: input.value}));
-      label.appendChild(document.createElement('span'))
-          .append(Object.assign(
-              document.createElement('a'),
-              {href: input.link, textContent: 'ℹ️ '}));
-    });
+    inputs.forEach((element, index) => this.addInputToView(this.view, index));
+    new Computed(() => {
+      this.view.disabled = this.revealSignal.value;
+    }).alwaysFresh();
   }
 
   private addInputToView(fieldset: HTMLFieldSetElement, unitIndex: number):
       HTMLLabelElement {
+    const input: UnitEntry = this.inputs[unitIndex]!;
     const label = fieldset.appendChild(document.createElement('label'));
 
     const radio =
@@ -107,12 +98,23 @@ export class CompareQuestion {
         }));
 
     const unit = this.inputs[unitIndex]!;
-    label.append(
-        Object.assign(
-            document.createElement('span'),
-            {textContent: emojiForCategory(unit.category)}),
-        Object.assign(
-            document.createElement('span'), {textContent: unit.name}));
+    label.append(Object.assign(
+        document.createElement('span'),
+        {textContent: emojiForCategory(unit.category)}));
+    const textSpan = label.appendChild(document.createElement('span'));
+    const answerSpan = label.appendChild(Object.assign(
+        document.createElement('span'), {className: 'answer-value'}));
+
+    new Computed(() => {
+      const link =
+          Object.assign(document.createElement('a'), {textContent: unit.name});
+      textSpan.replaceChildren(link);
+      if (this.revealSignal.value) {
+        link.href = input.link;
+      }
+      answerSpan.textContent =
+          this.revealSignal.value ? String(input.value) : '';
+    }).alwaysFresh();
     return label;
   }
 
@@ -147,7 +149,7 @@ export class QuestionView {
 
   constructor(
       public readonly question: CompareQuestion, private readonly index: number,
-      outputDiv: HTMLDivElement) {
+      outputDiv: HTMLDivElement, revealSignal: ReadableSignal<boolean>) {
     this.details.classList.add('question');
     this.details.open = true;
     new Computed(() => {
@@ -172,13 +174,13 @@ export class QuestionView {
     }).alwaysFresh();
     this.details.append(this.question.view, this.confidenceButtons.container);
     outputDiv.append(this.details);
-  }
 
-  reveal() {
-    const isCorrect = this.question.isCorrect();
-    this.details.classList.add(isCorrect ? 'correct' : 'incorrect');
-    if (!isCorrect) this.details.open = true;
-    this.confidenceButtons.disable();
-    this.question.reveal();
+    new Computed(() => {
+      if (!revealSignal.value) return;
+      const isCorrect = this.question.isCorrect();
+      this.details.classList.add(isCorrect ? 'correct' : 'incorrect');
+      if (!isCorrect) this.details.open = true;
+      this.confidenceButtons.disable();
+    }).alwaysFresh();
   }
 }
