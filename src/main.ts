@@ -255,7 +255,7 @@ class App {
     const topMenuHeader = document.createElement('h1');
     const topMenuButton = Object.assign(document.createElement('button'), {
       id: 'top-menu',
-      textContent: '☰ Estimates',
+      textContent: '☰ est.alejo.ch',
       title: 'Back to the main menu'
     });
     topMenuButton.addEventListener(
