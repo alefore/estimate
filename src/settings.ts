@@ -1,6 +1,7 @@
+import {EmojiButton} from './button.js';
 import {Category, createCategoryFilter, emojiForCategory} from './category.js';
 import {createDifficultySelector, type Difficulty, DIFFICULTY_FILTERS, difficultyDistanceRatios} from './difficulty.js';
-import {Computed, Signal} from './listener.js';
+import {Computed, Signal, VoidEvent} from './listener.js';
 import {UnitEntry} from './question.js';
 
 export class SettingsManager {
@@ -19,13 +20,17 @@ export class SettingsManager {
     return output.length === 0 ? this.allEntries : output;
   });
   readonly questionsPerGame: Signal<number> = new Signal(20);
+  public readonly doneEvent = new VoidEvent();
 
   constructor(private readonly allEntries: UnitEntry[]) {
     this.container.append(
         Object.assign(document.createElement('h2'), {textContent: 'Settings'}),
         createDifficultySelector('medium', this.difficulty),
         createCategoryFilter(this.enabledCategoriesMap, this.enabledEntries),
-        this.createQuestionsPerGame());
+        this.createQuestionsPerGame(),
+        new EmojiButton('✔️ ', 'Done', 'Go back to the main menu.', () => {
+          this.doneEvent.notify();
+        }).button);
   }
 
   private createQuestionsPerGame(): HTMLFieldSetElement {

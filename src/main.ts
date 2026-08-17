@@ -160,6 +160,10 @@ class App {
     new Computed(() => {
       this.historyManager.displayHistory(this.historyDiv);
     }).alwaysFresh();
+
+    this.settingsManager.doneEvent.subscribe(() => {
+      this.show(this.menuDiv);
+    });
   }
 
   private validateUniqueIds(data: UnitEntry[]): UnitEntry[] {
@@ -186,7 +190,6 @@ class App {
     if (errorMessages.length > 0) {
       throw new Error(errorMessages.join('. ') + '.');
     }
-    console.log(data);
     return data;
   }
 
