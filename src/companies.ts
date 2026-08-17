@@ -8,6 +8,7 @@ export interface Company {
                     // relevant
   id: number;
   difficulty: Difficulty;
+  link: string;
 }
 
 export const companies: Company[] = [
@@ -19,6 +20,7 @@ export const companies: Company[] = [
         'Temple construction; world\'s oldest company (independent until 2006)',
     id: 3000,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Kong%C5%8D_Gumi',
   },
   {
     name: 'Stora Enso',
@@ -27,6 +29,7 @@ export const companies: Company[] = [
     note: 'Started as a copper mine; oldest known joint-stock company',
     id: 3001,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Stora_Enso',
   },
   {
     name: 'Monte dei Paschi di Siena',
@@ -35,8 +38,16 @@ export const companies: Company[] = [
     note: 'World\'s oldest bank still operating',
     id: 3002,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Banca_Monte_dei_Paschi_di_Siena',
   },
-  {name: 'Beretta', country: 'Italy', year: 1526, id: 3003, difficulty: 'hard'},
+  {
+    name: 'Beretta',
+    country: 'Italy',
+    year: 1526,
+    id: 3003,
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Beretta',
+  },
   {
     name: 'Cambridge University Press',
     country: 'United Kingdom',
@@ -44,6 +55,7 @@ export const companies: Company[] = [
     note: 'Oldest university press',
     id: 3004,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Cambridge_University_Press',
   },
   {
     name: 'Zildjian',
@@ -52,6 +64,7 @@ export const companies: Company[] = [
     note: 'Cymbal maker, founded in Constantinople',
     id: 3005,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Avedis_Zildjian_Company',
   },
   {
     name: 'Hudson\'s Bay Company',
@@ -60,6 +73,7 @@ export const companies: Company[] = [
     note: 'Fur trading; chartered by the English crown',
     id: 3006,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Hudson%27s_Bay_Company',
   },
   {
     name: 'Lloyd\'s of London',
@@ -68,6 +82,7 @@ export const companies: Company[] = [
     note: 'Started in a coffee house',
     id: 3007,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Lloyd%27s_of_London',
   },
   {
     name: 'Barclays',
@@ -75,6 +90,7 @@ export const companies: Company[] = [
     year: 1690,
     id: 3008,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Barclays',
   },
   {
     name: 'Twinings',
@@ -82,6 +98,7 @@ export const companies: Company[] = [
     year: 1706,
     id: 3009,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Twinings',
   },
   {
     name: 'Moët & Chandon',
@@ -89,6 +106,7 @@ export const companies: Company[] = [
     year: 1743,
     id: 3010,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Mo%C3%ABt_%26_Chandon',
   },
   {
     name: 'Sotheby\'s',
@@ -96,6 +114,7 @@ export const companies: Company[] = [
     year: 1744,
     id: 3011,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Sotheby%27s',
   },
   {
     name: 'Guinness',
@@ -104,6 +123,7 @@ export const companies: Company[] = [
     note: '9,000-year lease on the brewery signed in 1759',
     id: 3012,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Guinness',
   },
   {
     name: 'Faber-Castell',
@@ -112,6 +132,7 @@ export const companies: Company[] = [
     note: 'Pencils',
     id: 3013,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Faber-Castell',
   },
   {
     name: 'Christie\'s',
@@ -119,6 +140,7 @@ export const companies: Company[] = [
     year: 1766,
     id: 3014,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Christie%27s',
   },
   {
     name: 'Encyclopædia Britannica',
@@ -126,6 +148,7 @@ export const companies: Company[] = [
     year: 1768,
     id: 3015,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Encyclop%C3%A6dia_Britannica',
   },
   {
     name: 'Veuve Clicquot',
@@ -133,6 +156,7 @@ export const companies: Company[] = [
     year: 1772,
     id: 3016,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Veuve_Clicquot',
   },
   {
     name: 'Birkenstock',
@@ -140,6 +164,7 @@ export const companies: Company[] = [
     year: 1774,
     id: 3017,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Birkenstock',
   },
   {
     name: 'The Times',
@@ -147,6 +172,7 @@ export const companies: Company[] = [
     year: 1785,
     id: 3018,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Times',
   },
   {
     name: 'Jim Beam',
@@ -154,6 +180,7 @@ export const companies: Company[] = [
     year: 1795,
     id: 3019,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Jim_Beam',
   },
   {
     name: 'DuPont',
@@ -162,6 +189,7 @@ export const companies: Company[] = [
     note: 'Gunpowder manufacturer',
     id: 3020,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/DuPont',
   },
   {
     name: 'Colgate',
@@ -170,6 +198,7 @@ export const companies: Company[] = [
     note: 'Starch, soap, and candles',
     id: 3021,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Colgate-Palmolive',
   },
   {
     name: 'Peugeot',
@@ -178,6 +207,7 @@ export const companies: Company[] = [
     note: 'Coffee grinders, saw blades, and bicycles before cars',
     id: 3022,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Peugeot',
   },
   {
     name: 'Cadbury',
@@ -185,6 +215,7 @@ export const companies: Company[] = [
     year: 1824,
     id: 3023,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Cadbury',
   },
   {
     name: 'Procter & Gamble',
@@ -193,6 +224,7 @@ export const companies: Company[] = [
     note: 'Soap and candles',
     id: 3024,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Procter_%26_Gamble',
   },
   {
     name: 'Hermès',
@@ -201,6 +233,7 @@ export const companies: Company[] = [
     note: 'Horse harnesses and saddles',
     id: 3025,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Herm%C3%A8s',
   },
   {
     name: 'Lindt',
@@ -208,6 +241,7 @@ export const companies: Company[] = [
     year: 1845,
     id: 3026,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Lindt_%26_Spr%C3%BCngli',
   },
   {
     name: 'Associated Press',
@@ -215,6 +249,7 @@ export const companies: Company[] = [
     year: 1846,
     id: 3027,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Associated_Press',
   },
   {
     name: 'Carlsberg',
@@ -222,6 +257,7 @@ export const companies: Company[] = [
     year: 1847,
     id: 3028,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Carlsberg_Group',
   },
   {
     name: 'Siemens',
@@ -230,8 +266,16 @@ export const companies: Company[] = [
     note: 'Telegraph systems',
     id: 3029,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Siemens',
   },
-  {name: 'Pfizer', country: 'USA', year: 1849, id: 3030, difficulty: 'hard'},
+  {
+    name: 'Pfizer',
+    country: 'USA',
+    year: 1849,
+    id: 3030,
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Pfizer',
+  },
   {
     name: 'American Express',
     country: 'USA',
@@ -239,6 +283,7 @@ export const companies: Company[] = [
     note: 'Freight and valuables courier',
     id: 3031,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/American_Express',
   },
   {
     name: 'Western Union',
@@ -247,6 +292,7 @@ export const companies: Company[] = [
     note: 'Telegraph company',
     id: 3032,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Western_Union',
   },
   {
     name: 'Reuters',
@@ -255,6 +301,7 @@ export const companies: Company[] = [
     note: 'Used carrier pigeons to bridge telegraph gaps',
     id: 3033,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Reuters',
   },
   {
     name: 'The New York Times',
@@ -262,6 +309,7 @@ export const companies: Company[] = [
     year: 1851,
     id: 3034,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_New_York_Times',
   },
   {
     name: 'Wells Fargo',
@@ -270,6 +318,7 @@ export const companies: Company[] = [
     note: 'Stagecoach express',
     id: 3035,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Wells_Fargo',
   },
   {
     name: 'Levi Strauss & Co.',
@@ -278,6 +327,7 @@ export const companies: Company[] = [
     note: 'Dry goods; riveted jeans came in 1873',
     id: 3036,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Levi_Strauss_%26_Co.',
   },
   {
     name: 'Louis Vuitton',
@@ -286,6 +336,7 @@ export const companies: Company[] = [
     note: 'Trunk maker',
     id: 3037,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Louis_Vuitton',
   },
   {
     name: 'Burberry',
@@ -293,6 +344,7 @@ export const companies: Company[] = [
     year: 1856,
     id: 3038,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Burberry',
   },
   {
     name: 'Credit Suisse',
@@ -301,6 +353,7 @@ export const companies: Company[] = [
     note: 'Founded to finance the Swiss railway network',
     id: 3039,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Credit_Suisse',
   },
   {
     name: 'UBS',
@@ -308,6 +361,7 @@ export const companies: Company[] = [
     year: 1862,
     id: 3040,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/UBS',
   },
   {
     name: 'Bacardi',
@@ -315,6 +369,7 @@ export const companies: Company[] = [
     year: 1862,
     id: 3041,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Bacardi',
   },
   {
     name: 'Heineken',
@@ -322,6 +377,7 @@ export const companies: Company[] = [
     year: 1864,
     id: 3042,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Heineken_N.V.',
   },
   {
     name: 'Nokia',
@@ -330,6 +386,7 @@ export const companies: Company[] = [
     note: 'Started as a paper mill; later rubber boots and cables',
     id: 3043,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Nokia',
   },
   {
     name: 'Nestlé',
@@ -338,6 +395,7 @@ export const companies: Company[] = [
     note: 'Infant food',
     id: 3044,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Nestl%C3%A9',
   },
   {
     name: 'Jack Daniel\'s',
@@ -345,6 +403,7 @@ export const companies: Company[] = [
     year: 1866,
     id: 3045,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Jack_Daniel%27s',
   },
   {
     name: 'Goldman Sachs',
@@ -352,6 +411,7 @@ export const companies: Company[] = [
     year: 1869,
     id: 3046,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Goldman_Sachs',
   },
   {
     name: 'Heinz',
@@ -360,6 +420,7 @@ export const companies: Company[] = [
     note: 'First product was horseradish, not ketchup',
     id: 3047,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Heinz',
   },
   {
     name: 'Mitsubishi',
@@ -368,6 +429,7 @@ export const companies: Company[] = [
     note: 'Shipping company',
     id: 3048,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Mitsubishi',
   },
   {
     name: 'Ericsson',
@@ -376,6 +438,7 @@ export const companies: Company[] = [
     note: 'Telegraph repair shop',
     id: 3049,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Ericsson',
   },
   {
     name: 'Bell Telephone Company',
@@ -384,6 +447,7 @@ export const companies: Company[] = [
     note: 'Ancestor of AT&T',
     id: 3050,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Bell_Telephone_Company',
   },
   {
     name: 'Barilla',
@@ -392,6 +456,7 @@ export const companies: Company[] = [
     note: 'Bread and pasta shop in Parma',
     id: 3051,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Barilla_(company)',
   },
   {
     name: 'Nivea (Beiersdorf)',
@@ -399,6 +464,7 @@ export const companies: Company[] = [
     year: 1882,
     id: 3052,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Beiersdorf',
   },
   {
     name: 'Victorinox',
@@ -407,6 +473,7 @@ export const companies: Company[] = [
     note: 'Swiss Army knife maker',
     id: 3053,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Victorinox',
   },
   {
     name: 'Bosch',
@@ -414,6 +481,7 @@ export const companies: Company[] = [
     year: 1886,
     id: 3054,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Robert_Bosch_GmbH',
   },
   {
     name: 'Johnson & Johnson',
@@ -421,6 +489,7 @@ export const companies: Company[] = [
     year: 1886,
     id: 3055,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Johnson_%26_Johnson',
   },
   {
     name: 'Coca-Cola',
@@ -429,8 +498,16 @@ export const companies: Company[] = [
     note: 'The drink; the company incorporated in 1892',
     id: 3056,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Coca-Cola_Company',
   },
-  {name: 'Kodak', country: 'USA', year: 1888, id: 3057, difficulty: 'easy'},
+  {
+    name: 'Kodak',
+    country: 'USA',
+    year: 1888,
+    id: 3057,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Kodak',
+  },
   {
     name: 'Nintendo',
     country: 'Japan',
@@ -438,6 +515,7 @@ export const companies: Company[] = [
     note: 'Handmade hanafuda playing cards',
     id: 3058,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Nintendo',
   },
   {
     name: 'Philips',
@@ -446,6 +524,7 @@ export const companies: Company[] = [
     note: 'Light bulbs',
     id: 3059,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Philips',
   },
   {
     name: 'General Electric',
@@ -453,6 +532,7 @@ export const companies: Company[] = [
     year: 1892,
     id: 3060,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/General_Electric',
   },
   {
     name: 'Hershey',
@@ -461,6 +541,7 @@ export const companies: Company[] = [
     note: 'Caramel company first',
     id: 3061,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Hershey_Company',
   },
   {
     name: 'Pepsi',
@@ -469,22 +550,39 @@ export const companies: Company[] = [
     note: 'Originally \'Brad\'s Drink\'',
     id: 3062,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/PepsiCo',
   },
-  {name: 'Fiat', country: 'Italy', year: 1899, id: 3063, difficulty: 'easy'},
+  {
+    name: 'Fiat',
+    country: 'Italy',
+    year: 1899,
+    id: 3063,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Fiat',
+  },
   {
     name: 'Renault',
     country: 'France',
     year: 1899,
     id: 3064,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Renault',
   },
-  {name: 'Ford', country: 'USA', year: 1903, id: 3065, difficulty: 'easy'},
+  {
+    name: 'Ford',
+    country: 'USA',
+    year: 1903,
+    id: 3065,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Ford_Motor_Company',
+  },
   {
     name: 'Harley-Davidson',
     country: 'USA',
     year: 1903,
     id: 3066,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Harley-Davidson',
   },
   {
     name: 'Rolls-Royce',
@@ -492,6 +590,7 @@ export const companies: Company[] = [
     year: 1904,
     id: 3067,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Rolls-Royce_Holdings',
   },
   {
     name: 'Rolex',
@@ -500,6 +599,7 @@ export const companies: Company[] = [
     note: 'Founded in London; moved to Geneva in 1919',
     id: 3068,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Rolex',
   },
   {
     name: 'Kellogg\'s',
@@ -508,6 +608,7 @@ export const companies: Company[] = [
     note: 'Born from a sanitarium\'s health-food experiments',
     id: 3069,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Kellanova',
   },
   {
     name: 'General Motors',
@@ -515,6 +616,7 @@ export const companies: Company[] = [
     year: 1908,
     id: 3070,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/General_Motors',
   },
   {
     name: 'Converse',
@@ -523,6 +625,7 @@ export const companies: Company[] = [
     note: 'Rubber galoshes before sneakers',
     id: 3071,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Converse_(brand)',
   },
   {
     name: 'L\'Oréal',
@@ -531,6 +634,7 @@ export const companies: Company[] = [
     note: 'Hair dye',
     id: 3072,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/L%27Or%C3%A9al',
   },
   {
     name: 'Chanel',
@@ -539,8 +643,16 @@ export const companies: Company[] = [
     note: 'Hat shop',
     id: 3073,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Chanel',
   },
-  {name: 'Mars', country: 'USA', year: 1911, id: 3074, difficulty: 'medium'},
+  {
+    name: 'Mars',
+    country: 'USA',
+    year: 1911,
+    id: 3074,
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Mars,_Incorporated',
+  },
   {
     name: 'IBM',
     country: 'USA',
@@ -548,6 +660,7 @@ export const companies: Company[] = [
     note: 'Tabulating machines; named IBM in 1924',
     id: 3075,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/IBM',
   },
   {
     name: 'Sharp',
@@ -556,6 +669,7 @@ export const companies: Company[] = [
     note: 'Named after the Ever-Sharp mechanical pencil',
     id: 3076,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Sharp_Corporation',
   },
   {
     name: 'Prada',
@@ -564,6 +678,7 @@ export const companies: Company[] = [
     note: 'Leather goods shop in Milan',
     id: 3077,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Prada',
   },
   {
     name: 'BMW',
@@ -572,8 +687,16 @@ export const companies: Company[] = [
     note: 'Aircraft engines; the logo\'s propeller myth came later',
     id: 3078,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/BMW',
   },
-  {name: 'Boeing', country: 'USA', year: 1916, id: 3079, difficulty: 'easy'},
+  {
+    name: 'Boeing',
+    country: 'USA',
+    year: 1916,
+    id: 3079,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Boeing',
+  },
   {
     name: 'Nikon',
     country: 'Japan',
@@ -581,6 +704,7 @@ export const companies: Company[] = [
     note: 'Optical instruments for the military',
     id: 3080,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Nikon',
   },
   {
     name: 'Panasonic',
@@ -589,6 +713,7 @@ export const companies: Company[] = [
     note: 'Duplex lamp sockets',
     id: 3081,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Panasonic',
   },
   {
     name: 'Avianca',
@@ -597,6 +722,7 @@ export const companies: Company[] = [
     note: 'Second-oldest airline in the world still operating',
     id: 3082,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Avianca',
   },
   {
     name: 'KLM',
@@ -605,6 +731,7 @@ export const companies: Company[] = [
     note: 'Oldest airline still flying under its original name',
     id: 3083,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/KLM',
   },
   {
     name: 'Gucci',
@@ -613,6 +740,7 @@ export const companies: Company[] = [
     note: 'Luggage shop in Florence',
     id: 3084,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Gucci',
   },
   {
     name: 'BBC',
@@ -620,6 +748,7 @@ export const companies: Company[] = [
     year: 1922,
     id: 3085,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/BBC',
   },
   {
     name: 'Walt Disney Company',
@@ -627,6 +756,7 @@ export const companies: Company[] = [
     year: 1923,
     id: 3086,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Walt_Disney_Company',
   },
   {
     name: 'Warner Bros.',
@@ -634,6 +764,7 @@ export const companies: Company[] = [
     year: 1923,
     id: 3087,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Warner_Bros.',
   },
   {
     name: 'Motorola',
@@ -642,6 +773,7 @@ export const companies: Company[] = [
     note: 'Car radios',
     id: 3088,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Motorola',
   },
   {
     name: 'Unilever',
@@ -650,6 +782,7 @@ export const companies: Company[] = [
     note: 'Merger of Dutch margarine and British soap makers',
     id: 3089,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Unilever',
   },
   {
     name: 'Porsche',
@@ -658,6 +791,7 @@ export const companies: Company[] = [
     note: 'Design consultancy; first own car in 1948',
     id: 3090,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Porsche',
   },
   {
     name: 'LEGO',
@@ -666,6 +800,7 @@ export const companies: Company[] = [
     note: 'Wooden toys; plastic bricks from 1949',
     id: 3091,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Lego',
   },
   {
     name: 'Fujifilm',
@@ -673,6 +808,7 @@ export const companies: Company[] = [
     year: 1934,
     id: 3092,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Fujifilm',
   },
   {
     name: 'Toyota',
@@ -681,6 +817,7 @@ export const companies: Company[] = [
     note: 'Spun off from a loom manufacturer',
     id: 3093,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Toyota',
   },
   {
     name: 'Volkswagen',
@@ -688,8 +825,16 @@ export const companies: Company[] = [
     year: 1937,
     id: 3094,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Volkswagen',
   },
-  {name: 'Canon', country: 'Japan', year: 1937, id: 3095, difficulty: 'easy'},
+  {
+    name: 'Canon',
+    country: 'Japan',
+    year: 1937,
+    id: 3095,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Canon_Inc.',
+  },
   {
     name: 'Samsung',
     country: 'South Korea',
@@ -697,6 +842,7 @@ export const companies: Company[] = [
     note: 'Trading company selling dried fish and noodles',
     id: 3096,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Samsung',
   },
   {
     name: 'Hewlett-Packard',
@@ -705,6 +851,7 @@ export const companies: Company[] = [
     note: 'Founded in the famous Palo Alto garage',
     id: 3097,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Hewlett-Packard',
   },
   {
     name: 'McDonald\'s',
@@ -713,6 +860,7 @@ export const companies: Company[] = [
     note: 'The brothers\' restaurant; Ray Kroc\'s corporation dates to 1955',
     id: 3098,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/McDonald%27s',
   },
   {
     name: 'IKEA',
@@ -721,6 +869,7 @@ export const companies: Company[] = [
     note: 'Mail-order pens and wallets; furniture came in 1948',
     id: 3099,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/IKEA',
   },
   {
     name: 'Mattel',
@@ -729,6 +878,7 @@ export const companies: Company[] = [
     note: 'Picture frames; Barbie arrived in 1959',
     id: 3100,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Mattel',
   },
   {
     name: 'Sony',
@@ -737,6 +887,7 @@ export const companies: Company[] = [
     note: 'First product was a rice cooker (a failed one)',
     id: 3101,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Sony',
   },
   {
     name: 'Ferrari (cars)',
@@ -745,8 +896,16 @@ export const companies: Company[] = [
     note: 'First car under the Ferrari name; racing team dates to 1929',
     id: 3102,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Ferrari',
   },
-  {name: 'H&M', country: 'Sweden', year: 1947, id: 3103, difficulty: 'medium'},
+  {
+    name: 'H&M',
+    country: 'Sweden',
+    year: 1947,
+    id: 3103,
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/H%26M',
+  },
   {
     name: 'Honda',
     country: 'Japan',
@@ -754,6 +913,7 @@ export const companies: Company[] = [
     note: 'Motorized bicycles',
     id: 3104,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Honda',
   },
   {
     name: 'Puma',
@@ -762,6 +922,7 @@ export const companies: Company[] = [
     note: 'Born from the Dassler brothers\' feud',
     id: 3105,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Puma_(brand)',
   },
   {
     name: 'Adidas',
@@ -770,6 +931,7 @@ export const companies: Company[] = [
     note: 'Born from the Dassler brothers\' feud',
     id: 3106,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Adidas',
   },
   {
     name: 'Kentucky Fried Chicken',
@@ -778,6 +940,7 @@ export const companies: Company[] = [
     note: 'First franchise; Sanders\' original restaurant dates to 1930',
     id: 3107,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/KFC',
   },
   {
     name: 'Burger King',
@@ -785,6 +948,7 @@ export const companies: Company[] = [
     year: 1954,
     id: 3108,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Burger_King',
   },
   {
     name: 'Visa',
@@ -793,8 +957,16 @@ export const companies: Company[] = [
     note: 'Launched as BankAmericard',
     id: 3109,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Visa_Inc.',
   },
-  {name: 'Walmart', country: 'USA', year: 1962, id: 3110, difficulty: 'medium'},
+  {
+    name: 'Walmart',
+    country: 'USA',
+    year: 1962,
+    id: 3110,
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Walmart',
+  },
   {
     name: 'Nike',
     country: 'USA',
@@ -802,16 +974,32 @@ export const companies: Company[] = [
     note: 'Founded as Blue Ribbon Sports; renamed in 1971',
     id: 3111,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Nike,_Inc.',
   },
-  {name: 'Subway', country: 'USA', year: 1965, id: 3112, difficulty: 'medium'},
+  {
+    name: 'Subway',
+    country: 'USA',
+    year: 1965,
+    id: 3112,
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Subway_(restaurant)',
+  },
   {
     name: 'Mastercard',
     country: 'USA',
     year: 1966,
     id: 3113,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Mastercard',
   },
-  {name: 'Intel', country: 'USA', year: 1968, id: 3114, difficulty: 'easy'},
+  {
+    name: 'Intel',
+    country: 'USA',
+    year: 1968,
+    id: 3114,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Intel',
+  },
   {
     name: 'Starbucks',
     country: 'USA',
@@ -819,19 +1007,63 @@ export const companies: Company[] = [
     note: 'Sold only coffee beans at first, no drinks',
     id: 3115,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Starbucks',
   },
-  {name: 'SAP', country: 'Germany', year: 1972, id: 3116, difficulty: 'hard'},
-  {name: 'Microsoft', country: 'USA', year: 1975, id: 3117, difficulty: 'easy'},
-  {name: 'Apple', country: 'USA', year: 1976, id: 3118, difficulty: 'easy'},
-  {name: 'Oracle', country: 'USA', year: 1977, id: 3119, difficulty: 'medium'},
-  {name: 'CNN', country: 'USA', year: 1980, id: 3120, difficulty: 'medium'},
-  {name: 'Adobe', country: 'USA', year: 1982, id: 3121, difficulty: 'hard'},
+  {
+    name: 'SAP',
+    country: 'Germany',
+    year: 1972,
+    id: 3116,
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/SAP',
+  },
+  {
+    name: 'Microsoft',
+    country: 'USA',
+    year: 1975,
+    id: 3117,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Microsoft',
+  },
+  {
+    name: 'Apple',
+    country: 'USA',
+    year: 1976,
+    id: 3118,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Apple_Inc.',
+  },
+  {
+    name: 'Oracle',
+    country: 'USA',
+    year: 1977,
+    id: 3119,
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Oracle_Corporation',
+  },
+  {
+    name: 'CNN',
+    country: 'USA',
+    year: 1980,
+    id: 3120,
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/CNN',
+  },
+  {
+    name: 'Adobe',
+    country: 'USA',
+    year: 1982,
+    id: 3121,
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Adobe_Inc.',
+  },
   {
     name: 'Swatch',
     country: 'Switzerland',
     year: 1983,
     id: 3122,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Swatch',
   },
   {
     name: 'Dell',
@@ -840,17 +1072,40 @@ export const companies: Company[] = [
     note: 'Started in a university dorm room',
     id: 3123,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Dell',
   },
-  {name: 'Cisco', country: 'USA', year: 1984, id: 3124, difficulty: 'hard'},
-  {name: 'Lenovo', country: 'China', year: 1984, id: 3125, difficulty: 'hard'},
+  {
+    name: 'Cisco',
+    country: 'USA',
+    year: 1984,
+    id: 3124,
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Cisco',
+  },
+  {
+    name: 'Lenovo',
+    country: 'China',
+    year: 1984,
+    id: 3125,
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Lenovo',
+  },
   {
     name: 'Huawei',
     country: 'China',
     year: 1987,
     id: 3126,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Huawei',
   },
-  {name: 'Nvidia', country: 'USA', year: 1993, id: 3127, difficulty: 'medium'},
+  {
+    name: 'Nvidia',
+    country: 'USA',
+    year: 1993,
+    id: 3127,
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Nvidia',
+  },
   {
     name: 'Amazon',
     country: 'USA',
@@ -858,9 +1113,24 @@ export const companies: Company[] = [
     note: 'Online bookstore',
     id: 3128,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Amazon_(company)',
   },
-  {name: 'Yahoo', country: 'USA', year: 1994, id: 3129, difficulty: 'medium'},
-  {name: 'eBay', country: 'USA', year: 1995, id: 3130, difficulty: 'medium'},
+  {
+    name: 'Yahoo',
+    country: 'USA',
+    year: 1994,
+    id: 3129,
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Yahoo!',
+  },
+  {
+    name: 'eBay',
+    country: 'USA',
+    year: 1995,
+    id: 3130,
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/EBay',
+  },
   {
     name: 'Netflix',
     country: 'USA',
@@ -868,8 +1138,16 @@ export const companies: Company[] = [
     note: 'DVD rental by mail',
     id: 3131,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Netflix',
   },
-  {name: 'Google', country: 'USA', year: 1998, id: 3132, difficulty: 'easy'},
+  {
+    name: 'Google',
+    country: 'USA',
+    year: 1998,
+    id: 3132,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Google',
+  },
   {
     name: 'PayPal',
     country: 'USA',
@@ -877,25 +1155,63 @@ export const companies: Company[] = [
     note: 'Founded as Confinity',
     id: 3133,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/PayPal',
   },
-  {name: 'Tencent', country: 'China', year: 1998, id: 3134, difficulty: 'hard'},
+  {
+    name: 'Tencent',
+    country: 'China',
+    year: 1998,
+    id: 3134,
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Tencent',
+  },
   {
     name: 'Alibaba',
     country: 'China',
     year: 1999,
     id: 3135,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Alibaba_Group',
   },
-  {name: 'SpaceX', country: 'USA', year: 2002, id: 3136, difficulty: 'easy'},
-  {name: 'Tesla', country: 'USA', year: 2003, id: 3137, difficulty: 'easy'},
-  {name: 'Facebook', country: 'USA', year: 2004, id: 3138, difficulty: 'easy'},
-  {name: 'YouTube', country: 'USA', year: 2005, id: 3139, difficulty: 'easy'},
+  {
+    name: 'SpaceX',
+    country: 'USA',
+    year: 2002,
+    id: 3136,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/SpaceX',
+  },
+  {
+    name: 'Tesla',
+    country: 'USA',
+    year: 2003,
+    id: 3137,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Tesla,_Inc.',
+  },
+  {
+    name: 'Facebook',
+    country: 'USA',
+    year: 2004,
+    id: 3138,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Facebook',
+  },
+  {
+    name: 'YouTube',
+    country: 'USA',
+    year: 2005,
+    id: 3139,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/YouTube',
+  },
   {
     name: 'Spotify',
     country: 'Sweden',
     year: 2006,
     id: 3140,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Spotify',
   },
   {
     name: 'Airbnb',
@@ -904,14 +1220,23 @@ export const companies: Company[] = [
     note: 'Air mattresses in the founders\' apartment',
     id: 3141,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Airbnb',
   },
-  {name: 'Uber', country: 'USA', year: 2009, id: 3142, difficulty: 'medium'},
+  {
+    name: 'Uber',
+    country: 'USA',
+    year: 2009,
+    id: 3142,
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Uber',
+  },
   {
     name: 'WhatsApp',
     country: 'USA',
     year: 2009,
     id: 3143,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/WhatsApp',
   },
   {
     name: 'Instagram',
@@ -920,14 +1245,30 @@ export const companies: Company[] = [
     note: 'Started as check-in app Burbn',
     id: 3144,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Instagram',
   },
-  {name: 'Zoom', country: 'USA', year: 2011, id: 3145, difficulty: 'easy'},
+  {
+    name: 'Zoom',
+    country: 'USA',
+    year: 2011,
+    id: 3145,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Zoom_Video_Communications',
+  },
   {
     name: 'ByteDance (TikTok)',
     country: 'China',
     year: 2012,
     id: 3146,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/ByteDance',
   },
-  {name: 'OpenAI', country: 'USA', year: 2015, id: 3147, difficulty: 'easy'},
+  {
+    name: 'OpenAI',
+    country: 'USA',
+    year: 2015,
+    id: 3147,
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/OpenAI',
+  },
 ];
