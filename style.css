@@ -196,6 +196,11 @@ fieldset.confidence-group input[type="radio"], fieldset.compare-question-options
   width: 10%;
 }
 
+fieldset.compare-question-options label a[href], details.question summary a[href] {
+  text-decoration: underline dashed;
+  color: inherit;
+}
+
 .confidence-group label, fieldset.compare-question-options label {
   padding: 2px 4px;
   margin: 4px;
