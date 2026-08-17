@@ -15,8 +15,8 @@ export interface UnitEntry {
   // this dynamically because we want it to be stable (so that we can store it
   // to identify the entries in a question).
   id: number;
-  // Optional link to relevant wikipedia page for this entry.
-  link?: string;
+  // Link to relevant wikipedia page for this entry.
+  link: string;
 }
 
 class ConfidenceButtons {
@@ -86,13 +86,10 @@ export class CompareQuestion {
       label.append(Object.assign(
           document.createElement('span'),
           {className: 'answer-value', textContent: input.value}));
-      const linkSpan = label.appendChild(document.createElement('span'));
-      if (input.link)
-        linkSpan.append(Object.assign(
-            document.createElement('a'),
-            {href: input.link, textContent: 'ℹ️ '}));
-      else
-        linkSpan.textContent = ' ';  // Otherwise fucks up the alignment.
+      label.appendChild(document.createElement('span'))
+          .append(Object.assign(
+              document.createElement('a'),
+              {href: input.link, textContent: 'ℹ️ '}));
     });
   }
 
