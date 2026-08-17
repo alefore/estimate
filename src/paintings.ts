@@ -7,6 +7,7 @@ export interface Painting {
                  // range, the commonly cited end year
   id: number;
   difficulty: Difficulty;
+  link: string;
 }
 
 export const paintings: Painting[] = [
@@ -16,6 +17,7 @@ export const paintings: Painting[] = [
     year: 1434,
     id: 5000,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Arnolfini_Portrait',
   },
   {
     title: 'Primavera',
@@ -23,6 +25,7 @@ export const paintings: Painting[] = [
     year: 1482,
     id: 5001,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Primavera_(Botticelli)',
   },
   {
     title: 'The Birth of Venus',
@@ -30,6 +33,7 @@ export const paintings: Painting[] = [
     year: 1486,
     id: 5002,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Birth_of_Venus',
   },
   {
     title: 'The Last Supper',
@@ -37,6 +41,7 @@ export const paintings: Painting[] = [
     year: 1498,
     id: 5003,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Last_Supper_(Leonardo)',
   },
   {
     title: 'The Garden of Earthly Delights',
@@ -44,6 +49,7 @@ export const paintings: Painting[] = [
     year: 1510,
     id: 5004,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Garden_of_Earthly_Delights',
   },
   {
     title: 'The School of Athens',
@@ -51,6 +57,7 @@ export const paintings: Painting[] = [
     year: 1511,
     id: 5005,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_School_of_Athens',
   },
   {
     title: 'The Creation of Adam (Sistine Chapel)',
@@ -58,6 +65,7 @@ export const paintings: Painting[] = [
     year: 1512,
     id: 5006,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Creation_of_Adam',
   },
   {
     title: 'Sistine Madonna',
@@ -65,6 +73,7 @@ export const paintings: Painting[] = [
     year: 1512,
     id: 5007,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Sistine_Madonna',
   },
   {
     title: 'Mona Lisa',
@@ -72,6 +81,7 @@ export const paintings: Painting[] = [
     year: 1517,
     id: 5008,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Mona_Lisa',
   },
   {
     title: 'The Assumption of the Virgin',
@@ -79,6 +89,7 @@ export const paintings: Painting[] = [
     year: 1518,
     id: 5009,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Assumption_of_the_Virgin_(Titian)',
   },
   {
     title: 'The Ambassadors',
@@ -86,6 +97,7 @@ export const paintings: Painting[] = [
     year: 1533,
     id: 5010,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Ambassadors_(Holbein)',
   },
   {
     title: 'Venus of Urbino',
@@ -93,6 +105,7 @@ export const paintings: Painting[] = [
     year: 1538,
     id: 5011,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Venus_of_Urbino',
   },
   {
     title: 'Netherlandish Proverbs',
@@ -100,6 +113,7 @@ export const paintings: Painting[] = [
     year: 1559,
     id: 5012,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Netherlandish_Proverbs',
   },
   {
     title: 'The Tower of Babel',
@@ -107,6 +121,7 @@ export const paintings: Painting[] = [
     year: 1563,
     id: 5013,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Tower_of_Babel_(Bruegel)',
   },
   {
     title: 'Hunters in the Snow',
@@ -114,6 +129,7 @@ export const paintings: Painting[] = [
     year: 1565,
     id: 5014,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Hunters_in_the_Snow',
   },
   {
     title: 'The Burial of the Count of Orgaz',
@@ -121,6 +137,7 @@ export const paintings: Painting[] = [
     year: 1588,
     id: 5015,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Burial_of_the_Count_of_Orgaz',
   },
   {
     title: 'The Calling of Saint Matthew',
@@ -128,6 +145,8 @@ export const paintings: Painting[] = [
     year: 1600,
     id: 5016,
     difficulty: 'medium',
+    link:
+        'https://en.wikipedia.org/wiki/The_Calling_of_St_Matthew_(Caravaggio)',
   },
   {
     title: 'The Supper at Emmaus',
@@ -135,6 +154,7 @@ export const paintings: Painting[] = [
     year: 1601,
     id: 5017,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Supper_at_Emmaus_(Caravaggio,_London)',
   },
   {
     title: 'The Elevation of the Cross',
@@ -142,6 +162,7 @@ export const paintings: Painting[] = [
     year: 1611,
     id: 5018,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Elevation_of_the_Cross_(Rubens)',
   },
   {
     title: 'Judith Slaying Holofernes',
@@ -149,6 +170,8 @@ export const paintings: Painting[] = [
     year: 1613,
     id: 5019,
     difficulty: 'hard',
+    link:
+        'https://en.wikipedia.org/wiki/Judith_Slaying_Holofernes_(Artemisia_Gentileschi)',
   },
   {
     title: 'The Anatomy Lesson of Dr Nicolaes Tulp',
@@ -156,6 +179,8 @@ export const paintings: Painting[] = [
     year: 1632,
     id: 5020,
     difficulty: 'medium',
+    link:
+        'https://en.wikipedia.org/wiki/The_Anatomy_Lesson_of_Dr._Nicolaes_Tulp',
   },
   {
     title: 'The Night Watch',
@@ -163,6 +188,7 @@ export const paintings: Painting[] = [
     year: 1642,
     id: 5021,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Night_Watch',
   },
   {
     title: 'Las Meninas',
@@ -170,6 +196,7 @@ export const paintings: Painting[] = [
     year: 1656,
     id: 5022,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Las_Meninas',
   },
   {
     title: 'The Milkmaid',
@@ -177,6 +204,7 @@ export const paintings: Painting[] = [
     year: 1658,
     id: 5023,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Milkmaid_(Vermeer)',
   },
   {
     title: 'View of Delft',
@@ -184,6 +212,7 @@ export const paintings: Painting[] = [
     year: 1661,
     id: 5024,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/View_of_Delft',
   },
   {
     title: 'Girl with a Pearl Earring',
@@ -191,6 +220,7 @@ export const paintings: Painting[] = [
     year: 1665,
     id: 5025,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Girl_with_a_Pearl_Earring',
   },
   {
     title: 'Self-Portrait with Two Circles',
@@ -198,6 +228,7 @@ export const paintings: Painting[] = [
     year: 1669,
     id: 5026,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Self-Portrait_with_Two_Circles',
   },
   {
     title: 'The Naked Maja',
@@ -205,6 +236,7 @@ export const paintings: Painting[] = [
     year: 1800,
     id: 5027,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/La_maja_desnuda',
   },
   {
     title: 'Napoleon Crossing the Alps',
@@ -212,6 +244,7 @@ export const paintings: Painting[] = [
     year: 1801,
     id: 5028,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Napoleon_Crossing_the_Alps',
   },
   {
     title: 'The Colossus',
@@ -219,6 +252,7 @@ export const paintings: Painting[] = [
     year: 1812,
     id: 5029,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Colossus_(painting)',
   },
   {
     title: 'The Third of May 1808',
@@ -226,6 +260,7 @@ export const paintings: Painting[] = [
     year: 1814,
     id: 5030,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Third_of_May_1808',
   },
   {
     title: 'Wanderer above the Sea of Fog',
@@ -233,6 +268,7 @@ export const paintings: Painting[] = [
     year: 1818,
     id: 5031,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Wanderer_above_the_Sea_of_Fog',
   },
   {
     title: 'Saturn Devouring His Son',
@@ -240,6 +276,7 @@ export const paintings: Painting[] = [
     year: 1823,
     id: 5032,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Saturn_Devouring_His_Son',
   },
   {
     title: 'Liberty Leading the People',
@@ -247,6 +284,7 @@ export const paintings: Painting[] = [
     year: 1830,
     id: 5033,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Liberty_Leading_the_People',
   },
   {
     title: 'The Great Wave off Kanagawa',
@@ -254,6 +292,7 @@ export const paintings: Painting[] = [
     year: 1831,
     id: 5034,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Great_Wave_off_Kanagawa',
   },
   {
     title: 'The Fighting Temeraire',
@@ -261,6 +300,7 @@ export const paintings: Painting[] = [
     year: 1839,
     id: 5035,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Fighting_Temeraire',
   },
   {
     title: 'Rain, Steam and Speed',
@@ -268,6 +308,8 @@ export const paintings: Painting[] = [
     year: 1844,
     id: 5036,
     difficulty: 'hard',
+    link:
+        'https://en.wikipedia.org/wiki/Rain,_Steam_and_Speed_–_The_Great_Western_Railway',
   },
   {
     title: 'The Gleaners',
@@ -275,6 +317,7 @@ export const paintings: Painting[] = [
     year: 1857,
     id: 5037,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Gleaners',
   },
   {
     title: 'The Angelus',
@@ -282,6 +325,7 @@ export const paintings: Painting[] = [
     year: 1859,
     id: 5038,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Angelus_(painting)',
   },
   {
     title: 'Olympia',
@@ -289,6 +333,7 @@ export const paintings: Painting[] = [
     year: 1863,
     id: 5039,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Olympia_(Manet)',
   },
   {
     title: 'Luncheon on the Grass',
@@ -296,6 +341,7 @@ export const paintings: Painting[] = [
     year: 1863,
     id: 5040,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Le_Déjeuner_sur_l%27herbe',
   },
   {
     title: 'The Origin of the World',
@@ -303,6 +349,7 @@ export const paintings: Painting[] = [
     year: 1866,
     id: 5041,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/L%27Origine_du_monde',
   },
   {
     title: 'Whistler\'s Mother',
@@ -310,6 +357,7 @@ export const paintings: Painting[] = [
     year: 1871,
     id: 5042,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Whistler%27s_Mother',
   },
   {
     title: 'Impression, Sunrise',
@@ -317,6 +365,7 @@ export const paintings: Painting[] = [
     year: 1872,
     id: 5043,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Impression,_Sunrise',
   },
   {
     title: 'The Dance Class',
@@ -324,6 +373,7 @@ export const paintings: Painting[] = [
     year: 1874,
     id: 5044,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Dance_Class_(Degas)',
   },
   {
     title: 'Bal du moulin de la Galette',
@@ -331,6 +381,7 @@ export const paintings: Painting[] = [
     year: 1876,
     id: 5045,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Bal_du_moulin_de_la_Galette',
   },
   {
     title: 'Luncheon of the Boating Party',
@@ -338,6 +389,7 @@ export const paintings: Painting[] = [
     year: 1881,
     id: 5046,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Luncheon_of_the_Boating_Party',
   },
   {
     title: 'A Bar at the Folies-Bergère',
@@ -345,6 +397,7 @@ export const paintings: Painting[] = [
     year: 1882,
     id: 5047,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/A_Bar_at_the_Folies-Bergère',
   },
   {
     title: 'The Potato Eaters',
@@ -352,6 +405,7 @@ export const paintings: Painting[] = [
     year: 1885,
     id: 5048,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Potato_Eaters',
   },
   {
     title: 'A Sunday Afternoon on the Island of La Grande Jatte',
@@ -359,6 +413,8 @@ export const paintings: Painting[] = [
     year: 1886,
     id: 5049,
     difficulty: 'hard',
+    link:
+        'https://en.wikipedia.org/wiki/A_Sunday_Afternoon_on_the_Island_of_La_Grande_Jatte',
   },
   {
     title: 'Vase with Sunflowers',
@@ -366,6 +422,7 @@ export const paintings: Painting[] = [
     year: 1888,
     id: 5050,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Sunflowers_(Van_Gogh_series)',
   },
   {
     title: 'Café Terrace at Night',
@@ -373,6 +430,7 @@ export const paintings: Painting[] = [
     year: 1888,
     id: 5051,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Café_Terrace_at_Night',
   },
   {
     title: 'The Starry Night',
@@ -380,6 +438,7 @@ export const paintings: Painting[] = [
     year: 1889,
     id: 5052,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Starry_Night',
   },
   {
     title: 'Wheatfield with Crows',
@@ -387,6 +446,7 @@ export const paintings: Painting[] = [
     year: 1890,
     id: 5053,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Wheatfield_with_Crows',
   },
   {
     title: 'The Scream',
@@ -394,6 +454,7 @@ export const paintings: Painting[] = [
     year: 1893,
     id: 5054,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Scream',
   },
   {
     title: 'At the Moulin Rouge',
@@ -401,6 +462,7 @@ export const paintings: Painting[] = [
     year: 1895,
     id: 5055,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/At_the_Moulin_Rouge',
   },
   {
     title: 'The Card Players',
@@ -408,6 +470,7 @@ export const paintings: Painting[] = [
     year: 1895,
     id: 5056,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Card_Players',
   },
   {
     title: 'Boulevard Montmartre at Night',
@@ -415,6 +478,7 @@ export const paintings: Painting[] = [
     year: 1897,
     id: 5057,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Boulevard_Montmartre_at_Night',
   },
   {
     title: 'The Sleeping Gypsy',
@@ -422,6 +486,7 @@ export const paintings: Painting[] = [
     year: 1897,
     id: 5058,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Sleeping_Gypsy',
   },
   {
     title: 'Where Do We Come From? What Are We? Where Are We Going?',
@@ -429,6 +494,8 @@ export const paintings: Painting[] = [
     year: 1898,
     id: 5059,
     difficulty: 'hard',
+    link:
+        'https://en.wikipedia.org/wiki/Where_Do_We_Come_From%3F_What_Are_We%3F_Where_Are_We_Going%3F',
   },
   {
     title: 'Water Lilies (first series)',
@@ -436,6 +503,7 @@ export const paintings: Painting[] = [
     year: 1900,
     id: 5060,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Water_Lilies_(Monet_series)',
   },
   {
     title: 'The Old Guitarist',
@@ -443,6 +511,7 @@ export const paintings: Painting[] = [
     year: 1904,
     id: 5061,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Old_Guitarist',
   },
   {
     title: 'Le bonheur de vivre',
@@ -450,6 +519,7 @@ export const paintings: Painting[] = [
     year: 1906,
     id: 5062,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Le_Bonheur_de_vivre',
   },
   {
     title: 'Les Demoiselles d\'Avignon',
@@ -457,6 +527,7 @@ export const paintings: Painting[] = [
     year: 1907,
     id: 5063,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Les_Demoiselles_d%27Avignon',
   },
   {
     title: 'Portrait of Adele Bloch-Bauer I',
@@ -464,6 +535,7 @@ export const paintings: Painting[] = [
     year: 1907,
     id: 5064,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Portrait_of_Adele_Bloch-Bauer_I',
   },
   {
     title: 'The Kiss',
@@ -471,6 +543,7 @@ export const paintings: Painting[] = [
     year: 1908,
     id: 5065,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Kiss_(Klimt)',
   },
   {
     title: 'The Dance',
@@ -478,6 +551,7 @@ export const paintings: Painting[] = [
     year: 1910,
     id: 5066,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Dance_(Matisse)',
   },
   {
     title: 'I and the Village',
@@ -485,6 +559,7 @@ export const paintings: Painting[] = [
     year: 1911,
     id: 5067,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/I_and_the_Village',
   },
   {
     title: 'Nude Descending a Staircase, No. 2',
@@ -492,6 +567,7 @@ export const paintings: Painting[] = [
     year: 1912,
     id: 5068,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Nude_Descending_a_Staircase,_No._2',
   },
   {
     title: 'Composition VII',
@@ -499,6 +575,7 @@ export const paintings: Painting[] = [
     year: 1913,
     id: 5069,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Composition_VII',
   },
   {
     title: 'Black Square',
@@ -506,6 +583,7 @@ export const paintings: Painting[] = [
     year: 1915,
     id: 5070,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Black_Square_(painting)',
   },
   {
     title: 'The Treachery of Images (Ceci n\'est pas une pipe)',
@@ -513,6 +591,7 @@ export const paintings: Painting[] = [
     year: 1929,
     id: 5071,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Treachery_of_Images',
   },
   {
     title: 'The Great Masturbator',
@@ -520,6 +599,7 @@ export const paintings: Painting[] = [
     year: 1929,
     id: 5072,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Great_Masturbator',
   },
   {
     title: 'American Gothic',
@@ -527,6 +607,7 @@ export const paintings: Painting[] = [
     year: 1930,
     id: 5073,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/American_Gothic',
   },
   {
     title: 'The Persistence of Memory',
@@ -534,6 +615,7 @@ export const paintings: Painting[] = [
     year: 1931,
     id: 5074,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Persistence_of_Memory',
   },
   {
     title: 'Guernica',
@@ -541,6 +623,7 @@ export const paintings: Painting[] = [
     year: 1937,
     id: 5075,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Guernica_(Picasso)',
   },
   {
     title: 'Portrait of Dora Maar',
@@ -548,6 +631,7 @@ export const paintings: Painting[] = [
     year: 1937,
     id: 5076,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Portrait_of_Dora_Maar',
   },
   {
     title: 'The Two Fridas',
@@ -555,6 +639,7 @@ export const paintings: Painting[] = [
     year: 1939,
     id: 5077,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Two_Fridas',
   },
   {
     title: 'Self-Portrait with Thorn Necklace and Hummingbird',
@@ -562,6 +647,8 @@ export const paintings: Painting[] = [
     year: 1940,
     id: 5078,
     difficulty: 'easy',
+    link:
+        'https://en.wikipedia.org/wiki/Self-Portrait_with_Thorn_Necklace_and_Hummingbird',
   },
   {
     title: 'Nighthawks',
@@ -569,6 +656,7 @@ export const paintings: Painting[] = [
     year: 1942,
     id: 5079,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Nighthawks_(painting)',
   },
   {
     title: 'Broadway Boogie Woogie',
@@ -576,6 +664,7 @@ export const paintings: Painting[] = [
     year: 1943,
     id: 5080,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Broadway_Boogie_Woogie',
   },
   {
     title: 'The Broken Column',
@@ -583,6 +672,7 @@ export const paintings: Painting[] = [
     year: 1944,
     id: 5081,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Broken_Column',
   },
   {
     title: 'No. 5, 1948',
@@ -590,6 +680,7 @@ export const paintings: Painting[] = [
     year: 1948,
     id: 5082,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/No._5,_1948',
   },
   {
     title: 'Christina\'s World',
@@ -597,6 +688,7 @@ export const paintings: Painting[] = [
     year: 1948,
     id: 5083,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Christina%27s_World',
   },
   {
     title: 'Campbell\'s Soup Cans',
@@ -604,6 +696,7 @@ export const paintings: Painting[] = [
     year: 1962,
     id: 5084,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Campbell%27s_Soup_Cans',
   },
   {
     title: 'Marilyn Diptych',
@@ -611,6 +704,7 @@ export const paintings: Painting[] = [
     year: 1962,
     id: 5085,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Marilyn_Diptych',
   },
   {
     title: 'Whaam!',
@@ -618,6 +712,7 @@ export const paintings: Painting[] = [
     year: 1963,
     id: 5086,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Whaam!',
   },
   {
     title: 'The Son of Man',
@@ -625,6 +720,7 @@ export const paintings: Painting[] = [
     year: 1964,
     id: 5087,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Son_of_Man',
   },
   {
     title: 'A Bigger Splash',
@@ -632,6 +728,7 @@ export const paintings: Painting[] = [
     year: 1967,
     id: 5088,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/A_Bigger_Splash',
   },
   {
     title: 'Portrait of an Artist (Pool with Two Figures)',
@@ -639,6 +736,8 @@ export const paintings: Painting[] = [
     year: 1972,
     id: 5089,
     difficulty: 'hard',
+    link:
+        'https://en.wikipedia.org/wiki/Portrait_of_an_Artist_(Pool_with_Two_Figures)',
   },
   {
     title: 'Untitled (Skull)',
@@ -646,6 +745,7 @@ export const paintings: Painting[] = [
     year: 1981,
     id: 5090,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Untitled_(Skull)',
   },
   {
     title: 'Kerze',
@@ -653,6 +753,7 @@ export const paintings: Painting[] = [
     year: 1982,
     id: 5091,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Candle_(Richter)',
   },
   {
     title: 'Betty',
@@ -660,6 +761,7 @@ export const paintings: Painting[] = [
     year: 1988,
     id: 5092,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Betty_(Richter)',
   },
   {
     title: 'The Death of Pablo Escobar',
@@ -667,6 +769,7 @@ export const paintings: Painting[] = [
     year: 1999,
     id: 5093,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Death_of_Pablo_Escobar',
   },
   {
     title: 'Balloon Girl (There Is Always Hope)',
@@ -674,5 +777,6 @@ export const paintings: Painting[] = [
     year: 2002,
     id: 5094,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Girl_with_Balloon',
   },
 ];
