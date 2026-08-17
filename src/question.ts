@@ -15,6 +15,8 @@ export interface UnitEntry {
   // this dynamically because we want it to be stable (so that we can store it
   // to identify the entries in a question).
   id: number;
+  // Optional link to relevant wikipedia page for this entry.
+  link?: string;
 }
 
 class ConfidenceButtons {
@@ -63,6 +65,7 @@ export class CompareQuestion {
   public view = Object.assign(
       document.createElement('fieldset'),
       {className: 'compare-question-options'});
+  // Will contain exactly two elements (one for each entry in `inputs`).
   private optionLabels: HTMLLabelElement[];
 
   constructor(public readonly inputs: UnitEntry[]) {
@@ -78,12 +81,19 @@ export class CompareQuestion {
 
   reveal() {
     this.view.disabled = true;
-    this.optionLabels.map(
-        (label, index) =>
-            label.append(Object.assign(document.createElement('span'), {
-              className: 'answer-value',
-              textContent: `(${this.inputs[index]!.value})`
-            })));
+    this.optionLabels.map((label, index) => {
+      const input: UnitEntry = this.inputs[index]!;
+      label.append(Object.assign(
+          document.createElement('span'),
+          {className: 'answer-value', textContent: input.value}));
+      const linkSpan = label.appendChild(document.createElement('span'));
+      if (input.link)
+        linkSpan.append(Object.assign(
+            document.createElement('a'),
+            {href: input.link, textContent: 'ℹ️ '}));
+      else
+        linkSpan.textContent = ' ';  // Otherwise fucks up the alignment.
+    });
   }
 
   private addInputToView(fieldset: HTMLFieldSetElement, unitIndex: number):

@@ -162,16 +162,17 @@ div.calibration-graph {
 }
 
 fieldset.compare-question-options {
-  display: flex;
-  flex-direction:column;
-  gap: 0px;
+  display: grid;
+  grid-template-columns: max-content 1fr max-content max-content;
+  gap: 4px;
   border: none;
   padding: 0;
 }
 
 fieldset.compare-question-options label {
   display: grid;
-  grid-template-columns: max-content 1fr max-content;
+  grid-column: span 5;
+  grid-template-columns: subgrid;
   gap: 8px;
   align-items: center;
 }

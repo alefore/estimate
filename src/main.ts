@@ -50,6 +50,7 @@ class App {
                                          category: Category.Birth,
                                          id: b.id,
                                          difficulty: b.difficulty,
+                                         link: b.link,
                                        })))
               .concat(companies.map((c: Company): UnitEntry => ({
                                       name: `${c.name} was founded`,
@@ -69,6 +70,7 @@ class App {
                               category: Category.Book,
                               id: b.id,
                               difficulty: b.difficulty,
+                              link: b.link,
                             })))
               .concat(inventions.map(
                   (i: Invention): UnitEntry => ({
@@ -109,6 +111,7 @@ class App {
                               topic: [f.director],
                               id: f.id,
                               difficulty: f.difficulty,
+                              link: f.link,
                             })))
               .sort((a, b) => a.value - b.value)));
   readonly titleDiv =
