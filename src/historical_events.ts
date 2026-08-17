@@ -8,6 +8,7 @@ export interface HistoricalEvent {
   topic: string[];
   difficulty: Difficulty;
   id: number;
+  link: string;
 }
 
 export const historicalEvents: HistoricalEvent[] = [
@@ -18,6 +19,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Hammurabi'],
     difficulty: 'medium',
     id: 0,
+    link: 'https://en.wikipedia.org/wiki/Code_of_Hammurabi',
   },  // c. 1754 BC
   {
     name: 'Tutankhamun ruled Egypt',
@@ -26,6 +28,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Tutankhamun'],
     difficulty: 'easy',
     id: 1,
+    link: 'https://en.wikipedia.org/wiki/Tutankhamun',
   },  // c. 1332 BC
   {
     name: 'The Trojan War was fought',
@@ -34,6 +37,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Troy'],
     difficulty: 'easy',
     id: 2,
+    link: 'https://en.wikipedia.org/wiki/Trojan_War',
   },  // traditional dating, c. 1184 BC
   {
     name: 'The first Olympic Games were held',
@@ -42,6 +46,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Olympic'],
     difficulty: 'easy',
     id: 3,
+    link: 'https://en.wikipedia.org/wiki/Ancient_Olympic_Games',
   },
   {
     name: 'Rome was founded',
@@ -50,6 +55,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Rome'],
     difficulty: 'easy',
     id: 4,
+    link: 'https://en.wikipedia.org/wiki/Founding_of_Rome',
   },  // traditional dating
   {
     name: 'The Roman Republic was established',
@@ -58,6 +64,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Rome'],
     difficulty: 'easy',
     id: 5,
+    link: 'https://en.wikipedia.org/wiki/Roman_Republic',
   },
   {
     name: 'The Battle of Marathon was fought',
@@ -66,6 +73,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Marathon'],
     difficulty: 'hard',
     id: 6,
+    link: 'https://en.wikipedia.org/wiki/Battle_of_Marathon',
   },
   {
     name: 'The Battle of Thermopylae was fought',
@@ -74,6 +82,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Thermopylae'],
     difficulty: 'hard',
     id: 7,
+    link: 'https://en.wikipedia.org/wiki/Battle_of_Thermopylae',
   },
   {
     name: 'Alexander the Great conquered Persia',
@@ -82,6 +91,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Alexander the Great'],
     difficulty: 'medium',
     id: 8,
+    link: 'https://en.wikipedia.org/wiki/Wars_of_Alexander_the_Great',
   },
   {
     name: 'The Great Wall of China was begun',
@@ -90,6 +100,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['China'],
     difficulty: 'medium',
     id: 9,
+    link: 'https://en.wikipedia.org/wiki/Great_Wall_of_China',
   },  // under Qin Shi Huang
   {
     name: 'Hannibal crossed the Alps',
@@ -98,6 +109,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Hannibal'],
     difficulty: 'medium',
     id: 10,
+    link: 'https://en.wikipedia.org/wiki/Hannibal%27s_crossing_of_the_Alps',
   },
   {
     name: 'Carthage was destroyed by Rome',
@@ -106,6 +118,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Rome', 'Carthage'],
     difficulty: 'hard',
     id: 11,
+    link: 'https://en.wikipedia.org/wiki/Battle_of_Carthage_(c._149_BC)',
   },
   {
     name: 'Julius Caesar was assassinated',
@@ -114,6 +127,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Julius Caesar'],
     difficulty: 'easy',
     id: 12,
+    link: 'https://en.wikipedia.org/wiki/Assassination_of_Julius_Caesar',
   },
   {
     name: 'The Battle of Actium was fought',
@@ -122,6 +136,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Actium'],
     difficulty: 'hard',
     id: 13,
+    link: 'https://en.wikipedia.org/wiki/Battle_of_Actium',
   },
   {
     name: 'The Roman Empire was founded by Augustus',
@@ -130,6 +145,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Rome'],
     difficulty: 'medium',
     id: 14,
+    link: 'https://en.wikipedia.org/wiki/Roman_Empire',
   },
   {
     name: 'Jesus was crucified',
@@ -138,6 +154,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Jesus'],
     difficulty: 'easy',
     id: 15,
+    link: 'https://en.wikipedia.org/wiki/Crucifixion_of_Jesus',
   },  // c. AD 30
   {
     name: 'Vesuvius destroyed Pompeii',
@@ -146,6 +163,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Pompeii'],
     difficulty: 'medium',
     id: 16,
+    link: 'https://en.wikipedia.org/wiki/Eruption_of_Mount_Vesuvius_in_79_AD',
   },
   {
     name: 'Constantine legalized Christianity',
@@ -154,6 +172,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Constantine'],
     difficulty: 'medium',
     id: 17,
+    link: 'https://en.wikipedia.org/wiki/Edict_of_Milan',
   },  // Edict of Milan
   {
     name: 'The Roman Empire split in two',
@@ -162,6 +181,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Rome'],
     difficulty: 'hard',
     id: 18,
+    link: 'https://en.wikipedia.org/wiki/Roman_Empire#Division_of_the_Empire',
   },
   {
     name: 'Rome was sacked by the Visigoths',
@@ -170,6 +190,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Rome'],
     difficulty: 'hard',
     id: 19,
+    link: 'https://en.wikipedia.org/wiki/Sack_of_Rome_(410)',
   },
   {
     name: 'The Western Roman Empire fell',
@@ -178,6 +199,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Rome'],
     difficulty: 'easy',
     id: 20,
+    link: 'https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire',
   },
   {
     name: 'Muhammad made the Hijra to Medina',
@@ -186,6 +208,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Muhammad'],
     difficulty: 'easy',
     id: 21,
+    link: 'https://en.wikipedia.org/wiki/Hegira',
   },
   {
     name: 'The Battle of Tours halted the Umayyad advance',
@@ -194,6 +217,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Umayyad'],
     difficulty: 'hard',
     id: 22,
+    link: 'https://en.wikipedia.org/wiki/Battle_of_Tours',
   },
   {
     name: 'Charlemagne was crowned emperor',
@@ -202,6 +226,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Charlemagne'],
     difficulty: 'medium',
     id: 23,
+    link: 'https://en.wikipedia.org/wiki/Charlemagne',
   },
   {
     name: 'The Vikings discovered America',
@@ -210,6 +235,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'easy',
     id: 24,
+    link: 'https://en.wikipedia.org/wiki/Norse_colonization_of_North_America',
   },  // c. 1000, Leif Erikson
   {
     name: 'The Great Schism split the Christian church',
@@ -218,6 +244,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 25,
+    link: 'https://en.wikipedia.org/wiki/East%E2%80%93West_Schism',
   },
   {
     name: 'The Battle of Hastings was fought',
@@ -226,6 +253,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 26,
+    link: 'https://en.wikipedia.org/wiki/Battle_of_Hastings',
   },
   {
     name: 'The First Crusade captured Jerusalem',
@@ -234,6 +262,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Jerusalem'],
     difficulty: 'easy',
     id: 27,
+    link: 'https://en.wikipedia.org/wiki/Siege_of_Jerusalem_(1099)',
   },
   {
     name: 'The University of Oxford began teaching',
@@ -242,6 +271,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['University of Oxford'],
     difficulty: 'hard',
     id: 28,
+    link: 'https://en.wikipedia.org/wiki/University_of_Oxford',
   },  // c. 1096
   {
     name: 'The Magna Carta was signed',
@@ -250,6 +280,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 29,
+    link: 'https://en.wikipedia.org/wiki/Magna_Carta',
   },
   {
     name: 'Genghis Khan\'s Mongols sacked Beijing',
@@ -258,6 +289,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Genghis Khan'],
     difficulty: 'easy',
     id: 30,
+    link: 'https://en.wikipedia.org/wiki/Battle_of_Zhongdu',
   },
   {
     name: 'Marco Polo set out for China',
@@ -266,6 +298,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Marco Polo'],
     difficulty: 'medium',
     id: 31,
+    link: 'https://en.wikipedia.org/wiki/Marco_Polo',
   },
   {
     name: 'The Black Death reached Europe',
@@ -274,6 +307,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Black Death'],
     difficulty: 'easy',
     id: 32,
+    link: 'https://en.wikipedia.org/wiki/Black_Death',
   },
   {
     name: 'The Hundred Years\' War began',
@@ -282,6 +316,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Hundred Years\' War'],
     difficulty: 'hard',
     id: 33,
+    link: 'https://en.wikipedia.org/wiki/Hundred_Years%27_War',
   },
   {
     name: 'The Battle of Agincourt was fought',
@@ -290,6 +325,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Agincourt'],
     difficulty: 'hard',
     id: 34,
+    link: 'https://en.wikipedia.org/wiki/Battle_of_Agincourt',
   },
   {
     name: 'Joan of Arc lifted the siege of Orléans',
@@ -298,6 +334,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Joan of Arc'],
     difficulty: 'medium',
     id: 35,
+    link: 'https://en.wikipedia.org/wiki/Siege_of_Orl%C3%A9ans',
   },
   {
     name: 'Johannes Gutenberg printed his Bible',
@@ -306,6 +343,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Johannes Gutenberg'],
     difficulty: 'medium',
     id: 36,
+    link: 'https://en.wikipedia.org/wiki/Gutenberg_Bible',
   },  // c. 1455
   {
     name: 'Constantinople fell to the Ottomans',
@@ -314,6 +352,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Constantinople'],
     difficulty: 'hard',
     id: 37,
+    link: 'https://en.wikipedia.org/wiki/Fall_of_Constantinople',
   },
   {
     name: 'America was discovered (by Columbus)',
@@ -322,6 +361,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Christopher Columbus'],
     difficulty: 'easy',
     id: 38,
+    link: 'https://en.wikipedia.org/wiki/Voyages_of_Christopher_Columbus',
   },
   {
     name: 'Vasco da Gama reached India by sea',
@@ -330,6 +370,8 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Vasco da Gama'],
     difficulty: 'medium',
     id: 39,
+    link:
+        'https://en.wikipedia.org/wiki/Portuguese_discovery_of_the_sea_route_to_India',
   },
   {
     name: 'Michelangelo finished the statue of David',
@@ -338,6 +380,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Michelangelo'],
     difficulty: 'easy',
     id: 40,
+    link: 'https://en.wikipedia.org/wiki/David_(Michelangelo)',
   },
   {
     name: 'Martin Luther posted his 95 Theses',
@@ -346,6 +389,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Martin Luther'],
     difficulty: 'easy',
     id: 41,
+    link: 'https://en.wikipedia.org/wiki/Ninety-five_Theses',
   },
   {
     name: 'Magellan\'s expedition circumnavigated the globe',
@@ -354,6 +398,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Ferdinand Magellan'],
     difficulty: 'medium',
     id: 42,
+    link: 'https://en.wikipedia.org/wiki/Magellan_expedition',
   },
   {
     name: 'The Aztec Empire fell to Cortés',
@@ -362,6 +407,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Hernán Cortés', 'Aztec Empire'],
     difficulty: 'medium',
     id: 43,
+    link: 'https://en.wikipedia.org/wiki/Spanish_conquest_of_the_Aztec_Empire',
   },
   {
     name: 'The Inca Empire fell to Pizarro',
@@ -370,6 +416,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Francisco Pizarro'],
     difficulty: 'medium',
     id: 44,
+    link: 'https://en.wikipedia.org/wiki/Spanish_conquest_of_the_Inca_Empire',
   },
   {
     name: 'Copernicus published his heliocentric theory',
@@ -378,6 +425,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Nicolaus Copernicus'],
     difficulty: 'medium',
     id: 45,
+    link: 'https://en.wikipedia.org/wiki/De_revolutionibus_orbium_coelestium',
   },
   {
     name: 'The Spanish Armada was defeated',
@@ -386,6 +434,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Spanish Armada'],
     difficulty: 'hard',
     id: 46,
+    link: 'https://en.wikipedia.org/wiki/Spanish_Armada',
   },
   {
     name: 'Shakespeare\'s Hamlet was first performed',
@@ -394,6 +443,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Shakespeare'],
     difficulty: 'easy',
     id: 47,
+    link: 'https://en.wikipedia.org/wiki/Hamlet',
   },  // c. 1600-1601 TODO: Move to books or arts?
   {
     name: 'Jamestown was founded',
@@ -402,6 +452,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Jamestown'],
     difficulty: 'hard',
     id: 48,
+    link: 'https://en.wikipedia.org/wiki/Jamestown,_Virginia',
   },
   {
     name: 'Galileo first pointed a telescope at the sky',
@@ -410,6 +461,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Galileo Galilei'],
     difficulty: 'easy',
     id: 49,
+    link: 'https://en.wikipedia.org/wiki/Galileo_Galilei',
   },
   {
     name: 'The Thirty Years\' War began',
@@ -418,6 +470,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Thirty Years\' War'],
     difficulty: 'medium',
     id: 50,
+    link: 'https://en.wikipedia.org/wiki/Thirty_Years%27_War',
   },
   {
     name: 'The Taj Mahal was completed',
@@ -426,6 +479,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Taj Mahal'],
     difficulty: 'easy',
     id: 51,
+    link: 'https://en.wikipedia.org/wiki/Taj_Mahal',
   },
   {
     name: 'The Great Fire of London burned',
@@ -434,6 +488,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'hard',
     id: 52,
+    link: 'https://en.wikipedia.org/wiki/Great_Fire_of_London',
   },
   {
     name: 'Newton published the Principia',
@@ -442,6 +497,8 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Isaac Newton'],
     difficulty: 'medium',
     id: 53,
+    link:
+        'https://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica',
   },
   {
     name: 'The Glorious Revolution took place in England',
@@ -450,6 +507,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 54,
+    link: 'https://en.wikipedia.org/wiki/Glorious_Revolution',
   },
   {
     name: 'St. Petersburg was founded',
@@ -458,6 +516,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['St. Petersburg'],
     difficulty: 'hard',
     id: 55,
+    link: 'https://en.wikipedia.org/wiki/History_of_Saint_Petersburg',
   },
   {
     name: 'The Boston Tea Party took place',
@@ -466,6 +525,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Boston Tea Party'],
     difficulty: 'hard',
     id: 56,
+    link: 'https://en.wikipedia.org/wiki/Boston_Tea_Party',
   },
   {
     name: 'The United States declared independence',
@@ -474,6 +534,8 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'easy',
     id: 57,
+    link:
+        'https://en.wikipedia.org/wiki/United_States_Declaration_of_Independence',
   },
   {
     // TODO: Inventions?
@@ -483,6 +545,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Montgolfier'],
     difficulty: 'hard',
     id: 58,
+    link: 'https://en.wikipedia.org/wiki/Montgolfier_brothers',
   },
   {
     name: 'The United States Constitution was signed',
@@ -491,6 +554,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 59,
+    link: 'https://en.wikipedia.org/wiki/Constitution_of_the_United_States',
   },
   {
     name: 'The French Revolution began',
@@ -499,6 +563,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'easy',
     id: 60,
+    link: 'https://en.wikipedia.org/wiki/French_Revolution',
   },
   {
     name: 'The guillotine claimed Louis XVI',
@@ -507,6 +572,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Louis XVI'],
     difficulty: 'medium',
     id: 61,
+    link: 'https://en.wikipedia.org/wiki/Execution_of_Louis_XVI',
   },
   {
     name: 'Napoleon crowned himself emperor',
@@ -515,6 +581,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Napoleon Bonaparte'],
     difficulty: 'medium',
     id: 62,
+    link: 'https://en.wikipedia.org/wiki/Coronation_of_Napoleon_I',
   },
   {
     name: 'The Battle of Trafalgar was fought',
@@ -523,6 +590,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Trafalgar'],
     difficulty: 'hard',
     id: 63,
+    link: 'https://en.wikipedia.org/wiki/Battle_of_Trafalgar',
   },
   {
     name: 'Napoleon invaded Russia',
@@ -531,6 +599,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Napoleon Bonaparte'],
     difficulty: 'medium',
     id: 64,
+    link: 'https://en.wikipedia.org/wiki/French_invasion_of_Russia',
   },
   {
     name: 'The Battle of Waterloo was fought',
@@ -539,6 +608,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Waterloo'],
     difficulty: 'hard',
     id: 65,
+    link: 'https://en.wikipedia.org/wiki/Battle_of_Waterloo',
   },
   {
     // TODO: inventions?
@@ -548,6 +618,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 66,
+    link: 'https://en.wikipedia.org/wiki/Stockton_and_Darlington_Railway',
   },  // Stockton & Darlington
   {
     name: 'Slavery was abolished in the British Empire',
@@ -556,6 +627,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Great Britain'],
     difficulty: 'hard',
     id: 67,
+    link: 'https://en.wikipedia.org/wiki/Slavery_Abolition_Act_1833',
   },
   {
     name: 'The California Gold Rush began',
@@ -564,6 +636,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['California'],
     difficulty: 'medium',
     id: 68,
+    link: 'https://en.wikipedia.org/wiki/California_Gold_Rush',
   },
   {
     name: 'The American Civil War began',
@@ -572,6 +645,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'easy',
     id: 69,
+    link: 'https://en.wikipedia.org/wiki/American_Civil_War',
   },
   {
     name: 'Lincoln issued the Emancipation Proclamation',
@@ -580,6 +654,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Abraham Lincoln'],
     difficulty: 'medium',
     id: 70,
+    link: 'https://en.wikipedia.org/wiki/Emancipation_Proclamation',
   },
   {
     name: 'Lincoln was assassinated',
@@ -588,6 +663,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Abraham Lincoln'],
     difficulty: 'easy',
     id: 71,
+    link: 'https://en.wikipedia.org/wiki/Assassination_of_Abraham_Lincoln',
   },
   {
     // TODO: inventions
@@ -597,6 +673,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'easy',
     id: 72,
+    link: 'https://en.wikipedia.org/wiki/Transatlantic_telegraph_cable',
   },
   {
     // TODO: inventions
@@ -606,6 +683,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'easy',
     id: 73,
+    link: 'https://en.wikipedia.org/wiki/First_transcontinental_railroad',
   },
   {
     name: 'The Suez Canal opened',
@@ -613,7 +691,8 @@ export const historicalEvents: HistoricalEvent[] = [
     value: 1869,
     topic: [],
     id: 74,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Suez_Canal',
   },
   {
     name: 'Krakatoa erupted',
@@ -621,7 +700,8 @@ export const historicalEvents: HistoricalEvent[] = [
     value: 1883,
     topic: [],
     id: 75,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/1883_eruption_of_Krakatoa',
   },
   {
     name: 'The first modern Olympic Games were held',
@@ -630,6 +710,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Olympic Games'],
     difficulty: 'medium',
     id: 76,
+    link: 'https://en.wikipedia.org/wiki/1896_Summer_Olympics',
   },
   {
     name: 'The first movie was screened by the Lumière brothers',
@@ -638,6 +719,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Lumière'],
     difficulty: 'hard',
     id: 77,
+    link: 'https://en.wikipedia.org/wiki/Auguste_and_Louis_Lumi%C3%A8re',
   },
   {
     name: 'Marconi sent the first transatlantic radio signal',
@@ -646,6 +728,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Guglielmo Marconi'],
     difficulty: 'hard',
     id: 78,
+    link: 'https://en.wikipedia.org/wiki/Guglielmo_Marconi',
   },
   {
     name: 'The Wright brothers flew the first airplane',
@@ -655,6 +738,7 @@ export const historicalEvents: HistoricalEvent[] = [
         ['Wilbur Wright (Wright brothers)', 'Orville Wright (Wright brothers)'],
     difficulty: 'medium',
     id: 79,
+    link: 'https://en.wikipedia.org/wiki/Wright_brothers',
   },
   {
     name: 'Einstein published his theory of special relativity',
@@ -663,6 +747,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Albert Einstein'],
     difficulty: 'medium',
     id: 80,
+    link: 'https://en.wikipedia.org/wiki/Special_relativity',
   },
   {
     name: 'The San Francisco earthquake struck',
@@ -671,6 +756,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 81,
+    link: 'https://en.wikipedia.org/wiki/1906_San_Francisco_earthquake',
   },
   {
     name: 'The Titanic sank',
@@ -679,6 +765,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Titanic'],
     difficulty: 'easy',
     id: 82,
+    link: 'https://en.wikipedia.org/wiki/Sinking_of_the_Titanic',
   },
   {
     name: 'World War I began',
@@ -686,7 +773,8 @@ export const historicalEvents: HistoricalEvent[] = [
     value: 1914,
     topic: ['WWI'],
     difficulty: 'easy',
-    id: 83
+    id: 83,
+    link: 'https://en.wikipedia.org/wiki/World_War_I',
   },
   {
     name: 'The Panama Canal opened',
@@ -695,6 +783,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Panama'],
     difficulty: 'medium',
     id: 84,
+    link: 'https://en.wikipedia.org/wiki/Panama_Canal',
   },
   {
     name: 'The Russian Revolution overthrew the Tsar',
@@ -703,6 +792,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Nicholas II'],
     difficulty: 'medium',
     id: 85,
+    link: 'https://en.wikipedia.org/wiki/Russian_Revolution',
   },
   {
     name: 'World War I ended',
@@ -710,7 +800,8 @@ export const historicalEvents: HistoricalEvent[] = [
     value: 1918,
     topic: ['WWI'],
     difficulty: 'easy',
-    id: 86
+    id: 86,
+    link: 'https://en.wikipedia.org/wiki/Armistice_of_11_November_1918',
   },
   {
     name: 'The Spanish flu pandemic swept the world',
@@ -719,6 +810,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Spanish Flu'],
     difficulty: 'medium',
     id: 87,
+    link: 'https://en.wikipedia.org/wiki/Spanish_flu',
   },
   {
     name: 'Women won the right to vote in the United States',
@@ -727,6 +819,8 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'hard',
     id: 88,
+    link:
+        'https://en.wikipedia.org/wiki/Nineteenth_Amendment_to_the_United_States_Constitution',
   },
   {
     name: 'Tutankhamun\'s tomb was discovered',
@@ -735,6 +829,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Tutankhamun'],
     difficulty: 'medium',
     id: 89,
+    link: 'https://en.wikipedia.org/wiki/Discovery_of_the_tomb_of_Tutankhamun',
   },
   {
     name: 'The Wall Street Crash triggered the Great Depression',
@@ -743,6 +838,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'easy',
     id: 90,
+    link: 'https://en.wikipedia.org/wiki/Wall_Street_Crash_of_1929',
   },
   {
     name: 'Hitler came to power in Germany',
@@ -751,6 +847,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Adolf Hitler'],
     difficulty: 'medium',
     id: 91,
+    link: 'https://en.wikipedia.org/wiki/Adolf_Hitler%27s_rise_to_power',
   },
   {
     name: 'The Hindenburg disaster occurred',
@@ -759,6 +856,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'hard',
     id: 92,
+    link: 'https://en.wikipedia.org/wiki/Hindenburg_disaster',
   },
   {
     name: 'World War II began',
@@ -767,6 +865,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['WWII'],
     difficulty: 'easy',
     id: 93,
+    link: 'https://en.wikipedia.org/wiki/World_War_II',
   },
   {
     name: 'Pearl Harbor was attacked',
@@ -775,6 +874,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Pearl Harbor'],
     difficulty: 'medium',
     id: 94,
+    link: 'https://en.wikipedia.org/wiki/Attack_on_Pearl_Harbor',
   },
   {
     name: 'The D-Day landings took place in Normandy',
@@ -783,6 +883,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'hard',
     id: 95,
+    link: 'https://en.wikipedia.org/wiki/Normandy_landings',
   },
   {
     name: 'The first atomic bomb was dropped on Hiroshima',
@@ -791,6 +892,8 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Hiroshima'],
     difficulty: 'easy',
     id: 96,
+    link:
+        'https://en.wikipedia.org/wiki/Atomic_bombings_of_Hiroshima_and_Nagasaki',
   },
   {
     name: 'World War II ended',
@@ -799,6 +902,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['WWII'],
     difficulty: 'easy',
     id: 97,
+    link: 'https://en.wikipedia.org/wiki/End_of_World_War_II',
   },
   {
     name: 'The United Nations was founded',
@@ -807,6 +911,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['United Nations'],
     difficulty: 'medium',
     id: 98,
+    link: 'https://en.wikipedia.org/wiki/History_of_the_United_Nations',
   },
   {
     name: 'India gained independence',
@@ -815,6 +920,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 99,
+    link: 'https://en.wikipedia.org/wiki/Independence_Day_(India)',
   },
   {
     // TODO: science
@@ -824,6 +930,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'hard',
     id: 100,
+    link: 'https://en.wikipedia.org/wiki/Sound_barrier',
   },
   {
     name: 'The state of Israel was founded',
@@ -832,6 +939,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Israel'],
     difficulty: 'easy',
     id: 101,
+    link: 'https://en.wikipedia.org/wiki/Israeli_Declaration_of_Independence',
   },
   {
     name: 'NATO was founded',
@@ -840,6 +948,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['NATO'],
     difficulty: 'easy',
     id: 102,
+    link: 'https://en.wikipedia.org/wiki/NATO',
   },
   {
     name: 'The People\'s Republic of China was proclaimed',
@@ -848,6 +957,8 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['China'],
     difficulty: 'medium',
     id: 103,
+    link:
+        'https://en.wikipedia.org/wiki/Proclamation_of_the_People%27s_Republic_of_China',
   },
   {
     name: 'The Korean War began',
@@ -856,6 +967,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 104,
+    link: 'https://en.wikipedia.org/wiki/Korean_War',
   },
   {
     // TODO: discoveries
@@ -865,6 +977,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['DNA'],
     difficulty: 'easy',
     id: 105,
+    link: 'https://en.wikipedia.org/wiki/DNA',
   },
   {
     name: 'Mount Everest was first climbed',
@@ -873,6 +986,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 106,
+    link: 'https://en.wikipedia.org/wiki/1953_British_Mount_Everest_expedition',
   },
   {
     name: 'Rosa Parks refused to give up her seat',
@@ -881,6 +995,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Rosa Parks'],
     difficulty: 'medium',
     id: 107,
+    link: 'https://en.wikipedia.org/wiki/Rosa_Parks',
   },
   {
     name: 'The Treaty of Rome created the European Economic Community',
@@ -889,6 +1004,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'hard',
     id: 108,
+    link: 'https://en.wikipedia.org/wiki/Treaty_of_Rome',
   },
   {
     name: 'Yuri Gagarin became the first human in space',
@@ -897,6 +1013,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Yuri Gagarin'],
     difficulty: 'medium',
     id: 109,
+    link: 'https://en.wikipedia.org/wiki/Yuri_Gagarin',
   },
   {
     name: 'The Cuban Missile Crisis brought the world to the brink',
@@ -905,6 +1022,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'easy',
     id: 110,
+    link: 'https://en.wikipedia.org/wiki/Cuban_Missile_Crisis',
   },
   {
     name: 'Martin Luther King gave his "I Have a Dream" speech',
@@ -913,6 +1031,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Martin Luther King Jr.'],
     difficulty: 'medium',
     id: 111,
+    link: 'https://en.wikipedia.org/wiki/I_Have_a_Dream',
   },
   {
     name: 'John F. Kennedy was assassinated',
@@ -921,6 +1040,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['John F. Kennedy'],
     difficulty: 'easy',
     id: 112,
+    link: 'https://en.wikipedia.org/wiki/Assassination_of_John_F._Kennedy',
   },
   {
     name: 'The Beatles appeared on The Ed Sullivan Show',
@@ -929,6 +1049,8 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Beatles', 'John Lennon', 'Paul McCartney'],
     difficulty: 'medium',
     id: 113,
+    link:
+        'https://en.wikipedia.org/wiki/The_Beatles%27_1964_North_American_tour',
   },
   {
     name: 'The Civil Rights Act was signed (United States)',
@@ -937,6 +1059,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 114,
+    link: 'https://en.wikipedia.org/wiki/Civil_Rights_Act_of_1964',
   },
   {
     // TODO: science
@@ -946,6 +1069,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 115,
+    link: 'https://en.wikipedia.org/wiki/Heart_transplantation',
   },
   {
     name: 'Martin Luther King was assassinated',
@@ -954,6 +1078,8 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Martin Luther King Jr.'],
     difficulty: 'medium',
     id: 116,
+    link:
+        'https://en.wikipedia.org/wiki/Assassination_of_Martin_Luther_King_Jr.',
   },
   {
     // TODO: science
@@ -963,6 +1089,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'easy',
     id: 117,
+    link: 'https://en.wikipedia.org/wiki/Apollo_11',
   },
   {
     name: 'Woodstock took place',
@@ -971,6 +1098,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 118,
+    link: 'https://en.wikipedia.org/wiki/Woodstock',
   },
   {
     name: 'The Watergate scandal broke',
@@ -979,6 +1107,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 119,
+    link: 'https://en.wikipedia.org/wiki/Watergate_scandal',
   },
   {
     name: 'Nixon resigned as US president',
@@ -987,6 +1116,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Richard Nixon'],
     difficulty: 'medium',
     id: 120,
+    link: 'https://en.wikipedia.org/wiki/Richard_Nixon',
   },
   {
     name: 'The Vietnam War ended',
@@ -995,6 +1125,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'easy',
     id: 121,
+    link: 'https://en.wikipedia.org/wiki/Fall_of_Saigon',
   },
   {
     // TODO: science
@@ -1004,6 +1135,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 122,
+    link: 'https://en.wikipedia.org/wiki/In_vitro_fertilisation',
   },
   {
     name: 'Margaret Thatcher became UK prime minister',
@@ -1012,6 +1144,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Margaret Thatcher'],
     difficulty: 'easy',
     id: 123,
+    link: 'https://en.wikipedia.org/wiki/Premiership_of_Margaret_Thatcher',
   },
   {
     name: 'Smallpox was declared eradicated',
@@ -1020,6 +1153,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 124,
+    link: 'https://en.wikipedia.org/wiki/Smallpox',
   },
   {
     name: 'John Lennon was shot',
@@ -1028,6 +1162,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['John Lennon'],
     difficulty: 'easy',
     id: 125,
+    link: 'https://en.wikipedia.org/wiki/Murder_of_John_Lennon',
   },
   {
     name: 'MTV started broadcasting',
@@ -1036,6 +1171,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['MTV'],
     difficulty: 'medium',
     id: 126,
+    link: 'https://en.wikipedia.org/wiki/MTV',
   },
   {
     // TODO: inventions?
@@ -1045,6 +1181,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['IBM'],
     difficulty: 'medium',
     id: 127,
+    link: 'https://en.wikipedia.org/wiki/IBM_Personal_Computer',
   },
   {
     name: 'Live Aid was broadcast worldwide',
@@ -1053,6 +1190,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'hard',
     id: 128,
+    link: 'https://en.wikipedia.org/wiki/Live_Aid',
   },
   {
     name: 'The Chernobyl disaster occurred',
@@ -1061,6 +1199,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Chernobyl'],
     difficulty: 'medium',
     id: 129,
+    link: 'https://en.wikipedia.org/wiki/Chernobyl_disaster',
   },
   {
     name: 'The Challenger space shuttle exploded',
@@ -1069,6 +1208,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'hard',
     id: 130,
+    link: 'https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster',
   },
   {
     name: 'The Berlin Wall fell',
@@ -1077,6 +1217,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Berlin Wall'],
     difficulty: 'easy',
     id: 131,
+    link: 'https://en.wikipedia.org/wiki/Fall_of_the_Berlin_Wall',
   },
   {
     name: 'Nelson Mandela was released from prison',
@@ -1085,6 +1226,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Nelson Mandela'],
     difficulty: 'hard',
     id: 132,
+    link: 'https://en.wikipedia.org/wiki/Nelson_Mandela',
   },
   {
     // TODO: science
@@ -1094,6 +1236,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'hard',
     id: 133,
+    link: 'https://en.wikipedia.org/wiki/Hubble_Space_Telescope',
   },
   {
     name: 'The Soviet Union collapsed',
@@ -1102,6 +1245,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Soviet Union'],
     difficulty: 'medium',
     id: 134,
+    link: 'https://en.wikipedia.org/wiki/Dissolution_of_the_Soviet_Union',
   },
   {
     name: 'The European Union was established',
@@ -1110,6 +1254,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['European Union'],
     difficulty: 'hard',
     id: 135,
+    link: 'https://en.wikipedia.org/wiki/Maastricht_Treaty',
   },  // Maastricht Treaty in force
   {
     name: 'Nelson Mandela became president of South Africa',
@@ -1118,6 +1263,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Nelson Mandela'],
     difficulty: 'hard',
     id: 136,
+    link: 'https://en.wikipedia.org/wiki/Presidency_of_Nelson_Mandela',
   },
   {
     // TODO: Science
@@ -1127,6 +1273,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'easy',
     id: 138,
+    link: 'https://en.wikipedia.org/wiki/Dolly_(sheep)',
   },
   {
     name: 'Hong Kong was returned to China',
@@ -1135,6 +1282,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['China', 'Hong Kong'],
     difficulty: 'easy',
     id: 139,
+    link: 'https://en.wikipedia.org/wiki/Handover_of_Hong_Kong',
   },
   {
     name: 'The euro was introduced',
@@ -1143,6 +1291,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 140,
+    link: 'https://en.wikipedia.org/wiki/History_of_the_euro',
   },
   {
     name: 'The September 11 attacks occurred in New York City',
@@ -1151,6 +1300,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'easy',
     id: 141,
+    link: 'https://en.wikipedia.org/wiki/September_11_attacks',
   },
   {
     name: 'The Indian Ocean tsunami struck',
@@ -1159,6 +1309,8 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 142,
+    link:
+        'https://en.wikipedia.org/wiki/2004_Indian_Ocean_earthquake_and_tsunami',
   },
   {
     name: 'The global financial crisis erupted',
@@ -1167,6 +1319,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 143,
+    link: 'https://en.wikipedia.org/wiki/2007%E2%80%932008_financial_crisis',
   },
   {
     name: 'Barack Obama became US president',
@@ -1175,6 +1328,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Barack Obama'],
     difficulty: 'easy',
     id: 144,
+    link: 'https://en.wikipedia.org/wiki/First_inauguration_of_Barack_Obama',
   },
   {
     name: 'The Arab Spring began',
@@ -1183,6 +1337,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 145,
+    link: 'https://en.wikipedia.org/wiki/Arab_Spring',
   },
   {
     name: 'The Fukushima nuclear disaster occurred',
@@ -1191,6 +1346,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 146,
+    link: 'https://en.wikipedia.org/wiki/Fukushima_nuclear_accident',
   },
   {
     // TODO: Science
@@ -1200,6 +1356,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'medium',
     id: 147,
+    link: 'https://en.wikipedia.org/wiki/Higgs_boson',
   },
   {
     // TODO: Science
@@ -1209,6 +1366,8 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'hard',
     id: 148,
+    link:
+        'https://en.wikipedia.org/wiki/First_observation_of_gravitational_waves',
   },
   {
     name: 'The United Kingdom voted for Brexit',
@@ -1217,6 +1376,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: ['Brexit'],
     difficulty: 'medium',
     id: 149,
+    link: 'https://en.wikipedia.org/wiki/Brexit',
   },
   {
     // TODO: Science
@@ -1226,6 +1386,7 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'hard',
     id: 150,
+    link: 'https://en.wikipedia.org/wiki/Event_Horizon_Telescope',
   },
   {
     name: 'The COVID-19 pandemic began',
@@ -1234,5 +1395,6 @@ export const historicalEvents: HistoricalEvent[] = [
     topic: [],
     difficulty: 'easy',
     id: 151,
+    link: 'https://en.wikipedia.org/wiki/COVID-19_pandemic',
   },
 ];
