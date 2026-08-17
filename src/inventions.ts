@@ -7,6 +7,7 @@ export interface Invention {
   inventor?: string;  // Omitted where attribution is disputed or collective
   difficulty: Difficulty;
   id: number;
+  link: string;
 }
 
 export const inventions: Invention[] = [
@@ -16,6 +17,7 @@ export const inventions: Invention[] = [
     inventor: 'Cai Lun',
     id: 1000,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Paper',
   },
   {
     name: 'Movable-type printing press',
@@ -23,6 +25,7 @@ export const inventions: Invention[] = [
     inventor: 'Johannes Gutenberg',
     id: 1001,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Movable_type',
   },
   {
     name: 'Telescope',
@@ -30,12 +33,14 @@ export const inventions: Invention[] = [
     inventor: 'Hans Lippershey',
     id: 1002,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Telescope',
   },
   {
     name: 'Compound microscope (refined)',
     year: 1625,
     id: 1003,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Optical_microscope',
   },
   {
     name: 'Mechanical calculator (Pascaline)',
@@ -43,6 +48,7 @@ export const inventions: Invention[] = [
     inventor: 'Blaise Pascal',
     id: 1004,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Pascal%27s_calculator',
   },
   {
     name: 'Barometer',
@@ -50,6 +56,7 @@ export const inventions: Invention[] = [
     inventor: 'Evangelista Torricelli',
     id: 1005,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Barometer',
   },
   {
     name: 'Vacuum pump',
@@ -57,6 +64,7 @@ export const inventions: Invention[] = [
     inventor: 'Otto von Guericke',
     id: 1006,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Vacuum_pump',
   },
   {
     name: 'Pendulum clock',
@@ -64,6 +72,7 @@ export const inventions: Invention[] = [
     inventor: 'Christiaan Huygens',
     id: 1007,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Pendulum_clock',
   },
   {
     name: 'Reflecting telescope',
@@ -71,6 +80,7 @@ export const inventions: Invention[] = [
     inventor: 'Isaac Newton',
     id: 1008,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Reflecting_telescope',
   },
   {
     name: 'Pressure cooker',
@@ -78,6 +88,7 @@ export const inventions: Invention[] = [
     inventor: 'Denis Papin',
     id: 1009,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Pressure_cooker',
   },
   {
     name: 'Tuning fork',
@@ -85,6 +96,7 @@ export const inventions: Invention[] = [
     inventor: 'John Shore',
     id: 1010,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Tuning_fork',
   },
   {
     name: 'Steam engine (piston)',
@@ -92,6 +104,7 @@ export const inventions: Invention[] = [
     inventor: 'Thomas Newcomen',
     id: 1011,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Newcomen_atmospheric_engine',
   },
   {
     name: 'Mercury thermometer',
@@ -99,6 +112,7 @@ export const inventions: Invention[] = [
     inventor: 'Daniel Gabriel Fahrenheit',
     id: 1012,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Mercury-in-glass_thermometer',
   },
   {
     name: 'Marine chronometer',
@@ -106,6 +120,7 @@ export const inventions: Invention[] = [
     inventor: 'John Harrison',
     id: 1013,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Marine_chronometer',
   },
   {
     name: 'Lightning rod',
@@ -113,6 +128,7 @@ export const inventions: Invention[] = [
     inventor: 'Benjamin Franklin',
     id: 1014,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Lightning_rod',
   },
   {
     name: 'Spinning jenny',
@@ -120,6 +136,7 @@ export const inventions: Invention[] = [
     inventor: 'James Hargreaves',
     id: 1015,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Spinning_jenny',
   },
   {
     name: 'Improved steam engine',
@@ -127,6 +144,7 @@ export const inventions: Invention[] = [
     inventor: 'James Watt',
     id: 1016,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Watt_steam_engine',
   },
   {
     name: 'Hot air balloon',
@@ -134,6 +152,7 @@ export const inventions: Invention[] = [
     inventor: 'Montgolfier brothers',
     id: 1017,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Hot_air_balloon',
   },
   {
     name: 'Power loom',
@@ -141,6 +160,7 @@ export const inventions: Invention[] = [
     inventor: 'Edmund Cartwright',
     id: 1018,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Power_loom',
   },
   {
     name: 'Cotton gin',
@@ -148,6 +168,7 @@ export const inventions: Invention[] = [
     inventor: 'Eli Whitney',
     id: 1019,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Cotton_gin',
   },
   {
     name: 'Smallpox vaccine',
@@ -155,6 +176,7 @@ export const inventions: Invention[] = [
     inventor: 'Edward Jenner',
     id: 1020,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Smallpox_vaccine',
   },
   {
     name: 'Electric battery',
@@ -162,6 +184,7 @@ export const inventions: Invention[] = [
     inventor: 'Alessandro Volta',
     id: 1021,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Voltaic_pile',
   },
   {
     name: 'Steam locomotive',
@@ -169,6 +192,7 @@ export const inventions: Invention[] = [
     inventor: 'Richard Trevithick',
     id: 1022,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Steam_locomotive',
   },
   {
     name: 'Canned food',
@@ -176,6 +200,7 @@ export const inventions: Invention[] = [
     inventor: 'Nicolas Appert',
     id: 1023,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Canning',
   },
   {
     name: 'Spectrometer',
@@ -183,6 +208,7 @@ export const inventions: Invention[] = [
     inventor: 'Joseph von Fraunhofer',
     id: 1024,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Optical_spectrometer',
   },
   {
     name: 'Stethoscope',
@@ -190,6 +216,7 @@ export const inventions: Invention[] = [
     inventor: 'René Laennec',
     id: 1025,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Stethoscope',
   },
   {
     name: 'Bicycle (draisine)',
@@ -197,6 +224,7 @@ export const inventions: Invention[] = [
     inventor: 'Karl von Drais',
     id: 1026,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Dandy_horse',
   },
   {
     name: 'Electromagnet',
@@ -204,6 +232,7 @@ export const inventions: Invention[] = [
     inventor: 'William Sturgeon',
     id: 1027,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Electromagnet',
   },
   {
     name: 'Photography (heliography)',
@@ -211,6 +240,7 @@ export const inventions: Invention[] = [
     inventor: 'Nicéphore Niépce',
     id: 1028,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Heliography',
   },
   {
     name: 'Friction match',
@@ -218,6 +248,7 @@ export const inventions: Invention[] = [
     inventor: 'John Walker',
     id: 1029,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Match',
   },
   {
     name: 'Braille writing system',
@@ -225,6 +256,7 @@ export const inventions: Invention[] = [
     inventor: 'Louis Braille',
     id: 1030,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Braille',
   },
   {
     name: 'Sewing machine (practical)',
@@ -232,6 +264,7 @@ export const inventions: Invention[] = [
     inventor: 'Barthélemy Thimonnier',
     id: 1031,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Sewing_machine',
   },
   {
     name: 'Mechanical reaper',
@@ -239,6 +272,7 @@ export const inventions: Invention[] = [
     inventor: 'Cyrus McCormick',
     id: 1032,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Reaper',
   },
   {
     name: 'Electric dynamo',
@@ -246,6 +280,7 @@ export const inventions: Invention[] = [
     inventor: 'Michael Faraday',
     id: 1033,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Dynamo',
   },
   {
     name: 'Revolver',
@@ -253,6 +288,7 @@ export const inventions: Invention[] = [
     inventor: 'Samuel Colt',
     id: 1034,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Revolver',
   },
   {
     name: 'Telegraph',
@@ -260,6 +296,7 @@ export const inventions: Invention[] = [
     inventor: 'Samuel Morse',
     id: 1035,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Electrical_telegraph',
   },
   {
     name: 'Daguerreotype photography',
@@ -267,6 +304,7 @@ export const inventions: Invention[] = [
     inventor: 'Louis Daguerre',
     id: 1036,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Daguerreotype',
   },
   {
     name: 'Vulcanized rubber',
@@ -274,6 +312,7 @@ export const inventions: Invention[] = [
     inventor: 'Charles Goodyear',
     id: 1037,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Vulcanization',
   },
   {
     name: 'Telegraph (first official public message sent)',
@@ -281,6 +320,7 @@ export const inventions: Invention[] = [
     inventor: 'Samuel Morse',
     id: 1038,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Electrical_telegraph',
   },
   {
     name: 'Chocolate bar (mass-produced)',
@@ -288,6 +328,7 @@ export const inventions: Invention[] = [
     inventor: 'Joseph Fry',
     id: 1039,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Chocolate_bar',
   },
   {
     name: 'Anesthesia (ether, public demonstration)',
@@ -295,6 +336,7 @@ export const inventions: Invention[] = [
     inventor: 'William T. G. Morton',
     id: 1040,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/History_of_general_anesthesia',
   },
   {
     name: 'Safety elevator',
@@ -302,6 +344,7 @@ export const inventions: Invention[] = [
     inventor: 'Elisha Otis',
     id: 1041,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Elevator',
   },
   {
     name: 'Bessemer steel process',
@@ -309,6 +352,7 @@ export const inventions: Invention[] = [
     inventor: 'Henry Bessemer',
     id: 1042,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Bessemer_process',
   },
   {
     name: 'Internal combustion engine (practical)',
@@ -316,6 +360,8 @@ export const inventions: Invention[] = [
     inventor: 'Étienne Lenoir',
     id: 1043,
     difficulty: 'hard',
+    link:
+        'https://en.wikipedia.org/wiki/History_of_the_internal_combustion_engine',
   },
   {
     name: 'Pasteurization',
@@ -323,6 +369,7 @@ export const inventions: Invention[] = [
     inventor: 'Louis Pasteur',
     id: 1044,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Pasteurization',
   },
   {
     name: 'Dynamite',
@@ -330,6 +377,7 @@ export const inventions: Invention[] = [
     inventor: 'Alfred Nobel',
     id: 1045,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Dynamite',
   },
   {
     name: 'Typewriter (commercial)',
@@ -337,6 +385,7 @@ export const inventions: Invention[] = [
     inventor: 'Christopher Latham Sholes',
     id: 1046,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Typewriter',
   },
   {
     name: 'Periodic table',
@@ -344,6 +393,7 @@ export const inventions: Invention[] = [
     inventor: 'Dmitri Mendeleev',
     id: 1047,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Periodic_table',
   },
   {
     name: 'Barbed wire',
@@ -351,6 +401,7 @@ export const inventions: Invention[] = [
     inventor: 'Joseph Glidden',
     id: 1048,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Barbed_wire',
   },
   {
     name: 'Telephone',
@@ -358,6 +409,7 @@ export const inventions: Invention[] = [
     inventor: 'Alexander Graham Bell',
     id: 1049,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Telephone',
   },
   {
     name: 'Four-stroke engine',
@@ -365,6 +417,7 @@ export const inventions: Invention[] = [
     inventor: 'Nikolaus Otto',
     id: 1050,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Four-stroke_engine',
   },
   {
     name: 'Phonograph',
@@ -372,6 +425,7 @@ export const inventions: Invention[] = [
     inventor: 'Thomas Edison',
     id: 1051,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Phonograph',
   },
   {
     name: 'Practical incandescent light bulb',
@@ -379,6 +433,7 @@ export const inventions: Invention[] = [
     inventor: 'Thomas Edison',
     id: 1052,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Incandescent_light_bulb',
   },
   {
     name: 'Seismograph',
@@ -386,6 +441,7 @@ export const inventions: Invention[] = [
     inventor: 'John Milne',
     id: 1053,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Seismometer',
   },
   {
     name: 'Metal detector',
@@ -393,6 +449,7 @@ export const inventions: Invention[] = [
     inventor: 'Alexander Graham Bell',
     id: 1054,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Metal_detector',
   },
   {
     name: 'Fountain pen (practical)',
@@ -400,6 +457,7 @@ export const inventions: Invention[] = [
     inventor: 'Lewis Waterman',
     id: 1055,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Fountain_pen',
   },
   {
     name: 'Motorcycle',
@@ -407,6 +465,7 @@ export const inventions: Invention[] = [
     inventor: 'Gottlieb Daimler and Wilhelm Maybach',
     id: 1056,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Daimler_Reitwagen',
   },
   {
     name: 'Automobile (gasoline)',
@@ -414,6 +473,7 @@ export const inventions: Invention[] = [
     inventor: 'Karl Benz',
     id: 1057,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Benz_Patent-Motorwagen',
   },
   {
     name: 'Safety bicycle',
@@ -421,6 +481,7 @@ export const inventions: Invention[] = [
     inventor: 'John Kemp Starley',
     id: 1058,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Safety_bicycle',
   },
   {
     name: 'Dishwasher',
@@ -428,6 +489,7 @@ export const inventions: Invention[] = [
     inventor: 'Josephine Cochrane',
     id: 1059,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Dishwasher',
   },
   {
     name: 'Coca-Cola',
@@ -435,6 +497,7 @@ export const inventions: Invention[] = [
     inventor: 'John Pemberton',
     id: 1060,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Coca-Cola',
   },
   {
     name: 'Contact lenses',
@@ -442,6 +505,7 @@ export const inventions: Invention[] = [
     inventor: 'Adolf Fick',
     id: 1061,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Contact_lens',
   },
   {
     name: 'Pneumatic tire (practical)',
@@ -449,6 +513,7 @@ export const inventions: Invention[] = [
     inventor: 'John Boyd Dunlop',
     id: 1062,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Tire',
   },
   {
     name: 'Kodak camera (roll film)',
@@ -456,6 +521,7 @@ export const inventions: Invention[] = [
     inventor: 'George Eastman',
     id: 1063,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Camera',
   },
   {
     name: 'Alternating current motor',
@@ -463,6 +529,7 @@ export const inventions: Invention[] = [
     inventor: 'Nikola Tesla',
     id: 1064,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/AC_motor',
   },
   {
     name: 'Zipper',
@@ -470,6 +537,7 @@ export const inventions: Invention[] = [
     inventor: 'Whitcomb Judson',
     id: 1065,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Zipper',
   },
   {
     name: 'Escalator',
@@ -477,6 +545,7 @@ export const inventions: Invention[] = [
     inventor: 'Jesse W. Reno',
     id: 1066,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Escalator',
   },
   {
     name: 'Diesel engine',
@@ -484,6 +553,7 @@ export const inventions: Invention[] = [
     inventor: 'Rudolf Diesel',
     id: 1067,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Diesel_engine',
   },
   {
     name: 'Cinematograph',
@@ -491,6 +561,7 @@ export const inventions: Invention[] = [
     inventor: 'Lumière brothers',
     id: 1068,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Cinematograph',
   },
   {
     name: 'X-ray imaging',
@@ -498,6 +569,7 @@ export const inventions: Invention[] = [
     inventor: 'Wilhelm Röntgen',
     id: 1069,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/X-ray',
   },
   {
     name: 'Radio transmission',
@@ -505,6 +577,7 @@ export const inventions: Invention[] = [
     inventor: 'Guglielmo Marconi',
     id: 1070,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Invention_of_radio',
   },
   {
     name: 'Aspirin (synthesized)',
@@ -512,6 +585,7 @@ export const inventions: Invention[] = [
     inventor: 'Felix Hoffmann',
     id: 1071,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Aspirin',
   },
   {
     name: 'Remote control',
@@ -519,6 +593,7 @@ export const inventions: Invention[] = [
     inventor: 'Nikola Tesla',
     id: 1072,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Remote_control',
   },
   {
     name: 'Paper clip',
@@ -526,6 +601,7 @@ export const inventions: Invention[] = [
     inventor: 'Johan Vaaler',
     id: 1073,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Paper_clip',
   },
   {
     name: 'Zeppelin airship',
@@ -533,6 +609,7 @@ export const inventions: Invention[] = [
     inventor: 'Ferdinand von Zeppelin',
     id: 1074,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Zeppelin',
   },
   {
     name: 'Safety razor (disposable blade)',
@@ -540,6 +617,7 @@ export const inventions: Invention[] = [
     inventor: 'King Camp Gillette',
     id: 1075,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Safety_razor',
   },
   {
     name: 'Polygraph (lie detector)',
@@ -547,6 +625,7 @@ export const inventions: Invention[] = [
     inventor: 'James Mackenzie',
     id: 1076,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Polygraph',
   },
   {
     name: 'Air conditioning',
@@ -554,6 +633,7 @@ export const inventions: Invention[] = [
     inventor: 'Willis Carrier',
     id: 1077,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Air_conditioning',
   },
   {
     name: 'Electrocardiogram (ECG)',
@@ -561,6 +641,7 @@ export const inventions: Invention[] = [
     inventor: 'Willem Einthoven',
     id: 1078,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Electrocardiography',
   },
   {
     name: 'Powered airplane',
@@ -568,6 +649,7 @@ export const inventions: Invention[] = [
     inventor: 'Wright brothers',
     id: 1079,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Airplane',
   },
   {
     name: 'Tea bag',
@@ -575,6 +657,7 @@ export const inventions: Invention[] = [
     inventor: 'Thomas Sullivan',
     id: 1080,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Tea_bag',
   },
   {
     name: 'Bakelite (first synthetic plastic)',
@@ -582,6 +665,7 @@ export const inventions: Invention[] = [
     inventor: 'Leo Baekeland',
     id: 1081,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Bakelite',
   },
   {
     name: 'Ford Model T (mass production)',
@@ -589,6 +673,7 @@ export const inventions: Invention[] = [
     inventor: 'Henry Ford',
     id: 1082,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Ford_Model_T',
   },
   {
     name: 'Geiger counter',
@@ -596,6 +681,7 @@ export const inventions: Invention[] = [
     inventor: 'Hans Geiger',
     id: 1083,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Geiger_counter',
   },
   {
     name: 'Haber-Bosch ammonia synthesis',
@@ -603,6 +689,7 @@ export const inventions: Invention[] = [
     inventor: 'Fritz Haber',
     id: 1084,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Haber_process',
   },
   {
     name: 'Stainless steel',
@@ -610,12 +697,14 @@ export const inventions: Invention[] = [
     inventor: 'Harry Brearley',
     id: 1085,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Stainless_steel',
   },
   {
     name: 'Traffic light (electric)',
     year: 1914,
     id: 1086,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Traffic_light',
   },
   {
     name: 'Band-Aid (adhesive bandage)',
@@ -623,6 +712,7 @@ export const inventions: Invention[] = [
     inventor: 'Earle Dickson',
     id: 1087,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Band-Aid',
   },
   {
     name: 'Insulin (isolated for treatment)',
@@ -630,6 +720,7 @@ export const inventions: Invention[] = [
     inventor: 'Frederick Banting and Charles Best',
     id: 1088,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Insulin',
   },
   {
     name: 'Television (electromechanical)',
@@ -637,6 +728,7 @@ export const inventions: Invention[] = [
     inventor: 'John Logie Baird',
     id: 1089,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/History_of_television',
   },
   {
     name: 'Liquid-fueled rocket',
@@ -644,6 +736,7 @@ export const inventions: Invention[] = [
     inventor: 'Robert Goddard',
     id: 1090,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Liquid-propellant_rocket',
   },
   {
     name: 'Pez dispenser',
@@ -651,6 +744,7 @@ export const inventions: Invention[] = [
     inventor: 'Eduard Haas III',
     id: 1091,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Pez',
   },
   {
     name: 'Penicillin',
@@ -658,6 +752,7 @@ export const inventions: Invention[] = [
     inventor: 'Alexander Fleming',
     id: 1092,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Penicillin',
   },
   {
     name: 'Jet engine',
@@ -665,6 +760,7 @@ export const inventions: Invention[] = [
     inventor: 'Frank Whittle',
     id: 1093,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Jet_engine',
   },
   {
     name: 'Electron microscope',
@@ -672,6 +768,7 @@ export const inventions: Invention[] = [
     inventor: 'Ernst Ruska',
     id: 1094,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Electron_microscope',
   },
   {
     name: 'FM Radio',
@@ -679,6 +776,7 @@ export const inventions: Invention[] = [
     inventor: 'Edwin Armstrong',
     id: 1095,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/FM_broadcasting',
   },
   {
     name: 'Radar (practical)',
@@ -686,6 +784,7 @@ export const inventions: Invention[] = [
     inventor: 'Robert Watson-Watt',
     id: 1096,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Radar',
   },
   {
     name: 'Nylon',
@@ -693,6 +792,7 @@ export const inventions: Invention[] = [
     inventor: 'Wallace Carothers',
     id: 1097,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Nylon',
   },
   {
     name: 'Teflon',
@@ -700,6 +800,7 @@ export const inventions: Invention[] = [
     inventor: 'Roy Plunkett',
     id: 1098,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Polytetrafluoroethylene',
   },
   {
     name: 'Ballpoint pen (practical)',
@@ -707,6 +808,7 @@ export const inventions: Invention[] = [
     inventor: 'László Bíró',
     id: 1099,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Ballpoint_pen',
   },
   {
     name: 'Helicopter (practical)',
@@ -714,6 +816,7 @@ export const inventions: Invention[] = [
     inventor: 'Igor Sikorsky',
     id: 1100,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Helicopter'
   },
   {
     name: 'Nuclear reactor',
@@ -721,6 +824,7 @@ export const inventions: Invention[] = [
     inventor: 'Enrico Fermi',
     id: 1101,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Nuclear_reactor'
   },
   {
     name: 'Duct tape',
@@ -728,6 +832,7 @@ export const inventions: Invention[] = [
     inventor: 'Vesta Stoudt',
     id: 1102,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Duct_tape'
   },
   {
     name: 'Aqualung (scuba)',
@@ -735,6 +840,7 @@ export const inventions: Invention[] = [
     inventor: 'Jacques Cousteau and Émile Gagnan',
     id: 1103,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Aqua-lung'
   },
   {
     name: 'Slinky',
@@ -742,12 +848,14 @@ export const inventions: Invention[] = [
     inventor: 'Richard James',
     id: 1104,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Slinky'
   },
   {
     name: 'Electronic general-purpose computer (ENIAC)',
     year: 1945,
     id: 1105,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/ENIAC'
   },
   {
     name: 'Microwave oven',
@@ -755,6 +863,7 @@ export const inventions: Invention[] = [
     inventor: 'Percy Spencer',
     id: 1106,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Microwave_oven'
   },
   {
     name: 'Disposable diaper',
@@ -762,6 +871,7 @@ export const inventions: Invention[] = [
     inventor: 'Marion Donovan',
     id: 1107,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Diaper#Disposable'
   },
   {
     name: 'Transistor',
@@ -769,6 +879,7 @@ export const inventions: Invention[] = [
     inventor: 'Bardeen, Brattain, and Shockley',
     id: 1108,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Transistor'
   },
   {
     name: 'Velcro',
@@ -776,6 +887,7 @@ export const inventions: Invention[] = [
     inventor: 'George de Mestral',
     id: 1109,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Hook-and-loop_fastener'
   },
   {
     name: 'Polaroid instant camera',
@@ -783,6 +895,7 @@ export const inventions: Invention[] = [
     inventor: 'Edwin Land',
     id: 1110,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Instant_camera'
   },
   {
     name: 'Barcode',
@@ -790,6 +903,7 @@ export const inventions: Invention[] = [
     inventor: 'Norman Joseph Woodland and Bernard Silver',
     id: 1111,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Barcode'
   },
   {
     name: 'Credit card (Diners Club)',
@@ -797,6 +911,7 @@ export const inventions: Invention[] = [
     inventor: 'Frank McNamara',
     id: 1112,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Credit_card'
   },
   {
     name: 'Flight recorder (Black box)',
@@ -804,6 +919,7 @@ export const inventions: Invention[] = [
     inventor: 'David Warren',
     id: 1113,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Flight_recorder'
   },
   {
     name: 'Polio vaccine',
@@ -811,6 +927,7 @@ export const inventions: Invention[] = [
     inventor: 'Jonas Salk',
     id: 1114,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Polio_vaccine'
   },
   {
     name: 'Hovercraft',
@@ -818,6 +935,7 @@ export const inventions: Invention[] = [
     inventor: 'Christopher Cockerell',
     id: 1115,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Hovercraft'
   },
   {
     name: 'Shipping container (intermodal)',
@@ -825,12 +943,14 @@ export const inventions: Invention[] = [
     inventor: 'Malcom McLean',
     id: 1116,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Intermodal_container'
   },
   {
     name: 'Hard disk drive',
     year: 1956,
     id: 1117,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Hard_disk_drive'
   },
   {
     name: 'Bubble wrap',
@@ -838,12 +958,14 @@ export const inventions: Invention[] = [
     inventor: 'Alfred Fielding and Marc Chavannes',
     id: 1118,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Bubble_wrap'
   },
   {
     name: 'Artificial satellite (Sputnik 1)',
     year: 1957,
     id: 1119,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Sputnik_1'
   },
   {
     name: 'Integrated circuit',
@@ -851,6 +973,7 @@ export const inventions: Invention[] = [
     inventor: 'Jack Kilby',
     id: 1120,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Integrated_circuit'
   },
   {
     name: 'Implantable pacemaker',
@@ -858,6 +981,7 @@ export const inventions: Invention[] = [
     inventor: 'Rune Elmqvist',
     id: 1121,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Artificial_pacemaker'
   },
   {
     name: 'Laser',
@@ -865,18 +989,21 @@ export const inventions: Invention[] = [
     inventor: 'Theodore Maiman',
     id: 1122,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Laser'
   },
   {
     name: 'Combined oral contraceptive pill',
     year: 1960,
     id: 1123,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Combined_oral_contraceptive_pill'
   },
   {
     name: 'Communications satellite (Telstar)',
     year: 1962,
     id: 1124,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Telstar'
   },
   {
     name: 'Computer mouse',
@@ -884,6 +1011,7 @@ export const inventions: Invention[] = [
     inventor: 'Douglas Engelbart',
     id: 1125,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Computer_mouse'
   },
   {
     name: 'Kevlar',
@@ -891,6 +1019,7 @@ export const inventions: Invention[] = [
     inventor: 'Stephanie Kwolek',
     id: 1126,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Kevlar'
   },
   {
     name: 'Automated Teller Machine (ATM)',
@@ -898,24 +1027,28 @@ export const inventions: Invention[] = [
     inventor: 'John Shepherd-Barron',
     id: 1127,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Automated_teller_machine'
   },
   {
     name: 'ARPANET (first packet-switched network)',
     year: 1969,
     id: 1128,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/ARPANET'
   },
   {
     name: 'Pocket calculator',
     year: 1971,
     id: 1129,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Calculator'
   },
   {
     name: 'Microprocessor (Intel 4004)',
     year: 1971,
     id: 1130,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Intel_4004'
   },
   {
     name: 'Email',
@@ -923,6 +1056,7 @@ export const inventions: Invention[] = [
     inventor: 'Ray Tomlinson',
     id: 1131,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Email'
   },
   {
     name: 'CT scanner',
@@ -930,6 +1064,7 @@ export const inventions: Invention[] = [
     inventor: 'Godfrey Hounsfield',
     id: 1132,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/CT_scan'
   },
   {
     name: 'Mobile phone (first handheld call)',
@@ -937,6 +1072,7 @@ export const inventions: Invention[] = [
     inventor: 'Martin Cooper',
     id: 1133,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Mobile_phone'
   },
   {
     name: 'Rubik\'s Cube',
@@ -944,12 +1080,14 @@ export const inventions: Invention[] = [
     inventor: 'Ernő Rubik',
     id: 1134,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Rubik%27s_Cube'
   },
   {
     name: 'Personal computer (Altair 8800)',
     year: 1974,
     id: 1135,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Altair_8800'
   },
   {
     name: 'Post-it Note',
@@ -957,6 +1095,7 @@ export const inventions: Invention[] = [
     inventor: 'Arthur Fry and Spencer Silver',
     id: 1136,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Post-it_Note'
   },
   {
     name: 'Digital camera (prototype)',
@@ -964,12 +1103,14 @@ export const inventions: Invention[] = [
     inventor: 'Steven Sasson',
     id: 1137,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Digital_camera'
   },
   {
     name: 'MRI scanner (first human scan)',
     year: 1977,
     id: 1138,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Magnetic_resonance_imaging'
   },
   {
     name: 'Floppy disk',
@@ -977,6 +1118,7 @@ export const inventions: Invention[] = [
     inventor: 'Alan Shugart',
     id: 1139,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Floppy_disk'
   },
   {
     name: 'Spreadsheet software (VisiCalc)',
@@ -984,36 +1126,42 @@ export const inventions: Invention[] = [
     inventor: 'Dan Bricklin and Bob Frankston',
     id: 1140,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/VisiCalc'
   },
   {
     name: 'GPS (first satellite launched)',
     year: 1978,
     id: 1141,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Global_Positioning_System'
   },
   {
     name: 'Walkman',
     year: 1979,
     id: 1142,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Walkman'
   },
   {
     name: 'space shuttle (first launch)',
     year: 1981,
     id: 1143,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Space_Shuttle'
   },
   {
     name: 'Compact disc',
     year: 1982,
     id: 1144,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Compact_disc'
   },
   {
     name: 'Macintosh (released)',
     year: 1984,
     id: 1145,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Macintosh'
   },
   {
     name: 'DNA fingerprinting',
@@ -1021,12 +1169,14 @@ export const inventions: Invention[] = [
     inventor: 'Alec Jeffreys',
     id: 1146,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/DNA_profiling'
   },
   {
     name: 'Lithium-ion battery (commercial)',
     year: 1991,
     id: 1147,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Lithium-ion_battery'
   },
   {
     name: 'World Wide Web',
@@ -1034,12 +1184,14 @@ export const inventions: Invention[] = [
     inventor: 'Tim Berners-Lee',
     id: 1148,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/World_Wide_Web'
   },
   {
     name: 'Text messaging (SMS)',
     year: 1992,
     id: 1149,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/SMS'
   },
   {
     name: 'QR Code',
@@ -1047,24 +1199,28 @@ export const inventions: Invention[] = [
     inventor: 'Masahiro Hara',
     id: 1150,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/QR_code'
   },
   {
     name: 'DVD',
     year: 1995,
     id: 1151,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/DVD'
   },
   {
     name: 'USB',
     year: 1996,
     id: 1152,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/USB'
   },
   {
     name: 'Wi-Fi (802.11 standard)',
     year: 1997,
     id: 1153,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Wi-Fi'
   },
   {
     name: 'Google Search',
@@ -1072,6 +1228,7 @@ export const inventions: Invention[] = [
     inventor: 'Larry Page, Sergey Brin',
     id: 1154,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Google_Search'
   },
   {
     name: 'Bluetooth',
@@ -1079,18 +1236,21 @@ export const inventions: Invention[] = [
     inventor: 'Nils Rydbeck and Johan Ullman',
     id: 1155,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Bluetooth'
   },
   {
     name: 'YouTube (first video uploaded)',
     year: 2005,
     id: 1156,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/YouTube'
   },
   {
     name: 'iPhone',
     year: 2007,
     id: 1157,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/IPhone'
   },
   {
     name: 'Bitcoin',
@@ -1098,6 +1258,7 @@ export const inventions: Invention[] = [
     inventor: 'Satoshi Nakamoto',
     id: 1158,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Bitcoin'
   },
   {
     name: 'CRISPR gene editing (as a tool)',
@@ -1105,11 +1266,13 @@ export const inventions: Invention[] = [
     inventor: 'Jennifer Doudna and Emmanuelle Charpentier',
     id: 1159,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/CRISPR'
   },
   {
     name: 'ChatGPT (released)',
     year: 2022,
     id: 1160,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/ChatGPT'
   },
 ];
