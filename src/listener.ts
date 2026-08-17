@@ -47,6 +47,10 @@ function maybeAddDependency(listeners: VoidEvent) {
   if (STACK.length > 0) STACK[STACK.length - 1]!.subscribe(listeners);
 }
 
+export interface ReadableSignal<T> {
+  get value(): T;
+}
+
 export class Signal<T> {
   private _value: T;
   private listeners = new VoidEvent();
