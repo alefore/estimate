@@ -6,7 +6,7 @@ export interface Book {
   year: number;  // Year of first publication
   id: number;
   difficulty: Difficulty;
-  link?: string;
+  link: string;
 }
 
 export const books: Book[] = [
@@ -16,7 +16,7 @@ export const books: Book[] = [
     year: 1321,
     id: 2000,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Divine_Comedy'
+    link: 'https://en.wikipedia.org/wiki/The_Divine_Comedy',
   },
   {
     title: 'The Canterbury Tales',
@@ -24,7 +24,7 @@ export const books: Book[] = [
     year: 1400,
     id: 2001,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_Canterbury_Tales'
+    link: 'https://en.wikipedia.org/wiki/The_Canterbury_Tales',
   },
   {
     title: 'The Prince',
@@ -32,7 +32,7 @@ export const books: Book[] = [
     year: 1532,
     id: 2002,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Prince'
+    link: 'https://en.wikipedia.org/wiki/The_Prince',
   },
   {
     title: 'Gargantua and Pantagruel',
@@ -40,7 +40,7 @@ export const books: Book[] = [
     year: 1532,
     id: 2003,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Gargantua_and_Pantagruel'
+    link: 'https://en.wikipedia.org/wiki/Gargantua_and_Pantagruel',
   },
   {
     title: 'Essays',
@@ -48,7 +48,7 @@ export const books: Book[] = [
     year: 1580,
     id: 2004,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Essays_(Montaigne)'
+    link: 'https://en.wikipedia.org/wiki/Essays_(Montaigne)',
   },
   {
     title: 'Romeo and Juliet',
@@ -56,7 +56,7 @@ export const books: Book[] = [
     year: 1597,
     id: 2005,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Romeo_and_Juliet'
+    link: 'https://en.wikipedia.org/wiki/Romeo_and_Juliet',
   },
   {
     title: 'Hamlet',
@@ -64,7 +64,7 @@ export const books: Book[] = [
     year: 1603,
     id: 2006,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Hamlet'
+    link: 'https://en.wikipedia.org/wiki/Hamlet',
   },
   {
     title: 'Don Quixote',
@@ -72,7 +72,7 @@ export const books: Book[] = [
     year: 1605,
     id: 2007,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Don_Quixote'
+    link: 'https://en.wikipedia.org/wiki/Don_Quixote',
   },
   {
     title: 'Macbeth',
@@ -80,7 +80,7 @@ export const books: Book[] = [
     year: 1623,
     id: 2008,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Macbeth'
+    link: 'https://en.wikipedia.org/wiki/Macbeth',
   },
   {
     title: 'Paradise Lost',
@@ -88,7 +88,7 @@ export const books: Book[] = [
     year: 1667,
     id: 2009,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Paradise_Lost'
+    link: 'https://en.wikipedia.org/wiki/Paradise_Lost',
   },
   {
     title: 'The Pilgrim\'s Progress',
@@ -96,7 +96,7 @@ export const books: Book[] = [
     year: 1678,
     id: 2010,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_Pilgrim%27s_Progress'
+    link: 'https://en.wikipedia.org/wiki/The_Pilgrim%27s_Progress',
   },
   {
     title: 'Robinson Crusoe',
@@ -104,7 +104,7 @@ export const books: Book[] = [
     year: 1719,
     id: 2011,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Robinson_Crusoe'
+    link: 'https://en.wikipedia.org/wiki/Robinson_Crusoe',
   },
   {
     title: 'Gulliver\'s Travels',
@@ -112,7 +112,7 @@ export const books: Book[] = [
     year: 1726,
     id: 2012,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Gulliver%27s_Travels'
+    link: 'https://en.wikipedia.org/wiki/Gulliver%27s_Travels',
   },
   {
     title: 'Candide',
@@ -120,7 +120,7 @@ export const books: Book[] = [
     year: 1759,
     id: 2013,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Candide'
+    link: 'https://en.wikipedia.org/wiki/Candide',
   },
   {
     title: 'The Sorrows of Young Werther',
@@ -128,7 +128,7 @@ export const books: Book[] = [
     year: 1774,
     id: 2014,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Sorrows_of_Young_Werther'
+    link: 'https://en.wikipedia.org/wiki/The_Sorrows_of_Young_Werther',
   },
   {
     title: 'The Wealth of Nations',
@@ -136,7 +136,7 @@ export const books: Book[] = [
     year: 1776,
     id: 2015,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Wealth_of_Nations'
+    link: 'https://en.wikipedia.org/wiki/The_Wealth_of_Nations',
   },
   {
     title: 'Critique of Pure Reason',
@@ -144,7 +144,7 @@ export const books: Book[] = [
     year: 1781,
     id: 2016,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Critique_of_Pure_Reason'
+    link: 'https://en.wikipedia.org/wiki/Critique_of_Pure_Reason',
   },
   {
     title: 'Pride and Prejudice',
@@ -152,7 +152,7 @@ export const books: Book[] = [
     year: 1813,
     id: 2017,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Pride_and_Prejudice'
+    link: 'https://en.wikipedia.org/wiki/Pride_and_Prejudice',
   },
   {
     title: 'Emma',
@@ -160,7 +160,7 @@ export const books: Book[] = [
     year: 1815,
     id: 2018,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Emma_(novel)'
+    link: 'https://en.wikipedia.org/wiki/Emma_(novel)',
   },
   {
     title: 'Frankenstein',
@@ -168,7 +168,7 @@ export const books: Book[] = [
     year: 1818,
     id: 2019,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Frankenstein'
+    link: 'https://en.wikipedia.org/wiki/Frankenstein',
   },
   {
     title: 'Faust, Part One',
@@ -176,7 +176,7 @@ export const books: Book[] = [
     year: 1808,
     id: 2020,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Faust,_Part_One'
+    link: 'https://en.wikipedia.org/wiki/Faust,_Part_One',
   },
   {
     title: 'The Hunchback of Notre-Dame',
@@ -184,7 +184,7 @@ export const books: Book[] = [
     year: 1831,
     id: 2021,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Hunchback_of_Notre-Dame'
+    link: 'https://en.wikipedia.org/wiki/The_Hunchback_of_Notre-Dame',
   },
   {
     title: 'Eugene Onegin',
@@ -192,7 +192,7 @@ export const books: Book[] = [
     year: 1833,
     id: 2022,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Eugene_Onegin'
+    link: 'https://en.wikipedia.org/wiki/Eugene_Onegin',
   },
   {
     title: 'Oliver Twist',
@@ -200,7 +200,7 @@ export const books: Book[] = [
     year: 1838,
     id: 2023,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Oliver_Twist'
+    link: 'https://en.wikipedia.org/wiki/Oliver_Twist',
   },
   {
     title: 'Dead Souls',
@@ -208,7 +208,7 @@ export const books: Book[] = [
     year: 1842,
     id: 2024,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Dead_Souls'
+    link: 'https://en.wikipedia.org/wiki/Dead_Souls',
   },
   {
     title: 'The Count of Monte Cristo',
@@ -216,7 +216,7 @@ export const books: Book[] = [
     year: 1844,
     id: 2025,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Count_of_Monte_Cristo'
+    link: 'https://en.wikipedia.org/wiki/The_Count_of_Monte_Cristo',
   },
   {
     title: 'The Three Musketeers',
@@ -224,7 +224,7 @@ export const books: Book[] = [
     year: 1844,
     id: 2026,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Three_Musketeers'
+    link: 'https://en.wikipedia.org/wiki/The_Three_Musketeers',
   },
   {
     title: 'Jane Eyre',
@@ -232,7 +232,7 @@ export const books: Book[] = [
     year: 1847,
     id: 2027,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Jane_Eyre'
+    link: 'https://en.wikipedia.org/wiki/Jane_Eyre',
   },
   {
     title: 'Wuthering Heights',
@@ -240,7 +240,7 @@ export const books: Book[] = [
     year: 1847,
     id: 2028,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Wuthering_Heights'
+    link: 'https://en.wikipedia.org/wiki/Wuthering_Heights',
   },
   {
     title: 'The Communist Manifesto',
@@ -248,7 +248,7 @@ export const books: Book[] = [
     year: 1848,
     id: 2029,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Communist_Manifesto'
+    link: 'https://en.wikipedia.org/wiki/The_Communist_Manifesto',
   },
   {
     title: 'The Scarlet Letter',
@@ -256,7 +256,7 @@ export const books: Book[] = [
     year: 1850,
     id: 2030,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_Scarlet_Letter'
+    link: 'https://en.wikipedia.org/wiki/The_Scarlet_Letter',
   },
   {
     title: 'Moby-Dick',
@@ -264,7 +264,7 @@ export const books: Book[] = [
     year: 1851,
     id: 2031,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Moby-Dick'
+    link: 'https://en.wikipedia.org/wiki/Moby-Dick',
   },
   {
     title: 'Uncle Tom\'s Cabin',
@@ -272,7 +272,7 @@ export const books: Book[] = [
     year: 1852,
     id: 2032,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Uncle_Tom%27s_Cabin'
+    link: 'https://en.wikipedia.org/wiki/Uncle_Tom%27s_Cabin',
   },
   {
     title: 'Walden',
@@ -280,7 +280,7 @@ export const books: Book[] = [
     year: 1854,
     id: 2033,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Walden'
+    link: 'https://en.wikipedia.org/wiki/Walden',
   },
   {
     title: 'Leaves of Grass',
@@ -288,7 +288,7 @@ export const books: Book[] = [
     year: 1855,
     id: 2034,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Leaves_of_Grass'
+    link: 'https://en.wikipedia.org/wiki/Leaves_of_Grass',
   },
   {
     title: 'Madame Bovary',
@@ -296,7 +296,7 @@ export const books: Book[] = [
     year: 1857,
     id: 2035,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Madame_Bovary'
+    link: 'https://en.wikipedia.org/wiki/Madame_Bovary',
   },
   {
     title: 'On the Origin of Species',
@@ -304,7 +304,7 @@ export const books: Book[] = [
     year: 1859,
     id: 2036,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/On_the_Origin_of_Species'
+    link: 'https://en.wikipedia.org/wiki/On_the_Origin_of_Species',
   },
   {
     title: 'A Tale of Two Cities',
@@ -312,7 +312,7 @@ export const books: Book[] = [
     year: 1859,
     id: 2037,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/A_Tale_of_Two_Cities'
+    link: 'https://en.wikipedia.org/wiki/A_Tale_of_Two_Cities',
   },
   {
     title: 'Great Expectations',
@@ -320,7 +320,7 @@ export const books: Book[] = [
     year: 1861,
     id: 2038,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Great_Expectations'
+    link: 'https://en.wikipedia.org/wiki/Great_Expectations',
   },
   {
     title: 'Les Misérables',
@@ -328,7 +328,7 @@ export const books: Book[] = [
     year: 1862,
     id: 2039,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Les_Mis%C3%A9rables'
+    link: 'https://en.wikipedia.org/wiki/Les_Mis%C3%A9rables',
   },
   {
     title: 'Alice\'s Adventures in Wonderland',
@@ -336,7 +336,7 @@ export const books: Book[] = [
     year: 1865,
     id: 2040,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland'
+    link: 'https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland',
   },
   {
     title: 'Crime and Punishment',
@@ -344,7 +344,7 @@ export const books: Book[] = [
     year: 1866,
     id: 2041,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Crime_and_Punishment'
+    link: 'https://en.wikipedia.org/wiki/Crime_and_Punishment',
   },
   {
     title: 'Little Women',
@@ -352,7 +352,7 @@ export const books: Book[] = [
     year: 1868,
     id: 2042,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Little_Women'
+    link: 'https://en.wikipedia.org/wiki/Little_Women',
   },
   {
     title: 'War and Peace',
@@ -360,7 +360,7 @@ export const books: Book[] = [
     year: 1869,
     id: 2043,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/War_and_Peace'
+    link: 'https://en.wikipedia.org/wiki/War_and_Peace',
   },
   {
     title: 'The Idiot',
@@ -368,7 +368,7 @@ export const books: Book[] = [
     year: 1869,
     id: 2044,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_Idiot'
+    link: 'https://en.wikipedia.org/wiki/The_Idiot',
   },
   {
     title: 'Twenty Thousand Leagues Under the Seas',
@@ -376,7 +376,8 @@ export const books: Book[] = [
     year: 1870,
     id: 2045,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Twenty_Thousand_Leagues_Under_the_Seas'
+    link:
+        'https://en.wikipedia.org/wiki/Twenty_Thousand_Leagues_Under_the_Seas',
   },
   {
     title: 'Middlemarch',
@@ -384,7 +385,7 @@ export const books: Book[] = [
     year: 1872,
     id: 2046,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Middlemarch'
+    link: 'https://en.wikipedia.org/wiki/Middlemarch',
   },
   {
     title: 'Demons',
@@ -392,7 +393,7 @@ export const books: Book[] = [
     year: 1872,
     id: 2047,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Demons_(Dostoevsky_novel)'
+    link: 'https://en.wikipedia.org/wiki/Demons_(Dostoevsky_novel)',
   },
   {
     title: 'Around the World in Eighty Days',
@@ -400,7 +401,7 @@ export const books: Book[] = [
     year: 1873,
     id: 2048,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Around_the_World_in_Eighty_Days'
+    link: 'https://en.wikipedia.org/wiki/Around_the_World_in_Eighty_Days',
   },
   {
     title: 'Anna Karenina',
@@ -408,7 +409,7 @@ export const books: Book[] = [
     year: 1878,
     id: 2049,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Anna_Karenina'
+    link: 'https://en.wikipedia.org/wiki/Anna_Karenina',
   },
   {
     title: 'The Brothers Karamazov',
@@ -416,7 +417,7 @@ export const books: Book[] = [
     year: 1880,
     id: 2050,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Brothers_Karamazov'
+    link: 'https://en.wikipedia.org/wiki/The_Brothers_Karamazov',
   },
   {
     title: 'Heidi',
@@ -424,7 +425,7 @@ export const books: Book[] = [
     year: 1880,
     id: 2051,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Heidi'
+    link: 'https://en.wikipedia.org/wiki/Heidi',
   },
   {
     title: 'Treasure Island',
@@ -432,7 +433,7 @@ export const books: Book[] = [
     year: 1883,
     id: 2052,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Treasure_Island'
+    link: 'https://en.wikipedia.org/wiki/Treasure_Island',
   },
   {
     title: 'Adventures of Huckleberry Finn',
@@ -440,7 +441,7 @@ export const books: Book[] = [
     year: 1884,
     id: 2053,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn'
+    link: 'https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn',
   },
   {
     title: 'Thus Spoke Zarathustra',
@@ -448,7 +449,7 @@ export const books: Book[] = [
     year: 1885,
     id: 2054,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Thus_Spoke_Zarathustra'
+    link: 'https://en.wikipedia.org/wiki/Thus_Spoke_Zarathustra',
   },
   {
     title: 'Strange Case of Dr Jekyll and Mr Hyde',
@@ -456,7 +457,7 @@ export const books: Book[] = [
     year: 1886,
     id: 2055,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Strange_Case_of_Dr_Jekyll_and_Mr_Hyde'
+    link: 'https://en.wikipedia.org/wiki/Strange_Case_of_Dr_Jekyll_and_Mr_Hyde',
   },
   {
     title: 'The Picture of Dorian Gray',
@@ -464,7 +465,7 @@ export const books: Book[] = [
     year: 1890,
     id: 2056,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Picture_of_Dorian_Gray'
+    link: 'https://en.wikipedia.org/wiki/The_Picture_of_Dorian_Gray',
   },
   {
     title: 'The Adventures of Sherlock Holmes',
@@ -472,7 +473,7 @@ export const books: Book[] = [
     year: 1892,
     id: 2057,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Adventures_of_Sherlock_Holmes'
+    link: 'https://en.wikipedia.org/wiki/The_Adventures_of_Sherlock_Holmes',
   },
   {
     title: 'The Time Machine',
@@ -480,7 +481,7 @@ export const books: Book[] = [
     year: 1895,
     id: 2058,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Time_Machine'
+    link: 'https://en.wikipedia.org/wiki/The_Time_Machine',
   },
   {
     title: 'Dracula',
@@ -488,7 +489,7 @@ export const books: Book[] = [
     year: 1897,
     id: 2059,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Dracula'
+    link: 'https://en.wikipedia.org/wiki/Dracula',
   },
   {
     title: 'The War of the Worlds',
@@ -496,7 +497,7 @@ export const books: Book[] = [
     year: 1898,
     id: 2060,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_War_of_the_Worlds'
+    link: 'https://en.wikipedia.org/wiki/The_War_of_the_Worlds',
   },
   {
     title: 'The Interpretation of Dreams',
@@ -504,7 +505,7 @@ export const books: Book[] = [
     year: 1899,
     id: 2061,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Interpretation_of_Dreams'
+    link: 'https://en.wikipedia.org/wiki/The_Interpretation_of_Dreams',
   },
   {
     title: 'Heart of Darkness',
@@ -512,7 +513,7 @@ export const books: Book[] = [
     year: 1899,
     id: 2062,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Heart_of_Darkness'
+    link: 'https://en.wikipedia.org/wiki/Heart_of_Darkness',
   },
   {
     title: 'The Call of the Wild',
@@ -520,7 +521,7 @@ export const books: Book[] = [
     year: 1903,
     id: 2063,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Call_of_the_Wild'
+    link: 'https://en.wikipedia.org/wiki/The_Call_of_the_Wild',
   },
   {
     title: 'The Cherry Orchard',
@@ -528,7 +529,7 @@ export const books: Book[] = [
     year: 1904,
     id: 2064,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_Cherry_Orchard'
+    link: 'https://en.wikipedia.org/wiki/The_Cherry_Orchard',
   },
   {
     title: 'Peter Pan',
@@ -536,7 +537,7 @@ export const books: Book[] = [
     year: 1911,
     id: 2065,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Peter_Pan'
+    link: 'https://en.wikipedia.org/wiki/Peter_Pan',
   },
   {
     title: 'Tarzan of the Apes',
@@ -544,7 +545,7 @@ export const books: Book[] = [
     year: 1912,
     id: 2066,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Tarzan_of_the_Apes'
+    link: 'https://en.wikipedia.org/wiki/Tarzan_of_the_Apes',
   },
   {
     title: 'In Search of Lost Time (Swann\'s Way)',
@@ -552,7 +553,7 @@ export const books: Book[] = [
     year: 1913,
     id: 2067,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/In_Search_of_Lost_Time'
+    link: 'https://en.wikipedia.org/wiki/In_Search_of_Lost_Time',
   },
   {
     title: 'The Metamorphosis',
@@ -560,7 +561,7 @@ export const books: Book[] = [
     year: 1915,
     id: 2068,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Metamorphosis'
+    link: 'https://en.wikipedia.org/wiki/The_Metamorphosis',
   },
   {
     title: 'Ulysses',
@@ -568,7 +569,7 @@ export const books: Book[] = [
     year: 1922,
     id: 2069,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Ulysses_(novel)'
+    link: 'https://en.wikipedia.org/wiki/Ulysses_(novel)',
   },
   {
     title: 'Siddhartha',
@@ -576,7 +577,7 @@ export const books: Book[] = [
     year: 1922,
     id: 2070,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Siddhartha_(novel)'
+    link: 'https://en.wikipedia.org/wiki/Siddhartha_(novel)',
   },
   {
     title: 'The Magic Mountain',
@@ -584,7 +585,7 @@ export const books: Book[] = [
     year: 1924,
     id: 2071,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_Magic_Mountain'
+    link: 'https://en.wikipedia.org/wiki/The_Magic_Mountain',
   },
   {
     title: 'The Great Gatsby',
@@ -592,7 +593,7 @@ export const books: Book[] = [
     year: 1925,
     id: 2072,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Great_Gatsby'
+    link: 'https://en.wikipedia.org/wiki/The_Great_Gatsby',
   },
   {
     title: 'The Trial',
@@ -600,7 +601,7 @@ export const books: Book[] = [
     year: 1925,
     id: 2073,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Trial'
+    link: 'https://en.wikipedia.org/wiki/The_Trial',
   },
   {
     title: 'Mrs Dalloway',
@@ -608,7 +609,7 @@ export const books: Book[] = [
     year: 1925,
     id: 2074,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Mrs_Dalloway'
+    link: 'https://en.wikipedia.org/wiki/Mrs_Dalloway',
   },
   {
     title: 'Winnie-the-Pooh',
@@ -616,7 +617,7 @@ export const books: Book[] = [
     year: 1926,
     id: 2075,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Winnie-the-Pooh'
+    link: 'https://en.wikipedia.org/wiki/Winnie-the-Pooh',
   },
   {
     title: 'The Sun Also Rises',
@@ -624,7 +625,7 @@ export const books: Book[] = [
     year: 1926,
     id: 2076,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Sun_Also_Rises'
+    link: 'https://en.wikipedia.org/wiki/The_Sun_Also_Rises',
   },
   {
     title: 'Steppenwolf',
@@ -632,7 +633,7 @@ export const books: Book[] = [
     year: 1927,
     id: 2077,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Steppenwolf_(novel)'
+    link: 'https://en.wikipedia.org/wiki/Steppenwolf_(novel)',
   },
   {
     title: 'All Quiet on the Western Front',
@@ -640,7 +641,7 @@ export const books: Book[] = [
     year: 1929,
     id: 2078,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/All_Quiet_on_the_Western_Front'
+    link: 'https://en.wikipedia.org/wiki/All_Quiet_on_the_Western_Front',
   },
   {
     title: 'The Sound and the Fury',
@@ -648,7 +649,7 @@ export const books: Book[] = [
     year: 1929,
     id: 2079,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_Sound_and_the_Fury'
+    link: 'https://en.wikipedia.org/wiki/The_Sound_and_the_Fury',
   },
   {
     title: 'A Room of One\'s Own',
@@ -656,7 +657,7 @@ export const books: Book[] = [
     year: 1929,
     id: 2080,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/A_Room_of_One%27s_Own'
+    link: 'https://en.wikipedia.org/wiki/A_Room_of_One%27s_Own',
   },
   {
     title: 'Brave New World',
@@ -664,7 +665,7 @@ export const books: Book[] = [
     year: 1932,
     id: 2081,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Brave_New_World'
+    link: 'https://en.wikipedia.org/wiki/Brave_New_World',
   },
   {
     title: 'Murder on the Orient Express',
@@ -672,7 +673,7 @@ export const books: Book[] = [
     year: 1934,
     id: 2082,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Murder_on_the_Orient_Express'
+    link: 'https://en.wikipedia.org/wiki/Murder_on_the_Orient_Express',
   },
   {
     title: 'Gone with the Wind',
@@ -680,7 +681,7 @@ export const books: Book[] = [
     year: 1936,
     id: 2083,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Gone_with_the_Wind_(novel)'
+    link: 'https://en.wikipedia.org/wiki/Gone_with_the_Wind_(novel)',
   },
   {
     title: 'The Hobbit',
@@ -688,7 +689,7 @@ export const books: Book[] = [
     year: 1937,
     id: 2084,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Hobbit'
+    link: 'https://en.wikipedia.org/wiki/The_Hobbit',
   },
   {
     title: 'Of Mice and Men',
@@ -696,7 +697,7 @@ export const books: Book[] = [
     year: 1937,
     id: 2085,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Of_Mice_and_Men'
+    link: 'https://en.wikipedia.org/wiki/Of_Mice_and_Men',
   },
   {
     title: 'And Then There Were None',
@@ -704,7 +705,7 @@ export const books: Book[] = [
     year: 1939,
     id: 2086,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/And_Then_There_Were_None'
+    link: 'https://en.wikipedia.org/wiki/And_Then_There_Were_None',
   },
   {
     title: 'The Grapes of Wrath',
@@ -712,7 +713,7 @@ export const books: Book[] = [
     year: 1939,
     id: 2087,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Grapes_of_Wrath'
+    link: 'https://en.wikipedia.org/wiki/The_Grapes_of_Wrath',
   },
   {
     title: 'For Whom the Bell Tolls',
@@ -720,7 +721,7 @@ export const books: Book[] = [
     year: 1940,
     id: 2088,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/For_Whom_the_Bell_Tolls'
+    link: 'https://en.wikipedia.org/wiki/For_Whom_the_Bell_Tolls',
   },
   {
     title: 'The Stranger',
@@ -728,7 +729,7 @@ export const books: Book[] = [
     year: 1942,
     id: 2089,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Stranger_(Camus_novel)'
+    link: 'https://en.wikipedia.org/wiki/The_Stranger_(Camus_novel)',
   },
   {
     title: 'The Little Prince',
@@ -736,7 +737,7 @@ export const books: Book[] = [
     year: 1943,
     id: 2090,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Little_Prince'
+    link: 'https://en.wikipedia.org/wiki/The_Little_Prince',
   },
   {
     title: 'Ficciones',
@@ -744,7 +745,7 @@ export const books: Book[] = [
     year: 1944,
     id: 2091,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Ficciones'
+    link: 'https://en.wikipedia.org/wiki/Ficciones',
   },
   {
     title: 'Animal Farm',
@@ -752,7 +753,7 @@ export const books: Book[] = [
     year: 1945,
     id: 2092,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Animal_Farm'
+    link: 'https://en.wikipedia.org/wiki/Animal_Farm',
   },
   {
     title: 'The Diary of a Young Girl',
@@ -760,7 +761,7 @@ export const books: Book[] = [
     year: 1947,
     id: 2093,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Diary_of_a_Young_Girl'
+    link: 'https://en.wikipedia.org/wiki/The_Diary_of_a_Young_Girl',
   },
   {
     title: 'The Plague',
@@ -768,7 +769,7 @@ export const books: Book[] = [
     year: 1947,
     id: 2094,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Plague'
+    link: 'https://en.wikipedia.org/wiki/The_Plague',
   },
   {
     title: 'The Aleph',
@@ -776,7 +777,7 @@ export const books: Book[] = [
     year: 1949,
     id: 2095,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Aleph_(short_story_collection)'
+    link: 'https://en.wikipedia.org/wiki/The_Aleph_(short_story_collection)',
   },
   {
     title: 'Nineteen Eighty-Four',
@@ -784,7 +785,7 @@ export const books: Book[] = [
     year: 1949,
     id: 2096,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Nineteen_Eighty-Four'
+    link: 'https://en.wikipedia.org/wiki/Nineteen_Eighty-Four',
   },
   {
     title: 'I, Robot',
@@ -792,7 +793,7 @@ export const books: Book[] = [
     year: 1950,
     id: 2097,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/I,_Robot'
+    link: 'https://en.wikipedia.org/wiki/I,_Robot',
   },
   {
     title: 'The Lion, the Witch and the Wardrobe',
@@ -800,7 +801,7 @@ export const books: Book[] = [
     year: 1950,
     id: 2098,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Lion,_the_Witch_and_the_Wardrobe'
+    link: 'https://en.wikipedia.org/wiki/The_Lion,_the_Witch_and_the_Wardrobe',
   },
   {
     title: 'The Martian Chronicles',
@@ -808,7 +809,7 @@ export const books: Book[] = [
     year: 1950,
     id: 2099,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Martian_Chronicles'
+    link: 'https://en.wikipedia.org/wiki/The_Martian_Chronicles',
   },
   {
     title: 'The Catcher in the Rye',
@@ -816,7 +817,7 @@ export const books: Book[] = [
     year: 1951,
     id: 2100,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Catcher_in_the_Rye'
+    link: 'https://en.wikipedia.org/wiki/The_Catcher_in_the_Rye',
   },
   {
     title: 'Foundation',
@@ -824,7 +825,7 @@ export const books: Book[] = [
     year: 1951,
     id: 2101,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Foundation_(Asimov_novel)'
+    link: 'https://en.wikipedia.org/wiki/Foundation_(Asimov_novel)',
   },
   {
     title: 'Waiting for Godot',
@@ -832,7 +833,7 @@ export const books: Book[] = [
     year: 1952,
     id: 2102,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Waiting_for_Godot'
+    link: 'https://en.wikipedia.org/wiki/Waiting_for_Godot',
   },
   {
     title: 'The Old Man and the Sea',
@@ -840,7 +841,7 @@ export const books: Book[] = [
     year: 1952,
     id: 2103,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Old_Man_and_the_Sea'
+    link: 'https://en.wikipedia.org/wiki/The_Old_Man_and_the_Sea',
   },
   {
     title: 'Fahrenheit 451',
@@ -848,7 +849,7 @@ export const books: Book[] = [
     year: 1953,
     id: 2104,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Fahrenheit_451'
+    link: 'https://en.wikipedia.org/wiki/Fahrenheit_451',
   },
   {
     title: 'The Lord of the Rings',
@@ -856,7 +857,7 @@ export const books: Book[] = [
     year: 1954,
     id: 2105,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Lord_of_the_Rings'
+    link: 'https://en.wikipedia.org/wiki/The_Lord_of_the_Rings',
   },
   {
     title: 'Lolita',
@@ -864,7 +865,7 @@ export const books: Book[] = [
     year: 1955,
     id: 2106,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Lolita'
+    link: 'https://en.wikipedia.org/wiki/Lolita',
   },
   {
     title: 'Doctor Zhivago',
@@ -872,7 +873,7 @@ export const books: Book[] = [
     year: 1957,
     id: 2107,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Doctor_Zhivago_(novel)'
+    link: 'https://en.wikipedia.org/wiki/Doctor_Zhivago_(novel)',
   },
   {
     title: 'To Kill a Mockingbird',
@@ -880,7 +881,7 @@ export const books: Book[] = [
     year: 1960,
     id: 2108,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/To_Kill_a_Mockingbird'
+    link: 'https://en.wikipedia.org/wiki/To_Kill_a_Mockingbird',
   },
   {
     title: 'Catch-22',
@@ -888,7 +889,7 @@ export const books: Book[] = [
     year: 1961,
     id: 2109,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Catch-22'
+    link: 'https://en.wikipedia.org/wiki/Catch-22',
   },
   {
     title: 'Solaris',
@@ -896,7 +897,7 @@ export const books: Book[] = [
     year: 1961,
     id: 2110,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Solaris_(novel)'
+    link: 'https://en.wikipedia.org/wiki/Solaris_(novel)',
   },
   {
     title: 'One Flew Over the Cuckoo\'s Nest',
@@ -904,7 +905,8 @@ export const books: Book[] = [
     year: 1962,
     id: 2111,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/One_Flew_Over_the_Cuckoo%27s_Nest_(novel)'
+    link:
+        'https://en.wikipedia.org/wiki/One_Flew_Over_the_Cuckoo%27s_Nest_(novel)',
   },
   {
     title: 'A Clockwork Orange',
@@ -912,7 +914,7 @@ export const books: Book[] = [
     year: 1962,
     id: 2112,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/A_Clockwork_Orange_(novel)'
+    link: 'https://en.wikipedia.org/wiki/A_Clockwork_Orange_(novel)',
   },
   {
     title: 'Pale Fire',
@@ -920,7 +922,7 @@ export const books: Book[] = [
     year: 1962,
     id: 2113,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Pale_Fire'
+    link: 'https://en.wikipedia.org/wiki/Pale_Fire',
   },
   {
     title: 'One Day in the Life of Ivan Denisovich',
@@ -928,7 +930,8 @@ export const books: Book[] = [
     year: 1962,
     id: 2114,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/One_Day_in_the_Life_of_Ivan_Denisovich'
+    link:
+        'https://en.wikipedia.org/wiki/One_Day_in_the_Life_of_Ivan_Denisovich',
   },
   {
     title: 'Cat\'s Cradle',
@@ -936,7 +939,7 @@ export const books: Book[] = [
     year: 1963,
     id: 2115,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Cat%27s_Cradle'
+    link: 'https://en.wikipedia.org/wiki/Cat%27s_Cradle',
   },
   {
     title: 'Dune',
@@ -944,7 +947,7 @@ export const books: Book[] = [
     year: 1965,
     id: 2116,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Dune_(novel)'
+    link: 'https://en.wikipedia.org/wiki/Dune_(novel)',
   },
   {
     title: 'The Master and Margarita',
@@ -952,7 +955,7 @@ export const books: Book[] = [
     year: 1967,
     id: 2117,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_Master_and_Margarita'
+    link: 'https://en.wikipedia.org/wiki/The_Master_and_Margarita',
   },
   {
     title: 'One Hundred Years of Solitude',
@@ -960,7 +963,7 @@ export const books: Book[] = [
     year: 1967,
     id: 2118,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/One_Hundred_Years_of_Solitude'
+    link: 'https://en.wikipedia.org/wiki/One_Hundred_Years_of_Solitude',
   },
   {
     title: 'Do Androids Dream of Electric Sheep?',
@@ -968,7 +971,8 @@ export const books: Book[] = [
     year: 1968,
     id: 2119,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Do_Androids_Dream_of_Electric_Sheep%3F'
+    link:
+        'https://en.wikipedia.org/wiki/Do_Androids_Dream_of_Electric_Sheep%3F',
   },
   {
     title: '2001: A Space Odyssey',
@@ -976,7 +980,7 @@ export const books: Book[] = [
     year: 1968,
     id: 2120,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/2001:_A_Space_Odyssey_(novel)'
+    link: 'https://en.wikipedia.org/wiki/2001:_A_Space_Odyssey_(novel)',
   },
   {
     title: 'The Left Hand of Darkness',
@@ -984,7 +988,7 @@ export const books: Book[] = [
     year: 1969,
     id: 2121,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_Left_Hand_of_Darkness'
+    link: 'https://en.wikipedia.org/wiki/The_Left_Hand_of_Darkness',
   },
   {
     title: 'Slaughterhouse-Five',
@@ -992,7 +996,7 @@ export const books: Book[] = [
     year: 1969,
     id: 2122,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Slaughterhouse-Five'
+    link: 'https://en.wikipedia.org/wiki/Slaughterhouse-Five',
   },
   {
     title: 'Invisible Cities',
@@ -1000,7 +1004,7 @@ export const books: Book[] = [
     year: 1972,
     id: 2123,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Invisible_Cities'
+    link: 'https://en.wikipedia.org/wiki/Invisible_Cities',
   },
   {
     title: 'The Gulag Archipelago',
@@ -1008,7 +1012,7 @@ export const books: Book[] = [
     year: 1973,
     id: 2124,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_Gulag_Archipelago'
+    link: 'https://en.wikipedia.org/wiki/The_Gulag_Archipelago',
   },
   {
     title: 'The Shining',
@@ -1016,7 +1020,7 @@ export const books: Book[] = [
     year: 1977,
     id: 2125,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Shining_(novel)'
+    link: 'https://en.wikipedia.org/wiki/The_Shining_(novel)',
   },
   {
     title: 'The Hitchhiker\'s Guide to the Galaxy',
@@ -1024,7 +1028,8 @@ export const books: Book[] = [
     year: 1979,
     id: 2126,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy_(novel)'
+    link:
+        'https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy_(novel)',
   },
   {
     title: 'If on a winter\'s night a traveler',
@@ -1032,7 +1037,7 @@ export const books: Book[] = [
     year: 1979,
     id: 2127,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/If_on_a_winter%27s_night_a_traveler'
+    link: 'https://en.wikipedia.org/wiki/If_on_a_winter%27s_night_a_traveler',
   },
   {
     title: 'The Name of the Rose',
@@ -1040,7 +1045,7 @@ export const books: Book[] = [
     year: 1980,
     id: 2128,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_Name_of_the_Rose'
+    link: 'https://en.wikipedia.org/wiki/The_Name_of_the_Rose',
   },
   {
     title: 'Midnight\'s Children',
@@ -1048,7 +1053,7 @@ export const books: Book[] = [
     year: 1981,
     id: 2129,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Midnight%27s_Children'
+    link: 'https://en.wikipedia.org/wiki/Midnight%27s_Children',
   },
   {
     title: 'The House of the Spirits',
@@ -1056,7 +1061,7 @@ export const books: Book[] = [
     year: 1982,
     id: 2130,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_House_of_the_Spirits'
+    link: 'https://en.wikipedia.org/wiki/The_House_of_the_Spirits',
   },
   {
     title: 'The Unbearable Lightness of Being',
@@ -1064,7 +1069,7 @@ export const books: Book[] = [
     year: 1984,
     id: 2131,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_Unbearable_Lightness_of_Being'
+    link: 'https://en.wikipedia.org/wiki/The_Unbearable_Lightness_of_Being',
   },
   {
     title: 'Love in the Time of Cholera',
@@ -1072,7 +1077,7 @@ export const books: Book[] = [
     year: 1985,
     id: 2132,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Love_in_the_Time_of_Cholera'
+    link: 'https://en.wikipedia.org/wiki/Love_in_the_Time_of_Cholera',
   },
   {
     title: 'The Handmaid\'s Tale',
@@ -1080,7 +1085,7 @@ export const books: Book[] = [
     year: 1985,
     id: 2133,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_Handmaid%27s_Tale'
+    link: 'https://en.wikipedia.org/wiki/The_Handmaid%27s_Tale',
   },
   {
     title: 'Ender\'s Game',
@@ -1088,7 +1093,7 @@ export const books: Book[] = [
     year: 1985,
     id: 2134,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Ender%27s_Game'
+    link: 'https://en.wikipedia.org/wiki/Ender%27s_Game',
   },
   {
     title: 'It',
@@ -1096,7 +1101,7 @@ export const books: Book[] = [
     year: 1986,
     id: 2135,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/It_(novel)'
+    link: 'https://en.wikipedia.org/wiki/It_(novel)',
   },
   {
     title: 'Beloved',
@@ -1104,7 +1109,7 @@ export const books: Book[] = [
     year: 1987,
     id: 2136,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/Beloved_(novel)'
+    link: 'https://en.wikipedia.org/wiki/Beloved_(novel)',
   },
   {
     title: 'The Alchemist',
@@ -1112,7 +1117,7 @@ export const books: Book[] = [
     year: 1988,
     id: 2137,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Alchemist_(novel)'
+    link: 'https://en.wikipedia.org/wiki/The_Alchemist_(novel)',
   },
   {
     title: 'The Satanic Verses',
@@ -1120,7 +1125,7 @@ export const books: Book[] = [
     year: 1988,
     id: 2138,
     difficulty: 'hard',
-    link: 'https://en.wikipedia.org/wiki/The_Satanic_Verses'
+    link: 'https://en.wikipedia.org/wiki/The_Satanic_Verses',
   },
   {
     title: 'Jurassic Park',
@@ -1128,7 +1133,7 @@ export const books: Book[] = [
     year: 1990,
     id: 2139,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Jurassic_Park_(novel)'
+    link: 'https://en.wikipedia.org/wiki/Jurassic_Park_(novel)',
   },
   {
     title: 'A Game of Thrones',
@@ -1136,7 +1141,7 @@ export const books: Book[] = [
     year: 1996,
     id: 2140,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/A_Game_of_Thrones'
+    link: 'https://en.wikipedia.org/wiki/A_Game_of_Thrones',
   },
   {
     title: 'Harry Potter and the Philosopher\'s Stone',
@@ -1144,7 +1149,8 @@ export const books: Book[] = [
     year: 1997,
     id: 2141,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone'
+    link:
+        'https://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone',
   },
   {
     title: 'Life of Pi',
@@ -1152,7 +1158,7 @@ export const books: Book[] = [
     year: 2001,
     id: 2142,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/Life_of_Pi'
+    link: 'https://en.wikipedia.org/wiki/Life_of_Pi',
   },
   {
     title: 'The Kite Runner',
@@ -1160,7 +1166,7 @@ export const books: Book[] = [
     year: 2003,
     id: 2143,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Kite_Runner'
+    link: 'https://en.wikipedia.org/wiki/The_Kite_Runner',
   },
   {
     title: 'The Da Vinci Code',
@@ -1168,7 +1174,7 @@ export const books: Book[] = [
     year: 2003,
     id: 2144,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Da_Vinci_Code'
+    link: 'https://en.wikipedia.org/wiki/The_Da_Vinci_Code',
   },
   {
     title: 'The Girl with the Dragon Tattoo',
@@ -1176,7 +1182,7 @@ export const books: Book[] = [
     year: 2005,
     id: 2145,
     difficulty: 'easy',
-    link: 'https://en.wikipedia.org/wiki/The_Girl_with_the_Dragon_Tattoo'
+    link: 'https://en.wikipedia.org/wiki/The_Girl_with_the_Dragon_Tattoo',
   },
   {
     title: 'The Hunger Games',
@@ -1184,6 +1190,6 @@ export const books: Book[] = [
     year: 2008,
     id: 2146,
     difficulty: 'medium',
-    link: 'https://en.wikipedia.org/wiki/The_Hunger_Games'
+    link: 'https://en.wikipedia.org/wiki/The_Hunger_Games',
   }
 ];
