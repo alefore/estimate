@@ -6,6 +6,7 @@ export interface Film {
   year: number;  // Year of original theatrical release
   id: number;
   difficulty: Difficulty;
+  link: string;
 }
 
 export const films: Film[] = [
@@ -15,6 +16,7 @@ export const films: Film[] = [
     year: 1902,
     id: 7000,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/A_Trip_to_the_Moon',
   },
   {
     title: 'The Birth of a Nation',
@@ -22,6 +24,7 @@ export const films: Film[] = [
     year: 1915,
     id: 7001,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Birth_of_a_Nation',
   },
   {
     title: 'The Cabinet of Dr. Caligari',
@@ -29,6 +32,7 @@ export const films: Film[] = [
     year: 1920,
     id: 7002,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Cabinet_of_Dr._Caligari',
   },
   {
     title: 'Nosferatu',
@@ -36,6 +40,7 @@ export const films: Film[] = [
     year: 1922,
     id: 7003,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Nosferatu',
   },
   {
     title: 'Battleship Potemkin',
@@ -43,6 +48,7 @@ export const films: Film[] = [
     year: 1925,
     id: 7004,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Battleship_Potemkin',
   },
   {
     title: 'The Gold Rush',
@@ -50,6 +56,7 @@ export const films: Film[] = [
     year: 1925,
     id: 7005,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Gold_Rush',
   },
   {
     title: 'Metropolis',
@@ -57,6 +64,7 @@ export const films: Film[] = [
     year: 1927,
     id: 7006,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Metropolis_(1927_film)',
   },
   {
     title: 'The Jazz Singer',
@@ -64,6 +72,7 @@ export const films: Film[] = [
     year: 1927,
     id: 7007,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Jazz_Singer',
   },
   {
     title: 'Un Chien Andalou',
@@ -71,6 +80,7 @@ export const films: Film[] = [
     year: 1929,
     id: 7008,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Un_Chien_Andalou',
   },
   {
     title: 'M',
@@ -78,6 +88,7 @@ export const films: Film[] = [
     year: 1931,
     id: 7009,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/M_(1931_film)',
   },
   {
     title: 'City Lights',
@@ -85,6 +96,7 @@ export const films: Film[] = [
     year: 1931,
     id: 7010,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/City_Lights',
   },
   {
     title: 'King Kong',
@@ -92,6 +104,7 @@ export const films: Film[] = [
     year: 1933,
     id: 7011,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/King_Kong_(1933_film)',
   },
   {
     title: 'Modern Times',
@@ -99,6 +112,7 @@ export const films: Film[] = [
     year: 1936,
     id: 7012,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Modern_Times_(film)',
   },
   {
     title: 'Snow White and the Seven Dwarfs',
@@ -106,6 +120,8 @@ export const films: Film[] = [
     year: 1937,
     id: 7013,
     difficulty: 'medium',
+    link:
+        'https://en.wikipedia.org/wiki/Snow_White_and_the_Seven_Dwarfs_(1937_film)',
   },
   {
     title: 'The Wizard of Oz',
@@ -113,6 +129,7 @@ export const films: Film[] = [
     year: 1939,
     id: 7014,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Wizard_of_Oz_(1939_film)',
   },
   {
     title: 'Gone with the Wind',
@@ -120,6 +137,7 @@ export const films: Film[] = [
     year: 1939,
     id: 7015,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Gone_with_the_Wind_(film)',
   },
   {
     title: 'The Great Dictator',
@@ -127,6 +145,7 @@ export const films: Film[] = [
     year: 1940,
     id: 7016,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Great_Dictator',
   },
   {
     title: 'Citizen Kane',
@@ -134,6 +153,7 @@ export const films: Film[] = [
     year: 1941,
     id: 7017,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Citizen_Kane',
   },
   {
     title: 'Casablanca',
@@ -141,6 +161,7 @@ export const films: Film[] = [
     year: 1942,
     id: 7018,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Casablanca_(film)',
   },
   {
     title: 'It\'s a Wonderful Life',
@@ -148,6 +169,7 @@ export const films: Film[] = [
     year: 1946,
     id: 7019,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/It%27s_a_Wonderful_Life',
   },
   {
     title: 'Bicycle Thieves',
@@ -155,6 +177,7 @@ export const films: Film[] = [
     year: 1948,
     id: 7020,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Bicycle_Thieves',
   },
   {
     title: 'The Third Man',
@@ -162,6 +185,7 @@ export const films: Film[] = [
     year: 1949,
     id: 7021,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Third_Man',
   },
   {
     title: 'Rashomon',
@@ -169,6 +193,7 @@ export const films: Film[] = [
     year: 1950,
     id: 7022,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Rashomon',
   },
   {
     title: 'Sunset Boulevard',
@@ -176,6 +201,7 @@ export const films: Film[] = [
     year: 1950,
     id: 7023,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Sunset_Boulevard_(film)',
   },
   {
     title: 'Singin\' in the Rain',
@@ -183,6 +209,7 @@ export const films: Film[] = [
     year: 1952,
     id: 7024,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Singin%27_in_the_Rain',
   },
   {
     title: 'Tokyo Story',
@@ -190,6 +217,7 @@ export const films: Film[] = [
     year: 1953,
     id: 7025,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Tokyo_Story',
   },
   {
     title: 'Seven Samurai',
@@ -197,6 +225,7 @@ export const films: Film[] = [
     year: 1954,
     id: 7026,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Seven_Samurai',
   },
   {
     title: 'Rear Window',
@@ -204,6 +233,7 @@ export const films: Film[] = [
     year: 1954,
     id: 7027,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Rear_Window',
   },
   {
     title: 'The Seventh Seal',
@@ -211,6 +241,7 @@ export const films: Film[] = [
     year: 1957,
     id: 7028,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Seventh_Seal',
   },
   {
     title: '12 Angry Men',
@@ -218,6 +249,7 @@ export const films: Film[] = [
     year: 1957,
     id: 7029,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/12_Angry_Men_(1957_film)',
   },
   {
     title: 'Vertigo',
@@ -225,6 +257,7 @@ export const films: Film[] = [
     year: 1958,
     id: 7030,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Vertigo_(film)',
   },
   {
     title: 'Some Like It Hot',
@@ -232,6 +265,7 @@ export const films: Film[] = [
     year: 1959,
     id: 7031,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Some_Like_It_Hot',
   },
   {
     title: 'The 400 Blows',
@@ -239,6 +273,7 @@ export const films: Film[] = [
     year: 1959,
     id: 7032,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_400_Blows',
   },
   {
     title: 'Breathless',
@@ -246,6 +281,7 @@ export const films: Film[] = [
     year: 1960,
     id: 7033,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Breathless_(1960_film)',
   },
   {
     title: 'Psycho',
@@ -253,6 +289,7 @@ export const films: Film[] = [
     year: 1960,
     id: 7034,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Psycho_(1960_film)',
   },
   {
     title: 'La Dolce Vita',
@@ -260,6 +297,7 @@ export const films: Film[] = [
     year: 1960,
     id: 7035,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/La_Dolce_Vita',
   },
   {
     title: 'Lawrence of Arabia',
@@ -267,6 +305,7 @@ export const films: Film[] = [
     year: 1962,
     id: 7036,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Lawrence_of_Arabia_(film)',
   },
   {
     title: '8½',
@@ -274,6 +313,7 @@ export const films: Film[] = [
     year: 1963,
     id: 7037,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/8%C2%BD',
   },
   {
     title: 'Dr. Strangelove',
@@ -281,6 +321,7 @@ export const films: Film[] = [
     year: 1964,
     id: 7038,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Dr._Strangelove',
   },
   {
     title: 'The Sound of Music',
@@ -288,6 +329,7 @@ export const films: Film[] = [
     year: 1965,
     id: 7039,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Sound_of_Music_(film)',
   },
   {
     title: 'The Good, the Bad and the Ugly',
@@ -295,6 +337,7 @@ export const films: Film[] = [
     year: 1966,
     id: 7040,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Good,_the_Bad_and_the_Ugly',
   },
   {
     title: 'The Graduate',
@@ -302,6 +345,7 @@ export const films: Film[] = [
     year: 1967,
     id: 7041,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Graduate',
   },
   {
     title: '2001: A Space Odyssey',
@@ -309,6 +353,7 @@ export const films: Film[] = [
     year: 1968,
     id: 7042,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/2001:_A_Space_Odyssey_(film)',
   },
   {
     title: 'Easy Rider',
@@ -316,6 +361,7 @@ export const films: Film[] = [
     year: 1969,
     id: 7043,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Easy_Rider',
   },
   {
     title: 'A Clockwork Orange',
@@ -323,6 +369,7 @@ export const films: Film[] = [
     year: 1971,
     id: 7044,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/A_Clockwork_Orange_(film)',
   },
   {
     title: 'The Godfather',
@@ -330,6 +377,7 @@ export const films: Film[] = [
     year: 1972,
     id: 7045,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Godfather',
   },
   {
     title: 'The Exorcist',
@@ -337,6 +385,7 @@ export const films: Film[] = [
     year: 1973,
     id: 7046,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Exorcist_(film)',
   },
   {
     title: 'Chinatown',
@@ -344,6 +393,7 @@ export const films: Film[] = [
     year: 1974,
     id: 7047,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Chinatown_(1974_film)',
   },
   {
     title: 'Jaws',
@@ -351,6 +401,7 @@ export const films: Film[] = [
     year: 1975,
     id: 7048,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Jaws_(film)',
   },
   {
     title: 'One Flew Over the Cuckoo\'s Nest',
@@ -358,6 +409,8 @@ export const films: Film[] = [
     year: 1975,
     id: 7049,
     difficulty: 'hard',
+    link:
+        'https://en.wikipedia.org/wiki/One_Flew_Over_the_Cuckoo%27s_Nest_(film)',
   },
   {
     title: 'Taxi Driver',
@@ -365,6 +418,7 @@ export const films: Film[] = [
     year: 1976,
     id: 7050,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Taxi_Driver',
   },
   {
     title: 'Rocky',
@@ -372,6 +426,7 @@ export const films: Film[] = [
     year: 1976,
     id: 7051,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Rocky',
   },
   {
     title: 'Star Wars',
@@ -379,6 +434,7 @@ export const films: Film[] = [
     year: 1977,
     id: 7052,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Star_Wars_(film)',
   },
   {
     title: 'Annie Hall',
@@ -386,6 +442,7 @@ export const films: Film[] = [
     year: 1977,
     id: 7053,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Annie_Hall',
   },
   {
     title: 'Alien',
@@ -393,6 +450,7 @@ export const films: Film[] = [
     year: 1979,
     id: 7054,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Alien_(film)',
   },
   {
     title: 'Apocalypse Now',
@@ -400,6 +458,7 @@ export const films: Film[] = [
     year: 1979,
     id: 7055,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Apocalypse_Now',
   },
   {
     title: 'The Shining',
@@ -407,6 +466,7 @@ export const films: Film[] = [
     year: 1980,
     id: 7056,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Shining_(film)',
   },
   {
     title: 'Raiders of the Lost Ark',
@@ -414,6 +474,7 @@ export const films: Film[] = [
     year: 1981,
     id: 7057,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Raiders_of_the_Lost_Ark',
   },
   {
     title: 'Blade Runner (original)',
@@ -421,6 +482,7 @@ export const films: Film[] = [
     year: 1982,
     id: 7058,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Blade_Runner',
   },
   {
     title: 'E.T. the Extra-Terrestrial',
@@ -428,6 +490,7 @@ export const films: Film[] = [
     year: 1982,
     id: 7059,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/E.T._the_Extra-Terrestrial',
   },
   {
     title: 'Scarface',
@@ -435,6 +498,7 @@ export const films: Film[] = [
     year: 1983,
     id: 7060,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Scarface_(1983_film)',
   },
   {
     title: 'The Terminator',
@@ -442,6 +506,7 @@ export const films: Film[] = [
     year: 1984,
     id: 7061,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Terminator',
   },
   {
     title: 'Back to the Future',
@@ -449,6 +514,7 @@ export const films: Film[] = [
     year: 1985,
     id: 7062,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Back_to_the_Future',
   },
   {
     title: 'My Neighbor Totoro',
@@ -456,6 +522,7 @@ export const films: Film[] = [
     year: 1988,
     id: 7063,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/My_Neighbor_Totoro',
   },
   {
     title: 'Cinema Paradiso',
@@ -463,6 +530,7 @@ export const films: Film[] = [
     year: 1988,
     id: 7064,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Cinema_Paradiso',
   },
   {
     title: 'Die Hard',
@@ -470,6 +538,7 @@ export const films: Film[] = [
     year: 1988,
     id: 7065,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Die_Hard',
   },
   {
     title: 'Goodfellas',
@@ -477,6 +546,7 @@ export const films: Film[] = [
     year: 1990,
     id: 7066,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Goodfellas',
   },
   {
     title: 'The Silence of the Lambs',
@@ -484,6 +554,7 @@ export const films: Film[] = [
     year: 1991,
     id: 7067,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Silence_of_the_Lambs_(film)',
   },
   {
     title: 'Terminator 2: Judgment Day',
@@ -491,6 +562,7 @@ export const films: Film[] = [
     year: 1991,
     id: 7068,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Terminator_2:_Judgment_Day',
   },
   {
     title: 'Jurassic Park',
@@ -498,6 +570,7 @@ export const films: Film[] = [
     year: 1993,
     id: 7069,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Jurassic_Park_(film)',
   },
   {
     title: 'Schindler\'s List',
@@ -505,6 +578,7 @@ export const films: Film[] = [
     year: 1993,
     id: 7070,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Schindler%27s_List',
   },
   {
     title: 'Pulp Fiction',
@@ -512,6 +586,7 @@ export const films: Film[] = [
     year: 1994,
     id: 7071,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Pulp_Fiction',
   },
   {
     title: 'The Shawshank Redemption',
@@ -519,6 +594,7 @@ export const films: Film[] = [
     year: 1994,
     id: 7072,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Shawshank_Redemption',
   },
   {
     title: 'Forrest Gump',
@@ -526,6 +602,7 @@ export const films: Film[] = [
     year: 1994,
     id: 7073,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Forrest_Gump',
   },
   {
     title: 'The Lion King',
@@ -533,6 +610,7 @@ export const films: Film[] = [
     year: 1994,
     id: 7074,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Lion_King',
   },
   {
     title: 'Toy Story',
@@ -540,6 +618,7 @@ export const films: Film[] = [
     year: 1995,
     id: 7075,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Toy_Story',
   },
   {
     title: 'Se7en',
@@ -547,6 +626,7 @@ export const films: Film[] = [
     year: 1995,
     id: 7076,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Seven_(1995_film)',
   },
   {
     title: 'Fargo',
@@ -554,6 +634,7 @@ export const films: Film[] = [
     year: 1996,
     id: 7077,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Fargo_(1996_film)',
   },
   {
     title: 'Titanic',
@@ -561,6 +642,7 @@ export const films: Film[] = [
     year: 1997,
     id: 7078,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Titanic_(1997_film)',
   },
   {
     title: 'The Big Lebowski',
@@ -568,6 +650,7 @@ export const films: Film[] = [
     year: 1998,
     id: 7079,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Big_Lebowski',
   },
   {
     title: 'The Matrix',
@@ -575,6 +658,7 @@ export const films: Film[] = [
     year: 1999,
     id: 7080,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Matrix',
   },
   {
     title: 'Fight Club',
@@ -582,6 +666,7 @@ export const films: Film[] = [
     year: 1999,
     id: 7081,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Fight_Club',
   },
   {
     title: 'The Sixth Sense',
@@ -589,6 +674,7 @@ export const films: Film[] = [
     year: 1999,
     id: 7082,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Sixth_Sense',
   },
   {
     title: 'Gladiator',
@@ -596,6 +682,7 @@ export const films: Film[] = [
     year: 2000,
     id: 7083,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Gladiator_(2000_film)',
   },
   {
     title: 'Crouching Tiger, Hidden Dragon',
@@ -603,6 +690,7 @@ export const films: Film[] = [
     year: 2000,
     id: 7084,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Crouching_Tiger,_Hidden_Dragon',
   },
   {
     title: 'Amélie',
@@ -610,6 +698,7 @@ export const films: Film[] = [
     year: 2001,
     id: 7085,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Am%C3%A9lie',
   },
   {
     title: 'Spirited Away',
@@ -617,6 +706,7 @@ export const films: Film[] = [
     year: 2001,
     id: 7086,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Spirited_Away',
   },
   {
     title: 'The Lord of the Rings: The Fellowship of the Ring',
@@ -624,6 +714,8 @@ export const films: Film[] = [
     year: 2001,
     id: 7087,
     difficulty: 'easy',
+    link:
+        'https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Fellowship_of_the_Ring',
   },
   {
     title: 'City of God',
@@ -631,6 +723,7 @@ export const films: Film[] = [
     year: 2002,
     id: 7088,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/City_of_God_(2002_film)',
   },
   {
     title: 'The Lord of the Rings: The Return of the King',
@@ -638,6 +731,8 @@ export const films: Film[] = [
     year: 2003,
     id: 7089,
     difficulty: 'easy',
+    link:
+        'https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Return_of_the_King',
   },
   {
     title: 'Eternal Sunshine of the Spotless Mind',
@@ -645,6 +740,7 @@ export const films: Film[] = [
     year: 2004,
     id: 7090,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Eternal_Sunshine_of_the_Spotless_Mind',
   },
   {
     title: 'Pan\'s Labyrinth',
@@ -652,6 +748,7 @@ export const films: Film[] = [
     year: 2006,
     id: 7091,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Pan%27s_Labyrinth',
   },
   {
     title: 'The Lives of Others',
@@ -659,6 +756,7 @@ export const films: Film[] = [
     year: 2006,
     id: 7092,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Lives_of_Others',
   },
   {
     title: 'No Country for Old Men',
@@ -666,6 +764,7 @@ export const films: Film[] = [
     year: 2007,
     id: 7093,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/No_Country_for_Old_Men_(film)',
   },
   {
     title: 'The Dark Knight',
@@ -673,6 +772,7 @@ export const films: Film[] = [
     year: 2008,
     id: 7094,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Dark_Knight',
   },
   {
     title: 'Slumdog Millionaire',
@@ -680,6 +780,7 @@ export const films: Film[] = [
     year: 2008,
     id: 7095,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Slumdog_Millionaire',
   },
   {
     title: 'Avatar',
@@ -687,6 +788,7 @@ export const films: Film[] = [
     year: 2009,
     id: 7096,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Avatar_(2009_film)',
   },
   {
     title: 'Inception',
@@ -694,6 +796,7 @@ export const films: Film[] = [
     year: 2010,
     id: 7097,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Inception',
   },
   {
     title: 'The Intouchables',
@@ -701,6 +804,7 @@ export const films: Film[] = [
     year: 2011,
     id: 7098,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Intouchables',
   },
   {
     title: 'Gravity',
@@ -708,6 +812,7 @@ export const films: Film[] = [
     year: 2013,
     id: 7099,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Gravity_(2013_film)',
   },
   {
     title: 'Boyhood',
@@ -715,6 +820,7 @@ export const films: Film[] = [
     year: 2014,
     id: 7100,
     difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Boyhood_(2014_film)',
   },
   {
     title: 'Mad Max: Fury Road',
@@ -722,6 +828,7 @@ export const films: Film[] = [
     year: 2015,
     id: 7101,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Mad_Max:_Fury_Road',
   },
   {
     title: 'Get Out',
@@ -729,6 +836,7 @@ export const films: Film[] = [
     year: 2017,
     id: 7102,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Get_Out_(film)',
   },
   {
     title: 'Roma',
@@ -736,6 +844,7 @@ export const films: Film[] = [
     year: 2018,
     id: 7103,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Roma_(2018_film)',
   },
   {
     title: 'Parasite',
@@ -743,6 +852,7 @@ export const films: Film[] = [
     year: 2019,
     id: 7104,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Parasite_(2019_film)',
   },
   {
     title: 'Everything Everywhere All at Once',
@@ -750,6 +860,7 @@ export const films: Film[] = [
     year: 2022,
     id: 7105,
     difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Everything_Everywhere_All_at_Once',
   },
   {
     title: 'Oppenheimer',
@@ -757,6 +868,7 @@ export const films: Film[] = [
     year: 2023,
     id: 7106,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Oppenheimer_(film)',
   },
   {
     title: 'The Oddisey',
@@ -764,5 +876,6 @@ export const films: Film[] = [
     year: 2026,
     id: 7107,
     difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/The_Odyssey_(2026_film)',
   },
 ];
