@@ -10,9 +10,9 @@ export interface Structure {
                           // rather than records
   id: number;
   difficulty: Difficulty;
+  link: string;
 }
 
-//[cite: 1]
 export const structures: Structure[] = [
   {
     name: 'Great Pyramid of Giza',
@@ -21,7 +21,8 @@ export const structures: Structure[] = [
     year: -2560,
     approximate: true,
     id: 6000,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza',
   },
   {
     name: 'Stonehenge',
@@ -30,7 +31,8 @@ export const structures: Structure[] = [
     year: -2500,
     approximate: true,
     id: 6001,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Stonehenge',
   },
   {
     name: 'Abu Simbel temples',
@@ -39,7 +41,8 @@ export const structures: Structure[] = [
     year: -1244,
     approximate: true,
     id: 6002,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Abu_Simbel_temples',
   },
   {
     name: 'Temple of Karnak (Great Hypostyle Hall)',
@@ -48,7 +51,8 @@ export const structures: Structure[] = [
     year: -1224,
     approximate: true,
     id: 6003,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Karnak',
   },
   {
     name: 'Parthenon',
@@ -56,7 +60,8 @@ export const structures: Structure[] = [
     country: 'Greece',
     year: -432,
     id: 6004,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Parthenon',
   },
   {
     name: 'Great Wall of China (Qin unification)',
@@ -64,7 +69,8 @@ export const structures: Structure[] = [
     year: -206,
     approximate: true,
     id: 6005,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Great_Wall_of_China',
   },
   {
     name: 'Petra (Al-Khazneh / Treasury)',
@@ -73,7 +79,8 @@ export const structures: Structure[] = [
     year: -100,
     approximate: true,
     id: 6006,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Petra',
   },
   {
     name: 'Pont du Gard',
@@ -82,7 +89,8 @@ export const structures: Structure[] = [
     year: 60,
     approximate: true,
     id: 6007,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Pont_du_Gard',
   },
   {
     name: 'Colosseum',
@@ -90,7 +98,8 @@ export const structures: Structure[] = [
     country: 'Italy',
     year: 80,
     id: 6008,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Colosseum',
   },
   {
     name: 'Pantheon',
@@ -98,7 +107,8 @@ export const structures: Structure[] = [
     country: 'Italy',
     year: 126,
     id: 6009,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Pantheon,_Rome',
   },
   {
     name: 'Teotihuacan (Pyramid of the Sun)',
@@ -107,7 +117,8 @@ export const structures: Structure[] = [
     year: 200,
     approximate: true,
     id: 6010,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Pyramid_of_the_Sun',
   },
   {
     name: 'Hagia Sophia',
@@ -115,7 +126,8 @@ export const structures: Structure[] = [
     country: 'Turkey',
     year: 537,
     id: 6011,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Hagia_Sophia',
   },
   {
     name: 'Horyu-ji temple',
@@ -123,7 +135,8 @@ export const structures: Structure[] = [
     country: 'Japan',
     year: 607,
     id: 6012,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Horyu-ji',
   },
   {
     name: 'Dome of the Rock',
@@ -131,7 +144,8 @@ export const structures: Structure[] = [
     country: 'Israel/Palestine',
     year: 691,
     id: 6013,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Dome_of_the_Rock',
   },
   {
     name: 'Borobudur',
@@ -140,7 +154,8 @@ export const structures: Structure[] = [
     year: 825,
     approximate: true,
     id: 6014,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Borobudur',
   },
   {
     name: 'Great Mosque of Córdoba (final expansion)',
@@ -148,7 +163,9 @@ export const structures: Structure[] = [
     country: 'Spain',
     year: 987,
     id: 6015,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link:
+        'https://en.wikipedia.org/wiki/Mosque%E2%80%93Cathedral_of_C%C3%B3rdoba',
   },
   {
     name: 'Chichen Itza (El Castillo)',
@@ -157,7 +174,8 @@ export const structures: Structure[] = [
     year: 1000,
     approximate: true,
     id: 6016,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/El_Castillo,_Chichen_Itza',
   },
   {
     name: 'Tower of London (White Tower)',
@@ -165,7 +183,8 @@ export const structures: Structure[] = [
     country: 'United Kingdom',
     year: 1078,
     id: 6017,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Tower_of_London',
   },
   {
     name: 'Angkor Wat',
@@ -174,7 +193,8 @@ export const structures: Structure[] = [
     year: 1150,
     approximate: true,
     id: 6018,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Angkor_Wat',
   },
   {
     name: 'Westminster Abbey (present church)',
@@ -182,7 +202,8 @@ export const structures: Structure[] = [
     country: 'United Kingdom',
     year: 1269,
     id: 6019,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Westminster_Abbey',
   },
   {
     name: 'Notre-Dame de Paris',
@@ -190,7 +211,8 @@ export const structures: Structure[] = [
     country: 'France',
     year: 1345,
     id: 6020,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Notre-Dame_de_Paris',
   },
   {
     name: 'Alhambra (Nasrid palaces)',
@@ -199,7 +221,8 @@ export const structures: Structure[] = [
     year: 1358,
     approximate: true,
     id: 6021,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Alhambra',
   },
   {
     name: 'Leaning Tower of Pisa',
@@ -207,7 +230,8 @@ export const structures: Structure[] = [
     country: 'Italy',
     year: 1372,
     id: 6022,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Leaning_Tower_of_Pisa',
   },
   {
     name: 'Golden Pavilion (Kinkaku-ji)',
@@ -215,7 +239,8 @@ export const structures: Structure[] = [
     country: 'Japan',
     year: 1397,
     id: 6023,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Kinkaku-ji',
   },
   {
     name: 'Charles Bridge',
@@ -223,7 +248,8 @@ export const structures: Structure[] = [
     country: 'Czech Republic',
     year: 1402,
     id: 6024,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Charles_Bridge',
   },
   {
     name: 'Duomo di Milano (consecration)',
@@ -231,7 +257,8 @@ export const structures: Structure[] = [
     country: 'Italy',
     year: 1418,
     id: 6025,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Milan_Cathedral',
   },
   {
     name: 'Forbidden City',
@@ -239,7 +266,8 @@ export const structures: Structure[] = [
     country: 'China',
     year: 1420,
     id: 6026,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Forbidden_City',
   },
   {
     name: 'Brunelleschi\'s Dome (Florence Cathedral)',
@@ -247,7 +275,8 @@ export const structures: Structure[] = [
     country: 'Italy',
     year: 1436,
     id: 6027,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Florence_Cathedral',
   },
   {
     name: 'Machu Picchu',
@@ -256,7 +285,8 @@ export const structures: Structure[] = [
     year: 1450,
     approximate: true,
     id: 6028,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Machu_Picchu',
   },
   {
     name: 'Topkapi Palace',
@@ -264,7 +294,8 @@ export const structures: Structure[] = [
     country: 'Turkey',
     year: 1465,
     id: 6029,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Topkap%C4%B1_Palace',
   },
   {
     name: 'Kremlin walls and towers',
@@ -272,7 +303,8 @@ export const structures: Structure[] = [
     country: 'Russia',
     year: 1495,
     id: 6030,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Moscow_Kremlin',
   },
   {
     name: 'Moai statues of Easter Island (peak period)',
@@ -281,7 +313,8 @@ export const structures: Structure[] = [
     year: 1500,
     approximate: true,
     id: 6031,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Moai',
   },
   {
     name: 'St. Basil\'s Cathedral',
@@ -289,7 +322,8 @@ export const structures: Structure[] = [
     country: 'Russia',
     year: 1561,
     id: 6032,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Saint_Basil%27s_Cathedral',
   },
   {
     name: 'Rialto Bridge',
@@ -297,7 +331,8 @@ export const structures: Structure[] = [
     country: 'Italy',
     year: 1591,
     id: 6033,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Rialto_Bridge',
   },
   {
     name: 'Himeji Castle (main keep)',
@@ -305,7 +340,8 @@ export const structures: Structure[] = [
     country: 'Japan',
     year: 1609,
     id: 6034,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Himeji_Castle',
   },
   {
     name: 'Blue Mosque',
@@ -313,14 +349,16 @@ export const structures: Structure[] = [
     country: 'Turkey',
     year: 1616,
     id: 6035,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Blue_Mosque,_Istanbul',
   },
   {
     name: 'St. Peter\'s Basilica',
     country: 'Vatican City',
     year: 1626,
     id: 6036,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/St._Peter%27s_Basilica',
   },
   {
     name: 'Taj Mahal',
@@ -328,7 +366,8 @@ export const structures: Structure[] = [
     country: 'India',
     year: 1653,
     id: 6037,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Taj_Mahal',
   },
   {
     name: 'Palace of Versailles (main expansion)',
@@ -336,7 +375,8 @@ export const structures: Structure[] = [
     country: 'France',
     year: 1682,
     id: 6038,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Palace_of_Versailles',
   },
   {
     name: 'Potala Palace (rebuilt)',
@@ -344,7 +384,8 @@ export const structures: Structure[] = [
     country: 'China',
     year: 1694,
     id: 6039,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Potala_Palace',
   },
   {
     name: 'St. Paul\'s Cathedral',
@@ -352,7 +393,8 @@ export const structures: Structure[] = [
     country: 'United Kingdom',
     year: 1710,
     id: 6040,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/St_Paul%27s_Cathedral,_London',
   },
   {
     name: 'Schönbrunn Palace',
@@ -360,7 +402,8 @@ export const structures: Structure[] = [
     country: 'Austria',
     year: 1749,
     id: 6041,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Sch%C3%B6nbrunn_Palace',
   },
   {
     name: 'Brandenburg Gate',
@@ -368,7 +411,8 @@ export const structures: Structure[] = [
     country: 'Germany',
     year: 1791,
     id: 6042,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Brandenburg_Gate',
   },
   {
     name: 'The White House',
@@ -376,7 +420,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1800,
     id: 6043,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/White_House',
   },
   {
     name: 'United States Capitol (original building)',
@@ -384,7 +429,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1826,
     id: 6044,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/United_States_Capitol',
   },
   {
     name: 'Arc de Triomphe',
@@ -392,7 +438,8 @@ export const structures: Structure[] = [
     country: 'France',
     year: 1836,
     id: 6045,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Arc_de_Triomphe',
   },
   {
     name: 'Buckingham Palace (as royal residence)',
@@ -400,7 +447,8 @@ export const structures: Structure[] = [
     country: 'United Kingdom',
     year: 1837,
     id: 6046,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Buckingham_Palace',
   },
   {
     name: 'Big Ben (Elizabeth Tower)',
@@ -408,7 +456,8 @@ export const structures: Structure[] = [
     country: 'United Kingdom',
     year: 1859,
     id: 6047,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Big_Ben',
   },
   {
     name: 'Houses of Parliament (Palace of Westminster, rebuilt)',
@@ -416,7 +465,8 @@ export const structures: Structure[] = [
     country: 'United Kingdom',
     year: 1870,
     id: 6048,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Palace_of_Westminster',
   },
   {
     name: 'Brooklyn Bridge',
@@ -424,7 +474,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1883,
     id: 6049,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Brooklyn_Bridge',
   },
   {
     name: 'Neuschwanstein Castle',
@@ -432,7 +483,8 @@ export const structures: Structure[] = [
     country: 'Germany',
     year: 1886,
     id: 6050,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Neuschwanstein_Castle',
   },
   {
     name: 'Statue of Liberty',
@@ -440,7 +492,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1886,
     id: 6051,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Statue_of_Liberty',
   },
   {
     name: 'Eiffel Tower',
@@ -448,7 +501,8 @@ export const structures: Structure[] = [
     country: 'France',
     year: 1889,
     id: 6052,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Eiffel_Tower',
   },
   {
     name: 'Tower Bridge',
@@ -456,7 +510,8 @@ export const structures: Structure[] = [
     country: 'United Kingdom',
     year: 1894,
     id: 6053,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Tower_Bridge',
   },
   {
     name: 'Reichstag building',
@@ -464,7 +519,8 @@ export const structures: Structure[] = [
     country: 'Germany',
     year: 1894,
     id: 6054,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Reichstag_building',
   },
   {
     name: 'Flatiron Building',
@@ -472,7 +528,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1902,
     id: 6055,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Flatiron_Building',
   },
   {
     name: 'Grand Central Terminal',
@@ -480,21 +537,24 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1913,
     id: 6056,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Grand_Central_Terminal',
   },
   {
     name: 'Panama Canal',
     country: 'Panama',
     year: 1914,
     id: 6057,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Panama_Canal',
   },
   {
     name: 'Trans-Siberian Railway',
     country: 'Russia',
     year: 1916,
     id: 6058,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Trans-Siberian_Railway',
   },
   {
     name: 'Lincoln Memorial',
@@ -502,7 +562,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1922,
     id: 6059,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Lincoln_Memorial',
   },
   {
     name: 'Chrysler Building',
@@ -510,7 +571,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1930,
     id: 6060,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Chrysler_Building',
   },
   {
     name: 'Empire State Building',
@@ -518,7 +580,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1931,
     id: 6061,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Empire_State_Building',
   },
   {
     name: 'Christ the Redeemer',
@@ -526,7 +589,8 @@ export const structures: Structure[] = [
     country: 'Brazil',
     year: 1931,
     id: 6062,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Christ_the_Redeemer_(statue)',
   },
   {
     name: 'Sydney Harbour Bridge',
@@ -534,7 +598,8 @@ export const structures: Structure[] = [
     country: 'Australia',
     year: 1932,
     id: 6063,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Sydney_Harbour_Bridge',
   },
   {
     name: 'Hoover Dam',
@@ -542,7 +607,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1936,
     id: 6064,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Hoover_Dam',
   },
   {
     name: 'Golden Gate Bridge',
@@ -550,7 +616,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1937,
     id: 6065,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Golden_Gate_Bridge',
   },
   {
     name: 'Fallingwater',
@@ -558,7 +625,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1937,
     id: 6066,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Fallingwater',
   },
   {
     name: 'Mount Rushmore',
@@ -566,7 +634,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1941,
     id: 6067,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Mount_Rushmore',
   },
   {
     name: 'The Pentagon',
@@ -574,7 +643,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1943,
     id: 6068,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/The_Pentagon',
   },
   {
     name: 'United Nations Headquarters',
@@ -582,7 +652,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1952,
     id: 6069,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Headquarters_of_the_United_Nations',
   },
   {
     name: 'Seagram Building',
@@ -590,7 +661,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1958,
     id: 6070,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Seagram_Building',
   },
   {
     name: 'Atomium',
@@ -598,7 +670,8 @@ export const structures: Structure[] = [
     country: 'Belgium',
     year: 1958,
     id: 6071,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Atomium',
   },
   {
     name: 'Guggenheim Museum',
@@ -606,7 +679,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1959,
     id: 6072,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Solomon_R._Guggenheim_Museum',
   },
   {
     name: 'Brasília (Congresso Nacional)',
@@ -614,7 +688,8 @@ export const structures: Structure[] = [
     country: 'Brazil',
     year: 1960,
     id: 6073,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/National_Congress_of_Brazil',
   },
   {
     name: 'Berlin Wall',
@@ -622,7 +697,8 @@ export const structures: Structure[] = [
     country: 'Germany',
     year: 1961,
     id: 6074,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Berlin_Wall',
   },
   {
     name: 'Space Needle',
@@ -630,7 +706,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1962,
     id: 6075,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Space_Needle',
   },
   {
     name: 'Gateway Arch',
@@ -638,7 +715,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1965,
     id: 6076,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Gateway_Arch',
   },
   {
     name: 'Habitat 67',
@@ -646,7 +724,8 @@ export const structures: Structure[] = [
     country: 'Canada',
     year: 1967,
     id: 6077,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Habitat_67',
   },
   {
     name: 'Madison Square Garden (current)',
@@ -654,7 +733,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1968,
     id: 6078,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Madison_Square_Garden',
   },
   {
     name: 'Transamerica Pyramid',
@@ -662,7 +742,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1972,
     id: 6079,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Transamerica_Pyramid',
   },
   {
     name: 'World Trade Center (Twin Towers)',
@@ -670,7 +751,9 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1973,
     id: 6080,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link:
+        'https://en.wikipedia.org/wiki/World_Trade_Center_(1973%E2%80%932001)',
   },
   {
     name: 'Sydney Opera House',
@@ -678,7 +761,8 @@ export const structures: Structure[] = [
     country: 'Australia',
     year: 1973,
     id: 6081,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Sydney_Opera_House',
   },
   {
     name: 'Sears Tower (Willis Tower)',
@@ -686,7 +770,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 1973,
     id: 6082,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Willis_Tower',
   },
   {
     name: 'CN Tower',
@@ -694,7 +779,8 @@ export const structures: Structure[] = [
     country: 'Canada',
     year: 1976,
     id: 6083,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/CN_Tower',
   },
   {
     name: 'Centre Pompidou',
@@ -702,7 +788,8 @@ export const structures: Structure[] = [
     country: 'France',
     year: 1977,
     id: 6084,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Centre_Pompidou',
   },
   {
     name: 'Lotus Temple',
@@ -710,7 +797,8 @@ export const structures: Structure[] = [
     country: 'India',
     year: 1986,
     id: 6085,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Lotus_Temple',
   },
   {
     name: 'Louvre Pyramid',
@@ -718,7 +806,8 @@ export const structures: Structure[] = [
     country: 'France',
     year: 1989,
     id: 6086,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Louvre_Pyramid',
   },
   {
     name: 'Bank of China Tower',
@@ -726,7 +815,8 @@ export const structures: Structure[] = [
     country: 'China',
     year: 1990,
     id: 6087,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Bank_of_China_Tower,_Hong_Kong',
   },
   {
     name: 'Channel Tunnel',
@@ -734,7 +824,8 @@ export const structures: Structure[] = [
     country: 'United Kingdom–France',
     year: 1994,
     id: 6088,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Channel_Tunnel',
   },
   {
     name: 'Kansai International Airport (artificial island)',
@@ -742,7 +833,8 @@ export const structures: Structure[] = [
     country: 'Japan',
     year: 1994,
     id: 6089,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Kansai_International_Airport',
   },
   {
     name: 'Guggenheim Museum Bilbao',
@@ -750,7 +842,8 @@ export const structures: Structure[] = [
     country: 'Spain',
     year: 1997,
     id: 6090,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Guggenheim_Museum_Bilbao',
   },
   {
     name: 'Petronas Towers',
@@ -758,7 +851,8 @@ export const structures: Structure[] = [
     country: 'Malaysia',
     year: 1998,
     id: 6091,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Petronas_Towers',
   },
   {
     name: 'Burj Al Arab',
@@ -766,7 +860,8 @@ export const structures: Structure[] = [
     country: 'United Arab Emirates',
     year: 1999,
     id: 6092,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Burj_Al_Arab',
   },
   {
     name: 'Øresund Bridge',
@@ -774,7 +869,8 @@ export const structures: Structure[] = [
     country: 'Denmark–Sweden',
     year: 2000,
     id: 6093,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/%C3%98resund_Bridge',
   },
   {
     name: 'London Eye',
@@ -782,7 +878,8 @@ export const structures: Structure[] = [
     country: 'United Kingdom',
     year: 2000,
     id: 6094,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/London_Eye',
   },
   {
     name: 'Walt Disney Concert Hall',
@@ -790,7 +887,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 2003,
     id: 6095,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Walt_Disney_Concert_Hall',
   },
   {
     name: 'Millau Viaduct',
@@ -798,7 +896,8 @@ export const structures: Structure[] = [
     country: 'France',
     year: 2004,
     id: 6096,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Millau_Viaduct',
   },
   {
     name: 'Taipei 101',
@@ -806,7 +905,8 @@ export const structures: Structure[] = [
     country: 'Taiwan',
     year: 2004,
     id: 6097,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Taipei_101',
   },
   {
     name: 'Allianz Arena',
@@ -814,7 +914,8 @@ export const structures: Structure[] = [
     country: 'Germany',
     year: 2005,
     id: 6098,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Allianz_Arena',
   },
   {
     name: 'Wembley Stadium (new)',
@@ -822,7 +923,8 @@ export const structures: Structure[] = [
     country: 'United Kingdom',
     year: 2007,
     id: 6099,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Wembley_Stadium',
   },
   {
     name: 'Beijing National Stadium (Bird\'s Nest)',
@@ -830,7 +932,8 @@ export const structures: Structure[] = [
     country: 'China',
     year: 2008,
     id: 6100,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Beijing_National_Stadium',
   },
   {
     name: 'Burj Khalifa',
@@ -838,14 +941,16 @@ export const structures: Structure[] = [
     country: 'United Arab Emirates',
     year: 2010,
     id: 6101,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Burj_Khalifa',
   },
   {
     name: 'Marina Bay Sands',
     country: 'Singapore',
     year: 2010,
     id: 6102,
-    difficulty: 'medium'
+    difficulty: 'medium',
+    link: 'https://en.wikipedia.org/wiki/Marina_Bay_Sands',
   },
   {
     name: 'The Shard',
@@ -853,7 +958,8 @@ export const structures: Structure[] = [
     country: 'United Kingdom',
     year: 2012,
     id: 6103,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/The_Shard',
   },
   {
     name: 'One World Trade Center',
@@ -861,7 +967,8 @@ export const structures: Structure[] = [
     country: 'USA',
     year: 2014,
     id: 6104,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/One_World_Trade_Center',
   },
   {
     name: 'Gotthard Base Tunnel',
@@ -869,7 +976,8 @@ export const structures: Structure[] = [
     country: 'Switzerland',
     year: 2016,
     id: 6105,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Gotthard_Base_Tunnel',
   },
   {
     name: 'Elbphilharmonie',
@@ -877,7 +985,8 @@ export const structures: Structure[] = [
     country: 'Germany',
     year: 2017,
     id: 6106,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Elbphilharmonie',
   },
   {
     name: 'Crossrail / Elizabeth Line',
@@ -885,7 +994,8 @@ export const structures: Structure[] = [
     country: 'United Kingdom',
     year: 2022,
     id: 6107,
-    difficulty: 'hard'
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Elizabeth_line',
   },
   {
     name: 'Sagrada Família (tallest tower completed)',
@@ -893,6 +1003,7 @@ export const structures: Structure[] = [
     country: 'Spain',
     year: 2023,
     id: 6108,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    link: 'https://en.wikipedia.org/wiki/Sagrada_Fam%C3%ADlia',
   }
 ];
