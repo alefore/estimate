@@ -1,4 +1,5 @@
 import {Signal} from './listener.js';
+import {Settings} from './settings.js';
 
 export type Difficulty = 'easy'|'medium'|'hard';
 
@@ -20,15 +21,15 @@ export const difficultyDistanceRatios: Record<Difficulty, number> = {
   hard: 0.2
 };
 
-export function createDifficultySelector(
-    initial: Difficulty,
-    outputSignal: Signal<Difficulty>): HTMLFieldSetElement {
+export function createDifficultySelector(settingsSignal: Signal<Settings>):
+    HTMLFieldSetElement {
   const fieldset = Object.assign(
       document.createElement('fieldset'), {className: 'content-block'});
 
   const legend = fieldset.appendChild(Object.assign(
       document.createElement('legend'), {textContent: 'Difficulty'}));
 
+  const initial = settingsSignal.value.difficulty;
   DIFFICULTIES.forEach((difficulty) => {
     const label = fieldset.appendChild(document.createElement('label'));
 
@@ -39,7 +40,11 @@ export function createDifficultySelector(
           value: difficulty,
           checked: difficulty === initial,
           onchange: () => {
-            if (input.checked) outputSignal.value = difficulty;
+            if (input.checked)
+              settingsSignal.value = {
+                ...settingsSignal.value,
+                difficulty: difficulty
+              };
           },
         }));
 

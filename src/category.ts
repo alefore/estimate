@@ -1,5 +1,6 @@
 import {Computed, Signal} from './listener.js';
 import {UnitEntry} from './question.js';
+import {Settings} from './settings.js';
 
 export enum Category {
   Birth = 'Births',
@@ -35,8 +36,8 @@ export function emojiForCategory(category: Category): string {
 
 
 export function createCategoryFilter(
-    categorySignals: ReadonlyMap<Category, Signal<boolean>>,
-    enabledEntries: Computed<UnitEntry[]>): HTMLFieldSetElement {
+    enabledEntries: Computed<UnitEntry[]>,
+    settingsSignal: Signal<Settings>): HTMLFieldSetElement {
   const fieldset = Object.assign(
       document.createElement('fieldset'), {classList: 'content-block'});
 
@@ -50,18 +51,27 @@ export function createCategoryFilter(
   const categoryList = fieldset.appendChild(Object.assign(
       document.createElement('div'), {id: 'settings-categories'}));
 
+  const categoriesDisabled = new Set(settingsSignal.value.categoriesDisabled);
   Object.values(Category).forEach((value) => {
     const row = categoryList.appendChild(Object.assign(
         document.createElement('div'), {className: 'category-row'}));
-    const signal = categorySignals.get(value)!;
     const id = `setting-category-${value}`;
     const checkbox =
         row.appendChild(Object.assign(document.createElement('input'), {
           type: 'checkbox',
           id: id,
-          checked: signal.value,
+          checked: !categoriesDisabled.has(value),
           onchange: () => {
-            signal.value = checkbox.checked
+            const settings = settingsSignal.value;
+            const newCategoriesDisabled = new Set(settings.categoriesDisabled);
+            if (checkbox.checked)
+              newCategoriesDisabled.delete(value);
+            else
+              newCategoriesDisabled.add(value);
+            settingsSignal.value = {
+              ...settings,
+              categoriesDisabled: [...newCategoriesDisabled]
+            };
           }
         }));
     row.append(Object.assign(

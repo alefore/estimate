@@ -1,4 +1,4 @@
-type Callback<T> = (data: T) => void;
+export type Callback<T> = (data: T) => void;
 type VoidCallback = () => void;
 type Subscription = VoidCallback;
 

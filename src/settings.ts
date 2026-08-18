@@ -1,79 +1,15 @@
-import {EmojiButton} from './button.js';
-import {Category, createCategoryFilter, emojiForCategory} from './category.js';
-import {createDifficultySelector, type Difficulty, DIFFICULTY_FILTERS, difficultyDistanceRatios} from './difficulty.js';
-import {Computed, Signal, VoidEvent} from './listener.js';
-import {UnitEntry} from './question.js';
+import {Category} from './category.js';
+import {type Difficulty} from './difficulty.js';
 
-export class SettingsManager {
-  readonly container =
-      Object.assign(document.createElement('div'), {id: 'settings'});
-  public readonly difficulty: Signal<Difficulty> = new Signal('medium');
-  readonly enabledCategoriesMap: ReadonlyMap<Category, Signal<boolean>> =
-      new Map(Object.values(Category).map(
-          (value) => [value, new Signal<boolean>(true)]));
-  readonly enabledEntries: Computed<UnitEntry[]> = new Computed(() => {
-    const difficultyFilter = DIFFICULTY_FILTERS[this.difficulty.value];
-    const output =
-        this.allEntries
-            .filter((u) => this.enabledCategoriesMap.get(u.category)!.value)
-            .filter((u) => !u.difficulty || difficultyFilter(u.difficulty));
-    return output.length === 0 ? this.allEntries : output;
-  });
-  readonly questionsPerGame: Signal<number> = new Signal(10);
-  public readonly doneEvent = new VoidEvent();
 
-  constructor(private readonly allEntries: UnitEntry[]) {
-    const doneButton =
-        new EmojiButton('✔️ ', 'Done', 'Go back to the main menu.');
-    doneButton.clickEvent.subscribe(() => {
-      this.doneEvent.notify();
-    });
-    this.container.append(
-        Object.assign(document.createElement('h2'), {textContent: 'Settings'}),
-        createDifficultySelector('medium', this.difficulty),
-        createCategoryFilter(this.enabledCategoriesMap, this.enabledEntries),
-        this.createQuestionsPerGame(), doneButton.button);
-  }
+const STORAGE_KEY = 'estimate.gameSettings.v1';
 
-  private createQuestionsPerGame(): HTMLFieldSetElement {
-    const output = Object.assign(
-        document.createElement('fieldset'), {classList: 'content-block'});
 
-    output.append(
-        Object.assign(
-            document.createElement('legend'), {textContent: 'Game Length'}),
-        Object.assign(
-            document.createElement('p'),
-            {textContent: 'How many questions per game?'}));
-
-    const optionsList = output.appendChild(Object.assign(
-        document.createElement('div'), {id: 'settings-game-length'}));
-
-    [5, 10, 20, 50, 100].forEach((value) => {
-      const row = optionsList.appendChild(Object.assign(
-          document.createElement('div'),
-          {className: 'settings-game-length-row'}));
-
-      const id = `setting-questions-${value}`;
-
-      const radio =
-          row.appendChild(Object.assign(document.createElement('input'), {
-            type: 'radio',
-            name: 'questionsPerGame',
-            id: id,
-            value: value,
-            checked: value === this.questionsPerGame.value,
-            onchange: () => {
-              if (radio.checked) {
-                this.questionsPerGame.value = value;
-              }
-            }
-          }));
-
-      row.append(Object.assign(
-          document.createElement('label'),
-          {textContent: value.toString(), htmlFor: id}));
-    });
-    return output;
-  }
+export interface Settings {
+  questionsPerGame: number;
+  difficulty: Difficulty;
+  // We maintain a list of categories *disabled*. This is somewhat not very
+  // ergonomic, but has the advantage that if a new category is added, it'll be
+  // enabled by default.
+  categoriesDisabled: Category[];
 }

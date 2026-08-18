@@ -11,7 +11,8 @@ import {Invention, inventions} from './inventions.js';
 import {Computed, Signal} from './listener.js';
 import {Painting, paintings} from './paintings.js';
 import {CompareQuestion, QuestionView, UnitEntry} from './question.js';
-import {SettingsManager} from './settings.js';
+import {Settings} from './settings.js';
+import {SettingsManager} from './settings_manager.js';
 import {GameRecord} from './storage.js';
 import {Structure, structures} from './structures.js';
 
@@ -39,7 +40,7 @@ class Game {
   ) {
     gameDiv.replaceChildren();
     const questionInputs = Array.from(
-        {length: settingsManager.questionsPerGame.value},
+        {length: settingsManager.settings.value.questionsPerGame},
         () => this.generateQuestion(settingsManager));
     this.allQuestions = questionInputs.map((q, index) => {
       return new QuestionView(
@@ -92,9 +93,9 @@ class Game {
     this.scoreSignal.value = score;
   }
 
-  generateQuestion(settingsManager): CompareQuestion {
-    const distanceRatio =
-        difficultyDistanceRatios[settingsManager.difficulty.value];
+  generateQuestion(settingsManager: SettingsManager): CompareQuestion {
+    const settings: Settings = settingsManager.settings.value;
+    const distanceRatio = difficultyDistanceRatios[settings.difficulty];
     const entries = settingsManager.enabledEntries.value;
     if (entries.length < 2) throw new Error('Not enough entries to compare.');
 
