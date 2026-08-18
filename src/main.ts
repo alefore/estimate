@@ -144,9 +144,17 @@ class App {
 
     this.addMenuButton(
         '🚀', 'Play', 'Start a new game.', () => this.startGame());
-    this.addMenuButton(
+    const historyButton = this.addMenuButton(
         '📊', 'History', 'Show statitics about all games played.',
         () => this.show(this.historyDiv));
+    new Computed(() => {
+      const games = this.historyManager.history.value.length;
+      if (games === 0)
+        historyButton.button.classList.add('invisible');
+      else
+        historyButton.button.classList.remove('invisible');
+      historyButton.updateText(`History (${games})`);
+    }).alwaysFresh();
     this.addMenuButton(
         '⚙️', 'Settings', 'Show settings dialogue.',
         () => this.show(this.settingsManager.container));
@@ -209,10 +217,12 @@ class App {
   }
 
   addMenuButton(
-      emoji: string, text: string, title: string, handler: () => void): void {
+      emoji: string, text: string, title: string,
+      handler: () => void): EmojiButton {
     const button = new EmojiButton(emoji, text, title);
     button.clickEvent.subscribe(handler);
     this.menuDiv.append(button.button);
+    return button;
   }
 
   gameDone(game: Game) {}
@@ -249,7 +259,6 @@ class App {
 //     question: 'The world\'s first website had a ".ch" domain name.',
 //     correctAnswer: true
 //   },
-//   {question: '1900 <= Nintendo was founded < 2000', correctAnswer: false},
 //   {
 //     question: 'The term "robot" was coined by a Polish writer',
 //     correctAnswer: false
