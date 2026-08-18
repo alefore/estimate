@@ -23,10 +23,11 @@ export class SettingsManager {
     const settings = this.settings.value;
     const difficultyFilter = DIFFICULTY_FILTERS[settings.difficulty];
     const categoriesDisabled = new Set(settings.categoriesDisabled);
+    const entriesForDifficulty = this.allEntries.filter(
+        (u: UnitEntry) => difficultyFilter(u.difficulty));
     const output =
-        this.allEntries.filter((u) => !categoriesDisabled.has(u.category))
-            .filter((u) => !u.difficulty || difficultyFilter(u.difficulty));
-    return output.length === 0 ? this.allEntries : output;
+        entriesForDifficulty.filter((u) => !categoriesDisabled.has(u.category));
+    return output.length > 0 ? output : entriesForDifficulty;
   });
   public readonly doneEvent = new VoidEvent();
 
