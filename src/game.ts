@@ -9,7 +9,7 @@ import {GameRecord} from './storage.js';
 
 export class Game {
   private readonly allQuestions: QuestionView[];
-  public readonly scoreSignal: Signal<GameRecord|null> = new Signal(null);
+  private readonly scoreSignal: Signal<GameRecord|null> = new Signal(null);
   private readonly questionsDiv =
       Object.assign(document.createElement('div'), {id: 'game-questions'});
 
@@ -84,6 +84,8 @@ export class Game {
         };
       }),
     };
+
+    this.scoreSignal.value = score;
 
     this.historyManager.saveGame(score);
 
