@@ -10,20 +10,22 @@ import {GameRecord} from './storage.js';
 export class Game {
   private readonly allQuestions: QuestionView[];
   public readonly scoreSignal: Signal<GameRecord|null> = new Signal(null);
+  private readonly questionsDiv =
+      Object.assign(document.createElement('div'), {id: 'game-questions'});
 
   constructor(
-      settingsManager: SettingsManager,
-      private historyManager: HistoryManager,
+      private readonly settingsManager: SettingsManager,
+      private readonly historyManager: HistoryManager,
       gameDiv: HTMLDivElement,
   ) {
     gameDiv.replaceChildren();
-    const questionInputs = Array.from(
-        {length: settingsManager.settings.value.questionsPerGame},
-        () => this.generateQuestion(settingsManager));
-    this.allQuestions = questionInputs.map((q, index) => {
-      return new QuestionView(
-          q, index, gameDiv,
-          new Computed(() => this.scoreSignal.value !== null));
+    this.allQuestions =
+        this.getQuestions(settingsManager.settings.value.questionsPerGame);
+
+    const addMoreButton = new EmojiButton(
+        '➕', 'More questions', 'Add 5 more questions to the current game.');
+    addMoreButton.clickEvent.subscribe(() => {
+      this.allQuestions.push(...this.getQuestions(5));
     });
 
     const finishButton =
@@ -31,8 +33,11 @@ export class Game {
     finishButton.clickEvent.subscribe(() => {
       this.setScore();
       finishButton.button.remove();
+      addMoreButton.button.remove();
     });
-    gameDiv.append(finishButton.button);
+
+    gameDiv.append(
+        this.questionsDiv, addMoreButton.button, finishButton.button);
 
     new Computed(() => {
       const pendingQuestions =
@@ -41,11 +46,22 @@ export class Game {
                   (q) => q.question.selectionIndex.value === null ||
                       q.confidenceButtons.confidence.value === null)
               .length;
+      addMoreButton.setDisabled(pendingQuestions > 0);
       finishButton.updateText(
           pendingQuestions === 0 ? 'Finish' :
                                    `Questions pending: ${pendingQuestions}`);
       finishButton.setDisabled(pendingQuestions > 0);
     }).alwaysFresh();
+  }
+
+  getQuestions(count: number): QuestionView[] {
+    const questionInputs = Array.from(
+        {length: count}, () => this.generateQuestion(this.settingsManager));
+    return questionInputs.map((q, index) => {
+      return new QuestionView(
+          q, index, this.questionsDiv,
+          new Computed(() => this.scoreSignal.value !== null));
+    });
   }
 
   setScore(): void {
