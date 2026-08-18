@@ -86,11 +86,14 @@ export function createCategoryFilter(
 
   const summary = fieldset.appendChild(document.createElement('p'));
   new Computed(() => {
-    const count = enabledEntries.value.length;
-    summary.textContent = count === 0 ?
+    const allDisabled: boolean =
+        settingsSignal.value.categoriesDisabled.length ===
+        Object.keys(Category).length;
+    const count: number = enabledEntries.value.length;
+    summary.textContent = allDisabled ?
         'Warning: All categories are disabled. This setting will be ignored.' :
         `Entries enabled: ${count}`;
-    if (count === 0)
+    if (allDisabled)
       summary.classList.add('warning');
     else
       summary.classList.remove('warning');
