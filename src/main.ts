@@ -219,24 +219,7 @@ class App {
 
   startGame() {
     this.show(this.gameDiv);
-    const game =
-        new Game(this.settingsManager, this.historyManager, this.gameDiv);
-    new Computed(() => {
-      const record = game.scoreSignal.value;
-      if (!record) return;
-
-      const doneButton =
-          new EmojiButton('✔️ ', 'Done', 'Go back to the main menu.');
-      doneButton.clickEvent.subscribe(() => {
-        history.back();
-      });
-      this.gameDiv.prepend(doneButton.button);
-
-      const results = this.historyManager.displayRecord(record);
-      results.open = true;
-      this.gameDiv.prepend(results);
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    }).alwaysFresh();
+    new Game(this.settingsManager, this.historyManager, this.gameDiv);
   }
 }
 

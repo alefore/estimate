@@ -16,9 +16,9 @@ export class Game {
   constructor(
       private readonly settingsManager: SettingsManager,
       private readonly historyManager: HistoryManager,
-      gameDiv: HTMLDivElement,
+      private readonly gameDiv: HTMLDivElement,
   ) {
-    gameDiv.replaceChildren();
+    this.gameDiv.replaceChildren();
     this.allQuestions =
         this.getQuestions(settingsManager.settings.value.questionsPerGame);
 
@@ -36,7 +36,7 @@ export class Game {
       addMoreButton.button.remove();
     });
 
-    gameDiv.append(
+    this.gameDiv.append(
         this.questionsDiv, addMoreButton.button, finishButton.button);
 
     new Computed(() => {
@@ -52,6 +52,8 @@ export class Game {
                                    `Questions pending: ${pendingQuestions}`);
       finishButton.setDisabled(pendingQuestions > 0);
     }).alwaysFresh();
+
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
   getQuestions(count: number): QuestionView[] {
@@ -84,7 +86,25 @@ export class Game {
     };
 
     this.historyManager.saveGame(score);
-    this.scoreSignal.value = score;
+
+    const doneButton =
+        new EmojiButton('✔️ ', 'Done', 'Go back to the main menu.');
+    doneButton.clickEvent.subscribe(() => {
+      history.back();
+    });
+    this.gameDiv.prepend(doneButton.button);
+
+    const playAgainButton =
+        new EmojiButton('🚀', 'Play again', 'Start a new game.');
+    playAgainButton.clickEvent.subscribe(() => {
+      new Game(this.settingsManager, this.historyManager, this.gameDiv);
+    });
+    this.gameDiv.prepend(playAgainButton.button);
+
+    const results = this.historyManager.displayRecord(score);
+    results.open = true;
+    this.gameDiv.prepend(results);
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
   generateQuestion(settingsManager: SettingsManager): CompareQuestion {
