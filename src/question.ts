@@ -195,7 +195,6 @@ export class QuestionView {
       if (!revealSignal.value) return;
       const isCorrect = this.question.isCorrect();
       this.details.classList.add(isCorrect ? 'correct' : 'incorrect');
-      if (!isCorrect) this.details.open = true;
       this.confidenceButtons.disable();
     }).alwaysFresh();
   }
