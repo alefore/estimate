@@ -60,7 +60,6 @@ export function createCategoryFilter(
         row.appendChild(Object.assign(document.createElement('input'), {
           type: 'checkbox',
           id: id,
-          checked: !categoriesDisabled.has(value),
           onchange: () => {
             const settings = settingsSignal.value;
             const newCategoriesDisabled = new Set(settings.categoriesDisabled);
@@ -74,6 +73,12 @@ export function createCategoryFilter(
             };
           }
         }));
+
+    new Computed(() => {
+      checkbox.checked =
+          !settingsSignal.value.categoriesDisabled.includes(value);
+    }).alwaysFresh();
+
     row.append(Object.assign(
         document.createElement('label'),
         {textContent: `${emojiForCategory(value)} ${value}`, htmlFor: id}));

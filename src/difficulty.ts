@@ -1,4 +1,4 @@
-import {Signal} from './listener.js';
+import {Computed, Signal} from './listener.js';
 import {Settings} from './settings.js';
 
 export type Difficulty = 'easy'|'medium'|'hard';
@@ -47,6 +47,10 @@ export function createDifficultySelector(settingsSignal: Signal<Settings>):
               };
           },
         }));
+
+    new Computed(() => {
+      input.checked = difficulty === settingsSignal.value.difficulty;
+    }).alwaysFresh();
 
     label.appendChild(Object.assign(
         document.createElement('span'), {textContent: LABELS[difficulty]}));

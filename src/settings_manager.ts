@@ -7,6 +7,12 @@ import {Settings} from './settings.js';
 
 const STORAGE_KEY = 'estimate.gameSettings.v1';
 
+const defaultSettings: Settings = {
+  questionsPerGame: 10,
+  difficulty: 'medium',
+  categoriesDisabled: []
+};
+
 export class SettingsManager {
   readonly container =
       Object.assign(document.createElement('div'), {id: 'settings'});
@@ -30,11 +36,19 @@ export class SettingsManager {
     doneButton.clickEvent.subscribe(() => {
       this.doneEvent.notify();
     });
+
+    const factoryResetButton = new EmojiButton(
+        '🔄', 'Factory Reset', 'Reset all settings to their default values.');
+    factoryResetButton.clickEvent.subscribe(() => {
+      this.settings.value = defaultSettings;
+    });
+
     this.container.append(
         Object.assign(document.createElement('h2'), {textContent: 'Settings'}),
         createDifficultySelector(this.settings),
         createCategoryFilter(this.enabledEntries, this.settings),
-        this.createQuestionsPerGame(), doneButton.button);
+        this.createQuestionsPerGame(), doneButton.button,
+        factoryResetButton.button);
 
     let isFirstUpdate = true;
     new Computed(() => {
@@ -50,12 +64,7 @@ export class SettingsManager {
 
   private loadSettings(): Settings {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw === null)
-      return {
-        questionsPerGame: 10,
-        difficulty: 'medium',
-        categoriesDisabled: []
-      };
+    if (raw === null) return defaultSettings;
     const parsed: unknown = JSON.parse(raw);
     return parsed as Settings;
   }
@@ -88,7 +97,6 @@ export class SettingsManager {
             name: 'questionsPerGame',
             id: id,
             value: value,
-            checked: value === settings.questionsPerGame,
             onchange: () => {
               if (radio.checked) {
                 this.settings.value = {
@@ -98,6 +106,10 @@ export class SettingsManager {
               }
             }
           }));
+
+      new Computed(() => {
+        radio.checked = value === this.settings.value.questionsPerGame;
+      }).alwaysFresh();
 
       row.append(Object.assign(
           document.createElement('label'),
