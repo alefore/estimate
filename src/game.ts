@@ -20,12 +20,12 @@ export class Game {
   ) {
     this.gameDiv.replaceChildren();
     this.allQuestions =
-        this.getQuestions(settingsManager.settings.value.questionsPerGame);
+        this.newQuestions(0, settingsManager.settings.value.questionsPerGame);
 
     const addMoreButton = new EmojiButton(
         '➕', 'More questions', 'Add 5 more questions to the current game.');
     addMoreButton.clickEvent.subscribe(() => {
-      this.allQuestions.push(...this.getQuestions(5));
+      this.allQuestions.push(...this.newQuestions(this.allQuestions.length, 5));
     });
 
     const finishButton =
@@ -56,12 +56,12 @@ export class Game {
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
-  getQuestions(count: number): QuestionView[] {
+  newQuestions(startIndex: number, count: number): QuestionView[] {
     const questionInputs = Array.from(
         {length: count}, () => this.generateQuestion(this.settingsManager));
     return questionInputs.map((q, index) => {
       return new QuestionView(
-          q, index, this.questionsDiv,
+          q, startIndex + index, this.questionsDiv,
           new Computed(() => this.scoreSignal.value !== null));
     });
   }
