@@ -1,7 +1,7 @@
 import {EmojiButton} from './button.js';
 import {compressHistogram, filterHistogram, renderHistogram, scoreDistribution} from './histogram.js';
 import {Computed, Signal} from './listener.js';
-import {generateCalibrationSVG} from './stats.js';
+import {GameStats} from './stats.js';
 import {Answer, GameRecord} from './storage.js';
 import {createTimestampView} from './timestamps.js';
 
@@ -173,11 +173,10 @@ export class HistoryManager {
           total} right. Your confidence predicted: ${expected.toFixed(1)}.`
     }));
 
-    const calibrationDashboard =
-        details.appendChild(Object.assign(document.createElement('div'), {
-          className: 'calibration-graph',
-          innerHTML: generateCalibrationSVG(record)
-        }));
+    const gameStats = new GameStats(record);
+    details.appendChild(Object.assign(
+        document.createElement('div'),
+        {className: 'calibration-graph', innerHTML: gameStats.newSvg()}));
 
     if (!record.title)
       details.append(Object.assign(document.createElement('p'), {
