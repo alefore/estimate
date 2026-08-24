@@ -5,6 +5,15 @@ interface GameStatsBucket {
   correct: number;
 }
 
+const defaultGameStatsBucket = {
+  total: 0,
+  correct: 0
+};
+
+function add(a: GameStatsBucket, b: GameStatsBucket): GameStatsBucket {
+  return {total: a.total + b.total, correct: a.correct + b.correct};
+}
+
 export class GameStats {
   stats: Map<number, GameStatsBucket>;
 
@@ -13,14 +22,13 @@ export class GameStats {
         Array.from(new Set(record.answers.map(answer => answer.confidence)))
             .sort((a, b) => a - b);
     this.stats = new Map<number, GameStatsBucket>(
-        confidenceValues.map(key => [key, {total: 0, correct: 0}]));
+        confidenceValues.map(key => [key, defaultGameStatsBucket]));
 
     record.answers.forEach(answer => {
-      const previous: GameStatsBucket = this.stats.get(answer.confidence)!;
-      this.stats.set(answer.confidence, {
-        total: previous.total + 1,
-        correct: previous.correct + (answer.correct ? 1 : 0)
-      });
+      this.stats.set(
+          answer.confidence,
+          add(this.stats.get(answer.confidence)!,
+              {total: 1, correct: answer.correct ? 1 : 0}));
     });
   }
 
@@ -32,11 +40,15 @@ export class GameStats {
       header.appendChild(
           Object.assign(document.createElement('th'), {textContent: name}));
     });
-    Array.from(this.stats.keys()).sort().forEach(key => {
+    [...Array.from(this.stats.keys()).sort(), 'all'].forEach(key => {
       const tr = table.appendChild(document.createElement('tr'));
-      const value: GameStatsBucket = this.stats.get(key)!;
-      [`${key * 100}%`, `${value.total}`, `${value.correct}`,
-          `${(100 * value.correct / value.total).toFixed(1)}`]
+      const value: GameStatsBucket = typeof key === 'string' ?
+          Array.from(this.stats.values())
+              .reduce(
+                  (sum, current) => add(sum, current), defaultGameStatsBucket) :
+          this.stats.get(key)!;
+      [typeof key === 'string' ? key : `${key * 100}%`, `${value.total}`,
+       `${value.correct}`, `${(100 * value.correct / value.total).toFixed(1)}`]
           .forEach(text => {
             tr.appendChild(Object.assign(
                 document.createElement('td'), {textContent: text}));
