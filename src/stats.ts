@@ -24,6 +24,27 @@ export class GameStats {
     });
   }
 
+  newTable(): HTMLTableElement {
+    const table = document.createElement('table');
+    const header = table.appendChild(document.createElement('thead'))
+                       .appendChild(document.createElement('tr'));
+    ['Confidence', 'Count', 'Correct', 'Correct%'].forEach(name => {
+      header.appendChild(
+          Object.assign(document.createElement('th'), {textContent: name}));
+    });
+    Array.from(this.stats.keys()).sort().forEach(key => {
+      const tr = table.appendChild(document.createElement('tr'));
+      const value: GameStatsBucket = this.stats.get(key)!;
+      [`${key * 100}%`, `${value.total}`, `${value.correct}`,
+          `${(100 * value.correct / value.total).toFixed(1)}`]
+          .forEach(text => {
+            tr.appendChild(Object.assign(
+                document.createElement('td'), {textContent: text}));
+          });
+    });
+    return table;
+  }
+
   newSvg(): string {
     const width = 700;
     const height = 450;
@@ -112,7 +133,6 @@ export class GameStats {
 
 
     const sortedKeys = Array.from(this.stats.keys()).sort();
-    console.log(sortedKeys);
 
     sortedKeys.forEach((key: number, i: number) => {
       const total = this.stats.get(key)!.total;

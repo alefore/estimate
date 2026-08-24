@@ -178,6 +178,8 @@ export class HistoryManager {
         document.createElement('div'),
         {className: 'calibration-graph', innerHTML: gameStats.newSvg()}));
 
+    details.appendChild(gameStats.newTable());
+
     if (!record.title)
       details.append(Object.assign(document.createElement('p'), {
         textContent: new Date(record.date).toLocaleString(undefined, {
