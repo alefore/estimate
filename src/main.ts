@@ -9,7 +9,7 @@ import {Game} from './game.js';
 import {HistoricalEvent, historicalEvents} from './historical_events.js';
 import {HistoryManager} from './history.js';
 import {Invention, inventions} from './inventions.js';
-import {Computed, Signal} from './listener.js';
+import {Computed, ReadableSignal, Signal} from './listener.js';
 import {Painting, paintings} from './paintings.js';
 import {UnitEntry} from './question.js';
 import {Settings} from './settings.js';
@@ -126,6 +126,11 @@ class App {
   readonly historyDiv =
       Object.assign(document.createElement('div'), {id: 'history'});
   readonly gameDiv = Object.assign(document.createElement('div'), {id: 'game'});
+  game: Signal<Game|null> = new Signal(null);
+  isGameInProgress: ReadableSignal<boolean> = new Computed(() => {
+    return this.game.value !== null &&
+        this.game.value.scoreSignal.value === null;
+  });
 
   constructor() {
     const yearUnit = new Unit('Year');
@@ -142,8 +147,21 @@ class App {
     topMenuHeader.append(topMenuButton);
     this.titleDiv.append(topMenuHeader);
 
-    this.addMenuButton(
-        '🚀', 'Play', 'Start a new game.', () => this.startGame());
+    const playButton = this.addMenuButton(
+        '🚀', 'Play', 'Start (or resume) a game.', () => this.play());
+    new Computed(() => {
+      if (!this.isGameInProgress.value)
+        playButton.updateText('New game');
+      else {
+        const pendingQuestions = this.game.value === null ?
+            0 :
+            this.game.value.pendingQuestions.value;
+        playButton.updateText(
+            pendingQuestions === 0 ? 'Play (finish!)' :
+                                     `Play (${pendingQuestions} left)`);
+      }
+    }).alwaysFresh();
+
     const historyButton = this.addMenuButton(
         '📊', 'History', 'Show statitics about all games played.',
         () => this.show(this.historyDiv));
@@ -225,11 +243,13 @@ class App {
     return button;
   }
 
-  gameDone(game: Game) {}
-
-  startGame() {
+  play() {
     this.show(this.gameDiv);
-    new Game(this.settingsManager, this.historyManager, this.gameDiv);
+    if (!this.isGameInProgress.value) {
+      console.log('No game in progress');
+      this.game.value =
+          new Game(this.settingsManager, this.historyManager, this.gameDiv);
+    }
   }
 }
 

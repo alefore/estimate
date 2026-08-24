@@ -1,7 +1,7 @@
 import {EmojiButton} from './button.js';
 import {difficultyDistanceRatios} from './difficulty.js';
 import {HistoryManager} from './history.js';
-import {Computed, Signal} from './listener.js';
+import {Computed, ReadableSignal, Signal} from './listener.js';
 import {CompareQuestion, QuestionView, UnitEntry} from './question.js';
 import {Settings} from './settings.js';
 import {SettingsManager} from './settings_manager.js';
@@ -9,9 +9,15 @@ import {GameRecord} from './storage.js';
 
 export class Game {
   private readonly allQuestions: QuestionView[];
-  private readonly scoreSignal: Signal<GameRecord|null> = new Signal(null);
+  public readonly scoreSignal: Signal<GameRecord|null> = new Signal(null);
   private readonly questionsDiv =
       Object.assign(document.createElement('div'), {id: 'game-questions'});
+  public pendingQuestions: ReadableSignal<number> = new Computed(
+      () => this.allQuestions
+                .filter(
+                    (q) => q.question.selectionIndex.value === null ||
+                        q.confidenceButtons.confidence.value === null)
+                .length);
 
   constructor(
       private readonly settingsManager: SettingsManager,
@@ -40,12 +46,7 @@ export class Game {
         this.questionsDiv, addMoreButton.button, finishButton.button);
 
     new Computed(() => {
-      const pendingQuestions =
-          this.allQuestions
-              .filter(
-                  (q) => q.question.selectionIndex.value === null ||
-                      q.confidenceButtons.confidence.value === null)
-              .length;
+      const pendingQuestions = this.pendingQuestions.value;
       addMoreButton.setDisabled(pendingQuestions > 0);
       finishButton.updateText(
           pendingQuestions === 0 ? 'Finish' :
