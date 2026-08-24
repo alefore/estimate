@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "mkdir -p dist && tsc && cp index.html style-base.css style.css dist/",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && mkdir -p dist && esbuild src/main.ts --bundle --minify --sourcemap --outfile=dist/main.js && cp index.html style-base.css style.css dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,6 +12,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "esbuild": "^0.28.2",
     "typescript": "^6.0.3"
   }
 }
