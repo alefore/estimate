@@ -40,7 +40,7 @@ export class GameStats {
       header.appendChild(
           Object.assign(document.createElement('th'), {textContent: name}));
     });
-    [...Array.from(this.stats.keys()).sort(), 'all'].forEach(key => {
+    [...Array.from(this.stats.keys()).sort(), 'Total'].forEach(key => {
       const tr = table.appendChild(document.createElement('tr'));
       const value: GameStatsBucket = typeof key === 'string' ?
           Array.from(this.stats.values())
