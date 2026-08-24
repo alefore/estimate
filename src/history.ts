@@ -173,12 +173,6 @@ export class HistoryManager {
           total} right. Your confidence predicted: ${expected.toFixed(1)}.`
     }));
 
-    const histogramDiv = details.appendChild(
-        Object.assign(document.createElement('div'), {className: 'histogram'}));
-    renderHistogram(
-        histogramDiv,
-        compressHistogram(filterHistogram(scoreDistribution(confidences)), 20));
-
     const calibrationDashboard =
         details.appendChild(Object.assign(document.createElement('div'), {
           className: 'calibration-graph',
@@ -195,6 +189,16 @@ export class HistoryManager {
           minute: '2-digit',
         })
       }));
+
+    details.append(Object.assign(document.createElement('p'), {
+      textContent:
+          'Probability distribution for number of correct answers (based on your confidence values):'
+    }));
+
+    renderHistogram(
+        details.appendChild(Object.assign(
+            document.createElement('div'), {className: 'histogram'})),
+        compressHistogram(filterHistogram(scoreDistribution(confidences)), 20));
 
     const container = Object.assign(
         document.createElement('details'), {classList: 'history-record'});
