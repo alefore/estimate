@@ -13,3 +13,20 @@ export interface Settings {
   // enabled by default.
   categoriesDisabled: Category[];
 }
+
+export const defaultSettings: Settings = {
+  questionsPerGame: 10,
+  difficulty: 'medium',
+  categoriesDisabled: []
+};
+
+
+export function isSettingsEqual(a: Settings, b: Settings): boolean {
+  if (a.questionsPerGame !== b.questionsPerGame) return false;
+  if (a.difficulty !== b.difficulty) return false;
+
+  const setA = new Set(a.categoriesDisabled);
+  const setB = new Set(b.categoriesDisabled);
+
+  return setA.size === setB.size && setA.isSubsetOf(setB);
+}

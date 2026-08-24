@@ -3,15 +3,9 @@ import {Category, createCategoryFilter, emojiForCategory} from './category.js';
 import {createDifficultySelector, type Difficulty, DIFFICULTY_FILTERS, difficultyDistanceRatios} from './difficulty.js';
 import {Computed, Signal, VoidEvent} from './listener.js';
 import {UnitEntry} from './question.js';
-import {Settings} from './settings.js';
+import {defaultSettings, isSettingsEqual, Settings} from './settings.js';
 
 const STORAGE_KEY = 'estimate.gameSettings.v1';
-
-const defaultSettings: Settings = {
-  questionsPerGame: 10,
-  difficulty: 'medium',
-  categoriesDisabled: []
-};
 
 export class SettingsManager {
   readonly container =
@@ -39,7 +33,12 @@ export class SettingsManager {
     });
 
     const factoryResetButton = new EmojiButton(
-        '🔄', 'Factory Reset', 'Reset all settings to their default values.');
+        '🔄', 'Reset Settings', 'Reset all settings to their default values.');
+    new Computed(() => {
+      factoryResetButton.button.disabled =
+          isSettingsEqual(this.settings.value, defaultSettings);
+    }).alwaysFresh();
+
     factoryResetButton.clickEvent.subscribe(() => {
       this.settings.value = defaultSettings;
     });
