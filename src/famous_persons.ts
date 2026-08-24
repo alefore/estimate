@@ -724,6 +724,13 @@ export const famousBirths: FamousBirth[] = [
     link: 'https://en.wikipedia.org/wiki/Voltaire',
   },
   {
+    name: 'Thomas Bayes',
+    value: 1701,
+    id: 4341,
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Thomas_Bayes',
+  },
+  {
     name: 'Benjamin Franklin',
     value: 1706,
     id: 4057,
@@ -1905,6 +1912,13 @@ export const famousBirths: FamousBirth[] = [
     id: 4166,
     difficulty: 'easy',
     link: 'https://en.wikipedia.org/wiki/Pope_Francis',
+  },
+  {
+    name: 'Donald Knuth',
+    value: 1938,
+    id: 4340,
+    difficulty: 'hard',
+    link: 'https://en.wikipedia.org/wiki/Donald Knuth',
   },
   {
     name: 'Bruce Lee',
