@@ -11,7 +11,6 @@ const STORAGE_KEY = 'estimate.gameHistory.v2';
 export interface RawGameRecord {
   date: string;
   answers: number[][];
-  title?: string;
 }
 
 export class HistoryManager {
@@ -59,11 +58,6 @@ export class HistoryManager {
       if (typeof record.date !== 'string' || isNaN(Date.parse(record.date))) {
         throw new Error(`History validation failed: Record at index ${
             i} has a missing or invalid ISO 8601 date.`);
-      }
-
-      if (record.title !== undefined) {
-        throw new Error(`History validation failed: Record at index ${
-            i} provides a 'title'.`);
       }
 
       if (!Array.isArray(record.answers)) {
