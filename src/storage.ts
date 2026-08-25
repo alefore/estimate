@@ -15,4 +15,6 @@ export interface GameRecord {
    * (that can't be erased).
    */
   title?: string;
+
+  difficulty?: string;
 }

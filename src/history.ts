@@ -11,6 +11,7 @@ const STORAGE_KEY = 'estimate.gameHistory.v2';
 export interface RawGameRecord {
   date: string;
   answers: number[][];
+  difficulty?: string;
 }
 
 export class HistoryManager {
@@ -49,7 +50,7 @@ export class HistoryManager {
     const output: GameRecord[] = [];
     const input: RawGameRecord[] = this.rawHistory.value;
     for (let i = 0; i < input.length; i++) {
-      const record = input[i];
+      const record: RawGameRecord = input[i];
       if (!record || typeof record !== 'object') {
         throw new Error(`History validation failed: Record at index ${
             i} is not an object.`);
@@ -87,8 +88,11 @@ export class HistoryManager {
         });
       }
 
-      const reconstructedRecord:
-          GameRecord = {date: record.date, answers: mappedAnswers};
+      const reconstructedRecord: GameRecord = {
+        date: record.date,
+        answers: mappedAnswers,
+        difficulty: record.difficulty
+      };
 
       output.push(reconstructedRecord);
     }

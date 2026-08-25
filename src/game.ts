@@ -18,6 +18,10 @@ export class Game {
                     (q) => q.question.selectionIndex.value === null ||
                         q.confidenceButtons.confidence.value === null)
                 .length);
+  // Freeze settingsManager.settings.value at creation, in case the settings
+  // change halfway through the game (which shouldn't take any effect, since the
+  // questions have already been generated).
+  private readonly settings: Settings;
 
   constructor(
       private readonly settingsManager: SettingsManager,
@@ -25,8 +29,8 @@ export class Game {
       private readonly gameDiv: HTMLDivElement,
   ) {
     this.gameDiv.replaceChildren();
-    this.allQuestions =
-        this.newQuestions(0, settingsManager.settings.value.questionsPerGame);
+    this.settings = settingsManager.settings.value;
+    this.allQuestions = this.newQuestions(0, this.settings.questionsPerGame);
 
     const addMoreButton = new EmojiButton(
         '➕', 'More questions', 'Add 5 more questions to the current game.');
@@ -58,8 +62,8 @@ export class Game {
   }
 
   newQuestions(startIndex: number, count: number): QuestionView[] {
-    const questionInputs = Array.from(
-        {length: count}, () => this.generateQuestion(this.settingsManager));
+    const questionInputs =
+        Array.from({length: count}, () => this.generateQuestion());
     return questionInputs.map((q, index) => {
       return new QuestionView(
           q, startIndex + index, this.questionsDiv,
@@ -84,6 +88,7 @@ export class Game {
           correct: q.question.isCorrect()
         };
       }),
+      difficulty: this.settings.difficulty,
     };
 
     this.scoreSignal.value = score;
@@ -110,10 +115,9 @@ export class Game {
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
-  generateQuestion(settingsManager: SettingsManager): CompareQuestion {
-    const settings: Settings = settingsManager.settings.value;
-    const distanceRatio = difficultyDistanceRatios[settings.difficulty];
-    const entries = settingsManager.enabledEntries.value;
+  generateQuestion(): CompareQuestion {
+    const distanceRatio = difficultyDistanceRatios[this.settings.difficulty];
+    const entries = this.settingsManager.enabledEntries.value;
     if (entries.length < 2) throw new Error('Not enough entries to compare.');
 
     const base = entries[Math.floor(Math.random() * entries.length)];
